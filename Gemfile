@@ -22,6 +22,7 @@ gem 'colorbox-rails'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'ckeditor_rails'
 gem 'friendly_id', '5.0.0.rc2'
+gem 'jalalidate'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

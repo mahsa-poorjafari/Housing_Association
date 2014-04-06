@@ -3,11 +3,11 @@
 one:
   title: MyString
   text: MyText
-  number_Visit: 1
-  Important: false
+  number_visit: 1
+  important: false
 
 two:
   title: MyString
   text: MyText
-  number_Visit: 1
-  Important: false
+  number_visit: 1
+  important: false

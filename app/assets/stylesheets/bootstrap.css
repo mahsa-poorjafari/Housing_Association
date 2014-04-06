@@ -189,10 +189,7 @@ th {
     background: transparent !important;
     box-shadow: none !important;
   }
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
+  
   a[href]:after {
     content: " (" attr(href) ")";
   }
@@ -3645,7 +3642,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .navbar-header {
-    float: left;
+    float: right;
   }
 }
 .navbar-collapse {
@@ -3807,11 +3804,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .navbar-nav {
-    float: left;
+    float: right;
     margin: 0;
   }
   .navbar-nav > li {
-    float: left;
+    float: right;
   }
   .navbar-nav > li > a {
     padding-top: 19.5px;
@@ -5028,7 +5025,7 @@ a.list-group-item-danger.active:focus {
   border-bottom-color: #e74c3c;
 }
 .well {
-  min-height: 20px;
+  
   padding: 19px;  
   background-color: #ecf0f1;
   border: 1px solid transparent;
@@ -5816,10 +5813,7 @@ button.close {
 .text-info:hover {
   color: #3498db;
 }
-table a,
-.table a {
-  text-decoration: underline;
-}
+
 table .success,
 .table .success,
 table .warning,

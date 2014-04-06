@@ -3,13 +3,15 @@
     .navbar-header
       =link_to "اتحادیه مسکن", root_path, :class => "navbar-brand"
     %ul.nav.navbar-nav      
-      %li
-        %a{href: "#"} مدیران
+      %li{:class => ('active' if current_page?(informs_path) )}
+        = link_to "اخبار", Inform
+      %li{:class => ('active' if current_page?(managements_path))}
+        = link_to "مدیران", Management
       - Page.all.each do |page|      
-        %li
+        %li{:class => ('active' if current_page?(page_path(page)))}
           = link_to page.title, page
       
-      %li.dropdown
+      %li.dropdown{:class => ('active' if current_page?(projects_path))}
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
           پروژه ها
           %b.caret
@@ -21,9 +23,9 @@
           %li
             = link_to "عکس پروژه ها", Project
           
-    %form.navbar-form.navbar-left
+    %form.navbar-form.navbar-right
       %input.form-control.col-lg-8{placeholder: "Search", type: "text"}/
-    %ul.nav.navbar-nav.navbar-right     
+    %ul.nav.navbar-nav.navbar-left     
       %li
         =link_to "عضویت در سایت", "users/sign_up"
 

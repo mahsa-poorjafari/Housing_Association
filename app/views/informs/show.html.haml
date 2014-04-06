@@ -1,0 +1,19 @@
+.center-div.set-center.min-height
+  -if notice
+    .alert.alert-dismissable.alert-success
+      %p#notice= notice
+  
+  %p
+    %b 
+      = @inform.title
+  %p
+    %b تعداد بازدید:
+    = @inform.number_visit
+  %p    
+    = @inform.text
+  
+  
+.well.footer
+  = link_to 'ویرایش', edit_inform_path(@inform)
+  \|
+  = link_to 'بازگشت', informs_path

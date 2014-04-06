@@ -1,0 +1,25 @@
+.small-form.set-center.well
+  = form_for @inform, {:class => "form-horizontal"}  do |f|
+    - if @inform.errors.any?
+      #error_explanation      
+        %ul
+          - @inform.errors.full_messages.each do |msg|
+            %li= msg
+    %legend
+      خبر تازه
+    .form-group
+      = f.label "خبر مهم است."
+      = f.check_box :important
+    .form-group
+      = f.label :عنوان, :class => "control-label"
+      .col-lg-10
+        = f.text_field :title, :class => "form-control"
+    .form-group
+      = f.label :متن,  :class => "control-label"
+      .col-lg-10
+        = f.text_area :text,  :class => "ckeditor"
+    
+    .form-group
+      .col-lg-10.col-lg-offset-2
+        = f.submit 'ثبت', :class => "btn btn-primary"
+  .clear-float

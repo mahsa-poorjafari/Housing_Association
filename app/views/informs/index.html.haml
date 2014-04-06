@@ -1,0 +1,20 @@
+%h1 اخبار و اعلامیه ها
+
+%table.table
+  - @informs.each do |inform|
+    %tr      
+      %th= link_to inform.title, inform
+      -if inform.important      
+        %td.important= "مهم"        
+      %td= inform.number_visit
+     
+      %td
+        = link_to 'ویرایش', edit_inform_path(inform)
+        = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+    %tr
+      %td{:colspan => "4"}= inform.text
+      
+
+%br
+
+= link_to 'خبر تازه', new_inform_path, :class => "btn btn-primary"

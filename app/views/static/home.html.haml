@@ -1,4 +1,20 @@
+.well.right-side.min-height
+  ستون راست
+.well.middle-side.min-height.set-center
+  %h2= "اخبار و اعلامیه ها"
+  %hr
+  %table.table       
+    -@informs.all.each do |inform|
+      %tr
+        -if inform.important
+          %td.important= "مهم"          
+        %th= link_to inform.title, inform
+        %td= JalaliDate.new(inform.created_at).format("%A %d %b %Y - %H:%m") 
+      %tr  
+        %td{:colspan => 3}= inform.text
+    
+.well.left-side.min-height
+  ستون چپ
 
-%h1= "اتحادیه مسکن"
 
 

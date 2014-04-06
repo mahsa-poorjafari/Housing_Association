@@ -8,11 +8,31 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require colorbox-rails
  *= require_self
  *= require_tree .
  */
-.page_body {width:90%; min-height:550px;}
+.min-height { min-height:550px;}
+.page-body{width:95%}
 .set-center {margin-right:auto; margin-left:auto}
-.center-div {width:90%; min-height:550px;}
+.center-div {width:90%; text-align:right}
 .footer {text-align:center}
+.clear-float {clear:both}
+table  tr th {text-align:right}
 
+.right-side {width: 18%;  float:right; margin-right:5px}
+.middle-side {width: 65%; float:right; margin-right:5px}
+.middle-side table tr {line-height: 20px}
+table tr td.important{
+  width: 30px;
+  padding-top:-10px;
+  font-size:15px; 
+  color:red;
+  -ms-transform: rotate(30deg); /* IE 9 */
+  -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+  transform: rotate(30deg);
+  }
+.left-side {width: 15%; float:left; margin-right:5px}
+
+
+.small-form {width:50%; direction:rtl}

@@ -1,29 +1,33 @@
-%h1 Listing projects
+%h1= "لیست پروژه ها"
 
-%table
-  %tr
-    %th Title
-    %th Address
-    %th Description
-    %th Area
-    %th Unit
-    %th Status
-    %th
-    %th
-    %th
-
-  - @projects.each do |project|
+%table.table.table-striped.table-hover 
+  %thead
     %tr
-      %td= project.title
-      %td= project.address
-      %td= project.description
-      %td= project.Area
-      %td= project.unit
-      %td= project.Status
-      %td= link_to 'Show', project
-      %td= link_to 'Edit', edit_project_path(project)
-      %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th عنوان
+      %th آدرس
+      %th توضیحات
+      %th متراژ
+      %th تعداد واحد
+      %th وضعیت      
+      %th عملیات
+  %tbody
+    - @projects.each do |project|
+      %tr
+        %td= link_to project.title, project
+        %td= project.address
+        %td= project.description
+        %td= project.Area
+        %td= project.unit
+        %td 
+          -if project.Status        
+            تحویل داده شده
+          -else
+            در دست احداث
+          
+        %td
+          = link_to 'ویرایش', edit_project_path(project)
+          = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
-%br
 
-= link_to 'New Project', new_project_path
+
+= link_to 'پروژه جدید', new_project_path, :class => "btn btn-primary btn-sm"

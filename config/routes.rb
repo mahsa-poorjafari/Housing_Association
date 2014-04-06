@@ -1,9 +1,9 @@
 HousingAssociation::Application.routes.draw do  
 
 
-  resources :managements
+  resources :informs
 
-  resources :house_news
+  resources :managements
   resources :projects
   resources :pages
   devise_for :users

@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require colorbox-rails
+//= require ckeditor-jquery
 //= require_tree .

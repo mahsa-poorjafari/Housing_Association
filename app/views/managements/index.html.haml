@@ -1,25 +1,26 @@
-%h1 Listing managements
+%h1= "لیست مدیران"
 
-%table
-  %tr
-    %th Name
-    %th Last name
-    %th Post
-    %th Work experience
-    %th
-    %th
-    %th
-
-  - @managements.each do |management|
+%table.table.table-striped.table-hover 
+  %thead
     %tr
-      %td= management.name
-      %td= management.last_name
-      %td= management.post
-      %td= management.Work_Experience
-      %td= link_to 'Show', management
-      %td= link_to 'Edit', edit_management_path(management)
-      %td= link_to 'Destroy', management, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th نام
+      %th نام خانوادگی
+      %th سمت
+      %th سوابق کاری
+      %th عملیات
+      
+  %tbody
+    - @managements.each do |management|
+      %tr
+        %td= management.name
+        %td= management.last_name
+        %td= management.post
+        %td= management.Work_Experience
+        
+        %td
+          = link_to 'ویرایش', edit_management_path(management)
+          = link_to 'حذف', management, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 
-= link_to 'New Management', new_management_path
+
+= link_to 'مدیر جدید', new_management_path, :class => "btn btn-primary btn-sm"

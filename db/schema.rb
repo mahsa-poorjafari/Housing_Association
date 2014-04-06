@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406092225) do
+ActiveRecord::Schema.define(version: 20140406111932) do
 
-  create_table "house_news", force: true do |t|
+ 
+  create_table "informs", force: true do |t|
     t.string   "title"
     t.text     "text"
-    t.integer  "number_Visit"
-    t.boolean  "Important"
+    t.integer  "number_visit"
+    t.boolean  "important"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
