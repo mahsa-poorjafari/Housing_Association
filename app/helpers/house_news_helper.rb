@@ -1,0 +1,2 @@
+module HouseNewsHelper
+end

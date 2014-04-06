@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+.page_body {width:90%; min-height:550px;}
+.set-center {margin-right:auto; margin-left:auto}
+.center-div {width:90%; min-height:550px;}
+.footer {text-align:center}
+

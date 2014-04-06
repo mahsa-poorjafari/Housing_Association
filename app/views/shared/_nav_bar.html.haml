@@ -15,15 +15,18 @@
           %b.caret
         %ul.dropdown-menu
           %li
-            %a{href: "#"} در دست احداث
+            = link_to "در دست احداث"
           %li
-            %a{href: "#"} تحویل داده شده
+            = link_to "تحویل داده شده"
           %li
-            %a{href: "#"} عکس پروژه ها
+            = link_to "عکس پروژه ها", Project
           
     %form.navbar-form.navbar-left
       %input.form-control.col-lg-8{placeholder: "Search", type: "text"}/
-    %ul.nav.navbar-nav.navbar-right      
+    %ul.nav.navbar-nav.navbar-right     
+      %li
+        =link_to "عضویت در سایت", "users/sign_up"
+
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
           ورود به سایت
@@ -38,4 +41,4 @@
           %li.divider
           %li
             %a{href: "#"} Separated link
-    
+      

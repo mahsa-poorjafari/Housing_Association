@@ -1,0 +1,25 @@
+%h1 Listing house_news
+
+%table
+  %tr
+    %th Title
+    %th Text
+    %th Number visit
+    %th Important
+    %th
+    %th
+    %th
+
+  - @house_news.each do |house_news|
+    %tr
+      %td= house_news.title
+      %td= house_news.text
+      %td= house_news.number_Visit
+      %td= house_news.Important
+      %td= link_to 'Show', house_news
+      %td= link_to 'Edit', edit_house_news_path(house_news)
+      %td= link_to 'Destroy', house_news, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New House new', new_house_news_path
