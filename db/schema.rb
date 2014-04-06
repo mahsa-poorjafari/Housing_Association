@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406062259) do
+ActiveRecord::Schema.define(version: 20140406065917) do
+
+  create_table "pages", force: true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.datetime "created_at"
@@ -26,6 +33,15 @@ ActiveRecord::Schema.define(version: 20140406062259) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "mobile"
+    t.boolean  "gender"
+    t.string   "father_name"
+    t.text     "address"
+    t.string   "identify_code"
+    t.date     "birth_date"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
