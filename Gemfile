@@ -19,7 +19,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jalalidate'
 gem 'colorbox-rails'
-gem "paperclip", "~> 3.0"
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'ckeditor_rails'
 gem 'friendly_id', '5.0.0.rc2'
 
