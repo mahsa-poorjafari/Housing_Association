@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class HouseNewsController < ApplicationController
   before_action :set_house_news, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +11,7 @@ class HouseNewsController < ApplicationController
   # GET /house_news/1
   # GET /house_news/1.json
   def show
+    
   end
 
   # GET /house_news/new
@@ -19,6 +21,7 @@ class HouseNewsController < ApplicationController
 
   # GET /house_news/1/edit
   def edit
+    
   end
 
   # POST /house_news

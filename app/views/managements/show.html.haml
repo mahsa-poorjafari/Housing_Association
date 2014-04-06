@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @management.name
+%p
+  %b Last name:
+  = @management.last_name
+%p
+  %b Post:
+  = @management.post
+%p
+  %b Work experience:
+  = @management.Work_Experience
+
+= link_to 'Edit', edit_management_path(@management)
+\|
+= link_to 'Back', managements_path

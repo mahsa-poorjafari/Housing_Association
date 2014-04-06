@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'پروژه جدید ' }
+        format.html { redirect_to @project, notice: 'پروژه جدید ایجاد شد. ' }
         format.json { render action: 'show', status: :created, location: @project }
       else
         format.html { render action: 'new' }
