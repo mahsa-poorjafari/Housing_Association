@@ -1,0 +1,41 @@
+.bs-component
+  .navbar.navbar-inverse
+    .navbar-header
+      =link_to "اتحادیه مسکن", root_path, :class => "navbar-brand"
+    %ul.nav.navbar-nav
+      %li.active
+        %a{href: "#"} مدیران
+      - Page.all.each do |page|      
+        %li
+          = link_to page.title, page
+      
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+          پروژه ها
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            %a{href: "#"} در دست احداث
+          %li
+            %a{href: "#"} تحویل داده شده
+          %li
+            %a{href: "#"} عکس پروژه ها
+          
+    %form.navbar-form.navbar-left
+      %input.form-control.col-lg-8{placeholder: "Search", type: "text"}/
+    %ul.nav.navbar-nav.navbar-right      
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+          ورود به سایت
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            %a{href: "#"} Action
+          %li
+            %a{href: "#"} Another action
+          %li
+            %a{href: "#"} Something else here
+          %li.divider
+          %li
+            %a{href: "#"} Separated link
+    

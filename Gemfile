@@ -14,6 +14,7 @@ group :development, :test do
 end
 
 gem 'devise'
+gem "html2haml"
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jalalidate'
