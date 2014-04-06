@@ -13,7 +13,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-
+gem 'devise'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jalalidate'
