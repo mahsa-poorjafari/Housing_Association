@@ -6,8 +6,11 @@
       %p#notice= notice
   %p    
     %h3= @page.title
+    
   %p    
     = @page.text
+  - if @page.title == "تماس با ما"
+    = render "shared/msg_form"
 .well.footer
   = link_to 'ویرایش', edit_page_path(@page)
   \|

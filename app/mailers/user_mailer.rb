@@ -1,3 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "web.development@raush.ir"
+  
+  
 end
