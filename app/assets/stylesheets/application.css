@@ -13,7 +13,7 @@
  *= require_tree .
  */
 .min-height { min-height:550px;}
-.page-body{width:95%}
+.page-body{width:95%; position: relative}
 .set-center {margin-right:auto; margin-left:auto}
 .center-div {width:90%; text-align:right}
 .footer {text-align:center}

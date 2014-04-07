@@ -11,9 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406111932) do
+ActiveRecord::Schema.define(version: 20140407070727) do
 
- 
+  create_table "house_news", force: true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.integer  "number_Visit"
+    t.boolean  "Important"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "informs", force: true do |t|
     t.string   "title"
     t.text     "text"
@@ -45,6 +57,16 @@ ActiveRecord::Schema.define(version: 20140406111932) do
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pictures", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.text     "description"
   end
 
   create_table "projects", force: true do |t|
