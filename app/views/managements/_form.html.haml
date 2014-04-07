@@ -1,22 +1,25 @@
-= form_for @management do |f|
-  - if @management.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@management.errors.count, "error")} prohibited this management from being saved:"
-      %ul
-        - @management.errors.full_messages.each do |msg|
-          %li= msg
+.small-form.set-center.well
+  = form_for @management do |f|
+    - if @management.errors.any?
+      #error_explanation      
+        %ul
+          - @management.errors.full_messages.each do |msg|
+            %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .field
-    = f.label :post
-    = f.text_field :post
-  .field
-    = f.label :Work_Experience
-    = f.text_area :Work_Experience
-  .actions
-    = f.submit 'Save'
+    .form-group
+      = f.label "نام:", :class => "control-label"
+      = f.text_field :name, :class => "form-control"
+    .form-group
+      = f.label "نام خانوادگی:", :class => "control-label"
+      = f.text_field :last_name, :class => "form-control"
+    .form-group
+      = f.label "سمت:", :class => "control-label"
+      = f.text_field :post, :class => "form-control"
+    .form-group
+      = f.label "سابقه کاری:", :class => "control-label"
+      = f.text_field :Work_Experience, :class => "form-control"
+    .form-group
+      = f.file_field :image
+    .form-group
+      = f.submit 'ثبت', :class => "btn btn-primary"
+%br

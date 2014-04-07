@@ -1,35 +1,26 @@
 .page-header
   .row 
     %h1= "لیست پروژه ها"
-
-%table.table.table-striped.table-hover 
-  %thead
-    %tr
-      %th عنوان
-      %th آدرس
-      %th توضیحات
-      %th متراژ
-      %th تعداد واحد
-      %th وضعیت      
-      %th عملیات
-  %tbody
-    - @projects.each do |project|
-      %tr
-        %td= link_to project.title, project
-        %td= project.address
-        %td= project.description
-        %td= project.Area
-        %td= project.unit
-        %td 
+- @projects.each do |project|
+  .col-lg-4
+    .list-group
+      = link_to project, :class => "list-group-item" do
+        %div
+          = image_tag "bulding.jpg"
+        %h4.list-group-item-heading= project.title
+        
+        %p.list-group-item-text
           -if project.Status        
             تحویل داده شده
+              
           -else
             در دست احداث
-          
-        %td
-          = link_to 'ویرایش', edit_project_path(project)
-          = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
+        %p.list-group-item-text= project.description
+        
+        = link_to 'ویرایش', edit_project_path(project)
+        = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+.clear-float
 
 
 = link_to 'پروژه جدید', new_project_path, :class => "btn btn-primary btn-sm"

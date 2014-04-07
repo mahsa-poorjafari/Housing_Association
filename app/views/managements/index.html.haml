@@ -13,13 +13,14 @@
       
   %tbody
     - @managements.each do |management|
-      %tr
+      %tr        
         %td= management.name
         %td= management.last_name
         %td= management.post
         %td= management.Work_Experience
         
         %td
+          = link_to 'مشاهده', management
           = link_to 'ویرایش', edit_management_path(management)
           = link_to 'حذف', management, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

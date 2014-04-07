@@ -1,29 +1,34 @@
 .page-header
-  .row 
-    %h1= @project.title
+  .row     
+    %h1= "پروژه " + @project.title
 -if notice
   .alert.alert-dismissable.alert-success
     %p#notice= notice
-
-%p
-  %b Title:
-  = @project.title
-%p
-  %b Address:
-  = @project.address
-%p
-  %b Description:
-  = @project.description
-%p
-  %b Area:
-  = @project.Area
-%p
-  %b Unit:
-  = @project.unit
-%p
-  %b Status:
-  = @project.Status
-
-= link_to 'Edit', edit_project_path(@project)
-\|
-= link_to 'Back', projects_path
+  
+.container
+  .col-lg-4
+    = image_tag "bulding.jpg"
+  .col-lg-4
+    %p
+      %b آدرس:
+      = @project.address
+    %p
+      %b توضیحات تکمیلی:
+      = @project.description
+    %p
+      %b متراژ:
+      = @project.Area
+    %p
+      %b تعداد واحد:
+      = @project.unit
+    %p
+      %b وضعیت:
+      -if  @project.Status
+        تحویل داده شده
+      -else
+        در دست احداث
+%br    
+.well.footer
+  = link_to 'ویرایش', edit_project_path(@project)
+  \|
+  = link_to 'بازگشت', projects_path

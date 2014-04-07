@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 

@@ -1,8 +1,7 @@
 .small-form.set-center.well
-  = nested_form_for @project do |f|
+  = nested_form_for @project, :html => { :multipart => true  } do |f|
     - if @project.errors.any?
       #error_explanation
-
         %ul
           - @project.errors.full_messages.each do |msg|
             %li= msg
@@ -25,5 +24,30 @@
     .form-group
       = f.label "وضعیت", :class => "control-label"
       = f.check_box :Status, :class => "form-control"
+      
+      
+    .form-group
+      = f.fields_for :pictures do |picture|  
+        = render "shared/upload_image_form", :picture => picture
+    .form-group
+      = f.link_to_add content_tag(:span, "افزودن تصویر"), :pictures, :id => "add_new_picture"    
+          
+          
+          
     .form-group
       = f.submit 'ثبت', :class => "btn btn-primary"
+      
+      
+:javascript
+  function enable_file_select(){
+    $(".enable_file_select").unbind('click').click(function(){
+      $(this).parent().find("input:file").click();
+    });
+   }
+
+  enable_file_select();
+
+  $("#add_new_picture").click(function(){
+    $(".enable_file_select").unbind('click');
+    window.setTimeout('enable_file_select()', 1000);
+  });

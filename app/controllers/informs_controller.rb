@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class InformsController < ApplicationController
   before_action :set_inform, only: [:show, :edit, :update, :destroy]
 
@@ -28,7 +29,7 @@ class InformsController < ApplicationController
 
     respond_to do |format|
       if @inform.save
-        format.html { redirect_to @inform, notice: 'Inform was successfully created.' }
+        format.html { redirect_to @inform, notice: 'خبر جدید ثبت شد.' }
         format.json { render action: 'show', status: :created, location: @inform }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class InformsController < ApplicationController
   def update
     respond_to do |format|
       if @inform.update(inform_params)
-        format.html { redirect_to @inform, notice: 'Inform was successfully updated.' }
+        format.html { redirect_to @inform, notice: 'ویرایش خبر انجام شد.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +70,6 @@ class InformsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inform_params
-      params.require(:inform).permit(:title, :text, :number_visit, :important)
+      params.require(:inform).permit(:title, :text, :number_visit, :important, :image)
     end
 end

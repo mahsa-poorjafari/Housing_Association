@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class ManagementsController < ApplicationController
   before_action :set_management, only: [:show, :edit, :update, :destroy]
 
@@ -28,7 +29,7 @@ class ManagementsController < ApplicationController
 
     respond_to do |format|
       if @management.save
-        format.html { redirect_to @management, notice: 'Management was successfully created.' }
+        format.html { redirect_to @management, notice: 'مدیر جدید ثبت شد.' }
         format.json { render action: 'show', status: :created, location: @management }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class ManagementsController < ApplicationController
   def update
     respond_to do |format|
       if @management.update(management_params)
-        format.html { redirect_to @management, notice: 'Management was successfully updated.' }
+        format.html { redirect_to @management, notice: 'ویرایش اطلاعات مدیر انجام شد.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +70,6 @@ class ManagementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def management_params
-      params.require(:management).permit(:name, :last_name, :post, :Work_Experience)
+      params.require(:management).permit(:name, :last_name, :post, :Work_Experience, :image)
     end
 end

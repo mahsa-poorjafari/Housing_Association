@@ -95,6 +95,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
+    nested_form (0.3.2)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
@@ -174,6 +175,7 @@ DEPENDENCIES
   jalalidate
   jbuilder (~> 1.2)
   jquery-rails
+  nested_form
   paperclip!
   pg
   rails (> 4)
