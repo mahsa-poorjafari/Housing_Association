@@ -8,7 +8,7 @@ namespace :db do
 
   desc "creates default users"
   task :create_default_users => :environment do
-    User.create(password:"123qwe", email:"mahsa.poorjafari@gmail.com") 
+    User.create(password:"123qwe", email:"admin@ms.com") 
   end
 
 end
