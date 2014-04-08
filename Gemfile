@@ -24,6 +24,8 @@ gem 'ckeditor_rails'
 gem 'friendly_id', '5.0.0.rc2'
 gem 'jalalidate'
 gem "nested_form"
+gem "nav_link_to", "~> 0.0.4"
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

@@ -3,22 +3,22 @@
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| 
   = devise_error_messages! 
 
-  %div
-    = f.label "ایمیل" 
+  .form-group
+    = f.label "ایمیل" , :class => "control-label"
     %br
-    = f.email_field :email, :autofocus => true 
+    = f.email_field :email, :autofocus => true , :class => "form-control"
 
-  %div
-    = f.label "کلمه عبور" 
+  .form-group
+    = f.label "کلمه عبور" , :class => "control-label"
     %br
-    = f.password_field :password
+    = f.password_field :password, :class => "form-control"
 
-  %div
-    = f.label "تکرار کلمه عبور" 
+  .form-group
+    = f.label "تکرار کلمه عبور" , :class => "control-label"
     %br
-    = f.password_field :password_confirmation 
+    = f.password_field :password_confirmation , :class => "form-control"
 
-  %div    
+  .form-group
     = f.submit "عضویت", :class => "btn btn-default"
 
 

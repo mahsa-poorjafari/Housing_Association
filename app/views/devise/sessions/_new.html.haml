@@ -1,0 +1,16 @@
+%h2 ورود به سایت
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  .form-group
+    = f.label "ایمیل", :class => "control-label"
+    %br/
+    = f.email_field :email, :autofocus => true, :class => "form-control"
+  .form-group
+    = f.label "کلمه عبور", :class => "control-label"
+    %br/
+    = f.password_field :password, :class => "form-control"
+  - if devise_mapping.rememberable?
+    .form-group
+      = f.check_box :remember_me
+      = f.label "مرا به خاطر بسپار", :class => "control-label"
+  .form-group= f.submit "ورود", :class => "btn btn-primary btn-xs"
+= render "devise/shared/links"
