@@ -6,7 +6,7 @@
   .panel.panel-success
     .panel-heading
       %h3.panel-title= "پروژه ها"
-    .list-group
+    .list-group      
       - @projects.each do |project|
         = link_to project.title, project, :class => "list-group-item"
   .panel.panel-warning    
