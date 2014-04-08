@@ -22,6 +22,16 @@
             = link_to "تحویل داده شده"
           %li
             = link_to "عکس پروژه ها", Project
+      %li.dropdown{:class => ('active' if current_page?(projects_path))}
+        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+          تعاونیهای تحت پوشش
+          
+          %b.caret
+        %ul.dropdown-menu
+          - @cooperatives.each do |cooperative|
+            %li
+              = link_to cooperative.name, cooperative
+          
           
     %form.navbar-form.navbar-right
       %input.form-control.col-lg-8{placeholder: "Search", type: "text"}/

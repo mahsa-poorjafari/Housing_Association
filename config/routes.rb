@@ -1,6 +1,8 @@
 HousingAssociation::Application.routes.draw do  
 
 
+  resources :cooperatives
+
   resources :messages
 
   resources :pictures

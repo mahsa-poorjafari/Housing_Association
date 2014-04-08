@@ -1,0 +1,28 @@
+= form_for @cooperative do |f|
+  - if @cooperative.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@cooperative.errors.count, "error")} prohibited this cooperative from being saved:"
+      %ul
+        - @cooperative.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :managment_name
+    = f.text_field :managment_name
+  .field
+    = f.label :board_Chairman_name
+    = f.text_field :board_Chairman_name
+  .field
+    = f.label :address
+    = f.text_area :address
+  .field
+    = f.label :phone
+    = f.text_field :phone
+  .field
+    = f.label :website
+    = f.text_area :website
+  .actions
+    = f.submit 'Save'
