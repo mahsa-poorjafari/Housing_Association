@@ -5,9 +5,9 @@
 %table.table
   - @informs.each do |inform|
     %tr      
-      %th= link_to inform.title, inform
       -if inform.important      
         %td.important= "مهم"        
+      %th= link_to inform.title, inform      
       %td= inform.number_visit
      
       %td
