@@ -1,25 +1,25 @@
-%h1 Listing messages
+.page-header
+  .row 
+    %h1 لیست پیام های ارسال شده
 
-%table
-  %tr
-    %th Subject
-    %th Text
-    %th Visited
-    %th User name
-    %th
-    %th
-    %th
-
-  - @messages.each do |message|
+%table.table.table-striped.table-hover.message
+  %thead
     %tr
-      %td= message.subject
-      %td= message.text
-      %td= message.visited
-      %td= message.user_name
-      %td= link_to 'Show', message
-      %td= link_to 'Edit', edit_message_path(message)
-      %td= link_to 'Destroy', message, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th ردیف
+      %th موضوع
+      %th متن      
+      %th فرستنده
+      %th عملیات
+      
+  %tbody
+    - @messages.each_with_index do |message, i|
+      %tr{:class => ('visited' if message.visited == true)}
+        %td= (i+1)
+        %td=link_to message.subject, message
+        %td= message.text        
+        %td= message.user_name        
+        %td= link_to 'حذف', message, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
 %br
 
-= link_to 'New Message', new_message_path
+

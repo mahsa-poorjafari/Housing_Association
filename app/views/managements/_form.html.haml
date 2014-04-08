@@ -3,7 +3,7 @@
     - if @management.errors.any?
       #error_explanation      
         %ul
-          - @management.errors.full_messages.each do |msg|
+          - @management.errors.each do |attr, msg|
             %li= msg
 
     .form-group

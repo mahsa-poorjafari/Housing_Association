@@ -36,3 +36,6 @@ table tr td.important{
 
 
 .small-form {width:50%; direction:rtl}
+table.message tbody tr {font-weight:bold}
+table.message tbody tr.visited {font-weight:normal}
+

@@ -2,7 +2,7 @@
   - if @picture.errors.any?
     #error_explanation      
       %ul
-        - @picture.errors.full_messages.each do |msg|
+        - @picture.errors.each do |attr, msg|
           %li= msg
   
   .form-group    

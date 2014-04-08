@@ -3,7 +3,7 @@
     - if @inform.errors.any?
       #error_explanation      
         %ul
-          - @inform.errors.full_messages.each do |msg|
+          - @inform.errors.each do |attr, msg|
             %li= msg
     %legend
       خبر تازه

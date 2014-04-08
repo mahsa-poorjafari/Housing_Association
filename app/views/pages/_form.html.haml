@@ -2,7 +2,7 @@
   - if @page.errors.any?
     #error_explanation      
       %ul
-        - @page.errors.full_messages.each do |msg|
+        - @page.errors.each do |attr, msg|
           %li= msg
 
   .form-group
