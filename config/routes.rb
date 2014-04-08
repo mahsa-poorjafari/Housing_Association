@@ -1,6 +1,7 @@
 HousingAssociation::Application.routes.draw do  
 
 
+  devise_for :users
   resources :cooperatives
 
   resources :messages
