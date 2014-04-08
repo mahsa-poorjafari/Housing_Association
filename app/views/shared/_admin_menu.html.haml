@@ -1,0 +1,16 @@
+.panel.panel-primary
+  .panel-heading
+    %h3.panel-title= "منوی مدیر سایت"
+  %ul.list-group
+    %li
+      = link_to "پیام ها", Message, :class => "list-group-item"
+    %li
+      = link_to "ثبت عضو در سایت", "users/sign_up", :class => "list-group-item"
+    %li
+      = link_to "ثبت پروژه جدید", new_project_path, :class => "list-group-item"
+    %li
+      = link_to "ثبت تعاونی جدید", new_cooperative_path, :class => "list-group-item"
+    %li
+      = link_to "گزارش گیری از کابران", "#", :class => "list-group-item"
+    %li
+      = link_to "ثبت اطلاعیه جدید", new_inform_path, :class => "list-group-item"

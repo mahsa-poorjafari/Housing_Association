@@ -1,25 +1,24 @@
-%h2= "عضویت در سایت"
+.page-header
+  .row 
+    %h2= "عضویت در سایت"
+.small-form.set-center.well
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| 
+    = devise_error_messages! 
 
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| 
-  = devise_error_messages! 
+    .form-group
+      = f.label "ایمیل", :class => "control-label"
+      = f.email_field :email, :autofocus => true , :class => "form-control"
 
-  %div
-    = f.label "ایمیل" 
-    %br
-    = f.email_field :email, :autofocus => true 
+    .form-group
+      = f.label "کلمه عبور", :class => "control-label"
+      = f.password_field :password, :class => "form-control"
 
-  %div
-    = f.label "کلمه عبور" 
-    %br
-    = f.password_field :password
+    .form-group
+      = f.label "تکرار کلمه عبور", :class => "control-label"
+      = f.password_field :password_confirmation , :class => "form-control"
 
-  %div
-    = f.label "تکرار کلمه عبور" 
-    %br
-    = f.password_field :password_confirmation 
+    .form-group
+      = f.submit "عضویت", :class => "btn btn-primary"
+  
 
-  %div    
-    = f.submit "عضویت", :class => "btn btn-default"
-
-
-= render "devise/shared/links"
+  = render "devise/shared/links"
