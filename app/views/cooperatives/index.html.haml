@@ -1,29 +1,33 @@
-%h1 Listing cooperatives
+.page-header
+  .row 
+    %h1 لیست تعاونیهای تحت پوشش
 
-%table
-  %tr
-    %th Name
-    %th Managment name
-    %th Board chairman name
-    %th Address
-    %th Phone
-    %th Website
-    %th
-    %th
-    %th
-
-  - @cooperatives.each do |cooperative|
+%table.table.table-striped.table-hover 
+  %thead
     %tr
-      %td= cooperative.name
-      %td= cooperative.managment_name
-      %td= cooperative.board_Chairman_name
-      %td= cooperative.address
-      %td= cooperative.phone
-      %td= cooperative.website
-      %td= link_to 'Show', cooperative
-      %td= link_to 'Edit', edit_cooperative_path(cooperative)
-      %td= link_to 'Destroy', cooperative, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th ردیف
+      %th عنوان تعاونی
+      %th نام مدیرعامل
+      %th رئیس هیئت مدیره
+      %th نشانی
+      %th تلفن
+      %th وب سایت
+      %th عملیات
+      
+  %tbody
+    - @cooperatives.each_with_index do |cooperative, i|
+      %tr
+        %td= (i+1)
+        %td= cooperative.name
+        %td= cooperative.managment_name
+        %td= cooperative.board_Chairman_name
+        %td= cooperative.address
+        %td= cooperative.phone
+        %td= cooperative.website      
+        %td 
+          = link_to 'ویرایش', edit_cooperative_path(cooperative)
+          = link_to 'حذف', cooperative, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
 %br
 
-= link_to 'New Cooperative', new_cooperative_path
+= link_to 'ثبت تعاونی جدید', new_cooperative_path, :class => "btn btn-primary btn-sm"

@@ -1,7 +1,8 @@
-%h1 Editing cooperative
+.page-header
+  .row 
+    %h1 ویرایش اطلاعات تعاونی
 
 = render 'form'
-
-= link_to 'Show', @cooperative
-\|
-= link_to 'Back', cooperatives_path
+%br
+.well.footer
+  = link_to 'بازگشت', cooperatives_path

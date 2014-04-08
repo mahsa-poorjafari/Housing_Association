@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class CooperativesController < ApplicationController
   before_action :set_cooperative, only: [:show, :edit, :update, :destroy]
 
@@ -28,7 +29,7 @@ class CooperativesController < ApplicationController
 
     respond_to do |format|
       if @cooperative.save
-        format.html { redirect_to @cooperative, notice: 'Cooperative was successfully created.' }
+        format.html { redirect_to @cooperative, notice: 'تعاونی جدید ثبت شد.' }
         format.json { render action: 'show', status: :created, location: @cooperative }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class CooperativesController < ApplicationController
   def update
     respond_to do |format|
       if @cooperative.update(cooperative_params)
-        format.html { redirect_to @cooperative, notice: 'Cooperative was successfully updated.' }
+        format.html { redirect_to @cooperative, notice: 'ویرایش اطلاعات انجام شد.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -28,7 +28,7 @@
           
           %b.caret
         %ul.dropdown-menu
-          - @cooperatives.each do |cooperative|
+          - Cooperative.all.each do |cooperative|
             %li
               = link_to cooperative.name, cooperative
           
@@ -36,8 +36,7 @@
     %form.navbar-form.navbar-right
       %input.form-control.col-lg-8{placeholder: "Search", type: "text"}/
     %ul.nav.navbar-nav.navbar-left     
-      %li
-        =link_to "عضویت در سایت", "users/sign_up"
+      
 
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}

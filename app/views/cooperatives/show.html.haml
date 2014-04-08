@@ -1,24 +1,31 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @cooperative.name
-%p
-  %b Managment name:
-  = @cooperative.managment_name
-%p
-  %b Board chairman name:
-  = @cooperative.board_Chairman_name
-%p
-  %b Address:
-  = @cooperative.address
-%p
-  %b Phone:
-  = @cooperative.phone
-%p
-  %b Website:
-  = @cooperative.website
-
-= link_to 'Edit', edit_cooperative_path(@cooperative)
-\|
-= link_to 'Back', cooperatives_path
+.page-header
+  .row
+    %h2= "اطلاعات تعاونیها"
+-if notice
+  .alert.alert-dismissable.alert-success
+    %p#notice= notice
+.container    
+  .col-lg-4
+    %p
+      %b عنوان تعاونی
+      = @cooperative.name
+    %p
+      %b مدیرعامل
+      = @cooperative.managment_name
+    %p
+      %b رئیس هیئت مدیره
+      = @cooperative.board_Chairman_name
+    %p
+      %b نشانی
+      = @cooperative.address
+    %p
+      %b تلفن
+      = @cooperative.phone
+    %p
+      %b وب سایت
+      = @cooperative.website
+%br        
+.well.footer
+  = link_to 'ویرایش', edit_cooperative_path(@cooperative)
+  \|
+  = link_to 'بازگشت', cooperatives_path
