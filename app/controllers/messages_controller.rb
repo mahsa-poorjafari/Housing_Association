@@ -5,12 +5,16 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.order(" created_at desc")
+    @num_msg = Message.count
+    @read_msg = Message.count(:conditions => "visited = true")
+    @unread_msg = Message.count(:conditions => "visited is null")
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
+    @message.update_attribute(:visited, true)
   end
 
   # GET /messages/new
@@ -28,6 +32,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     
     if @message.save
+      UserMailer.send_user_mail.deliver      
       flash[:notice] = 'کاربر گرامی پیام شما ارسال گردید.'      
     end
     redirect_to :back
