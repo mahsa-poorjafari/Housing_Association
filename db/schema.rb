@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408131406) do
+ActiveRecord::Schema.define(version: 20140409055420) do
 
   create_table "cooperatives", force: true do |t|
     t.string   "name"
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20140408131406) do
   end
 
   create_table "messages", force: true do |t|
-    t.string   "subject"
     t.text     "text"
     t.boolean  "visited"
     t.string   "user_name"

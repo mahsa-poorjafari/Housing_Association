@@ -5,8 +5,7 @@
 %table.table.table-striped.table-hover.message
   %thead
     %tr
-      %th ردیف
-      %th موضوع
+      %th ردیف      
       %th متن      
       %th فرستنده
       %th عملیات
@@ -14,8 +13,7 @@
   %tbody
     - @messages.each_with_index do |message, i|
       %tr{:class => ('visited' if message.visited == true)}
-        %td= (i+1)
-        %td=link_to message.subject, message
+        %td= (i+1)        
         %td= message.text        
         %td= message.user_name        
         %td= link_to 'حذف', message, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
