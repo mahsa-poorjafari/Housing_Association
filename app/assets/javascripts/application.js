@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require colorbox-rails
 //= require ckeditor-jquery
+//= require jquery_nested_form
 //= require_tree .

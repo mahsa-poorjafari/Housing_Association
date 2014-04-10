@@ -29,6 +29,7 @@
     .form-group
       = f.fields_for :pictures do |picture|  
         = render "shared/upload_image_form", :picture => picture
+    
     .form-group
       = f.link_to_add content_tag(:span, "افزودن تصویر"), :pictures, :id => "add_new_picture"    
           

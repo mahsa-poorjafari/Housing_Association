@@ -2,9 +2,9 @@
   =picture.file_field :image, :class => "hide"
   =image_tag (picture.object.image.present? ? picture.object.image(:medium) : "missing.png"), :class => "enable_file_select" 
 
-  .des-title
+  .form-group
     توضیحات
-    =picture.text_area :description, :rows => 2
+    = picture.text_area :description, :rows => 2
   
-  =picture.link_to_remove image_tag ("Delete_Icon.png"), :class => "remove-task"
+    = picture.link_to_remove image_tag ("Delete_Icon.png"), :class => "remove-task"
 .clrear-float

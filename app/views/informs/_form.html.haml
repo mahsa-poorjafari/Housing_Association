@@ -19,10 +19,11 @@
       = f.text_field :title, :class => "form-control"
   .form-group
     = f.label :متن,  :class => "control-label"
-    .col-lg-10
+    .col-lg-10.editor
       = f.text_area :text,  :class => "ckeditor"
   
   .form-group
     .col-lg-10.col-lg-offset-2
       = f.submit 'ثبت', :class => "btn btn-primary"
 .clear-float
+
