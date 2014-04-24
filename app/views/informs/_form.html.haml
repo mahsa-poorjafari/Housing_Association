@@ -9,7 +9,7 @@
     اعلامیه جدید
   .form-group
     = f.label "پروژه مربوطه:"
-    = select_tag :project_id, options_for_select(Project.all.collect{ |u| [u.title, u.id] }), prompt: "پروژه مربوطه را انتخاب کنید"
+    = f.select :project_id, options_for_select(Project.all.collect{ |u| [u.title, u.id] }), prompt: "پروژه مربوطه را انتخاب کنید"
   .form-group
     = f.label "خبر مهم است."
     = f.check_box :important  

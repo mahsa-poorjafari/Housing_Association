@@ -14,7 +14,7 @@
         = link_to 'ویرایش', edit_inform_path(inform)
         = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
     %tr
-      %td{:colspan => "4"}= inform.text
+      %td{:colspan => "4"}= raw inform.text
       
 
 %br

@@ -1,37 +1,32 @@
 .page-header
   .row    
-    %h1= "اتحادیه مسکن"
-.right-side.min-height  
-  = render "shared/admin_menu"
-  .panel.panel-success
-    .panel-heading
-      %h3.panel-title= "پروژه ها"
-    .list-group      
-      - @projects.each do |project|
-        = link_to project.title, project, :class => "list-group-item"
-  .panel.panel-warning    
-    .panel-heading
-      %h3.panel-title= "پیگیری ثبت نام"
-    %p
-      توجه : بعد از ثبت نام در زیرسامانه ثبت نام از متقاضیان به هر متقاضی یک کد رهگیری اختصاص داده می شود که وارد کردن این کد به همراه کد ملی برای پیگیری های بعدی ضروری است 
-  
-  
-  
-.well.middle-side.min-height.set-center
-  %h2= "اخبار و اعلامیه ها"
-  %hr
-  %table.table       
-    -@informs.all.each do |inform|
-      %tr
+    %h1= "اتحادیه مسکن"  
+%h2= "اخبار و اعلامیه ها"
+%hr
+.row      
+  -@informs.all.each do |inform|
+    .row      
+      .col-md-4
         -if inform.important
-          %td.important= "مهم"          
-        %th= link_to inform.title, inform
-        %td= JalaliDate.new(inform.created_at).format("%A %d %b %Y - %H:%m") 
-      %tr  
-        %td{:colspan => 3}= inform.text
-    
-.well.left-side.min-height
-  ستون چپ
+          .important= "مهم"          
+      .col-md-4
+        = JalaliDate.new(inform.created_at).format("%A %d %b %Y - %H:%m") 
+      -if inform.project_id
+        .col-md-4
+          %td= link_to inform.project.title, inform.project    
+    .row
+      .col-md-4
+        = link_to inform.title, inform
+      
+    .row
+      .col-md-4
+        %td{:colspan => 3}= raw inform.text
+      
+      
+    .clear-float
+      
+  
+
 
 
 

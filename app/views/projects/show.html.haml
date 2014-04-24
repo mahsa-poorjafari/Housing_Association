@@ -1,34 +1,46 @@
 .page-header
   .row     
-    %h1= "پروژه " + @project.title
+    %h3= "پروژه " + @project.title    
+    .well.admin-link
+      = link_to 'ویرایش', edit_project_path(@project)
+      \|
+      = link_to 'بازگشت', projects_path
+    .clear-float
+
 -if notice
   .alert.alert-dismissable.alert-success
     %p#notice= notice
   
-.container
-  .col-lg-4
-    = image_tag "bulding.jpg"
-  .col-lg-4
-    %p
-      %b آدرس:
-      = @project.address
-    %p
-      %b توضیحات تکمیلی:
-      = @project.description
-    %p
-      %b متراژ:
-      = @project.Area
-    %p
-      %b تعداد واحد:
-      = @project.unit
-    %p
-      %b وضعیت:
-      -if  @project.Status
-        تحویل داده شده
-      -else
-        در دست احداث
-%br    
-.well.footer
-  = link_to 'ویرایش', edit_project_path(@project)
-  \|
-  = link_to 'بازگشت', projects_path
+%div
+  .row.text-center
+    =link_to (image_tag @project.pictures.first.image(:large)), @project.pictures.first.image(:original), :data => { :colorbox => true }     
+  
+  .row
+    .col-md-6.reg-link
+      = link_to 'لینک ثبت نام', '#', :class => "btn btn-danger"
+    .col-md-6
+      %p
+        %b آدرس:
+        = @project.address
+      %p
+        %b توضیحات تکمیلی:
+        = @project.description
+      %p
+        %b متراژ:
+        = @project.Area
+      %p
+        %b تعداد واحد:
+        = @project.unit
+      %p
+        %b وضعیت:
+        -if  @project.Status
+          تحویل داده شده
+        -else
+          در دست احداث
+    
+  .clear-float
+  %div
+    - @project.pictures.offset(1).each do |picture|
+      .col-lg-4
+        =link_to (image_tag picture.image(:small)), picture.image(:original), :data => { :colorbox => true }     
+  .clear-float

@@ -12,15 +12,18 @@
  *= require_self
  *= require_tree .
  */
+.total-box {margin-top:60px}
 .min-height { min-height:550px;}
 .page-body{width:95%; position: relative}
-.set-center {margin-right:auto; margin-left:auto}
+.set-center {margin-right:auto; margin-left:auto;}
+.text-center {text-align:center}
 .center-div {width:90%; text-align:right}
-.footer {text-align:center}
+.admin-link {float: left}
+.footer {text-align:center; min-height: 100px; background:#BFBFBF; margin-top: 10px}
 .clear-float {clear:both}
 table  tr th {text-align:right}
-
-.right-side {width: 18%;  float:right; margin-right:5px}
+.reg-link {margin-top: 20px; text-align:left}
+.right-side {width: 18%;  float:right; margin-right:5px; }
 .middle-side {width: 65%; float:right; margin-right:5px}
 .middle-side table tr {line-height: 20px}
 table tr td.important{

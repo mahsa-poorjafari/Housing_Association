@@ -554,9 +554,8 @@ a.bg-warning:hover {
 a.bg-danger:hover {
   background-color: #d62c1a;
 }
-.page-header {
-  padding-bottom: 9.5px;
-  margin: 42px 0 21px;
+.page-header {  
+  margin: 5px;
   border-bottom: 1px solid transparent;
 }
 ul,
@@ -763,7 +762,7 @@ pre code {
   padding-right: 15px;
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
-  float: left;
+  float: right;
 }
 .col-xs-12 {
   width: 100%;
@@ -1078,7 +1077,7 @@ pre code {
 }
 @media (min-width: 992px) {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
-    float: left;
+    float: right;
   }
   .col-md-12 {
     width: 100%;

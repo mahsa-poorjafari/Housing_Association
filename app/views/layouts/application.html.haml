@@ -9,7 +9,27 @@
 
 %body    
   = render "shared/nav_bar"
-  .min-height.container
-    = yield 
+  .min-height.container-full.total-box    
+    .right-side.min-height  
+      = render "shared/admin_menu"
+      .panel.panel-success
+        .panel-heading
+          %h3.panel-title= "پروژه ها"
+        .list-group      
+          - Project.all.each do |project|
+            = link_to project.title, project, :class => "list-group-item"
+      .panel.panel-warning    
+        .panel-heading
+          %h3.panel-title= "پیگیری ثبت نام"
+        %p
+          توجه : بعد از ثبت نام در زیرسامانه ثبت نام از متقاضیان به هر متقاضی یک کد رهگیری اختصاص داده می شود که وارد کردن این کد به همراه کد ملی برای پیگیری های بعدی ضروری است 
+    .well.middle-side.min-height.set-center      
+      = yield 
+    .well.left-side.min-height
+      ستون چپ
+    .clear-float
+  .footer
+    .text-center
+      Copyright House
 
 
