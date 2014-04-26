@@ -6,8 +6,12 @@
           %li= msg
 
   .form-group
-    = f.label :عنوان, :class => "control-label"
-    = f.text_field :title, :class => "form-control"
+    - if @page.title == 'تماس با ما'
+      = f.label @page.title, :class => "control-label"
+    - else     
+      = f.label :عنوان, :class => "control-label"
+      = f.text_field :title, :class => "form-control"
+      
   .form-group.editor
     = f.label :متن, :class => "control-label"
     = f.text_area :text, :class => "ckeditor"

@@ -23,8 +23,8 @@
 .clear-float {clear:both}
 table  tr th {text-align:right}
 .reg-link {margin-top: 20px; text-align:left}
-.right-side {width: 18%;  float:right; margin-right:5px; }
-.middle-side {width: 65%; float:right; margin-right:5px}
+.right-side {width: 17%;  float:right; margin-right:5px; padding: 5px }
+.middle-side {width: 66%; float:right; margin-right:5px; margin-top: 10px}
 .middle-side table tr {line-height: 20px}
 table tr td.important{
   width: 30px;
@@ -35,7 +35,7 @@ table tr td.important{
   -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
   transform: rotate(30deg);
   }
-.left-side {width: 15%; float:left; margin-right:5px}
+.left-side {width: 16%; float:left; padding: 5px }
 
 
 .small-form {width:50%; direction:rtl}
@@ -45,3 +45,7 @@ table.message tbody tr.visited {font-weight:normal}
 .Necessary {color:red}
 .remove-task {width:10%}
 
+.login-menu {-webkit-transition:all 2s; /* For Safari 3.1 to 6.0 */
+transition:all 2s; max-height: 100px; overflow: hidden}
+
+.login-menu:hover {max-height:450px; cursor:pointer}

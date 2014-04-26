@@ -4,23 +4,23 @@
 -if notice
   .alert.alert-dismissable.alert-success
     %p#notice= notice
-.container    
-  .col-lg-4
-    -if @management.image.present?
-      = image_tag @management.image(:medium)
-    -else
-      = image_tag "unknown.png"
-    
-  .col-lg-4  
-    %p
-      %b نام و نام خانوادگی
-      = @management.name + " " + @management.last_name
-    %p
-      %b سمت:
-      = @management.post
-    %p
-      %b سابقه کاری:
-      = @management.Work_Experience
+  
+.col-lg-4
+  -if @management.image.present?
+    = image_tag @management.image(:medium)
+  -else
+    = image_tag "unknown.png"
+  
+.col-lg-4  
+  %p
+    %b نام و نام خانوادگی
+    = @management.name + " " + @management.last_name
+  %p
+    %b سمت:
+    = @management.post
+  %p
+    %b سابقه کاری:
+    = @management.Work_Experience
 %br        
 .well.footer
   = link_to 'ویرایش', edit_management_path(@management)

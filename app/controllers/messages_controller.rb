@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
   def index
     @messages = Message.order(" created_at desc")
     @num_msg = Message.count
-    @read_msg = Message.count(:conditions => "visited = true")
+    @read_msg = Message.where(visited: true).count
     @unread_msg = Message.count(:conditions => "visited is null")
   end
 

@@ -22,7 +22,7 @@
             = link_to "تحویل داده شده"
           %li
             = link_to "عکس پروژه ها", Project
-      %li.dropdown{:class => ('active' if current_page?(projects_path))}
+      %li.dropdown{:class => ('active' if current_page?(cooperatives_path))}
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
           تعاونیهای تحت پوشش
           
@@ -32,23 +32,4 @@
             %li
               = link_to cooperative.name, cooperative
           
-          
-    %form.navbar-form.navbar-right
-      %input.form-control.col-lg-8{placeholder: "جستجو...", type: "text"}/
-    %ul.nav.navbar-nav.navbar-left     
-      
-      %li.dropdown
-        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-          ورود به سایت
-          %b.caret
-        %ul.dropdown-menu
-          %li
-            %a{href: "#"} Action
-          %li
-            %a{href: "#"} Another action
-          %li
-            %a{href: "#"} Something else here
-          %li.divider
-          %li
-            %a{href: "#"} Separated link
-      
+   
