@@ -6,7 +6,7 @@
     .list-group
       = link_to project, :class => "list-group-item" do
         %div
-          = image_tag project.pictures.image(:small)
+          = image_tag project.pictures.first.image(:small)
         %h4.list-group-item-heading= project.title
         
         %p.list-group-item-text
