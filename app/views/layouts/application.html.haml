@@ -24,6 +24,7 @@
               %h3.panel-title= "ورود به سایت"
             .list-group
               sign in
+              = link_to "خروج", destroy_user_session_path, :method => :delete
         
       .panel.panel-success
         .panel-heading
