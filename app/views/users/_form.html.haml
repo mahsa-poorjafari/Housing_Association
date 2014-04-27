@@ -12,13 +12,19 @@
     = f.label "نام خانوادگی"
     = f.text_field :last_name
   .field
+    = f.label "شماره ملی"
+    = f.text_field :national_code
+  .field
+    = f.label "تاریخ تولد:"
+    = f.date_select :birthdate
+  .field
     = f.label "تلفن ثابت"
     = f.text_field :phone
   .field
     = f.label "تلفن همراه"
-    = f.text_field :mobile
+    = f.text_field :mobile    
   .field
-    = f.label "تاریخ تولد:"
-    = f.date_select :birthdate
+    = f.label "آدرس"
+    = f.text_area :address
   .actions
     = f.submit 'ثبت'

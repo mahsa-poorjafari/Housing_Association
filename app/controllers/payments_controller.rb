@@ -15,6 +15,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment = Payment.new
+    @project = Project.find(params[:id])
   end
 
   # GET /payments/1/edit

@@ -1,10 +1,13 @@
 .page-header
   .row
-    %h1= "فرم ثبت نام"
+    %h1= "فرم ثبت نام" + " " + @project.title
 - if current_user.present?
   %h2= 'کاربر عضو است'
 -else
-  =render 'users/form'
-= render 'form'
+  %h4= 'فرم اطلاعات شخصی'
+  .col-lg-6
+    =render 'users/form'
+.row
+  = render 'form'
 .well.footer
   = link_to 'بازگشت', payments_path
