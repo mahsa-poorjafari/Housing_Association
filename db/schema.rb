@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426084925) do
+ActiveRecord::Schema.define(version: 20140427060047) do
 
   create_table "cooperatives", force: true do |t|
     t.string   "name"
@@ -75,6 +75,13 @@ ActiveRecord::Schema.define(version: 20140426084925) do
     t.datetime "updated_at"
   end
 
+  create_table "payments", force: true do |t|
+    t.float    "amount"
+    t.string   "bank_draft_no"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pictures", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -115,6 +122,8 @@ ActiveRecord::Schema.define(version: 20140426084925) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.text     "address"
+    t.string   "national_code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

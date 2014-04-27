@@ -1,0 +1,10 @@
+.page-header
+  .row
+    %h1= "فرم ثبت نام"
+- if current_user.present?
+  %h2= 'کاربر عضو است'
+-else
+  =render 'users/form'
+= render 'form'
+.well.footer
+  = link_to 'بازگشت', payments_path
