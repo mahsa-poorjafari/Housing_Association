@@ -5,11 +5,11 @@
         - @payment.errors.each do |attr, msg|
           %li= msg
 
-  .field
-    = f.label "سقف مبلغ پرداختی:"
-    = f.text_field :amount
-  .field
-    = f.label "شماره فیش واریزی:"
-    = f.text_field :bank_draft_no
+  .form-group
+    = f.label "سقف مبلغ پرداختی:", :class => "control-label"
+    = f.text_field :amount, :class => "form-control"
+  .form-group
+    = f.label "شماره فیش واریزی:", :class => "control-label"
+    = f.text_field :bank_draft_no, :class => "form-control"
   .actions
-    = f.submit 'ثبت'
+    = f.submit 'ثبت', :class => "btn btn-primary"
