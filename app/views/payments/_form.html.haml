@@ -1,6 +1,6 @@
 = form_for @payment do |f|
   - if @payment.errors.any?
-    #error_explanation      
+    #error_explanation
       %ul
         - @payment.errors.each do |attr, msg|
           %li= msg
@@ -11,5 +11,7 @@
   .form-group
     = f.label "شماره فیش واریزی:", :class => "control-label"
     = f.text_field :bank_draft_no, :class => "form-control"
+  .form-group    
+    = f.hidden_field :project_id, :class => "form-control", :value => @project.id
   .actions
     = f.submit 'ثبت', :class => "btn btn-primary"

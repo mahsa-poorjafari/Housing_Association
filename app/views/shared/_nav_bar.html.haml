@@ -1,35 +1,22 @@
-.navbar.navbar-inverse.navbar-fixed-top
-  .container
-    .navbar-header
-      =link_to "اتحادیه مسکن", root_path, :class => "navbar-brand"
-    %ul.nav.navbar-nav      
-      %li{:class => ('active' if current_page?(informs_path) )}
-        = link_to "اخبار", Inform
-      %li{:class => ('active' if current_page?(managements_path))}
-        = link_to "مدیران", Management
-      - Page.all.each do |page|      
-        %li{:class => ('active' if current_page?(page_path(page)))}
-          = link_to page.title, page
-      
-      %li.dropdown{:class => ('active' if current_page?(projects_path))}
-        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-          پروژه ها
-          %b.caret
-        %ul.dropdown-menu
-          %li
-            = link_to "در دست احداث"
-          %li
-            = link_to "تحویل داده شده"
-          %li
-            = link_to "عکس پروژه ها", Project
-      %li.dropdown{:class => ('active' if current_page?(cooperatives_path))}
-        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-          تعاونیهای تحت پوشش
-          
-          %b.caret
-        %ul.dropdown-menu
-          - Cooperative.all.each do |cooperative|
-            %li
-              = link_to cooperative.name, cooperative
-          
    
+/ Top Panel
+#topPan.set-center
+  = link_to root_path do
+    = image_tag "logo.gif", :alt => "Sky High Industry", :border => "0", :height => "39", :title => "Sky High Industry", :width => "245"
+    
+  %ul    
+    %li.company 
+      = link_to "اخبار", Inform
+    %li{:class => ('active' if current_page?(managements_path))}
+      = link_to "تعاونی ها", Cooperative
+    %li{:class => ('active' if current_page?(managements_path))}
+      = link_to "پروژه ها", Project
+    - Page.all.each do |page|      
+      %li{:class => ('active' if current_page?(page_path(page)))}
+        = link_to page.title, page
+    
+  %h1
+    More advanced
+    %br/
+    %span Fusce auctor, risus nec vulputate consectetuer, metus lorem
+/ Top Panel Close

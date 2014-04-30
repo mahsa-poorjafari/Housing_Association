@@ -9,59 +9,7 @@
 
 %body    
   = render "shared/nav_bar"
-  .min-height.container-full.total-box    
-    .right-side.min-height
-      .login-menu
-        .panel.panel-primary          
-          - if is_admin?
-            = render "shared/admin_menu"
-            = link_to "خروج", destroy_user_session_path, :method => :delete
-          - elsif is_user?
-            = render "shared/user_menu"
-            = link_to "خروج", destroy_user_session_path, :method => :delete
-          - else
-            .panel-heading
-              %h3.panel-title= "ورود به سایت"
-            .list-group
-              sign in
-              = link_to "خروج", destroy_user_session_path, :method => :delete
-        
-      .panel.panel-success
-        .panel-heading
-          %h3.panel-title= "پروژه ها"
-        .list-group      
-          - Project.all.each do |project|
-            = link_to project.title, project, :class => "list-group-item"
-      .panel.panel-warning    
-        .panel-heading
-          %h3.panel-title= "پیگیری ثبت نام"
-        %p
-          توجه : بعد از ثبت نام در زیرسامانه ثبت نام از متقاضیان به هر متقاضی یک کد رهگیری اختصاص داده می شود که وارد کردن این کد به همراه کد ملی برای پیگیری های بعدی ضروری است 
-    .well.middle-side.min-height.set-center      
-      = yield 
-    .left-side.min-height
-      .panel.panel-primary
-        .panel-heading
-          %h4.panel-title= 'تعاونیهای تحت پوشش'
-        .list-group
-          - Cooperative.all.each do |cooperative|
-            = link_to cooperative.name, cooperative, :class => "list-group-item"
-      .panel.panel-success
-        .panel-heading
-          %h3.panel-title= 'پیوندهای مرتبط'
-        .list-group
-          - Link.all.each do |link|
-            = link_to link.title, url_with_protocol(link.web_site), :class => "list-group-item", :target => "_blank"
-      .panel.panel-warning    
-        .panel-heading
-          %h3.panel-title= "اعضای هیئت مدیره"
-        .list-group  
-          - Management.all.each do |management|
-            = link_to management.name + " " + management.last_name, management, :class => "list-group-item"
-      
-    .clear-float
-  .footer
-    .text-center
-      Copyright House
-
+  / Main Middle Panel
+  #mainmiddlePan
+    = yield 
 

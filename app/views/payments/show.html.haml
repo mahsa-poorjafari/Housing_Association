@@ -6,7 +6,13 @@
 %p
   %b Bank draft no:
   = @payment.bank_draft_no
+%p
+  %b کاربر
+  = @payment.user.email
 
-= link_to 'Edit', edit_payment_path(@payment)
-\|
-= link_to 'Back', payments_path
+%p
+  %b پرو‌ژه
+  = @payment.project.title
+
+
+

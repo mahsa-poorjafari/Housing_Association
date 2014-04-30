@@ -1,31 +1,57 @@
+
+/ Middle Panel
+#middlePan
+  / Middle Left Panel
+  #middleleftPan
+    %h2 درباره ما
+    %p
+      %span.boldtext Sky High Industry is a free, tableless, W3C-compliant web design layout by Template World.
+      This template has been tested and proven compatible with all major browser environments and operating systems. You are free to modify the design to suit your tastes in any way you like.
+    %p We only ask you to not remove "Design by Template World" and the link http://www.templateworld.com from the footer of the template.
+    %p If you are interested in seeing more of our free web template designs feel free to visit our website, Template World. We intend to add at least 25 new free templates in the coming month.
+    %p.more
+      = link_to 'ادامه مطلب', '#'
+      
+  / Middle Left Panel Close
+  
+  #middlerightPan
+    = render "devise/sessions/new", :resource => resource
+  
+  
+  
 .page-header
-  .row    
-    %h1= "اتحادیه مسکن"  
+- if @login
+  .row
+    = @login.email
+    = @login.id
+.row    
+  %h1= "اتحادیه مسکن"  
 %h2= "اخبار و اعلامیه ها"
+
 %hr
 .row      
-  -@informs.all.each do |inform|
-    .row      
+-@informs.all.each do |inform|
+  .row      
+    .col-md-4
+      -if inform.important
+        .important= "مهم"          
+    .col-md-4
+      = JalaliDate.new(inform.created_at).format("%A %d %b %Y - %H:%m") 
+    -if inform.project_id
       .col-md-4
-        -if inform.important
-          .important= "مهم"          
-      .col-md-4
-        = JalaliDate.new(inform.created_at).format("%A %d %b %Y - %H:%m") 
-      -if inform.project_id
-        .col-md-4
-          %td= link_to inform.project.title, inform.project    
-    .row
-      .col-md-4
-        = link_to inform.title, inform
-      
-    .row
-      .col-md-4
-        %td{:colspan => 3}= raw inform.text
-      
-      
-    .clear-float
-      
-  
+        %td= link_to inform.project.title, inform.project    
+  .row
+    .col-md-4
+      = link_to inform.title, inform
+    
+  .row
+    .col-md-4
+      %td{:colspan => 3}= raw inform.text
+    
+    
+  .clear-float
+    
+
 
 
 

@@ -16,9 +16,10 @@ class PaymentsController < ApplicationController
   def new
     @payment = Payment.new
     @project = Project.find(params[:id])
+    
   end
 
-  # GET /payments/1/edit
+  # GET /paymenrts/1/edit
   def edit
   end
 
@@ -26,9 +27,12 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(payment_params)
-
+    @payment.user_id = current_user.id
+    
+    
     respond_to do |format|
       if @payment.save
+      
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @payment }
       else
@@ -70,6 +74,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:amount, :bank_draft_no)
+      params.require(:payment).permit(:amount, :bank_draft_no, :user_id, :project_id)
     end
 end
