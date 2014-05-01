@@ -1,31 +1,31 @@
-.page-header
-  .row
+#tbox2
+  .title
     %h2= "اطلاعات تعاونیها"
--if notice
-  .alert.alert-dismissable.alert-success
-    %p#notice= notice
+  -if notice
+    .alert.alert-dismissable.alert-success
+      %p#notice= notice
 
-.col-lg-4
-  %p
-    %b عنوان تعاونی
-    = @cooperative.name
-  %p
-    %b مدیرعامل
-    = @cooperative.managment_name
-  %p
-    %b رئیس هیئت مدیره
-    = @cooperative.board_Chairman_name
-  %p
-    %b نشانی
-    = @cooperative.address
-  %p
-    %b تلفن
-    = @cooperative.phone
-  %p
-    %b وب سایت
-    = @cooperative.website
-%br        
-.well.footer
+  .col-lg-4
+    %p
+      %b عنوان تعاونی
+      = @cooperative.name
+    %p
+      %b مدیرعامل
+      = @cooperative.managment_name
+    %p
+      %b رئیس هیئت مدیره
+      = @cooperative.board_Chairman_name
+    %p
+      %b نشانی
+      = @cooperative.address
+    %p
+      %b تلفن
+      = @cooperative.phone
+    %p
+      %b وب سایت
+      = @cooperative.website
+  %br        
+  
   = link_to 'ویرایش', edit_cooperative_path(@cooperative)
   \|
   = link_to 'بازگشت', cooperatives_path

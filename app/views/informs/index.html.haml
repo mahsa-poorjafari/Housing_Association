@@ -5,10 +5,14 @@
   %table.table
     - @informs.each do |inform|
       %tr      
-        -if inform.important      
-          %td.important= "مهم"        
+        
+        %td.important
+          -if inform.important      
+            مهم
         %th= link_to inform.title, inform      
-        %td= inform.number_visit
+        %td
+          %span= 'تعداد بازدید'
+          = inform.number_visit
        
         %td
           = link_to 'ویرایش', edit_inform_path(inform)

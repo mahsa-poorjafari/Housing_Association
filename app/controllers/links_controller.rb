@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 
@@ -26,15 +27,12 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(link_params)
 
-    respond_to do |format|
+    
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @link }
+         redirect_to links_path, notice: 'پیوند مرتبط به سایت اضافه شد.'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+          render :new
       end
-    end
   end
 
   # PATCH/PUT /links/1

@@ -11,19 +11,19 @@
     = f.label "پروژه مربوطه:"
     = f.select :project_id, options_for_select(Project.all.collect{ |u| [u.title, u.id] }), prompt: "پروژه مربوطه را انتخاب کنید"
   .form-group
+    .col-md-1
+      = f.check_box :important  
     = f.label "خبر مهم است."
-    = f.check_box :important  
+    
   .form-group
-    = f.label :عنوان, :class => "control-label"
-    .col-lg-10
-      = f.text_field :title, :class => "form-control"
+    = f.label :عنوان, :class => "control-label"    
+    = f.text_field :title, :class => "text"
   .form-group
     = f.label :متن,  :class => "control-label"
-    .col-lg-10.editor
-      = f.text_area :text,  :class => "ckeditor"
+    .editor
+      = f.text_area :text,  :class => "ckeditor text"
   
-  .form-group
-    .col-lg-10.col-lg-offset-2
-      = f.submit 'ثبت', :class => "btn btn-primary"
-.clear-float
+  .form-group    
+    = f.submit 'ثبت', :class => "button btn-sm"
+
 

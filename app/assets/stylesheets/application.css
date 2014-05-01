@@ -18,7 +18,7 @@
 .set-center {margin-right:auto; margin-left:auto;}
 .text-center {text-align:center}
 .center-div {width:90%; text-align:right}
-.admin-link {float: left}
+
 .footer {text-align:center; min-height: 100px; background:#BFBFBF; margin-top: 10px}
 .clear-float {clear:both}
 table  tr th {text-align:right}
@@ -26,7 +26,7 @@ table  tr th {text-align:right}
 .right-side {width: 17%;  float:right; margin-right:5px; padding: 5px }
 .middle-side {width: 66%; float:right; margin-right:5px; margin-top: 10px}
 .middle-side table tr {line-height: 20px}
-table tr td.important{
+.important{
   width: 30px;
   padding-top:-10px;
   font-size:15px; 
@@ -50,3 +50,4 @@ transition:all 2s; max-height: 100px; overflow: hidden}
 
 .login-menu:hover {max-height:450px; cursor:pointer}
 .sample-pic {text-align:center; overflow: hidden}
+#admin-links {text-align:left; min-height:100px; background:#ADD8E6; }

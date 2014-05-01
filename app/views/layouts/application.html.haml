@@ -36,14 +36,15 @@
         .links
           .title
             %h4= 'پیوندهای مرتبط'
-            %p
+            %div
               - Link.all.each do  |link|
-                = link_to link.name, link
+                %p
+                  = link_to link.title, url_with_protocol(link.web_site), :target => "_blank"
         .managment
           .title
             %h4= 'مدیران اتحادیه'
             %p
               - Management.all.each do  |management|
-                = link_to management.name + management.last_name, management
+                = link_to management.name + ' ' + management.last_name, management
   #footer
 

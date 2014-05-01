@@ -11,6 +11,8 @@ class InformsController < ApplicationController
   # GET /informs/1
   # GET /informs/1.json
   def show
+    @inform.number_visit += 1
+    @inform.save
   end
 
   # GET /informs/new

@@ -1,7 +1,9 @@
-%h1 Editing management
+#tbox2
+  .title
+    %h2= 'هیئت مدیره'
+  .input-form
+    = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @management
-\|
-= link_to 'Back', managements_path
+  = link_to 'مشاهده', @management
+  \|
+  = link_to 'بازگشت', managements_path

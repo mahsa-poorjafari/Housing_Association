@@ -1,44 +1,46 @@
-.small-form.set-center.well
-  = nested_form_for @project, :html => { :multipart => true  } do |f|
-    - if @project.errors.any?
-      #error_explanation
-        %ul
-          - @project.errors.each do |attr, msg|
-            %li= msg
 
-    .form-group
-      = f.label  "عنوان پروژه", :class => "control-label"
-      = f.text_field :title, :class => "form-control"
-    .form-group
-      = f.label " آدرس", :class => "control-label"
-      = f.text_area :address, :class => "form-control"
-    .form-group
-      = f.label "توضیحات", :class => "control-label"
-      = f.text_area :description, :class => "form-control"
-    .form-group
-      = f.label "متراژ", :class => "control-label"
-      = f.text_field :Area, :class => "form-control"
-    .form-group
-      = f.label "تعداد واحد", :class => "control-label"
-      = f.number_field :unit, :class => "form-control"
-    .form-group
-      = f.label "وضعیت", :class => "control-label"
-      = f.check_box :Status, :class => "form-control"
-      
-      
-    .form-group
-      = f.fields_for :pictures do |picture|  
-        = render "shared/upload_image_form", :picture => picture
+= nested_form_for @project, :html => { :multipart => true  } do |f|
+  - if @project.errors.any?
+    #error_explanation
+      %ul
+        - @project.errors.each do |attr, msg|
+          %li= msg
+
+  .form-group
+    = f.label  "عنوان پروژه", :class => "control-label"
+    = f.text_field :title, :class => "text"
+  .form-group
+    = f.label " آدرس", :class => "control-label"
+    = f.text_area :address, :class => "text"
+  .form-group
+    = f.label "توضیحات", :class => "control-label"
+    = f.text_area :description, :class => "text"
+  .form-group
+    = f.label "متراژ", :class => "control-label"
+    = f.text_field :Area, :class => "text"
+  .form-group
+    = f.label "تعداد واحد", :class => "control-label"
+    = f.number_field :unit, :class => "text"
+  .form-group
+    .col-md-1
+      = f.check_box :Status
+    = f.label "وضعیت", :class => "control-label"
     
-    .form-group
-      = f.link_to_add content_tag(:span, "افزودن تصویر"), :pictures, :id => "add_new_picture"    
-          
-          
-          
-    .form-group
-      = f.submit 'ثبت', :class => "btn btn-primary"
-      
-      
+    
+    
+  .form-group
+    = f.fields_for :pictures do |picture|  
+      = render "shared/upload_image_form", :picture => picture
+  
+  .form-group
+    = f.link_to_add content_tag(:span, "افزودن تصویر"), :pictures, :id => "add_new_picture"    
+        
+        
+        
+  .form-group
+    = f.submit 'ثبت', :class => "button btn-sm"
+    
+    
 :javascript
   function enable_file_select(){
     $(".enable_file_select").unbind('click').click(function(){

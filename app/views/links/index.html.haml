@@ -1,16 +1,20 @@
-.page-header
-  .row 
-    %h1= 'پیوند های مرتبط'
-  = link_to 'پیوند جدید', new_link_path, :class => "btn btn-primary"
-  .row
-
-    - @links.each do |link|
-      .row
-        = link.title
-        = link_to link.web_site, url_with_protocol(link.web_site)
-        = link_to 'Show', link
-        = link_to 'ویرایش', edit_link_path(link)
-        = link_to 'حذف', link, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+#tbox2
+  .title
+    %h2= 'پیوند های مرتبط'
+  -if notice
+    .alert.alert-dismissable.alert-success
+      %p#notice= notice
+  = link_to 'پیوند جدید', new_link_path, :class => "button btn-sm"
+  %table.table.table-striped.table-hover
+    - @links.each_with_index  do |link, i|
+      %tr
+        %td= (i+1)        
+        %td= link.title
+        %td= link_to link.web_site, url_with_protocol(link.web_site)        
+        %td
+          = link_to 'ویرایش', edit_link_path(link)
+          \|
+          = link_to 'حذف', link, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
 
 

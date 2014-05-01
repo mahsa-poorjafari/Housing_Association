@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140430081130) do
   create_table "informs", force: true do |t|
     t.string   "title"
     t.text     "text"
-    t.integer  "number_visit"
+    t.integer  "number_visit",  default: 0
     t.boolean  "important"
     t.datetime "created_at"
     t.datetime "updated_at"

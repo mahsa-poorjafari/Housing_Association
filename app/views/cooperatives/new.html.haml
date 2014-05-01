@@ -1,8 +1,7 @@
-.page-header
-  .row 
-    %h1 ثبت تعاونی جدید
+#tbox2
+  .title
+    %h2= 'ثبت تعاونی جدید'
+  .input-form
+    = render 'form'
 
-= render 'form'
-%br
-.well.footer
   = link_to 'بازگشت', cooperatives_path
