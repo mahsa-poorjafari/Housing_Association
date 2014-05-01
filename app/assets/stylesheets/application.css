@@ -49,3 +49,4 @@ table.message tbody tr.visited {font-weight:normal}
 transition:all 2s; max-height: 100px; overflow: hidden}
 
 .login-menu:hover {max-height:450px; cursor:pointer}
+.sample-pic {text-align:center; overflow: hidden}

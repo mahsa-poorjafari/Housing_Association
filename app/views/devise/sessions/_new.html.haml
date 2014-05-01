@@ -1,23 +1,18 @@
 #middlerightPan
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    %h2= "ورود اعضا"
+    %h4= "ورود اعضا"
     
     = f.label "ایمیل"
-    = f.email_field :email, :autofocus => true, :id => "Yourname"
+    = f.email_field :email, :autofocus => true, :class => "text"
     
     = f.label "رمز عبور"    
-    = f.password_field :password, :id => "Emailid"
+    = f.password_field :password, :id => "Emailid", :class => "text"
     
     - if devise_mapping.rememberable?
       %div
         .col-lg-2
-          = f.check_box :remember_me
-        .col-lg-4
-          = f.label "مرا به خاطر بسپار"
-    .clear-float
+          = f.check_box :remember_me        
+        = f.label "مرا به خاطر بسپار"
+    
     = f.submit "ورود", :class => "button"
-  = render "devise/shared/links"  
-  %p.online
-    %a{href: "#"}
-      24x7 hours
-      online support
+  = render "devise/shared/links"    

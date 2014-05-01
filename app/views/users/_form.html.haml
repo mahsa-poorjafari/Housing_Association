@@ -7,24 +7,24 @@
 
   .form-group
     = f.label "نام:"
-    = f.text_field :name
+    = f.text_field :name, :class => "text"
   .form-group
     = f.label "نام خانوادگی"
-    = f.text_field :last_name
+    = f.text_field :last_name, :class => "text"
   .form-group
     = f.label "شماره ملی"
-    = f.text_field :national_code
+    = f.text_field :national_code, :class => "text"
   .form-group
     = f.label "تاریخ تولد:"
-    = f.date_select :birthdate
+    = f.date_select :birthdate, :class => "text"
   .form-group
     = f.label "تلفن ثابت"
-    = f.text_field :phone
+    = f.text_field :phone, :class => "text"
   .form-group
     = f.label "تلفن همراه"
-    = f.text_field :mobile    
+    = f.text_field :mobile, :class => "text"
   .field
     = f.label "آدرس"
-    = f.text_area :address
+    = f.text_area :address, :class => "text"
   .actions
-    = f.submit 'ثبت'
+    = f.submit 'ثبت', :class => "button btn-sm"

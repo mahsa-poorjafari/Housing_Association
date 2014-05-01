@@ -7,5 +7,6 @@ class StaticController < ApplicationController
       @login = current_user
     end  
     
+    
   end
 end

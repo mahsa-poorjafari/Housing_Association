@@ -11,9 +11,10 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @member_id = current_user.id
-    @reg_before = Payment.where( {user_id: @member_id , project_id:  @project.id })
-    
+    if current_user
+      @member_id = current_user.id    
+      @reg_before = Payment.where( {user_id: @member_id , project_id:  @project.id })
+    end
   end
 
   # GET /projects

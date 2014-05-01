@@ -8,8 +8,42 @@
   = csrf_meta_tags
 
 %body    
-  = render "shared/nav_bar"
-  / Main Middle Panel
-  #mainmiddlePan
-    = yield 
+  #header-wrapper
+    #header.container
+      #logo        
+        %h1
+          = link_to 'اتحادیه مسکن', root_path
+      #menu
+        = render "shared/nav_bar"
+  .wrapper
+    #three-column.container.set-center  
+      #tbox1
+        .title
+          = render "devise/sessions/new", :resource => resource
+        %hr
+        .title
+          %h2= 'پروژه ها'
+          - Project.all.each do |project|
+            = link_to project.title, project
+      = yield 
+      #tbox3
+        .cooperative
+          .title
+            %h4= 'تعاونیهای تحت پوشش'
+            %p
+              - Cooperative.all.each do  |cooperative|
+                = link_to cooperative.name, cooperative
+        .links
+          .title
+            %h4= 'پیوندهای مرتبط'
+            %p
+              - Link.all.each do  |link|
+                = link_to link.name, link
+        .managment
+          .title
+            %h4= 'مدیران اتحادیه'
+            %p
+              - Management.all.each do  |management|
+                = link_to management.name + management.last_name, management
+  #footer
 

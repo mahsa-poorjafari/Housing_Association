@@ -1,22 +1,22 @@
-.page-header
-  .row 
-    %h1 اخبار و اعلامیه ها
+#tbox2
+  .title
+    %h2 اخبار و اعلامیه ها
 
-%table.table
-  - @informs.each do |inform|
-    %tr      
-      -if inform.important      
-        %td.important= "مهم"        
-      %th= link_to inform.title, inform      
-      %td= inform.number_visit
-     
-      %td
-        = link_to 'ویرایش', edit_inform_path(inform)
-        = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-    %tr
-      %td{:colspan => "4"}= raw inform.text
-      
+  %table.table
+    - @informs.each do |inform|
+      %tr      
+        -if inform.important      
+          %td.important= "مهم"        
+        %th= link_to inform.title, inform      
+        %td= inform.number_visit
+       
+        %td
+          = link_to 'ویرایش', edit_inform_path(inform)
+          = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+      %tr
+        %td{:colspan => "4"}= raw inform.text
+        
 
-%br
+  %br
 
-= link_to 'ثبت اطلاعیه جدید', new_inform_path, :class => "btn btn-primary"
+  = link_to 'ثبت اطلاعیه جدید', new_inform_path, :class => "button btn-sm"

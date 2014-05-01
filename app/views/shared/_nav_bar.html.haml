@@ -1,22 +1,12 @@
-   
-/ Top Panel
-#topPan.set-center
-  = link_to root_path do
-    = image_tag "logo.gif", :alt => "Sky High Industry", :border => "0", :height => "39", :title => "Sky High Industry", :width => "245"
-    
-  %ul    
-    %li.company 
-      = link_to "اخبار", Inform
-    %li{:class => ('active' if current_page?(managements_path))}
-      = link_to "تعاونی ها", Cooperative
-    %li{:class => ('active' if current_page?(managements_path))}
-      = link_to "پروژه ها", Project
-    - Page.all.each do |page|      
-      %li{:class => ('active' if current_page?(page_path(page)))}
-        = link_to page.title, page
-    
-  %h1
-    More advanced
-    %br/
-    %span Fusce auctor, risus nec vulputate consectetuer, metus lorem
-/ Top Panel Close
+
+%ul    
+  %li.company{:class => ('active' if current_page?(informs_path))} 
+    = link_to "اخبار", Inform
+  %li{:class => ('active' if current_page?(cooperatives_path))}
+    = link_to "تعاونی ها", Cooperative
+  %li{:class => ('active' if current_page?(projects_path))}
+    = link_to "پروژه ها", Project
+  - Page.all.each do |page|      
+    %li{:class => ('active' if current_page?(page_path(page)))}
+      = link_to page.title, page
+
