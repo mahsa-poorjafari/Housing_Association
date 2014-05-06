@@ -47,4 +47,17 @@
               - Management.all.each do  |management|
                 = link_to management.name + ' ' + management.last_name, management
   #footer
-
+    %button.btn.btn-primary{"data-toggle" => "modal", "data-target" => ".bs-example-modal-sm"}
+      ارسال لینک به دوستان
+    .modal.fade.bs-example-modal-sm{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", role: "dialog", tabindex: "-1"}
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            %h4#myModalLabel.modal-title Modal title
+          .modal-body
+            ستشمننننننننننن
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+            %button.btn.btn-primary{type: "button"} Save changes
+          

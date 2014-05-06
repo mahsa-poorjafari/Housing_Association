@@ -12,7 +12,7 @@ end
 group :development, :test do
   gem 'mysql2'
 end
-
+gem "twitter-bootstrap-rails"
 gem 'devise'
 gem "html2haml"
 gem 'haml-rails'
