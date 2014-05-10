@@ -1,0 +1,25 @@
+%div
+  = form_for @send_link ||= SendLink.new do |f|
+    - if @send_link.errors.any?
+      #error_explanation      
+        %ul
+          - @send_link.errors.full_messages.each do |msg|
+            %li= msg
+
+    .form-group
+      = f.label 'ایمیل فرستنده', :class => "control-label"
+      = f.text_field :sender_email, :class => "form-control ", :style => "width:95%"
+    .form-group
+      = f.label 'ایمیل گیرنده', :class => "control-label"
+      = f.text_field :receiver_email, :class => "form-control ", :style => "width:95%"
+    .form-group
+      = f.label 'موضوع', :class => "control-label"
+      = f.text_field :subject, :class => "form-control ", :style => "width:95%"
+    .form-group     
+      = f.hidden_field :current_link, :value => request.original_url
+    .form-group
+      = f.label 'متن', :class => "control-label"
+      = f.text_area :text, :class => "form-control ", :style => "width:95%"
+    
+    .form-group
+      = f.submit 'ارسال', :class=> "btn btn-default"

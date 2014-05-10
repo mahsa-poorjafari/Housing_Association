@@ -1,0 +1,27 @@
+%h1 Listing send_links
+
+%table
+  %tr
+    %th Sender email
+    %th Receiver email
+    %th Current link
+    %th Text
+    %th Subject
+    %th
+    %th
+    %th
+
+  - @send_links.each do |send_link|
+    %tr
+      %td= send_link.sender_email
+      %td= send_link.receiver_email
+      %td= send_link.current_link
+      %td= send_link.text
+      %td= send_link.subject
+      %td= link_to 'Show', send_link
+      %td= link_to 'Edit', edit_send_link_path(send_link)
+      %td= link_to 'Destroy', send_link, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Send link', new_send_link_path

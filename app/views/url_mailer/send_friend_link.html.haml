@@ -1,0 +1,22 @@
+%h2= 'لینک ارسالی از سایت اتحادیه مسکن'
+
+%h3
+  =@link.subject
+  
+%h4
+  فرستنده:
+  =@link.sender_email
+  %br
+  =link_to @link.current_link, @link.current_link
+
+
+%br
+%h4
+  =@link.text
+
+%b
+  تاریخ ارسال
+  %br
+  = JalaliDate.new(@link.created_at).strftime("%y/%m/%e %X")
+  
+  

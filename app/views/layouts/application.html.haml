@@ -60,11 +60,13 @@
         .modal-content
           .modal-header
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-            %h4#myModalLabel.modal-title Modal title
-          .modal-body
-            در حال بارگذاری
+            %h4#myModalLabel.modal-title ارسال لینک جاری به ایمیل دوستان
 
+          .modal-body
+            = render 'send_links/form'
           .modal-footer
             %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-            %button.btn.btn-primary{type: "button"} Save changes
+
+          
+
           

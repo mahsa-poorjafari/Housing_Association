@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430081130) do
+ActiveRecord::Schema.define(version: 20140510074240) do
 
   create_table "cooperatives", force: true do |t|
     t.string   "name"
@@ -102,6 +102,16 @@ ActiveRecord::Schema.define(version: 20140430081130) do
     t.string   "Area"
     t.integer  "unit"
     t.boolean  "Status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "send_links", force: true do |t|
+    t.string   "sender_email"
+    t.string   "receiver_email"
+    t.string   "current_link"
+    t.text     "text"
+    t.string   "subject"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
