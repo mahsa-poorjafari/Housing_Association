@@ -16,7 +16,7 @@ gem "twitter-bootstrap-rails"
 gem 'devise'
 gem "html2haml"
 gem 'haml-rails'
-gem 'jquery-rails'
+
 gem 'colorbox-rails'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'ckeditor_rails'
