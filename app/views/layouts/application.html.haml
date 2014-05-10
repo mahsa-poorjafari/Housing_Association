@@ -19,12 +19,18 @@
     #three-column.container.set-center  
       #tbox1
         .title
-          = render "devise/sessions/new", :resource => resource
+          - if is_admin?
+            = render "shared/admin_menu"
+            = link_to "خروج", destroy_user_session_path, :method => :delete
+          - else          
+            = render "devise/sessions/new", :resource => resource
+
         %hr
         .title
           %h2= 'پروژه ها'
           - Project.all.each do |project|
             = link_to project.title, project
+            %hr
       = yield 
       #tbox3
         .cooperative
@@ -56,7 +62,8 @@
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
             %h4#myModalLabel.modal-title Modal title
           .modal-body
-            ستشمننننننننننن
+            در حال بارگذاری
+
           .modal-footer
             %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
             %button.btn.btn-primary{type: "button"} Save changes

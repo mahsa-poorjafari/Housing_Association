@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: 41da3a3c4c139964a9877c77220f94200d73c87a
+  revision: 266a32a5230af67e397e92a9e8c2f314ff4fe555
   specs:
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
@@ -92,7 +92,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (4.7.5)
-    multi_json (1.9.2)
+    multi_json (1.10.0)
     mysql2 (0.3.15)
     nested_form (0.3.2)
     orm_adapter (0.5.0)
