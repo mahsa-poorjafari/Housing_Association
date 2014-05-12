@@ -52,3 +52,13 @@ transition:all 2s; max-height: 100px; overflow: hidden}
 .sample-pic {text-align:center; overflow: hidden}
 #admin-links {text-align:left; min-height:100px; background:#ADD8E6; }
 .admin-title {background:#5EA9F3}
+.show-slide img {width:100%}
+.index-slide {width:100%; 
+  min-height:350px;
+  max-height:350px;
+  height:350px;
+  }
+.slide-des { margin-top:-50px; background:#4D4D4D; font-size:20px; color:#fff; opacity:.8; height:50px}
+.slide-des p {min-height:50px}
+
+.row-controls {margin-top:-25px; color:#fff}

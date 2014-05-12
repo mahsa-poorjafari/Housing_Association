@@ -1,0 +1,14 @@
+#tbox2
+  .title
+    %h2 نمای اسلایدر
+
+  = link_to 'افزودن عکس جدید', new_slide_path, :class => "button btn-sm"
+  
+  .index-slide.set-center 
+    = render 'slider'            
+    
+      
+        
+  :javascript
+    $(".item").first().addClass("active");
+    $('.carousel').carousel();

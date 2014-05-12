@@ -1,6 +1,8 @@
 HousingAssociation::Application.routes.draw do  
 
 
+  resources :slides
+
   resources :send_links
 
   resources :payments

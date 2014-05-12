@@ -1,4 +1,7 @@
 #tbox2
+  .index-slide.set-center 
+    = render 'slides/slider'            
+    
   .title
     %h2= 'اخبار و اعلامیه ها'
     %hr
@@ -21,7 +24,12 @@
     %hr
     
     
-  
+:javascript 
+  $(".item").first().addClass("active");
+  $(".slide-indicator").first().addClass("active");
+  $('.carousel').carousel();
+
+
         
     
   

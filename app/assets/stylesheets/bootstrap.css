@@ -5426,7 +5426,7 @@ button.close {
 .carousel-inner > .next,
 .carousel-inner > .prev {
   position: absolute;
-  top: 0;
+  top: 10px;
   width: 100%;
 }
 .carousel-inner > .next {
@@ -5447,10 +5447,11 @@ button.close {
 }
 .carousel-control {
   position: absolute;
-  top: 0;
+  top: 125px;
   left: 0;
   bottom: 0;
-  width: 15%;
+  width: 10%;
+  height: 55px;
   opacity: 0.5;
   filter: alpha(opacity=50);
   font-size: 20px;

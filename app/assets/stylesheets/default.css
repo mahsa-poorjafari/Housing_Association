@@ -53,7 +53,7 @@
 
 	.container
 	{
-		margin: 0px auto;
+		height:100%;
 		width: 100%;
 	}
 	
@@ -306,9 +306,11 @@
 
 	#header-wrapper
 	{
-		overflow: hidden;
-		background:url(rerew.jpg) no-repeat;
-	
+		overflow: hidden;	
+    min-height:200px;
+    max-height:200px;
+    height:200px;
+    
 	}
 
 	#header
@@ -322,7 +324,7 @@
 
 	#logo
 	{
-		padding: 8em 0em 4em 0em;
+		padding: 1em;
 	}
 	
 	#logo h1
@@ -361,6 +363,7 @@
 	#menu
 	{
 		height: 60px;
+    margin-top:20px;
 	}
 	
 	#menu ul
