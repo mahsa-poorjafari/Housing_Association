@@ -54,12 +54,13 @@
             %hr
       = yield 
       #tbox3
-        .cooperative
+        .cooperative{:style => "text-align:right"}
           .title
             %h4= 'تعاونیهای تحت پوشش'
             %p
               - Cooperative.all.each do  |cooperative|
                 = link_to cooperative.name, cooperative
+                %br
         .links
           .title
             %h4= 'پیوندهای مرتبط'
@@ -73,6 +74,7 @@
             %p
               - Management.all.each do  |management|
                 = link_to management.name + ' ' + management.last_name, management
+                %br
   #footer
     %button.btn.btn-primary{"data-toggle" => "modal", "data-target" => ".bs-example-modal-sm"}
       ارسال لینک به دوستان
