@@ -2,9 +2,9 @@
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     %h4= "ورود اعضا"
     
-    = f.label "ایمیل"
-    = f.email_field :email, :autofocus => true, :class => "text"
-    
+    = f.label "کدملی:"
+    = f.text_field :national_code, :autofocus => true, :class => "text"
+   
     = f.label "رمز عبور"    
     = f.password_field :password, :id => "Emailid", :class => "text"
     

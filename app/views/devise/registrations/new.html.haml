@@ -1,17 +1,22 @@
-%h2 Sign up
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, :autofocus => true
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %div= f.submit "Sign up"
-= render "devise/shared/links"
+#tbox2
+  .title
+    %h2 عضویت
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    %div
+      = f.label 'کدملی:'
+      %br/
+      = f.text_field :national_code, :autofocus => true, :class => "text"
+    %div
+      = f.label "ایمیل:"
+      = f.email_field :email, :autofocus => true, :class => "text"
+    %div
+      = f.label 'رمزعبور'
+      %br/
+      = f.password_field :password, :class => "text"
+    %div
+      = f.label 'تایید رمزعبور'
+      %br/
+      = f.password_field :password_confirmation, :class => "text"
+    %div= f.submit "عضویت"
+  = render "devise/shared/links"

@@ -40,7 +40,7 @@
     #three-column.container.set-center  
       #tbox1
         .title
-          - if is_admin?
+          -if user_signed_in?
             = render "shared/admin_menu"
             = link_to "خروج", destroy_user_session_path, :method => :delete
           - else          
