@@ -1,6 +1,12 @@
 HousingAssociation::Application.routes.draw do  
 
 
+  resources :roles
+
+  resources :slides
+
+  resources :send_links
+
   resources :payments
 
   devise_for :views

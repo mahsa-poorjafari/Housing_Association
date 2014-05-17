@@ -1,26 +1,26 @@
-.page-header
-  .row 
-    %h1= "لیست پروژه ها"
-- @projects.each do |project|
-  .col-lg-4
-    .list-group
-      = link_to project, :class => "list-group-item" do
-        %div
-          = image_tag project.pictures.first.image(:small)
-        %h4.list-group-item-heading= project.title
-        
-        %p.list-group-item-text
-          -if project.Status        
-            تحویل داده شده
-              
-          -else
-            در دست احداث
+#tbox2
+  .title
+    %h2= "لیست پروژه ها"
+  - @projects.each do |project|
+    .col-lg-4
+      .list-group
+        = link_to project, :class => "list-group-item" do
+          %h4.list-group-item-heading= project.title
+          .sample-pic.set-center
+            = image_tag project.pictures.first.image(:small), :class => "set-center"           
+          
+          %p.list-group-item-text
+            -if project.Status        
+              تحویل داده شده
+                
+            -else
+              در دست احداث
 
-        %p.list-group-item-text= project.description
-        
-        = link_to 'ویرایش', edit_project_path(project)
-        = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-.clear-float
+          %p.list-group-item-text= project.description
+          
+          = link_to 'ویرایش', edit_project_path(project)
+          = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+  .clear-float
 
 
-= link_to 'پروژه جدید', new_project_path, :class => "btn btn-primary btn-sm"
+  = link_to 'پروژه جدید', new_project_path, :class => "button btn-sm"

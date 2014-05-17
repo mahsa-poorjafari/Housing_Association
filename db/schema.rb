@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427060047) do
+ActiveRecord::Schema.define(version: 20140517083534) do
 
   create_table "cooperatives", force: true do |t|
     t.string   "name"
@@ -24,10 +24,35 @@ ActiveRecord::Schema.define(version: 20140427060047) do
     t.datetime "updated_at"
   end
 
+  create_table "impressions", force: true do |t|
+    t.string   "impressionable_type"
+    t.integer  "impressionable_id"
+    t.integer  "user_id"
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.string   "view_name"
+    t.string   "request_hash"
+    t.string   "ip_address"
+    t.string   "session_hash"
+    t.text     "message"
+    t.text     "referrer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", length: {"impressionable_type"=>nil, "message"=>255, "impressionable_id"=>nil}, using: :btree
+  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
+
   create_table "informs", force: true do |t|
     t.string   "title"
     t.text     "text"
-    t.integer  "number_visit"
+    t.integer  "number_visit",       default: 0
     t.boolean  "important"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -80,6 +105,8 @@ ActiveRecord::Schema.define(version: 20140427060047) do
     t.string   "bank_draft_no"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "project_id"
   end
 
   create_table "pictures", force: true do |t|
@@ -104,6 +131,32 @@ ActiveRecord::Schema.define(version: 20140427060047) do
     t.datetime "updated_at"
   end
 
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "send_links", force: true do |t|
+    t.string   "sender_email"
+    t.string   "receiver_email"
+    t.string   "current_link"
+    t.text     "text"
+    t.string   "subject"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "slides", force: true do |t|
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "last_name"
@@ -126,8 +179,8 @@ ActiveRecord::Schema.define(version: 20140427060047) do
     t.string   "national_code"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "views", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -144,7 +197,7 @@ ActiveRecord::Schema.define(version: 20140427060047) do
     t.datetime "updated_at"
   end
 
-  add_index "views", ["email"], name: "index_views_on_email", unique: true
-  add_index "views", ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
+  add_index "views", ["email"], name: "index_views_on_email", unique: true, using: :btree
+  add_index "views", ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true, using: :btree
 
 end

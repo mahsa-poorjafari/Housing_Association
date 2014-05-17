@@ -6,62 +6,90 @@
   = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
   = javascript_include_tag "application", "data-turbolinks-track" => true 
   = csrf_meta_tags
+  %meta{:charset => "utf-8"}
+  %meta{:name => "keywords", :content => Project.all.collect(&:title).join(",") } 
+  %meta{:name => "description", :content => "اتحادیه مسکن"}
+  %meta{content: "no", "http-equiv" => "imagetoolbar"}
+  = yield(:refresh_meta) if content_for?(:refresh_meta)
+  -#
+    :javascript
+      <!--
+      //Disable right click script
+      //visit http://www.rainbow.arch.scriptmania.com/scripts/
+      var message="Sorry, right-click has been disabled";
+      ///////////////////////////////////
+      function clickIE() {if (document.all) {(message);return false;}}
+      function clickNS(e) {if
+      (document.layers||(document.getElementById&&!document.all)) {
+      if (e.which==2||e.which==3) {(message);return false;}}}
+      if (document.layers)
+      {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+      else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+      document.oncontextmenu=new Function("return false")
+      // -->
 
 %body    
-  = render "shared/nav_bar"
-  .min-height.container-full.total-box    
-    .right-side.min-height
-      .login-menu
-        .panel.panel-primary          
-          - if is_admin?
+  #header-wrapper
+    #header.container
+      #logo        
+        %h1
+          = link_to 'اتحادیه مسکن', root_path
+      #menu
+        = render "shared/nav_bar"
+  .wrapper
+    #three-column.container.set-center  
+      #tbox1
+        .title
+          -if user_signed_in?
             = render "shared/admin_menu"
             = link_to "خروج", destroy_user_session_path, :method => :delete
-          - elsif is_user?
-            = render "shared/user_menu"
-            = link_to "خروج", destroy_user_session_path, :method => :delete
-          - else
-            .panel-heading
-              %h3.panel-title= "ورود به سایت"
-            .list-group
-              sign in
-              = link_to "خروج", destroy_user_session_path, :method => :delete
-        
-      .panel.panel-success
-        .panel-heading
-          %h3.panel-title= "پروژه ها"
-        .list-group      
+          - else          
+            = render "devise/sessions/new", :resource => resource
+
+        %hr
+        .title
+          %h2= 'پروژه ها'
           - Project.all.each do |project|
-            = link_to project.title, project, :class => "list-group-item"
-      .panel.panel-warning    
-        .panel-heading
-          %h3.panel-title= "پیگیری ثبت نام"
-        %p
-          توجه : بعد از ثبت نام در زیرسامانه ثبت نام از متقاضیان به هر متقاضی یک کد رهگیری اختصاص داده می شود که وارد کردن این کد به همراه کد ملی برای پیگیری های بعدی ضروری است 
-    .well.middle-side.min-height.set-center      
+            = link_to project.title, project
+            %hr
       = yield 
-    .left-side.min-height
-      .panel.panel-primary
-        .panel-heading
-          %h4.panel-title= 'تعاونیهای تحت پوشش'
-        .list-group
-          - Cooperative.all.each do |cooperative|
-            = link_to cooperative.name, cooperative, :class => "list-group-item"
-      .panel.panel-success
-        .panel-heading
-          %h3.panel-title= 'پیوندهای مرتبط'
-        .list-group
-          - Link.all.each do |link|
-            = link_to link.title, url_with_protocol(link.web_site), :class => "list-group-item", :target => "_blank"
-      .panel.panel-warning    
-        .panel-heading
-          %h3.panel-title= "اعضای هیئت مدیره"
-        .list-group  
-          - Management.all.each do |management|
-            = link_to management.name + " " + management.last_name, management, :class => "list-group-item"
-      
-    .clear-float
-  .footer
-    .text-center
-      Copyright House
+      #tbox3
+        .cooperative{:style => "text-align:right"}
+          .title
+            %h4= 'تعاونیهای تحت پوشش'
+            %p
+              - Cooperative.all.each do  |cooperative|
+                = link_to cooperative.name, cooperative
+                %br
+        .links
+          .title
+            %h4= 'پیوندهای مرتبط'
+            %div
+              - Link.all.each do  |link|
+                %p
+                  = link_to link.title, url_with_protocol(link.web_site), :target => "_blank"
+        .managment
+          .title
+            %h4= 'مدیران اتحادیه'
+            %p
+              - Management.all.each do  |management|
+                = link_to management.name + ' ' + management.last_name, management
+                %br
+  #footer
+    %button.btn.btn-primary{"data-toggle" => "modal", "data-target" => ".bs-example-modal-sm"}
+      ارسال لینک به دوستان
+    .modal.fade.bs-example-modal-sm{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", role: "dialog", tabindex: "-1"}
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            %h4#myModalLabel.modal-title ارسال لینک جاری به ایمیل دوستان
 
+          .modal-body
+            = render 'send_links/form'
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
 
+          
+
+          

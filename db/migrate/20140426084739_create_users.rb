@@ -7,7 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :mobile
       t.date :birthdate
 
-      t.timestamps
+      t.timestamps    
     end
+    
   end
 end

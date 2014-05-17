@@ -1,0 +1,27 @@
+.hero-unit
+  .carousel.slide
+    .carousel-inner
+      - @sliders = Slider.all
+      - @sliders.each do |slide|
+        .item-row.item
+          = link_to (image_tag slide.image(:gallery_size), :id =>  slide.id ), slide, :class => "slide"
+          -if is_admin?
+            .row-controls
+              = link_to edit_slider_path(slide) do
+                %i.icon-edit
+              = link_to  slide, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }  do
+                %i.icon-trash
+          
+    -if @sliders.count > 1          
+      .carousel-controls
+        .center
+          %ol.carousel-indicator-list.carousel-indicators
+            - if  @sliders.count != 1
+              -  @sliders.each_with_index do |slide, index|
+                %li{"data-slide-to" => "#{index}", "data-target" => "#homeCarousel", :class => "slide-indicator"}      
+      = link_to ".carousel", :class => "carousel-control left", "data-slide" => "prev" do
+        = image_tag 'next-icon.png'
+      = link_to ".carousel", :class => "carousel-control right", "data-slide" => "next" do
+        = image_tag 'prev-icon.png'
+      
+

@@ -1,15 +1,13 @@
-.page-header
-  .row 
-
-  
+#tbox2
+  .title          
+    %h3= @page.title      
   %p    
-    %h3= @page.title
-    
-  %p    
-    = @page.text
+    =raw @page.text
   - if @page.title == "تماس با ما"
-    = render "shared/msg_form"
-.well.footer
+    #portfolio
+      = render "shared/msg_form"
+  
   = link_to 'ویرایش', edit_page_path(@page)
   \|
   = link_to 'بازگشت', pages_path
+  = @page.impressionist_count

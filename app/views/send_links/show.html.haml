@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Sender email:
+  = @send_link.sender_email
+%p
+  %b Receiver email:
+  = @send_link.receiver_email
+%p
+  %b Current link:
+  = @send_link.current_link
+%p
+  %b Text:
+  = @send_link.text
+%p
+  %b Subject:
+  = @send_link.subject
+
+= link_to 'Edit', edit_send_link_path(@send_link)
+\|
+= link_to 'Back', send_links_path

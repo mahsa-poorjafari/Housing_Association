@@ -3,20 +3,21 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
-# Use sqlite3 as the database for Active Record
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'mysql2'
 end
-
+gem "twitter-bootstrap-rails"
 gem 'devise'
 gem "html2haml"
 gem 'haml-rails'
-gem 'jquery-rails'
+gem 'impressionist'
+
 gem 'colorbox-rails'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'ckeditor_rails'

@@ -1,13 +1,14 @@
-.page-header
-  .row
-    %h1= "فرم ثبت نام" + " " + @project.title
-- if current_user.present?
-  %h2= 'کاربر عضو است'
--else
-  %h4= 'فرم اطلاعات شخصی'
-  .col-lg-6
-    =render 'users/form'
-.row
-  = render 'form'
-.well.footer
+#tbox2
+  .title    
+    %h2= "فرم ثبت نام" + " " + @project.title
+  - if current_user.present?
+    %h2= 'کاربر عضو است'
+  -else    
+    .col-lg-6
+      %h4= 'فرم اطلاعات شخصی'
+      =render 'users/form'
+  .row.col-lg-6
+    %h4= 'فرم اطلاعات مالی'
+    = render 'form'
+  
   = link_to 'بازگشت', payments_path

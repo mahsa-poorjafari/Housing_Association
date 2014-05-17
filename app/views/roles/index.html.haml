@@ -1,0 +1,21 @@
+#tbox2
+  %h1 لیست نقش های سطح دسترسی
+
+  %table.table
+    %tr
+      %th عنوان نقش
+      %th
+      
+
+    - @roles.each do |role|
+      %tr
+        %td= role.name        
+        %td
+          = link_to  edit_role_path(role) do
+            = image_tag 'edit.png' 
+          = link_to  role, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' } do
+            = image_tag 'del.png'
+
+  %br
+
+  = link_to 'نقش جدید', new_role_path

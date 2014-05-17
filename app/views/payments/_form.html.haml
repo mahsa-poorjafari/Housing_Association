@@ -1,15 +1,17 @@
 = form_for @payment do |f|
   - if @payment.errors.any?
-    #error_explanation      
+    #error_explanation
       %ul
         - @payment.errors.each do |attr, msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label "سقف مبلغ پرداختی:"
-    = f.text_field :amount
-  .field
+    = f.text_field :amount, :class => "text"
+  .form-group
     = f.label "شماره فیش واریزی:"
-    = f.text_field :bank_draft_no
+    = f.text_field :bank_draft_no, :class => "text"
+  .form-group    
+    = f.hidden_field :project_id, :class => "text", :value => @project.id
   .actions
-    = f.submit 'ثبت'
+    = f.submit 'ثبت', :class => "button btn-sm"

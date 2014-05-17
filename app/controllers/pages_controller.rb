@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class PagesController < ApplicationController
+  impressionist :actions=>[:show,:index]
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
   # GET /pages
@@ -12,6 +13,7 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
     
+    impressionist(@page, "message...") # 2nd argument is optional
   end
 
   # GET /pages/new

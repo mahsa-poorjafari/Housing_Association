@@ -11,9 +11,13 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    if current_user
+      @member_id = current_user.id    
+      @reg_before = Payment.where( {user_id: @member_id , project_id:  @project.id })
+    end
   end
 
-  # GET /projects/new
+  # GET /projects
   def new
     @project = Project.new
   end
@@ -26,7 +30,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
+   
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'پروژه جدید ایجاد شد. ' }

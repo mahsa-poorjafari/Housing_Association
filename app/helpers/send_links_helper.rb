@@ -1,0 +1,2 @@
+module SendLinksHelper
+end
