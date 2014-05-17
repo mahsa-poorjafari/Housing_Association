@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
 
@@ -33,7 +34,7 @@ class PaymentsController < ApplicationController
     respond_to do |format|
       if @payment.save
       
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
+        format.html { redirect_to @payment, notice: 'اطلاعات پرداخت ثبت شد' }
         format.json { render action: 'show', status: :created, location: @payment }
       else
         format.html { render action: 'new' }

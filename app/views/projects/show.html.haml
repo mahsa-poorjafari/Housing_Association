@@ -34,7 +34,7 @@
           -else
             در دست احداث
       .row    
-        -if @reg_before
+        -if @reg_before.present?
           .col-md-5.reg-link= "شما قبلا در این پروژه ثبت نام کرده اید."
         -else
           .col-md-5.reg-link
