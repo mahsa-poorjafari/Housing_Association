@@ -78,7 +78,11 @@ GEM
       haml (>= 4.0.0.rc.1)
       hpricot (~> 0.8.6)
       ruby_parser (~> 3.1.1)
+    httpclient (2.3.4.1)
     i18n (0.6.9)
+    impressionist (1.5.1)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.5)
     jalalidate (0.3.3)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -91,10 +95,13 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.6.0)
     minitest (4.7.5)
     multi_json (1.10.0)
     mysql2 (0.3.15)
     nested_form (0.3.2)
+    nokogiri (1.6.2.1)
+      mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
@@ -175,6 +182,7 @@ DEPENDENCIES
   friendly_id (~> 5.0.1)
   haml-rails
   html2haml
+  impressionist
   jalalidate
   jbuilder (~> 1.2)
   jquery-rails

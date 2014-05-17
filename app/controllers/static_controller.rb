@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class StaticController < ApplicationController
+  impressionist :actions=>[:show,:index]
   def home
     @informs = Inform.all
     @projects = Project.all

@@ -1,27 +1,29 @@
-%h1 Listing users
+#tbox2
+  .title
+    %h2 لیست کاربران
 
-%table
-  %tr
-    %th Name
-    %th Last name
-    %th Phone
-    %th Mobile
-    %th Birthdate
-    %th
-    %th
-    %th
-
-  - @users.each do |user|
+  = link_to 'ثبت عضو', new_user_path
+  %table
     %tr
-      %td= user.name
-      %td= user.last_name
-      %td= user.phone
-      %td= user.mobile
-      %td= user.birthdate
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Name
+      %th Last name
+      %th Phone
+      %th Mobile
+      %th Birthdate
+      %th
+      %th
+      %th
 
-%br
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.last_name
+        %td= user.phone
+        %td= user.mobile
+        %td= user.birthdate
+        %td= link_to 'Show', user
+        %td= link_to 'Edit', edit_user_path(user)
+        %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New User', new_user_path
+
+
