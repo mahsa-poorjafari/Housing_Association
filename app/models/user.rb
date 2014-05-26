@@ -3,16 +3,26 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
   has_and_belongs_to_many :projects, join_table: :projects_users
-  has_and_belongs_to_many :roles, join_table: :roles_users
+  belongs_to :role
   
-  has_many :payments
-  def email_required?
-    false
-  end
-
-  def email_changed?
-    false
-  end
+  before_save :set_role
+  
+  has_many :pay_limits
+  
+  def is_admin?
+    self.role.name = "admin"
+  end  
+  
+  def is_user?
+    self.role.name = "user"
+  end  
+  private
+    def set_role
+      self.role_id = 3
+    end
+  
+ 
   
 end

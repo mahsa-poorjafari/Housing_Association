@@ -1,0 +1,22 @@
+#tbox2
+  %p#notice= notice
+  .title 
+    %h2= 'درخواست مشارکت در پروژه'
+  
+
+ 
+  %p
+    %b اطلاعات کاربر:
+    = @pay_limit.user.email
+    = @pay_limit.user.id
+  %p
+    %b اطلاعات پروژه
+    = @pay_limit.project.id
+    = @pay_limit.project.title
+  %p
+    %b سقف مبلغ پرداختی:
+    = @pay_limit.amount
+    
+  = link_to 'ویرایش', edit_pay_limit_path(@pay_limit)
+  \|
+  = link_to 'بازگشت', pay_limits_path

@@ -1,0 +1,29 @@
+.col-lg-6 
+  = image_tag 'google-map.jpg'
+  
+
+.col-lg-6.footer-link
+  %ul.footer-menu
+    %li
+      = link_to 'صفحه نخست', root_path
+    %li
+      = link_to 'پروژه ها', projects_path
+    %li
+      = link_to 'تعاونیها', cooperatives_path
+  .vertical-line
+  %ul.footer-item
+    %li
+      = link_to  'ارسال لینک جاری به دوستان', '#', "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm"
+  .modal.fade.bs-example-modal-sm{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", role: "dialog", tabindex: "-1"}
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          %h4#myModalLabel.modal-title ارسال لینک جاری به ایمیل دوستان
+
+        .modal-body
+          = render 'send_links/form'
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+
+              

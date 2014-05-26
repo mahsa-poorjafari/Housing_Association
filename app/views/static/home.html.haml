@@ -5,13 +5,13 @@
   .title
     %h2= 'اخبار و اعلامیه ها'
     %hr
-  - @informs.all.each do |inform|
+  - @informs.each do |inform|
     .row      
       .col-md-2
         -if inform.important
           .important= "مهم"          
       .col-md-5
-        = JalaliDate.new(inform.created_at).format("%A %d %b %Y - %H:%m") 
+        = JalaliDate.new(inform.created_at).format("%A %d %b %Y") 
       -if inform.project_id
         .col-md-4
           %td= link_to inform.project.title, inform.project    

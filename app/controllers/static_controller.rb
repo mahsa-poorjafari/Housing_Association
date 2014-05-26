@@ -2,7 +2,7 @@
 class StaticController < ApplicationController
   impressionist :actions=>[:show,:index]
   def home
-    @informs = Inform.all
+    @informs = Inform.order(" created_at desc")
     @projects = Project.all
     if current_user.present?
       @login = current_user

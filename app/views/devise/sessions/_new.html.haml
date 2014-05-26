@@ -1,9 +1,9 @@
 #middlerightPan
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    %h4= "ورود اعضا"
+    %h4= "ورود به سایت"
     
-    = f.label "کدملی:"
-    = f.text_field :national_code, :autofocus => true, :class => "text"
+    = f.label "ایمیل:"
+    = f.text_field :email, :autofocus => true, :class => "text"
    
     = f.label "رمز عبور"    
     = f.password_field :password, :id => "Emailid", :class => "text"

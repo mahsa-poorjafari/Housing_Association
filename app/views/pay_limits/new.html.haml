@@ -1,0 +1,20 @@
+#tbox2
+  .title    
+    %h2= "فرم ثبت نام در پروژه" + " " + @project.title
+  - if current_user.blank?
+    %h2= 'شما مجاز به دسترسی نیستید.'
+    = link_to 'عضو شوید', new_registration_path(resource_name), class:"link"
+  - else
+    #personal-info
+    %p= current_user.name
+    %p= current_user.id    
+    %p= current_user.role_id
+    %p= current_user.email
+    
+    #pay-info.width70.set-center
+      %h4= 'فرم اطلاعات مالی'
+      = render 'form'
+  
+  = link_to 'بازگشت', pay_limits_path
+
+

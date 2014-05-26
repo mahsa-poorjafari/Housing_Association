@@ -17,6 +17,8 @@ gem 'devise'
 gem "html2haml"
 gem 'haml-rails'
 gem 'impressionist'
+gem 'ahoy_matey'
+
 
 gem 'colorbox-rails'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
@@ -24,6 +26,10 @@ gem 'ckeditor_rails'
 gem "friendly_id", "~> 5.0.1"
 gem 'jalalidate'
 gem "nested_form"
+
+
+gem 'jquery-datatables-rails', '~> 1.12.2', git: 'git://github.com/rweng/jquery-datatables-rails.git'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

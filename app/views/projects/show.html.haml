@@ -38,7 +38,7 @@
           .col-md-5.reg-link= "شما قبلا در این پروژه ثبت نام کرده اید."
         -else
           .col-md-5.reg-link
-            = link_to 'لینک ثبت نام', new_payment_path(:id => @project.id), :class => "btn btn-danger"
+            = link_to 'لینک ثبت نام', new_pay_limit_path(:id => @project.id), :class => "btn btn-danger"
       
     .clear-float
     %div

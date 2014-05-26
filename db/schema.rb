@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140517083534) do
+ActiveRecord::Schema.define(version: 20140526081238) do
 
   create_table "cooperatives", force: true do |t|
     t.string   "name"
@@ -100,6 +100,15 @@ ActiveRecord::Schema.define(version: 20140517083534) do
     t.datetime "updated_at"
   end
 
+  create_table "pay_limits", force: true do |t|
+    t.string   "amount"
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+  end
+
   create_table "payments", force: true do |t|
     t.float    "amount"
     t.string   "bank_draft_no"
@@ -177,6 +186,7 @@ ActiveRecord::Schema.define(version: 20140517083534) do
     t.string   "last_sign_in_ip"
     t.text     "address"
     t.string   "national_code"
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

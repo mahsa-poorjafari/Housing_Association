@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require colorbox-rails
+ *= require dataTables/jquery.dataTables
  *= require_self
  *= require_tree .
  */
@@ -18,7 +19,7 @@
 .set-center {margin-right:auto; margin-left:auto;}
 .text-center {text-align:center}
 .center-div {width:90%; text-align:right}
-
+.width70 {width:70%}
 .footer {text-align:center; min-height: 100px; background:#BFBFBF; margin-top: 10px}
 .clear-float {clear:both}
 table  tr th {text-align:right}
@@ -51,7 +52,7 @@ transition:all 2s; max-height: 100px; overflow: hidden}
 .login-menu:hover {max-height:450px; cursor:pointer}
 .sample-pic {text-align:center; overflow: hidden}
 #admin-links {text-align:left; min-height:100px; background:#ADD8E6; }
-.admin-title {background:#5EA9F3}
+.admin-title {background:#75B9FF}
 .show-slide img {width:100%}
 .index-slide {width:100%; 
   min-height:350px;

@@ -1,0 +1,54 @@
+#tbox2
+  .title 
+
+    %h1= 'لیست در خواست مشارکت برای پروژه ها'
+
+  %table.table.table-striped{id:"pay_limit_table"}
+    %thead
+      %tr
+        %th ردیف 
+        %th کدرهگیری
+        %th سقف پرداختی
+        %th کد کاربر
+        %th کدپروژه        
+        %th عملیات
+    %tbody{:id => "pay_limit_container"}
+      - @pay_limits.each_with_index do |pay_limit, i|
+        %tr
+          %td= (i+1) 
+          %td= pay_limit.id
+          %td= pay_limit.amount
+          %td= pay_limit.user_id
+          %td= pay_limit.project_id
+          %td
+            = link_to 'مشاهده جزئیات', pay_limit        
+            \|
+            = link_to 'حذف', pay_limit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'ایجاد درخواست مشارکت', new_pay_limit_path
+
+
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#pay_limit_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,5]
+    ,  
+      bSortable: false
+      aTargets: [0,5]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()

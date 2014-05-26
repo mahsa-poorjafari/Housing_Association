@@ -1,4 +1,4 @@
 .panel-heading
   %h3.panel-title= "منوی کاربر عضو"
 .list-group
-  = link_to "مدیریت پروفایل شخصی", Message, :class => "list-group-item"
+  = link_to "مدیریت پروفایل شخصی", edit_user_registration_path(current_user), :class => "list-group-item"

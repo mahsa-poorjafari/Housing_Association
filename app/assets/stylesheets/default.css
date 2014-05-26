@@ -7,7 +7,7 @@
 	{
 		margin: 0px;
 		padding: 0px;
-		background: #2056ac;		
+		background: #4A657F;		
 		font-size: 12pt;
 		color: rgba(0,0,0,.6);
 	}
@@ -395,7 +395,7 @@
 	{
 		background: #FFF;
 		border-radius: 7px 7px 0px 0px;
-		color: #2056ac;
+		color: #4A657F;
 	}
 	
 	#menu .current_page_item a
@@ -516,11 +516,17 @@
 	#footer
 	{
 		overflow: hidden;
-		padding: 5em 0em;
-		background: #E3F0F7;
+		min-height:200px;
+		min-height:200px;
+    padding:10px;
+		background: #606F7F;
 		text-align: center;
 	}
-
+	#footer .footer-link {  }	
+	#footer .footer-link ul.footer-item{ border-right:#fff solid 1px; height:300px; }	
+	#footer .footer-link ul{ width:45%; float:right; text-align:justify; padding:1em }
+	#footer .footer-link a{ color:#fff;  }
+	#footer .footer-link a:hover{ color:#BFDFFF;  }
 
 		
 	#footer .fbox1,
@@ -694,9 +700,9 @@
 		padding: 5px;
 	}
   #three-column #tbox3 {width:20%; text-align:right}
-  #three-column #tbox3 .cooperative{width:100%;background:#94C6E1; min-height: 150px; text-align:right}
+  #three-column #tbox3 .cooperative{width:100%;background:#99B2CC; min-height: 150px; text-align:right}
   #three-column #tbox3 .links{width:100%;border: 1px solid #94C6E1; min-height: 150px}
-  #three-column #tbox3 .managment{width:100%;background:#94C6E1; min-height: 150px}
+  #three-column #tbox3 .managment{width:100%;background:#BFDFFF; min-height: 150px}
   
    
 	#three-column #tbox2 {width:60%; text-align:right; padding-right:20px;}

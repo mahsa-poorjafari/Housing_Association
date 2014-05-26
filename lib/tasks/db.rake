@@ -6,12 +6,6 @@ namespace :db do
     Page.create(:title => "تماس با ما") if Page.where(title:"تماس با ما").blank?
     p 'pages created'
   end
-
-  desc "creates default users"
-  task :create_default_users => :environment do
-    User.create(name:"admin", password:"123qwe", email:"web.development@raush.ir, national_code:1234567890") if User.where(name:"admin").blank?
-    p 'user created'
-  end
   
   desc "creates default roles"
   task :create_default_roles => :environment do
@@ -20,6 +14,14 @@ namespace :db do
     Role.create(name:"user") if Role.where(name:"user").blank?
     p 'roles created'
   end
+
+  desc "creates default users"
+  task :create_default_users => :environment do
+    User.create(name:"admin", password:"123qwe123", email:"web.development@raush.ir", role_id: '1') if User.where(name:"admin").blank?
+    p 'user created'
+  end
+  
+  
 
 end
 

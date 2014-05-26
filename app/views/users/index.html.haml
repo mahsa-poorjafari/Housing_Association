@@ -3,28 +3,56 @@
     %h2 لیست کاربران
 
   = link_to 'ثبت عضو جدید', new_user_path, :class => "button btn-sm"
-  %table.table
-    %tr
-      %th= 'نام و نام خانوادگی'      
-      %th= 'تلفن ثابت'
-      %th= 'تلفن همراه'      
-      %th= 'ایمیل'
-      %th 
-
-    - @users.each do |user|
+  %br
+  %table.table.table-striped{id:"users_table"}
+    %thead
       %tr
-        %td
-          = user.name 
-          = user.last_name        
-        %td= user.phone
-        %td= user.mobile        
-        %td= user.email        
-        %td= link_to 'مشاهده اطلاعات کامل کاربر', user        
-      %tr 
-        %td= 'پروژه'
-        %td
-        %td= 'سقف توان پرداختی:'
-        %td= user.payments.first.amount
+        %th
+        %th= 'نام و نام خانوادگی'      
+        %th= 'تلفن تماس'        
+        %th= 'ایمیل'
+        %th= 'پروژه'
+        %th= 'سقف پرداختی'        
+        
+    %tbody{:id => "users_container"}
+      - @users.each_with_index do |user, i|
+        %tr
+          %td= (i+1)
+          %td
+            = link_to user do
+              = user.name 
+              = user.last_name        
+          %td 
+            = user.phone
+            = user.mobile        
+          %td= user.email        
+          %td
+          %td
+          
+          
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#users_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,5]
+    ,  
+      bSortable: false
+      aTargets: [0,5]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
+
 
 
 
