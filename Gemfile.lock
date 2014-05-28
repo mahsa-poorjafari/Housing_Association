@@ -79,6 +79,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    farsifu (0.5.0)
     friendly_id (5.0.3)
       activerecord (>= 4.0.0)
     geocoder (1.2.1)
@@ -201,6 +202,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   colorbox-rails
   devise
+  farsifu
   friendly_id (~> 5.0.1)
   haml-rails
   html2haml

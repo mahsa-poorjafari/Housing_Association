@@ -17,4 +17,6 @@
 //= require ckeditor-jquery
 //= require jquery_nested_form
 //= require dataTables/jquery.dataTables
+//= require jquery
+//= require ahoy
 //= require_tree .

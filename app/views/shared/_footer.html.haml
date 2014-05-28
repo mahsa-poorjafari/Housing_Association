@@ -14,6 +14,12 @@
   %ul.footer-item
     %li
       = link_to  'ارسال لینک جاری به دوستان', '#', "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm"
+    
+    %li
+      
+      آمار سایت
+      = Visit.all.count
+      بازدید تاکنون
   .modal.fade.bs-example-modal-sm{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", role: "dialog", tabindex: "-1"}
     .modal-dialog.modal-sm
       .modal-content

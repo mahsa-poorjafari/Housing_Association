@@ -18,7 +18,7 @@ gem "html2haml"
 gem 'haml-rails'
 gem 'impressionist'
 gem 'ahoy_matey'
-
+gem "farsifu"
 
 gem 'colorbox-rails'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
