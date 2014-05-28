@@ -1,4 +1,7 @@
 class Project < ActiveRecord::Base
+  extend FriendlyId  
+  friendly_id :title
+  
   has_many :pictures
   has_many :informs
   has_many :pay_limits

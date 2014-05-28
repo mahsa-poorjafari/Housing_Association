@@ -1,19 +1,22 @@
 #tbox2
   .title
-    %h2= "اعلامیه جدید"
+    %h2= "اعلامیه "
   .center-div.set-center.min-height
     -if notice
       .alert.alert-dismissable.alert-success
         %p#notice= notice
     
     %p
-      %b 
-        = @inform.title
+      %h4 
+        = @inform.title 
+        = link_to @inform.project.title, @inform.project
+    
     %p
       %b تعداد بازدید:
       = @inform.number_visit
     %p    
       = raw @inform.text
+      
     
     
 

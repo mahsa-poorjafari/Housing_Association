@@ -1,2 +1,0 @@
-class RegProjectController < ApplicationController
-end
