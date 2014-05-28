@@ -1,8 +1,7 @@
 HousingAssociation::Application.routes.draw do  
 
 
-  resources :pay_limits
-
+  resources :pay_limits 
   resources :roles
 
   resources :slides

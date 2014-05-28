@@ -1,9 +1,17 @@
-
 .admin-title
   %h3.panel-title= "منوی کاربر عضو"
 .list-group
   = current_user.role_id
-  = link_to "مدیریت پروفایل شخصی", edit_user_registration_path(current_user), :class => "list-group-item"
-  = link_to 'پیگیری ثبت نام ', '#',  :class => "list-group-item"
-  = link_to 'سایر', '#',  :class => "list-group-item"
+  = link_to "مدیریت پروفایل شخصی", edit_user_registration_path(current_user), :class => "list-group-item"  
+  .list-group-item  
+    %b= 'پروژه های مشارکتی'
+    %br
+    - @pro_user = PayLimit.where( { user_id:  current_user.id })      
+    -if @pro_user.present?
+      - @pro_user.each do |up|
+        = link_to up.project.title, project_path(up.project.title)
+        %br
+    -else
+      %p= 'شما در هیچ پروژه ای شرکت نکرده اید.'
+  
   

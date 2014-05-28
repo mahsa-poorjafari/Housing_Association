@@ -12,7 +12,8 @@ class PayLimitsController < ApplicationController
   # GET /pay_limits/1.json
   def show
   end
-
+  
+  
   # GET /pay_limits/new
   def new
     @pay_limit = PayLimit.new

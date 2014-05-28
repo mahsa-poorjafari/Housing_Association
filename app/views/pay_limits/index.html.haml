@@ -2,7 +2,8 @@
   .title 
 
     %h1= 'لیست در خواست مشارکت برای پروژه ها'
-
+  = link_to 'چاپ جدول', '#', :id => "print-table" 
+  %br
   %table.table.table-striped{id:"pay_limit_table"}
     %thead
       %tr
@@ -52,3 +53,7 @@
         sNext: "صفحه بعدی"
 
   window.reloadDataTable()
+:javascript
+  $('#print-table').click(function(){
+    window.print();
+  });

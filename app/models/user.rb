@@ -14,11 +14,11 @@ class User < ActiveRecord::Base
   has_many :pay_limits
   
   def is_admin?
-    self.role.name = "admin"
+    self.name == "admin"
   end  
   
   def is_user?
-    self.role.name = "user"
+    self.role.name == "user"
   end  
   private
     def set_role

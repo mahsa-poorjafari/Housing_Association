@@ -5,11 +5,11 @@
     -if notice
       .alert.alert-dismissable.alert-success
         %p#notice= notice
-    
-    %p
-      %h4 
-        = @inform.title 
-        = link_to @inform.project.title, @inform.project
+    - if @inform.project.present?
+      %p
+        %h4 
+          = @inform.title 
+          = link_to @inform.project.title, @inform.project
     
     %p
       %b تعداد بازدید:
