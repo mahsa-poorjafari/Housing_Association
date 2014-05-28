@@ -40,11 +40,12 @@
       #three-column.container.set-center  
         #tbox1
           .title    
+            
+            -if is_admin?
+              = render "shared/admin_menu"
+              = link_to "خروج", destroy_user_session_path, :method => :delete
             -if is_user?
               = render "shared/user_menu"
-              = link_to "خروج", destroy_user_session_path, :method => :delete
-            -elsif is_admin?
-              = render "shared/admin_menu"
               = link_to "خروج", destroy_user_session_path, :method => :delete
             -else          
               = render "devise/sessions/new", :resource => resource

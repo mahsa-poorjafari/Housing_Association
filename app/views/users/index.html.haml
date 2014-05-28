@@ -2,32 +2,35 @@
   .title
     %h2 لیست کاربران
 
-  = link_to 'ثبت عضو جدید', new_user_path, :class => "button btn-sm"
-  %br
+  
   %table.table.table-striped{id:"users_table"}
     %thead
       %tr
         %th
         %th= 'نام و نام خانوادگی'      
+        %th= 'نقش کاربر'
         %th= 'تلفن تماس'        
         %th= 'ایمیل'
         %th= 'پروژه'
-        %th= 'سقف پرداختی'        
+        %th= 'سقف پرداختی'  
+        %th      
         
     %tbody{:id => "users_container"}
       - @users.each_with_index do |user, i|
         %tr
-          %td= (i+1)
+          %td= (i+1)          
           %td
             = link_to user do
               = user.name 
               = user.last_name        
+          %td= user.role_id
           %td 
             = user.phone
             = user.mobile        
           %td= user.email        
           %td
           %td
+          %td= link_to 'حذف', user, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
           
           
 :coffeescript

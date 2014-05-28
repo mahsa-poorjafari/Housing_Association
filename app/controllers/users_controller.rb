@@ -21,17 +21,13 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @role = Role.all
   end
 
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-    
-    @user.role_id = 3
-    p '1111111'
-    @user.save
-    p '22222222'
+    @user = User.new(user_params)  
     
     respond_to do |format|
       if @user.save

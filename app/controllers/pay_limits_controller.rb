@@ -16,7 +16,12 @@ class PayLimitsController < ApplicationController
   # GET /pay_limits/new
   def new
     @pay_limit = PayLimit.new
-    @project = Project.find(params[:id])
+    @project_id = params[:id]
+    if @project_id
+      @project = Project.find(@project_id)
+    else
+      @projects = Project.all
+    end
   end
 
   # GET /pay_limits/1/edit
@@ -28,15 +33,11 @@ class PayLimitsController < ApplicationController
   def create
     @pay_limit = PayLimit.new(pay_limit_params)
 
-    respond_to do |format|
-      if @pay_limit.save
-        format.html { redirect_to @pay_limit, notice: 'درخواست شما ارسال گردید.' }
-        format.json { render action: 'show', status: :created, location: @pay_limit }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @pay_limit.errors, status: :unprocessable_entity }
-      end
+    if @pay_limit.save
+      CodeMailer.send_pro_reg_code.deliver      
+      flash[:notice] = 'کاربر گرامی کدرهگیری به ایمیل شما ارسال گردید.'      
     end
+    render action: 'show'
   end
 
   # PATCH/PUT /pay_limits/1

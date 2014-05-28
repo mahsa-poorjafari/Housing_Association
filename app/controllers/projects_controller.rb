@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
   def show
     if current_user
       @member_id = current_user.id    
-      @reg_before = Payment.where( {user_id: @member_id , project_id:  @project.id })
+      @reg_before = PayLimit.where( {user_id: @member_id , project_id:  @project.id })
     end
   end
 

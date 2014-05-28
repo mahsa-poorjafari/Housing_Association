@@ -1,8 +1,8 @@
 .admin-title
   %h3= "منوی مدیر سایت"
   %h5= current_user.name
-.list-group    
-  = link_to "ثبت عضو در سایت", new_user_path, :class => "list-group-item"
+  %h5= current_user.role_id
+.list-group      
   = link_to "گزارش گیری از کابران", User, :class => "list-group-item"
   = link_to "گزارش گیری درخواست مشارکت", PayLimit, :class => "list-group-item"
   = link_to " مدیریت اطلاعیه", Inform, :class => "list-group-item"

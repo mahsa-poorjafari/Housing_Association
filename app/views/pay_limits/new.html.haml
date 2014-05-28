@@ -1,6 +1,9 @@
 #tbox2
   .title    
-    %h2= "فرم ثبت نام در پروژه" + " " + @project.title
+    - if @project.present?
+      %h2= "فرم ثبت نام در پروژه" + " " + @project.title
+    -else
+      %h2= "فرم ثبت نام در پروژه"
   - if current_user.blank?
     %h2= 'شما مجاز به دسترسی نیستید.'
     = link_to 'عضو شوید', new_registration_path(resource_name), class:"link"

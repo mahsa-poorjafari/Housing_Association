@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  has_and_belongs_to_many :projects, join_table: :projects_users
+  has_and_belongs_to_many :projects, :class_name => "Project", :join_table => "projects_users", :foreign_key => "user_id" 
   belongs_to :role
   
   before_save :set_role
@@ -21,8 +21,6 @@ class User < ActiveRecord::Base
   private
     def set_role
       self.role_id = 3
-    end
-  
- 
+    end 
   
 end

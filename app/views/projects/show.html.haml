@@ -4,11 +4,13 @@
       %p#notice= notice  
       
   .title
-    %h3= @project.title           
-    .admin-link
-      = link_to 'ویرایش', edit_project_path(@project)
-      \|
-      = link_to 'بازگشت', projects_path
+    %h3= 'پروژه ' +  @project.title           
+    -if current_user.role.name == 'admin'
+    
+      .admin-link
+        = link_to 'ویرایش', edit_project_path(@project)
+        \|
+        = link_to 'بازگشت', projects_path
       
   %div
     .row.text-center

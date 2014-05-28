@@ -3,7 +3,9 @@
   .title 
     %h2= 'درخواست مشارکت در پروژه'
   
-
+  %h3= 'کدرهگیری' 
+  %h4= @pay_limit.id
+  
  
   %p
     %b اطلاعات کاربر:
@@ -18,5 +20,4 @@
     = @pay_limit.amount
     
   = link_to 'ویرایش', edit_pay_limit_path(@pay_limit)
-  \|
-  = link_to 'بازگشت', pay_limits_path
+ 
