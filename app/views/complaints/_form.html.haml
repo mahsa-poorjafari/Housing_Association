@@ -1,0 +1,17 @@
+= form_for @complaint do |f|
+  - if @complaint.errors.any?
+    #error_explanation
+      
+      %ul
+        - @complaint.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :user_id
+    = f.number_field :user_id, :value => current_user.id
+  .form-group
+    = f.label ':متن شکایت'
+    = f.text_area :complaint_text, :class => "text`"
+  
+  .form-group
+    = f.submit 'ثبت شکایت', :class => "button btn-sm"

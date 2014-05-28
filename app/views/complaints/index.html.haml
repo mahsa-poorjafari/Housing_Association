@@ -1,0 +1,51 @@
+#tbox2
+  .title
+    %h1 لیست شکایات
+
+
+  %table.table.table-striped{id:"complaint_table"}
+    %thead
+      %tr 
+        %th ردیف      
+        %th متن شکایت
+        %th جواب شکایت      
+        %th عملیات
+        
+    %tbody{:id => "complaint_container"}
+      - @complaints.each_with_index do |complaint, i|
+        %tr
+          %td= (i+1) 
+          %td= complaint.complaint_text
+          %td= complaint.complaint_answer
+          %td
+            = link_to 'مشاهده', complaint
+            \|
+            = link_to 'ویرایش', edit_complaint_path(complaint)
+            \|
+            = link_to 'حذف', complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+
+  %br
+
+  = link_to 'ثبت شکایت جدید', new_complaint_path, :class => "button btn-sm"
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#complaint_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,3]
+    ,  
+      bSortable: false
+      aTargets: [0,3]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()

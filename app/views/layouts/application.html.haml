@@ -71,6 +71,10 @@
                 - Link.all.each do  |link|
                   %p
                     = link_to link.title, url_with_protocol(link.web_site), :target => "_blank"
+          .complaints
+            .title
+              %h4= 'داوری و رسیدگی به شکایات'
+              %h3= link_to 'ثبت شکایت', new_complaint_path
           .managment
             .title
               %h4= 'مدیران اتحادیه'
@@ -78,6 +82,7 @@
                 - Management.all.each do  |management|
                   = link_to management.name + ' ' + management.last_name, management
                   %br
+                  
     #footer
       = render 'shared/footer'
 
