@@ -1,0 +1,23 @@
+%h1 Listing comment_complaints
+
+%table
+  %tr
+    %th User
+    %th Complaint
+    %th Text
+    %th
+    %th
+    %th
+
+  - @comment_complaints.each do |comment_complaint|
+    %tr
+      %td= comment_complaint.user_id
+      %td= comment_complaint.complaint_id
+      %td= comment_complaint.text
+      %td= link_to 'Show', comment_complaint
+      %td= link_to 'Edit', edit_comment_complaint_path(comment_complaint)
+      %td= link_to 'Destroy', comment_complaint, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Comment complaint', new_comment_complaint_path

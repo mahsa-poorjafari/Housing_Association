@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class User < ActiveRecord::Base
   extend FriendlyId  
   friendly_id :name
@@ -12,6 +13,7 @@ class User < ActiveRecord::Base
   
   
   has_many :pay_limits
+  has_many :comment_complaints
   
   def is_admin?
     self.name == "admin"

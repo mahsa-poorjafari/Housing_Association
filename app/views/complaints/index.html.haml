@@ -7,7 +7,7 @@
     %thead
       %tr 
         %th ردیف      
-        %th متن شکایت              
+        %th موضوع شکایت             
         %th پاسخ شکایت             
         %th عملیات
         
@@ -15,7 +15,7 @@
       - @complaints.each_with_index do |complaint, i|
         %tr
           %td= (i+1) 
-          %td= link_to truncate( complaint.complaint_text,  length: 50), complaint
+          %td= link_to truncate( complaint.subject,  length: 50), complaint
           
           %td
             - if  complaint.complaint_answer.present?

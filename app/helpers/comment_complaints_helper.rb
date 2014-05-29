@@ -1,0 +1,2 @@
+module CommentComplaintsHelper
+end

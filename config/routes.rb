@@ -1,6 +1,8 @@
 HousingAssociation::Application.routes.draw do  
 
 
+  resources :comment_complaints
+
   resources :complaints
 
   resources :pay_limits 

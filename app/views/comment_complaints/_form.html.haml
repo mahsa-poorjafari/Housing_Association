@@ -1,0 +1,18 @@
+= form_for @comment_complaint ||= CommentComplaint.new do |f|
+  - if @comment_complaint.errors.any?
+    #error_explanation      
+      %ul
+        - @comment_complaint.errors.each do |attr, msg|
+          %li= msg
+
+  .form-group
+    = f.label :user_id
+    = f.number_field :user_id, :value => current_user.id
+  .form-group
+    = f.label :complaint_id
+    = f.number_field :complaint_id, :value => complaint_id
+  .form-group
+    = f.label :text
+    = f.text_area :text, :class => "text"
+  .form-group
+    = f.submit 'ثبت نظر', :class => "button btn-sm"

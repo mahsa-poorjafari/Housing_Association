@@ -1,6 +1,7 @@
 #tbox2
   .title
     %h2 اخبار و اعلامیه ها
+  = link_to 'ثبت اطلاعیه جدید', new_inform_path, :class => "button btn-sm"
 
   %table.table
     - @informs.each do |inform|
@@ -9,15 +10,21 @@
         %td.important
           -if inform.important      
             مهم
-        %th= link_to inform.title, inform      
+        %th= link_to inform.title, inform 
+        -if inform.project_id        
+          %td= link_to inform.project.title, inform.project       
         %td
           %span= 'تعداد بازدید'
           = inform.number_visit
-       
-        %td
-          = link_to 'ویرایش', edit_inform_path(inform)
-          = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+        %td= JalaliDate.new(inform.created_at).format("%A %d %b %Y") 
+        - if is_admin?
+          %td
+            = link_to 'ویرایش', edit_inform_path(inform)
+            \|
+            = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
       %tr
         %td{:colspan => "4"}= raw inform.text
+        
+          
 
-  = link_to 'ثبت اطلاعیه جدید', new_inform_path, :class => "button btn-sm"
+ 

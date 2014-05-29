@@ -5,11 +5,14 @@
       %ul
         - @complaint.errors.full_messages.each do |msg|
           %li= msg
-  .form-group
-    = f.label ':متن شکایت'
+  
+  .form-group   
     = f.hidden_field :user_id, :value => current_user.id
   .form-group
-    = f.label ':متن شکایت'
+    = f.label 'موضوع شکایت:'
+    = f.text_field :subject, :class => "text"
+  .form-group
+    = f.label 'متن شکایت:'
     = f.text_area :complaint_text, :class => "text"
 
   .form-group

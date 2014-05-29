@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @comment_complaint.user_id
+%p
+  %b Complaint:
+  = @comment_complaint.complaint_id
+%p
+  %b Text:
+  = @comment_complaint.text
+
+= link_to 'Edit', edit_comment_complaint_path(@comment_complaint)
+\|
+= link_to 'Back', comment_complaints_path

@@ -1,7 +1,9 @@
 %div
   %h3
     شکایت از اتحادیه مسکن
-  %h4  
+  %h3
+    = @complaint.subject
+  %h4   
     = @complaint.complaint_text
   %h4
     = @complaint.user_id
