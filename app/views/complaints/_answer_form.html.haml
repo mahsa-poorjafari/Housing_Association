@@ -6,14 +6,12 @@
         - @complaint.errors.full_messages.each do |msg|
           %li= msg
 
+  
   .form-group
-    = f.label :user_id
-    = f.number_field :user_id, :value => current_user.id
+    = f.label 'متن شکایت:'
+    %p= @complaint.complaint_text
   .form-group
-    = f.label ':متن شکایت'
-    %div= @complaint.complaint_text, :class => "text"
-  .form-group
-    = f.label ':جواب شکایت'  
+    = f.label 'پاسخ به شکایت:'  
     = f.text_area :complaint_answer, :class => "text"
   .form-group
-    = f.submit 'ثبت جواب شکایت', :class => "button btn-sm"
+    = f.submit 'ثبت ', :class => "button btn-sm"

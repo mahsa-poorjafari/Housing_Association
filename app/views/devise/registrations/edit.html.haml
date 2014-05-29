@@ -28,10 +28,10 @@
         
       %hr
         
-      
-      .form-group
-        = f.label "نقش کاربر:"
-        = f.select :role_id, options_from_collection_for_select(Role.all, "id","name"), { :include_blank=>true }
+      - if is_admin?
+        .form-group
+          = f.label "نقش کاربر:"
+          = f.select :role_id, options_from_collection_for_select(Role.all, "id","name"), { :include_blank=>true }
       .form-group
         = f.label "نام:"
         = f.text_field :name, :class => "text"

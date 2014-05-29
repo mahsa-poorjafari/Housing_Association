@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class ComplaintsController < ApplicationController
   before_action :set_complaint, only: [:show, :edit, :update, :destroy]
 
@@ -26,15 +27,11 @@ class ComplaintsController < ApplicationController
   def create
     @complaint = Complaint.new(complaint_params)
 
-    respond_to do |format|
-      if @complaint.save
-        format.html { redirect_to @complaint, notice: 'Complaint was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @complaint }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @complaint.errors, status: :unprocessable_entity }
-      end
+    if @complaint.save
+      SendComplaint.send_complaint_to_Inspector.deliver      
+      flash[:notice] = 'کاربر گرامی پیغام شما ارسال گردید.'      
     end
+    render action: 'show'
   end
 
   # PATCH/PUT /complaints/1

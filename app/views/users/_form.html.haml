@@ -4,9 +4,10 @@
       %ul
         - @user.errors.each do |attr, msg|
           %li= msg
-  .form-group
-    = f.label "نقش کاربر:"
-    = f.text_field :role_id, :class => "text"
+  - if is_admin?
+    .form-group
+      = f.label "نقش کاربر:"
+      = f.text_field :role_id, :class => "text"
   .form-group
     = f.label "نام:"
     = f.text_field :name, :class => "text"

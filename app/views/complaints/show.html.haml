@@ -5,15 +5,18 @@
   %p#notice= notice
 
   %p
-    %b User:
-    = @complaint.user_id
-  %p
     %b متن شکایت
     = @complaint.complaint_text
   %p
     %b جواب شکایت
-    = @complaint.complaint_answer
-
-  = link_to 'ویرایش', edit_complaint_path(@complaint)
-  \|
+    -if @complaint.complaint_answer.present?
+      = @complaint.complaint_answer
+    -else
+      هیچ پاسخی داده نشده
+  - if @complaint.user_id == current_user.id 
+    = link_to 'ویرایش', edit_complaint_path(@complaint)
+    \|
+  - if @complaint.user_id == current_user.id || is_admin?
+    = link_to 'حذف', @complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+    \|
   = link_to 'مشاهده شکایات', complaints_path
