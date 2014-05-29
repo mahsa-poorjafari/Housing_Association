@@ -1,7 +1,14 @@
 #tbox2
   %h2= 'اطلاعات کاربر'
   %p#notice= notice
-
+  %p
+    %b نقش کاربر:
+    - if @user.role_id == 1
+      %i= 'مدیر سایت'
+    - elsif @user.role_id == 2
+      %i= 'بازرس'
+    - else
+      %i= 'کاربر عادی'
   %p
     %b نام:
     = @user.name

@@ -30,7 +30,10 @@
           %td= user.email        
           %td
           %td
-          %td= link_to 'حذف', user, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+          %td
+            = link_to 'حذف', user, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+            \|
+            = link_to 'ویرایش', edit_user_path(user)
           
           
 :coffeescript

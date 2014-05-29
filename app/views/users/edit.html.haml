@@ -1,7 +1,10 @@
-%h1 Editing user
+#tbox2
+  .title
+    %h2= 'ویرایش پروفایل' + @user.email
+  
+  .input-form
+    = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @user
-\|
-= link_to 'Back', users_path
+  = link_to 'مشاهده', @user
+  \|
+  = link_to 'بازگشت', users_path

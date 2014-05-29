@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Project < ActiveRecord::Base
   extend FriendlyId  
   friendly_id :title

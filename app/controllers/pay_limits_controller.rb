@@ -35,7 +35,7 @@ class PayLimitsController < ApplicationController
     @pay_limit = PayLimit.new(pay_limit_params)
 
     if @pay_limit.save
-      CodeMailer.send_pro_reg_code.deliver      
+      # CodeMailer.send_pro_reg_code.deliver      
       flash[:notice] = 'کاربر گرامی کدرهگیری به ایمیل شما ارسال گردید.'      
     end
     render action: 'show'
