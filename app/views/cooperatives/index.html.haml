@@ -1,33 +1,39 @@
 #tbox2
   .title
     %h2 لیست تعاونیهای تحت پوشش
-
-  %table.table.table-striped.table-hover 
-    %thead
-      %tr
-        %th ردیف
-        %th عنوان تعاونی
-        %th نام مدیرعامل
-        %th رئیس هیئت مدیره
-        %th نشانی
-        %th تلفن
-        %th وب سایت
-        %th عملیات
         
-    %tbody
-      - @cooperatives.each_with_index do |cooperative, i|
-        %tr
-          %td= (i+1)
-          %td= cooperative.name
-          %td= cooperative.managment_name
-          %td= cooperative.board_Chairman_name
-          %td= cooperative.address
-          %td= cooperative.phone
-          %td= cooperative.website      
-          -if is_admin?
-            %td 
-              = link_to 'ویرایش', edit_cooperative_path(cooperative)
-              = link_to 'حذف', cooperative, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+  %div
+  - @cooperatives.each_with_index do |cooperative, i|
+    .projects-holder
+      .col-lg-12{:style => "height:30px; padding:5px; font-weight:bold"}
+        .col-lg-4          
+          = cooperative.name
+        -if is_admin?
+          .col-lg-4      
+            = link_to 'ویرایش', edit_cooperative_path(cooperative)
+            = link_to 'حذف', cooperative, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }  
+      .col-lg-12
+        .col-lg-2
+          %b= 'مدیرعامل'
+        = cooperative.managment_name
+      .col-lg-12
+        .col-lg-2
+          %b= 'رییس هئیت مدیره'
+        = cooperative.board_Chairman_name
+      .col-lg-12
+        .col-lg-2
+          %b= 'آدرس'
+        = cooperative.address
+      .col-lg-12
+        .col-lg-2
+          %b= 'تلفن تماس'
+        = cooperative.phone
+      .col-lg-12
+        .col-lg-2
+          %b= 'وب سایت'
+        = cooperative.website      
+
+      
 
   %br
 

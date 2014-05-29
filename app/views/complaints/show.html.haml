@@ -1,8 +1,12 @@
 #tbox2
+  %p#notice= notice
   .title 
     %h3
       = @complaint.subject
-  %p#notice= notice
+  
+    %i= 'تعداد بازدید '
+    = @complaint.impressionist_count 
+    نفر  
   %p
     %b موضوع شکایت
     = @complaint.subject

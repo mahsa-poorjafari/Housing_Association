@@ -64,3 +64,7 @@ transition:all 2s; max-height: 100px; overflow: hidden}
 
 .row-controls {margin-top:-25px; color:#fff}
 .commit {margin-top:20px}
+.projects-holder {min-height:270px; max-height:270px; border:#ADD8E6 1px solid; margin:5px}
+.projects-holder:hover {background:#EBEBFF;}
+.projects-holder .top-div {margin:10px; min-height:30px; max-height:30px}
+

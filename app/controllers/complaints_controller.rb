@@ -1,6 +1,8 @@
 # encoding: UTF-8
 class ComplaintsController < ApplicationController
+  impressionist :actions=>[:show,:index]
   before_action :set_complaint, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /complaints
   # GET /complaints.json
@@ -12,6 +14,7 @@ class ComplaintsController < ApplicationController
   # GET /complaints/1.json
   def show
     @commits = CommentComplaint.where(:complaint_id => @complaint.id)
+    impressionist(@complaint, "message...") # 2nd argument is optional
   end
 
   # GET /complaints/new

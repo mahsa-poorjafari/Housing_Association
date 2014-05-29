@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class ProjectsController < ApplicationController
+  impressionist :actions=>[:show,:index]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
@@ -11,6 +12,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    impressionist(@project, "message...") # 2nd argument is optional
     if current_user
       @member_id = current_user.id    
       @reg_before = PayLimit.where( {user_id: @member_id , project_id:  @project.id })      

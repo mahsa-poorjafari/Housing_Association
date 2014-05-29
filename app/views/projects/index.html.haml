@@ -1,26 +1,28 @@
 #tbox2
   .title
     %h2= "لیست پروژه ها"
+   
   - @projects.each do |project|
-    .col-lg-4
-      .list-group
-        = link_to project, :class => "list-group-item" do
-          %h4.list-group-item-heading= project.title
-          .sample-pic.set-center
-            = image_tag project.pictures.first.image(:small), :class => "set-center"           
-          
-          %p.list-group-item-text
+    .projects-holder
+      
+      = link_to project do
+        .top-div
+          %h3{:style => "width:70%; float:right"}= project.title
+          - if is_admin?
+            = link_to 'ویرایش', edit_project_path(project)
+            = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+        .sample-pic.set-center.col-lg-4
+          = image_tag project.pictures.first.image(:small), :class => "set-center"           
+        .col-lg-6
+          %p= project.description
+          %p
             -if project.Status        
-              تحویل داده شده
-                
+              %i= 'تحویل داده شده'                
             -else
-              در دست احداث
-
-          %p.list-group-item-text= project.description
+              %i= 'در دست احداث'    
+        
           
-          = link_to 'ویرایش', edit_project_path(project)
-          = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
   .clear-float
 
-
-  = link_to 'پروژه جدید', new_project_path, :class => "button btn-sm"
+  - if is_admin?
+    = link_to 'پروژه جدید', new_project_path, :class => "button btn-sm"
