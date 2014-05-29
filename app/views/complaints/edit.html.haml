@@ -1,7 +1,12 @@
-%h1 Editing complaint
+#tbox2
+  .title
+    %h1 ویرایش شکایت
+  .input-form    
+    - if is_inspector?
+      = render 'answer_form'
+    - else
+      = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @complaint
-\|
-= link_to 'Back', complaints_path
+  = link_to 'مشاهده', @complaint
+  \|
+  = link_to 'بازگشت', complaints_path

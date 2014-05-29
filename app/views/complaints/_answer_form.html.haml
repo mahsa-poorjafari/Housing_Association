@@ -11,7 +11,9 @@
     = f.number_field :user_id, :value => current_user.id
   .form-group
     = f.label ':متن شکایت'
-    = f.text_area :complaint_text, :class => "text"
-
+    %div= @complaint.complaint_text, :class => "text"
   .form-group
-    = f.submit 'ثبت شکایت', :class => "button btn-sm"
+    = f.label ':جواب شکایت'  
+    = f.text_area :complaint_answer, :class => "text"
+  .form-group
+    = f.submit 'ثبت جواب شکایت', :class => "button btn-sm"

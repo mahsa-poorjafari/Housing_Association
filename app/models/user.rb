@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
   def is_user?
     self.role.name == "user"
   end  
+  def is_inspector?
+    self.role.name == "Inspector"
+  end 
   private
     def set_role
       self.role_id = 3
