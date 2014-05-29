@@ -5,8 +5,7 @@
       
   .title
     %h3= 'پروژه ' +  @project.title           
-    -if current_user.role.name == 'admin'
-    
+    -if is_admin?   
       .admin-link
         = link_to 'ویرایش', edit_project_path(@project)
         \|
