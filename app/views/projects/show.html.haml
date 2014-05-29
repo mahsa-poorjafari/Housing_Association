@@ -49,13 +49,14 @@
     %hr
     %div 
       %h4= 'اطلاعیه ها'
-      - @pro_informs.each do |inform|
-        %div
-          %p
-            %b 
-              = inform.title          
-          %p    
-            = raw inform.text
+      -if @pro_informs.present?
+        - @pro_informs.each do |inform|
+          %div
+            %p
+              %b 
+                = inform.title          
+            %p    
+              = raw inform.text
     %hr
     %div
       - @project.pictures.offset(1).each do |picture|

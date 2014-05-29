@@ -78,6 +78,10 @@
             .title
               %h4= 'داوری و رسیدگی به شکایات'
               %h3= link_to 'ثبت شکایت', new_complaint_path
+              - Complaint.all.each do |complaint|
+                %p=link_to complaint.subject, complaint
+                
+                
           .managment
             .title
               %h4= 'مدیران اتحادیه'

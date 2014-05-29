@@ -7,7 +7,9 @@
 
   .form-group
     = f.label :user_id
-    = f.number_field :user_id, :value => current_user.id
+    - if current_user.present?
+      = f.number_field :user_id, :value => current_user.id
+    
   .form-group
     = f.label :complaint_id
     = f.number_field :complaint_id, :value => complaint_id

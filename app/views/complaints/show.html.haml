@@ -15,21 +15,20 @@
       = @complaint.complaint_answer
     -else
       هیچ پاسخی داده نشده
-  - if @complaint.user_id == current_user.id 
-    = link_to 'ویرایش', edit_complaint_path(@complaint)
-    \|
-  - if @complaint.user_id == current_user.id || is_admin?
-    = link_to 'حذف', @complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-    \|
+  - if current_user.present?
+    - if @complaint.user_id == current_user.id 
+      = link_to 'ویرایش', edit_complaint_path(@complaint)
+      \|
+    - if @complaint.user_id == current_user.id || is_admin?
+      = link_to 'حذف', @complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+      \|
   = link_to 'مشاهده شکایات', complaints_path
-
-
-
-
-  %hr
+  %br
+  
   .commit
     %b= 'نظرات سایر کابران'
-    - @commits.each do |commit|
+    - @commits.each do |commit|      
+      %hr
       %div
         .col-lg-2
           - if commit.user_id.present?
@@ -40,10 +39,12 @@
           %p= commit.text
         .col-lg-2
           %i= JalaliDate.new(commit.created_at).strftime("%y/%m/%e %X")
-          - if commit.user_id == current_user.id
-            = link_to 'ویرایش', edit_comment_complaint_path(commit)
-            \|
-            = link_to 'حذف', commit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+          - if current_user.present?
+            - if commit.user_id == current_user.id
+              = link_to 'ویرایش', edit_comment_complaint_path(commit)
+              \|
+              = link_to 'حذف', commit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+        
 
           
         .clear-float

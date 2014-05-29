@@ -23,7 +23,7 @@
 .footer {text-align:center; min-height: 100px; background:#BFBFBF; margin-top: 10px}
 .clear-float {clear:both}
 table  tr th {text-align:right}
-.reg-link {margin-top: 20px; text-align:right; border:#ADD8E6 solid 1px; background:#E5E5E5;}
+.reg-link {margin-top: 20px; text-align:right; }
 .right-side {width: 17%;  float:right; margin-right:5px; padding: 5px }
 .middle-side {width: 66%; float:right; margin-right:5px; margin-top: 10px}
 .middle-side table tr {line-height: 20px}
@@ -63,3 +63,4 @@ transition:all 2s; max-height: 100px; overflow: hidden}
 .slide-des p {min-height:50px}
 
 .row-controls {margin-top:-25px; color:#fff}
+.commit {margin-top:20px}
