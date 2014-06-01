@@ -6,15 +6,15 @@
           %li= msg
 
   .form-group
-    = f.label :user_id
+   
     - if current_user.present?
-      = f.number_field :user_id, :value => current_user.id
+      = f.hidden_field :user_id, :value => current_user.id
     
   .form-group
-    = f.label :complaint_id
-    = f.number_field :complaint_id, :value => complaint_id
+    
+    = f.hidden_field :complaint_id, :value => complaint_id
   .form-group
-    = f.label :text
+    = f.label 'متن:'
     = f.text_area :text, :class => "text"
   .form-group
     = f.submit 'ثبت نظر', :class => "button btn-sm"

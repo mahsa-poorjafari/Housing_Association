@@ -25,7 +25,7 @@
       %b وب سایت
       = @cooperative.website
   %br        
-  
-  = link_to 'ویرایش', edit_cooperative_path(@cooperative)
-  \|
-  = link_to 'بازگشت', cooperatives_path
+  - if is_admin?
+    = link_to 'ویرایش', edit_cooperative_path(@cooperative)
+    \|
+    = link_to 'بازگشت', cooperatives_path

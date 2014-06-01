@@ -8,8 +8,9 @@
       %tr 
         %th ردیف      
         %th موضوع شکایت             
-        %th پاسخ شکایت             
-        %th عملیات
+        %th پاسخ شکایت  
+        - if current_user.present?
+          %th عملیات
         
     %tbody{:id => "complaint_container"}
       - @complaints.each_with_index do |complaint, i|
@@ -22,13 +23,16 @@
               = truncate( complaint.complaint_answer ,  length: 50)
             - else 
               = 'هیچ پاسخی داده نشده'
-          %td
-            - if complaint.user_id == current_user.id 
-              = link_to 'ویرایش', edit_complaint_path(complaint)
-              \|
-              = link_to 'حذف', complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-            %br                     
-            = link_to 'ثبت/ ویرایش پاسخ', edit_complaint_path(complaint)
+          
+          %td            
+            - if current_user.present?
+              - if complaint.user_id == current_user.id 
+                = link_to 'ویرایش', edit_complaint_path(complaint)
+                \|
+                = link_to 'حذف', complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+              %br 
+              - if is_inspector?
+                = link_to 'ثبت/ ویرایش پاسخ', edit_complaint_path(complaint)
 
   %br
 
