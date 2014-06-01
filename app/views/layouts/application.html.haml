@@ -77,7 +77,8 @@
           .complaints
             .title
               %h4= 'داوری و رسیدگی به شکایات'
-              %h3= link_to 'ثبت شکایت', new_complaint_path
+              - if current_user.present?
+                %h3= link_to 'ثبت شکایت', new_complaint_path
               %h4= link_to 'مشاهده شکایات', Complaint
               
                 
