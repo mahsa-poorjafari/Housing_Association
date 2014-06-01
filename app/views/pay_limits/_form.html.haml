@@ -12,13 +12,13 @@
     = f.label 'سایر توضیحات:', :class => "control-label"
     = f.text_area :description, :class => "text"
   .form-group
-    = f.label :user_id
-    = f.number_field :user_id, :value => current_user.id
+   
+    = f.hidden_field :user_id, :value => current_user.id
     
   .form-group
-    = f.label :project_id
+    
     -if @project.present?
-      = f.number_field :project_id, :value => @project.id
+      = f.hidden_field :project_id, :value => @project.id
     - else
       = f.select :project_id, options_from_collection_for_select(@projects, "id","title"), { :include_blank=>true }
       

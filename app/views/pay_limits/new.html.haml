@@ -9,9 +9,10 @@
     = link_to 'عضو شوید', new_registration_path(resource_name), class:"link"
   - else
     #personal-info
-    %p= current_user.name
-    %p= current_user.id    
-    %p= current_user.role_id
+    %p
+      = current_user.name    
+      = current_user.last_name
+    
     %p= current_user.email
     
     #pay-info.width70.set-center

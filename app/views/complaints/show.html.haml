@@ -31,24 +31,25 @@
   
   .commit
     %b= 'نظرات سایر کابران'
-    - @commits.each do |commit|      
-      %hr
-      %div
-        .col-lg-2
-          - if commit.user_id.present?
-            %b= commit.user.name
-          - else
-            %b= 'کاربر ناشناس'
-        .col-lg-8
-          %p= commit.text
-        .col-lg-2
-          %i= JalaliDate.new(commit.created_at).strftime("%y/%m/%e %X")
-          - if current_user.present?
-            - if commit.user_id == current_user.id
-              = link_to 'ویرایش', edit_comment_complaint_path(commit)
-              \|
-              = link_to 'حذف', commit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-        
+    - if @commits
+      - @commits.each do |commit|      
+        %hr
+        %div
+          .col-lg-2
+            - if commit.user_id.present?
+              %b= commit.user.name
+            - else
+              %b= 'کاربر ناشناس'
+          .col-lg-8
+            %p= commit.text
+          .col-lg-2
+            %i= JalaliDate.new(commit.created_at).strftime("%y/%m/%e %X")
+            - if current_user.present?
+              - if commit.user_id == current_user.id
+                = link_to 'ویرایش', edit_comment_complaint_path(commit)
+                \|
+                = link_to 'حذف', commit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+          
 
           
         .clear-float

@@ -26,10 +26,9 @@
           
           %td            
             - if current_user.present?
-              - if complaint.user_id == current_user.id 
-                = link_to 'ویرایش', edit_complaint_path(complaint)
-                \|
-                = link_to 'حذف', complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+              - if complaint.complaint_answer || is_admin? 
+                - if complaint.user_id == current_user.id  || is_admin?               
+                  = link_to 'حذف', complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
               %br 
               - if is_inspector?
                 = link_to 'ثبت/ ویرایش پاسخ', edit_complaint_path(complaint)

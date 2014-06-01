@@ -7,6 +7,8 @@
       
       .form-group
         = f.label "ایمیل:"
+        %i= 'لطفا ایمیل خود را صحیح وارد کنید.'
+        %p= 'example@email.com'
         = f.email_field :email, :autofocus => true, :class => "text"
       .form-group
         = f.label 'رمزعبور:'
