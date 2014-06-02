@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end 
   
   def set_role 
-    self.role_id = 3
+    self.role_id = 3 if self.role_id.blank?
   end
   
  
