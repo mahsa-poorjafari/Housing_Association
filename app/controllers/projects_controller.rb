@@ -2,7 +2,7 @@
 class ProjectsController < ApplicationController
   impressionist :actions=>[:show,:index]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication
+  before_filter :check_autentication, only: [:new, :edit]
   # GET /projects
   # GET /projects.json
   def index
