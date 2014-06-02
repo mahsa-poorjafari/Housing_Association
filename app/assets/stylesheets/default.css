@@ -525,7 +525,7 @@
 	#footer .footer-link {  }	
 	#footer .footer-link ul.footer-item{ border-right:#fff solid 1px; height:300px; }	
 	#footer .footer-link ul.footer-item li{color:#fff; margin:5px }	
-	#footer .footer-link ul{ width:45%; float:right; text-align:justify; padding:1em }
+	#footer .footer-link ul{  float:right; text-align:justify; padding:1em }
 	#footer .footer-link a{ color:#fff;  }
 	#footer .footer-link a:hover{ color:#BFDFFF;  }
 

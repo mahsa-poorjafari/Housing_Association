@@ -1,31 +1,44 @@
 #tbox2
-  %h2= 'اطلاعات کاربر'
-  %p#notice= notice
-  %p
-    %b نقش کاربر:
-    - if @user.role_id == 1
-      %i= 'مدیر سایت'
-    - elsif @user.role_id == 2
-      %i= 'بازرس'
-    - else
-      %i= 'کاربر عادی'
-  %p
-    %b نام:
-    = @user.name
-  %p
-    %b نام خانوادگی
-    = @user.last_name
-  %p
-    %b تلفن ثابت:
-    = @user.phone
-  %p
-    %b تلفن همراه:
-    = @user.mobile
-  %p
-    %b تاریخ تولد:
-    = @user.birthdate
-  %p
-    %b ایمیل:
-    = @user.email
+  %div
+    %h2= 'اطلاعات کاربر'
+    %p#notice= notice
+    %p
+      %b نقش کاربر:
+      - if @user.role_id == 1
+        %i= 'مدیر سایت'
+      - elsif @user.role_id == 2
+        %i= 'بازرس'
+      - else
+        %i= 'کاربر عادی'
+    %p
+      %b نام:
+      = @user.name
+    %p
+      %b نام خانوادگی
+      = @user.last_name
+    %p
+      %b تلفن ثابت:
+      = @user.phone
+    %p
+      %b تلفن همراه:
+      = @user.mobile
+    %p
+      %b تاریخ تولد:
+      = @user.birthdate
+    %p
+      %b ایمیل:
+      = @user.email
+  %hr
+  %div
+    %h2= 'اطلاعات ثبت نام در پروژه'
+    - @user_pro.each do |user_pro|
+      %p  
+        %b نام پروژه:
+        = user_pro.project.title
+      %p  
+        %b وضعیت ثبت نام:
+        در دست بررسی
+      
+      %hr
   
   = link_to 'بازگشت', users_path

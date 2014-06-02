@@ -1,17 +1,19 @@
-.col-lg-6 
-  = image_tag 'google-map.jpg'
-  
-
-.col-lg-6.footer-link
-  %ul.footer-menu
+.col-lg-8     
+  %div
+    %iframe{frameborder: "0", height: "350", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?f=d&source=s_d&saddr=Mashhad,+Khorasan+Razavi,+Iran&daddr=&hl=en&geocode=&aq=0&oq=mashhad&sll=37.0625,-95.677068&sspn=43.172547,80.859375&mra=ls&ie=UTF8&ll=36.272274,59.63123&spn=0.426801,0.529389&t=m&output=embed", width: "425"}
+    %br/
+    %small
+      %a{href: "https://maps.google.com/maps?f=d&source=embed&saddr=Mashhad,+Khorasan+Razavi,+Iran&daddr=&hl=en&geocode=&aq=0&oq=mashhad&sll=37.0625,-95.677068&sspn=43.172547,80.859375&mra=ls&ie=UTF8&ll=36.272274,59.63123&spn=0.426801,0.529389&t=m", style: "color:#0000FF;text-align:left"} View Larger Map
+.col-lg-4.footer-link
+  %ul.footer-item
     %li
       = link_to 'صفحه نخست', root_path
     %li
       = link_to 'پروژه ها', projects_path
     %li
       = link_to 'تعاونیها', cooperatives_path
-  .vertical-line
-  %ul.footer-item
+  
+  
     %li
       = link_to  'ارسال لینک جاری به دوستان', '#', "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm"
     
@@ -32,4 +34,3 @@
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
 
-              

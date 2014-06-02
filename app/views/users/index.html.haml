@@ -19,15 +19,15 @@
       - @users.each_with_index do |user, i|
         %tr
           %td= (i+1)          
-          %td
-            = link_to user do
-              = user.name 
-              = user.last_name        
+          %td             
+            = user.name 
+            = user.last_name        
           %td= user.role_id
           %td 
             = user.phone
             = user.mobile        
-          %td= user.email        
+          %td= link_to user.email, user
+                    
           %td
           %td
           %td
