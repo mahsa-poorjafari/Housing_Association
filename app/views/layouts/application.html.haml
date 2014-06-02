@@ -2,13 +2,13 @@
 %html
   %head
     %title
-      اتحادیه مسکن
+      اتحادیه مسکن فرهنگیان
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
     = javascript_include_tag "application", "data-turbolinks-track" => true 
     = csrf_meta_tags
     %meta{:charset => "utf-8"}
     %meta{:name => "keywords", :content => Project.all.collect(&:title).join(",") } 
-    %meta{:name => "description", :content => "اتحادیه مسکن"}
+    %meta{:name => "description", :content => "اتحادیه مسکن فرهنگیان"}
     %meta{content: "no", "http-equiv" => "imagetoolbar"}
     = yield(:refresh_meta) if content_for?(:refresh_meta)
     -#
@@ -33,7 +33,7 @@
       #header.container
         #logo        
           %h1
-            = link_to 'اتحادیه مسکن', root_path
+            = link_to 'اتحادیه مسکن فرهنگیان', root_path
         #menu
           = render "shared/nav_bar"
     .wrapper
