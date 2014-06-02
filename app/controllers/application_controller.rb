@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
     def check_autentication
       redirect_to :root unless session[:admin].present?
     end
-  
+   
   
 end

@@ -36,5 +36,5 @@
       
 
   %br
-
-  = link_to 'ثبت تعاونی جدید', new_cooperative_path, :class => "button btn-sm"
+  - if is_admin?
+    = link_to 'ثبت تعاونی جدید', new_cooperative_path, :class => "button btn-sm"

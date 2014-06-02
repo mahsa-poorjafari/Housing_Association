@@ -1,12 +1,12 @@
 #tbox2
   .title
     %h2 اخبار و اعلامیه ها
-  = link_to 'ثبت اطلاعیه جدید', new_inform_path, :class => "button btn-sm"
+  - if is_admin?
+    = link_to 'ثبت اطلاعیه جدید', new_inform_path, :class => "button btn-sm"
 
   %table.table
     - @informs.each do |inform|
-      %tr      
-        
+      %tr              
         %td.important
           -if inform.important      
             مهم
@@ -22,9 +22,10 @@
             = link_to 'ویرایش', edit_inform_path(inform)
             \|
             = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+        
       %tr
         %td{:colspan => "4"}= raw inform.text
-        
+          
           
 
  
