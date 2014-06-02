@@ -2,6 +2,7 @@
 class SlidesController < ApplicationController
   impressionist :actions=>[:show,:index]
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
+  before_filter :check_autentication, only: [:new, :edit]
   # before_filter :check_autentication
   # GET /slides
   # GET /slides.json
@@ -67,7 +68,7 @@ class SlidesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_slide
-      @slide = Slide.friendly.find(params[:id])
+      @slide = Slide.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

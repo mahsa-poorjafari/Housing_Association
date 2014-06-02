@@ -11,8 +11,7 @@
         %th= 'نقش کاربر'
         %th= 'تلفن تماس'        
         %th= 'ایمیل'
-        %th= 'پروژه'
-        %th= 'سقف پرداختی'  
+        %th= 'تعداد پروژه ها'        
         %th      
         
     %tbody{:id => "users_container"}
@@ -25,11 +24,10 @@
           %td= user.role_id
           %td 
             = user.phone
+            \-
             = user.mobile        
-          %td= link_to user.email, user
-                    
-          %td
-          %td
+          %td= link_to user.email, user                    
+          %td          
           %td
             = link_to 'حذف', user, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
             \|

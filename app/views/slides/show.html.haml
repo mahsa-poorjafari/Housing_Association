@@ -1,15 +1,14 @@
-%p#notice= notice
 #tbox2  
-  
+  %p#notice= notice
   .show-slide
     - if @slide.image.present?
       = image_tag @slide.image(:gallery_size)
   %p
-    %b Description:
+    %b توضیحات:
     = @slide.description
-
-  = link_to 'ویرایش', edit_slide_path(@slide)
-  \|
-  = link_to 'حذف',@slide , :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-  \|
-  = link_to 'بازگشت', slides_path
+  - if is_admin?
+    = link_to 'ویرایش', edit_slide_path(@slide)
+    \|
+    = link_to 'حذف',@slide , :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+    \|
+    = link_to 'بازگشت', slides_path

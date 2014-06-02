@@ -1,7 +1,8 @@
 #tbox2
   .title
     %h1 لیست شکایات
-
+  - if current_user.present?
+    = link_to 'ثبت شکایت جدید', new_complaint_path, :class => "button btn-sm"
 
   %table.table.table-striped{id:"complaint_table"}
     %thead
@@ -35,7 +36,7 @@
 
   %br
 
-  = link_to 'ثبت شکایت جدید', new_complaint_path, :class => "button btn-sm"
+  
 :coffeescript
   window.reloadDataTable = ->
     if !!window.oTable

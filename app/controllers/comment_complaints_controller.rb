@@ -1,6 +1,6 @@
 class CommentComplaintsController < ApplicationController
   before_action :set_comment_complaint, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication, only: [:new]
   # GET /comment_complaints
   # GET /comment_complaints.json
   def index

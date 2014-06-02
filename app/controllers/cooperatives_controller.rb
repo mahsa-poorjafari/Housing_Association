@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class CooperativesController < ApplicationController
   before_action :set_cooperative, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication, only: [:new, :edit]
   # GET /cooperatives
   # GET /cooperatives.json
   def index

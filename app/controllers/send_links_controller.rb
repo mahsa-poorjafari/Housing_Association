@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class SendLinksController < ApplicationController
   before_action :set_send_link, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication
   # GET /send_links
   # GET /send_links.json
   def index

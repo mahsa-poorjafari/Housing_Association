@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication
   # GET /messages
   # GET /messages.json
   def index

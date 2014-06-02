@@ -22,7 +22,7 @@
       %b سابقه کاری:
       = @management.Work_Experience
   %br        
-  
-  = link_to 'ویرایش', edit_management_path(@management)
-  \|
-  = link_to 'بازگشت', managements_path
+  - if is_admin?
+    = link_to 'ویرایش', edit_management_path(@management)
+    \|
+    = link_to 'بازگشت', managements_path

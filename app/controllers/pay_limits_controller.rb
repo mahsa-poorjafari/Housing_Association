@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class PayLimitsController < ApplicationController
   before_action :set_pay_limit, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication
   # GET /pay_limits
   # GET /pay_limits.json
   def index

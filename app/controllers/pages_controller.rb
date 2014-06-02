@@ -2,7 +2,7 @@
 class PagesController < ApplicationController
   impressionist :actions=>[:show,:index]
   before_action :set_page, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication, only: [:new, :edit]
   # GET /pages
   # GET /pages.json
   def index

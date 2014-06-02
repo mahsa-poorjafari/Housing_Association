@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class ManagementsController < ApplicationController
   before_action :set_management, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication, only: [:new, :edit]
   # GET /managements
   # GET /managements.json
   def index

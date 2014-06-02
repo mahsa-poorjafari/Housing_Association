@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class InformsController < ApplicationController
   before_action :set_inform, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication, only: [:new, :edit]
   # GET /informs
   # GET /informs.json
   def index

@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication, only: [:new, :edit]
   # GET /links
   # GET /links.json
   def index
