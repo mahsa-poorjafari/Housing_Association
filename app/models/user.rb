@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :comment_complaints
   
   def is_admin?
-    self.name == "admin"
+    self.role.name == "admin"
   end  
   
   def is_user?
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end 
   
   def set_role 
-    self.role_id = 3
+    self.role_id = 3 if self.role_id.blank?
   end
   
  
