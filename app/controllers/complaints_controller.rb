@@ -2,7 +2,7 @@
 class ComplaintsController < ApplicationController
   impressionist :actions=>[:show,:index]
   before_action :set_complaint, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication, only: [:new, :edit]
+  before_filter :check_autentication, only: [:edit]
 
   # GET /complaints
   # GET /complaints.json

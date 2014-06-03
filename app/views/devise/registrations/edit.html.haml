@@ -42,8 +42,9 @@
         = f.label "شماره ملی"
         = f.text_field :national_code, :class => "text"
       .form-group
-        = f.label "تاریخ تولد:"
-        = f.date_select :birthdate, :class => "text"
+        = f.label "تاریخ تولد: " + "1392/01/01"
+        
+        = f.text_field :birthdate, :class => "text"
       .form-group
         = f.label "تلفن ثابت"
         = f.text_field :phone, :class => "text"
@@ -55,10 +56,11 @@
         = f.text_area :address, :class => "text"
         
       .form-group= f.submit "ویرایش", :class => "button btn-sm"
+    %hr
     %h3 لغو حساب کاربری
     %p
       Unhappy? #{button_to "حذف حساب کاربری", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "button btn-sm"}
-    = link_to "بازگشت", :back
+    = link_to "بازگشت", root_path
 
   
 

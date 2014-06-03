@@ -1,7 +1,9 @@
 .admin-title
-  %h3= "منوی مدیر سایت"
-  %h5= current_user.name
-  %h5= current_user.role_id
+  %h3= "خوش آمدید"
+  %h5
+    = current_user.name
+    = current_user.last_name
+  
 .list-group      
   = link_to 'پروفایل بازرس', edit_user_registration_path(current_user), :class => "list-group-item"
   = link_to "گزارش شکایات", Complaint, :class => "list-group-item"
