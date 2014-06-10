@@ -62,9 +62,12 @@ transition:all 2s; max-height: 100px; overflow: hidden}
 .slide-des { margin-top:-50px; background:#1A1A1A; font-size:20px; color:#fff; opacity:.8; height:50px}
 .slide-des p {min-height:50px}
 
-.row-controls {margin-top:-25px; color:#fff}
-
+.row-controls {
+  margin-top:-25px; 
+  color:#fff;
 }
+
+
 .commit {margin-top:20px}
 .projects-holder {min-height:270px; max-height:270px; border:#ADD8E6 1px solid; margin:5px}
 .projects-holder:hover {background:#EBEBFF;}
