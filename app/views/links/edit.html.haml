@@ -1,7 +1,9 @@
-%h1 Editing link
-
-= render 'form'
-
-= link_to 'Show', @link
-\|
-= link_to 'Back', links_path
+#tbox2
+  .title
+    %h2= 'ویرایش پیوند'
+  .input-form
+    = render 'form'
+  -if is_admin?
+    = link_to 'مشاهده', @link
+    \|
+    = link_to 'بازگشت', links_path

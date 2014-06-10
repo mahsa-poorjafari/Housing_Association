@@ -87,10 +87,15 @@
           .managment
             .title
               %h4= 'مدیران اتحادیه'
-              %p
+              .col-md-12
                 - Management.all.each do  |management|
-                  = link_to management.name + ' ' + management.last_name, management
-                  %br
+                  .manage-box
+                    .col-md-4
+                      = image_tag management.image(:icon)
+                    .col-md-8
+                      = link_to management.name + ' ' + management.last_name, management
+                  
+                  
                   
     #footer
       = render 'shared/footer'

@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication, only: [:new, :edit]
+  before_filter :check_autentication, only: [:new, :edit, :show, :index, :update, :destroy]
   # GET /links
   # GET /links.json
   def index
@@ -40,7 +40,7 @@ class LinksController < ApplicationController
   def update
     respond_to do |format|
       if @link.update(link_params)
-        format.html { redirect_to @link, notice: 'Link was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Link was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

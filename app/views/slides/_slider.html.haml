@@ -7,8 +7,9 @@
           = link_to (image_tag slide.image(:gallery_size), :id =>  slide.id ), slide, :class => "slide"
           -if is_admin?
             .row-controls
-              %div
-                = slide.description
+              - if slide.description.present?
+                .slide-des
+                  = slide.description
               %div
                 = link_to edit_slide_path(slide) do
                   = image_tag 'edit.png'
