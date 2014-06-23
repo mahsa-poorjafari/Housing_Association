@@ -13,69 +13,7 @@
  *= require_self
  *= require_tree .
  */
-.total-box {margin-top:60px}
-.min-height { min-height:550px;}
-.page-body{width:95%; position: relative}
-.set-center {margin-right:auto; margin-left:auto;}
-.text-center {text-align:center}
-.center-div {width:90%; text-align:right}
-.width70 {width:70%}
-.footer {text-align:center; min-height: 100px; background:#BFBFBF; margin-top: 10px}
+
+.service-content .inner-service a{color:#fff; font-size:14px;}
+.service-content .inner-service a:hover{color:#ec523f; }
 .clear-float {clear:both}
-table  tr th {text-align:right}
-.reg-link {margin-top: 20px; text-align:right; }
-.right-side {width: 17%;  float:right; margin-right:5px; padding: 5px }
-.middle-side {width: 66%; float:right; margin-right:5px; margin-top: 10px}
-.middle-side table tr {line-height: 20px}
-.important{
-  width: 30px;
-  padding-top:-10px;
-  font-size:15px; 
-  color:red;
-  -ms-transform: rotate(30deg); /* IE 9 */
-  -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
-  transform: rotate(30deg);
-  }
-.left-side {width: 16%; float:left; padding: 5px }
-
-
-.small-form {width:50%; direction:rtl}
-table.message tbody tr {font-weight:bold}
-table.message tbody tr.visited {font-weight:normal}
-
-.Necessary {color:red}
-.remove-task {width:10%}
-
-.login-menu {-webkit-transition:all 2s; /* For Safari 3.1 to 6.0 */
-transition:all 2s; max-height: 100px; overflow: hidden}
-
-.login-menu:hover {max-height:450px; cursor:pointer}
-.sample-pic {text-align:center; overflow: hidden}
-#admin-links {text-align:left; min-height:100px; background:#ADD8E6; }
-.admin-title {background:#75B9FF}
-.show-slide img {width:100%}
-.index-slide {width:100%; 
-  min-height:350px;
-  max-height:350px;
-  height:350px;
-  }
-.slide-des { margin-top:-50px; background:#1A1A1A; font-size:20px; color:#fff; opacity:.8; height:50px}
-.slide-des p {min-height:50px}
-
-.row-controls {
-  margin-top:-25px; 
-  color:#fff;
-}
-
-
-.commit {margin-top:20px}
-.projects-holder {min-height:270px; max-height:270px; border:#ADD8E6 1px solid; margin:5px}
-.projects-holder:hover {background:#EBEBFF;}
-.projects-holder .top-div {margin:10px; min-height:30px; max-height:30px}
-.cooperative-index {border-bottom:1px solid #91D0E5;
-  width:100%; min-height:160px;
-  max-height:160px;
-  padding:5px;
-}
-.cooperative-title {height:30px; padding:5px; font-weight:bold}
-.managment .manage-box {border-bottom:1px solid #BFBFBF; height:40px}

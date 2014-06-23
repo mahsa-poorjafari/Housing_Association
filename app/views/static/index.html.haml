@@ -1,0 +1,233 @@
+#services.content-section
+  .container
+    .row
+      .heading-section.col-md-12.text-center
+        %h2 تعاونیهای تحت پوشش
+        %p لیست تعاونیهای تحت پوشش
+      / /.heading-section
+    / /.row
+    .row
+      .col-md-3.col-sm-6
+        #service-1.service-item{:style => "height:300px"}
+          %h2{:style => "padding-top:2%; font-size:20px; color:#fff"}
+            پیوندهای مرتبط
+          
+          .service-icon
+            %i.fa.fa-file-code-o
+          / /.service-icon
+          .service-content{:style => "overflow-y: scroll;height: 300px"}
+            .inner-service
+              - Link.all.each do  |link|
+                %p
+                  = link_to link.title, url_with_protocol(link.web_site), :target => "_blank"
+              
+          / /.service-content
+        / /#service-1
+      / /.col-md-3
+      .col-md-3.col-sm-6
+        #service-2.service-item{:style => "height:300px"}
+          %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
+            تعاونیهای تحت پوشش
+          
+          .service-icon
+            %i.fa.fa-paper-plane-o
+          / /.service-icon
+          .service-content{:style => "overflow-y: scroll;height: 300px;"}
+            .inner-service
+              - Cooperative.all.each do  |cooperative|
+                %p
+                  = link_to cooperative.name, cooperative
+          / /.service-content
+        / /#service-1
+      / /.col-md-3
+      .col-md-3.col-sm-6
+        #service-3.service-item{:style => "height:300px"}
+          .service-icon
+            %i.fa.fa-institution
+          / /.service-icon
+          .service-content
+            .inner-service
+              %h3 Web Design
+              %p
+                We create
+                %a{href: "#"} mobile website templates
+                that are responsive for any screen size on any device. Feel free to download and use our templates without restrictions.
+          / /.service-content
+        / /#service-1
+      / /.col-md-3
+      .col-md-3.col-sm-6
+        #service-4.service-item{:style => "height:300px"}
+          .service-icon
+            %i.fa.fa-flask
+          / /.service-icon
+          .service-content
+            .inner-service
+              %h3 Mobile Ready
+              %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, assumenda, eveniet, consectetur, ex doloribus veniam asperiores incidunt mollitia placeat aniet adipscing.
+          / /.service-content
+        / /#service-1
+      / /.col-md-3
+    / /.row
+  / /.container
+/ /#services
+
+
+#portfolio.content-section
+  .container
+    .row
+      .heading-section.col-md-12.text-center
+        %h2 پروژه ها
+        %p لیست پروژه ها
+      / /.heading-section
+    / /.row
+    .row
+      - Project.all.each do |project|
+        = link_to  project  do 
+          .portfolio-item.col-md-3.col-sm-6{:style => "height:300px; overflow:hidden"}
+            .portfolio-thumb
+              = image_tag project.pictures.first.image(:small), :height => "300"
+              .portfolio-overlay
+                %h3= project.title
+                %p
+                  = project.address                
+                  %br
+                  = project.description               
+                  %br
+                  - if project.Status
+                    تحویل داده شده
+                  -else
+                    در دست احداث
+                    
+                                   
+                
+              / /.portfolio-overlay
+            / /.portfolio-thumb
+          / /.portfolio-item
+          
+      
+      
+    / /.row
+  / /.container
+/ /#portfolio
+
+
+
+
+#our-team.content-section
+  .container
+    .row
+      .heading-section.col-md-12.text-center
+        %h2 مدیران
+        %p لیست مدیران هیئت مدیره
+      / /.heading-section
+    / /.row
+    .row
+      - Management.all.each do  |management|
+        .team-member.col-md-3.col-sm-6
+          .member-thumb
+            - if management.image.present?
+              = image_tag management.image(:small)            
+            - else
+              = image_tag 'unknown.png'
+            .team-overlay
+              %h3= management.name + " " + management.last_name
+              %span= management.post
+              %p= management.Work_Experience
+            / /.team-overlay
+          / /.member-thumb
+        / /.team-member      
+    / /.row
+    .row
+      .col-md-12.text-center
+        .skills-heading
+          %h3.skills-title Our skills on web design
+          %p.small-text Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      / /.col-md-12
+    / /.row
+    .row
+      .col-md-8.col-sm-6
+        %p
+          Aliquam faucibus in dolor sed vestibulum. Sed adipiscing malesuada luctus. Morbi tincidunt, tellus scelerisque scelerisque scelerisque, sapien dui pretium augue, at consectetur sapien tellus vitae nunc. Ut vitae metus quis nulla cursus adipiscing pretium vel dolor. Fusce lacinia accumsan arcu, quis porttitor nisi tincidunt ut.
+          %br/
+          %br/
+          Etiam tincidunt, magna eu elementum tristique, sapien nisl venenatis lacus, nec sagittis lectus dui eget lorem. Donec in tempus mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin laoreet ac quam et volutpat. Aenean egestas interdum dolor, et mollis lectus consequat a.
+          %br/
+          %br/
+          Nunc malesuada nunc eget nunc sollicitudin posuere. Maecenas vitae tortor quis odio hendrerit sagittis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris ullamcorper, felis sit amet gravida malesuada, nisi sem rhoncus massa, non tempor est erat sit amet diam.
+          / spacing for mobile viewing
+          %br/
+          %br/
+      / /.col-md-8
+      .col-md-4.col-sm-6
+        %ul.progess-bars
+          %li
+            .progress
+              .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "90", role: "progressbar", style: "width: 90%;"} Photoshop 90%
+          %li
+            .progress
+              .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "75", role: "progressbar", style: "width: 75%;"} HTML 75%
+          %li
+            .progress
+              .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "68", role: "progressbar", style: "width: 68%;"} WordPress 68%
+          %li
+            .progress
+              .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "95", role: "progressbar", style: "width: 95%;"} Marketing 95%
+      / /.col-md-4
+    / /.row
+  / /.container
+/ /#our-team
+
+
+#contact.content-section
+  .container
+    .row
+      .heading-section.col-md-12.text-center
+        %h2 ارتباط با ما
+        %p ارسال پیام به مدیر سایت
+      / /.heading-section
+    / /.row
+    .row
+      .col-md-12
+        .googlemap-wrapper
+          #map_canvas.map-canvas
+        / /.googlemap-wrapper
+      / /.col-md-12
+    / /.row
+    .row
+      .col-md-7.col-sm-6
+        %p
+          Flex is
+          %a{href: "#"} free responsive template
+          by templatemo that can be used for any commercial or personal website. Slider images and portfolio images are from
+          %a{href: "http://unsplash.com", rel: "nofollow"} Unsplash
+          website. Duis ullamcorper tortor tellus. Ut diam libero, ultricies non augue a, mollis congue risus. Fusce a quam eget nisi luctus imperdiet. Aenean semper erat neque. Nunc et scelerisque nunc, in adipiscing magna. Phasellus in erat non tellus molestie sagittis sed a justo. Nam vehicula volutpat nibh, in posuere dolor dictum sit amet.
+          %br/
+          %br/
+          Consectetur quod at aperiam corporis totam. Nesciunt minima laborum sapiente totam facere unde est cum quia. Hic, suscipit, praesentium earum quod ea distinctio impedit ullam deserunt minus dolore quibusdam quis saepe aliquam doloribus voluptatibus eum excepturi.
+        %ul.contact-info
+          %li Phone: 010-080-0180
+          %li
+            Email:
+            %a{href: "mailto:info@company.com"} info@company.com
+          %li Address: 123 Premium Studio, Thamine Street, Digital Estate
+        / spacing for mobile viewing
+        %br/
+        %br/
+      / /.col-md-7
+      .col-md-5.col-sm-6
+        .contact-form
+          %form#contactform{method: "post", name: "contactform"}
+            %p
+              %input#name{name: "name", placeholder: "Your Name", type: "text"}/
+            %p
+              %input#email{name: "email", placeholder: "Your Email", type: "text"}/
+            %p
+              %input#subject{name: "subject", placeholder: "Subject", type: "text"}/
+            %p
+              %textarea#comments{name: "comments", placeholder: "Message"}
+            %input#submit.mainBtn{type: "submit", value: "Send Message"}/
+        / /.contact-form
+      / /.col-md-5
+    / /.row
+  / /.container
+/ /#contact

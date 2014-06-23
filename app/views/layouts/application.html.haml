@@ -29,29 +29,100 @@
         document.oncontextmenu=new Function("return false")
         // -->
 
-  %body    
-    #header-wrapper
-      #header.container
-        #logo        
-          %h1
-            = link_to 'اتحادیه تعاونیهای مسکن فرهنگیان خراسان', root_path
-        #menu
-          = render "shared/nav_bar"
-    .wrapper
-      #three-column.container.set-center  
-        #tbox1
-          .title 
-            -if is_admin?
-              = render "shared/admin_menu"
-              = link_to "خروج", destroy_user_session_path, :method => :delete
-            -elsif is_inspector?
-              = render "shared/inspector_menu"
-              = link_to "خروج", destroy_user_session_path, :method => :delete
-            -elsif is_user?
-              = render "shared/user_menu"
-              = link_to "خروج", destroy_user_session_path, :method => :delete            
-            -else          
-              = render "devise/sessions/new", :resource => resource
+  %body  
+      
+    #sTop.site-main
+      .site-header
+        .container
+          .row
+            .col-md-12.text-center
+              %h1= 'اتحادیه تعاونیهای مسکن فرهنگیان خراسان رضوی'
+            / /.col-md-12
+          / /.row
+        / /.container
+        .main-header
+          .container
+            #menu-wrapper
+              .row
+                .logo-wrapper.col-md-6.col-sm-2.col-xs-8
+                  %h4
+                    = link_to 'اتحادیه تعاونیهای مسکن فرهنگیان خراسان رضوی', '#'
+                  
+                / /.logo-wrapper
+                .col-md-6.col-sm-10.col-xs-4.main-menu.text-right
+                  %ul.menu-first.hidden-sm.hidden-xs
+                    %li.active
+                      = link_to 'صفحه اصلی' , '#'
+                    %li
+                      = link_to 'تعاونیها' , '#services'                      
+                    %li
+                      = link_to 'پروژه ها' , '#portfolio'                     
+                    %li
+                      = link_to 'مدیران' , '#our-team'                            
+                    %li
+                      = link_to 'ارتباط با ما' , '#contact'                            
+                      
+                  %a.toggle-menu.visible-sm.visible-xs{href: "#"}
+                    %i.fa.fa-bars
+                / /.main-menu
+              / /.row
+            / /#menu-wrapper
+            .menu-responsive.hidden-md.hidden-lg
+              %ul
+                %li.active
+                  %a{href: "#"} Home
+                %li
+                  %a{href: "#services"} Services
+                %li
+                  %a{href: "#portfolio"} Portfolio
+                %li
+                  %a{href: "#our-team"} Team
+                %li
+                  %a{href: "#contact"} Contact
+            / /.menu-responsive
+      .site-slider
+        .slider
+          .flexslider
+            %ul.slides
+              %li
+                .overlay
+                = image_tag 'slide1.jpg'
+                .slider-caption.visible-md.visible-lg
+                  %h2 Digital Studio
+                  %p Let us design your website
+                  %a.slider-btn{href: "#"} Responsive Template
+              %li
+                .overlay
+                = image_tag 'slide2.jpg'
+                .slider-caption.visible-md.visible-lg
+                  %h2 Responsive Template
+                  %p Download and use it for your website
+                  %a.slider-btn{href: "#"} Go to Portfolio
+              %li
+                .overlay
+                = image_tag 'slide3.jpg'
+                .slider-caption.visible-md.visible-lg
+                  %h2 Professional Quality
+                  %p New standard of web design and coding
+                  %a.slider-btn{href: "#"} Mobile Website
+          / /.flexslider
+        / /.slider
+    -#
+      .wrapper
+        #three-column.container.set-center  
+          #tbox1
+            .title 
+              -if is_admin?
+                = render "shared/admin_menu"
+                = link_to "خروج", destroy_user_session_path, :method => :delete
+              -elsif is_inspector?
+                = render "shared/inspector_menu"
+                = link_to "خروج", destroy_user_session_path, :method => :delete
+              -elsif is_user?
+                = render "shared/user_menu"
+                = link_to "خروج", destroy_user_session_path, :method => :delete            
+              -else          
+                = render "devise/sessions/new", :resource => resource
 
           %hr
           .title
@@ -59,45 +130,21 @@
             - Project.all.each do |project|
               = link_to project.title, project
               %hr
-        = yield 
-        #tbox3
-          .cooperative{:style => "text-align:right"}
-            .title
-              %h4= 'تعاونیهای تحت پوشش'
-              %p
-                - Cooperative.all.each do  |cooperative|
-                  = link_to cooperative.name, cooperative
-                  %br
-          .links
-            .title
-              %h4= 'پیوندهای مرتبط'
-              %div
-                - Link.all.each do  |link|
-                  %p
-                    = link_to link.title, url_with_protocol(link.web_site), :target => "_blank"
-          .complaints
-            .title
-              %h4= 'داوری و رسیدگی به شکایات'
-              - if current_user.present?
-                %h3= link_to 'ثبت شکایت', new_complaint_path
-              %h4= link_to 'مشاهده شکایات', Complaint
-              
-                
-                
-          .managment
-            .title
-              %h4= 'مدیران اتحادیه'
-              .col-md-12
-                - Management.all.each do  |management|
-                  .manage-box
-                    .col-md-4
-                      = image_tag management.image(:icon)
-                    .col-md-8
-                      = link_to management.name + ' ' + management.last_name, management
-                  
-                  
-                  
+    = yield 
+    .clear-float   
     #footer
-      = render 'shared/footer'
-
-            
+      .container
+        .row
+          .col-md-8.col-xs-12.text-left
+            Copyright © 2084 Company Name -
+            %a{href: "http://www.templatemo.com/page/1", rel: "nofollow"} Responsive Template
+            by
+            %a{href: "http://www.templatemo.com/preview/templatemo_406_flex", rel: "nofollow"} Flex
+          / /.text-center
+          .col-md-4.hidden-xs.text-right
+            %a#go-top{href: "#top"} Back to top
+          / /.text-center
+        / /.row
+      / /.container
+    / /#footer
+        

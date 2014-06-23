@@ -6,8 +6,9 @@ class StaticController < ApplicationController
     @projects = Project.all
     if current_user.present?
       @login = current_user
-    end  
-    
+    end      
+  end
+  def index
     
   end
 end

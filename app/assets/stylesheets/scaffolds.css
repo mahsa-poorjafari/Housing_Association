@@ -1,17 +1,3 @@
-
-p, ol, td {
- 
-  font-size: 13px;
-  line-height: 18px;
-  list-style:none;
-}
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
 #notice {
   color: green;
 }

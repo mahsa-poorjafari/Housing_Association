@@ -1,4 +1,6 @@
-class Cooperative < ActiveRecord::Base
+class Cooperative < ActiveRecord::Base 
+  
   extend FriendlyId  
   friendly_id :name
+  
 end
