@@ -13,7 +13,7 @@
  *= require_self
  *= require_tree .
  */
-
+body {direction:rtl}
 .service-content .inner-service a{color:#fff; font-size:14px;}
 .service-content .inner-service a:hover{color:#ec523f; }
 .clear-float {clear:both}
@@ -24,3 +24,6 @@
 .sub-title .line-orange {border-bottom:2px dotted #ec523f; margin-top: 4%;}
 .text-center .info p {text-align:right}
 .text-center .info  {margin-right:3%}
+.margin-top {margin-top:20%}
+.top94 {top:10%}
+.cooperative-index {border-bottom:2px dotted #ec523f; padding:2%; margin:2%; height:200px; overflow:hidden}
