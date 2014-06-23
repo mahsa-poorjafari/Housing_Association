@@ -1,8 +1,4 @@
-%fieldset 
-  %legend
-    %span= " تماس با ما"        
-    =image_tag "msg-icon.png"
-= form_for @message ||= Message.new, :html => {:class => "contact"} do |f|
+= form_for @message ||= Message.new, :html => {:class => "contact", name: "contactform", :id => "contactform"} do |f|
   - if @message.errors.any?
     #error_explanation
       %ul
@@ -12,34 +8,14 @@
       
   -if flash[:notice]        
     .alert.alert-success= notice
-        
-  .form-group
-    
-    = f.label "نام"    
-    .col-lg-9
-      = f.text_field :user_name, :class => "text"
-    %span.Necessary= "ضروری"
-     
-    
-  .form-group
-    = f.label " ایمیل"    
-    .col-lg-9
-      = f.text_field :email, :class => "text"
-    %span.Necessary=  "ضروری"
-    
-  .form-group
-    = f.label " تلفن"
-    .col-lg-9
-      = f.text_field :phone, :class => "text"
-    .clear-float
-    
-  .form-group
-    = f.label "پیام"
-    
-    .col-lg-9
-      = f.text_area :text, :class => "text", :style => "resize: none;"
-    %span.Necessary=  "ضروری"
-    .clear-float     
-  .form-group
-    = f.submit 'ارسال', :class=>"button button-small"
+  
+  %p
+    = f.text_field :user_name, :id => "name", name: "name", placeholder: "نام خود را وارد کنید"    
+  %p
+    = f.text_field :email, :id => "email", name: "email", placeholder: "ایمیل خود را وارد کنید"    
+  %p
+    = f.text_field :phone, :id => "subject", name: "subject", placeholder: "موضوع پیام را وارد کنید"    
+  %p
+    = f.text_area :text, :id => "comments", name: "comments", placeholder: "پیام خود را وارد کنید"
+  = f.submit 'ارسال پیام', :class=>"mainBtn", :id => "submit"
 %br

@@ -1,14 +1,13 @@
 
-%ul 
-  %li{:class => ('active' if current_page?(root_path))} 
-    = link_to "صفحه اصلی", root_path
-  %li.company{:class => ('active' if current_page?(informs_path))} 
-    = link_to "اخبار", Inform
-  %li{:class => ('active' if current_page?(cooperatives_path))}
-    = link_to "تعاونی ها", Cooperative
-  %li{:class => ('active' if current_page?(projects_path))}
-    = link_to "پروژه ها", Project
-  - Page.all.each do |page|      
-    %li{:class => ('active' if current_page?(page_path(page)))}
-      = link_to page.title, page
-
+%ul.menu-first.hidden-sm.hidden-xs
+  
+  %li.active
+    = link_to 'صفحه اصلی' , '#'
+  %li
+    = link_to 'خدمات' , '#services'                      
+  %li
+    = link_to 'پروژه ها' , '#portfolio'                     
+  %li
+    = link_to 'مدیران' , '#our-team'                            
+  %li
+    = link_to 'ارتباط با ما' , '#contact'            

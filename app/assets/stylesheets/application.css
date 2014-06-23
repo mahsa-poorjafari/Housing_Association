@@ -17,3 +17,10 @@
 .service-content .inner-service a{color:#fff; font-size:14px;}
 .service-content .inner-service a:hover{color:#ec523f; }
 .clear-float {clear:both}
+.set-center {margin-right:auto; margin-left:auto}
+.width80 {width:80%}
+.title  h1 {font-size:27px; text-align:center; margin:2%}
+.sub-title h3 {font-size:20px; text-align:right; margin:2%}
+.sub-title .line-orange {border-bottom:2px dotted #ec523f; margin-top: 4%;}
+.text-center .info p {text-align:right}
+.text-center .info  {margin-right:3%}

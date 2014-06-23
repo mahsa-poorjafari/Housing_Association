@@ -1,70 +1,73 @@
-#tbox2     
-  -if notice
-    .alert.alert-dismissable.alert-success
-      %p#notice= notice  
-      
-  .title
-    %h3= 'پروژه ' +  @project.title     
-     
-    -if is_admin?   
-      .admin-link
-        = link_to 'ویرایش', edit_project_path(@project)
-        \|
-        = link_to 'بازگشت', projects_path
-      
-  %div
-    %i= 'تعداد بازدید '
-    = @project.impressionist_count 
-    نفر   
-    .row.text-center 
-       
-      =link_to (image_tag @project.pictures.first.image(:large)), @project.pictures.first.image(:original), :data => { :colorbox => true }         
+.width80.set-center
+  .tbox2     
     
-      .col-md-5.info
-        %p
-          %b آدرس:
-          = @project.address
-        %p
-          %b توضیحات تکمیلی:
-          = @project.description
-        %p
-          %b متراژ:
-          = @project.Area
-        %p
-          %b تعداد واحد:
-          = @project.unit
-        %p
-          %b وضعیت:
-          -if  @project.Status
-            تحویل داده شده
-          -else
-            در دست احداث
-      .row    
-        -if @reg_before.present?
-          .col-md-5.reg-link
-            %b= 'شما در این پروژه ثبت نام کرده اید.'
-            %b= 'وضعیت درخواست مشارکت شما'
-            %p= 'در دست بررسی است.'
-              
-        -else
-          .col-md-5.reg-link
-            = link_to 'لینک ثبت نام', new_pay_limit_path(:id => @project.id), :class => "btn btn-danger"
-      
-    .clear-float
-    %hr
-    %div 
-      %h4= 'اطلاعیه ها'
-      -if @pro_informs.present?
-        - @pro_informs.each do |inform|
-          %div
-            %p
-              %b 
-                = inform.title          
-            %p    
-              = raw inform.text
-    %hr
+    .title
+      %h1= 'پروژه ' +  @project.title     
+       
+      -if is_admin?   
+        .admin-link
+          = link_to 'ویرایش', edit_project_path(@project)
+          \|
+          = link_to 'بازگشت', projects_path
+        
     %div
-      - @project.pictures.offset(1).each do |picture|
-        .col-lg-4
-          =link_to (image_tag picture.image(:small)), picture.image(:large), :data => { :colorbox => true }     
+      %i= 'تعداد بازدید '
+      = @project.impressionist_count 
+      نفر   
+      .row.text-center 
+        
+      
+        .col-md-5.info
+          %p
+            %b آدرس:
+            = @project.address
+          %p
+            %b توضیحات تکمیلی:
+            = @project.description
+          %p
+            %b متراژ:
+            = @project.Area
+          %p
+            %b تعداد واحد:
+            = @project.unit
+          %p
+            %b وضعیت:
+            -if  @project.Status
+              تحویل داده شده
+            -else
+              در دست احداث
+        
+        .col-md-6 
+          =link_to (image_tag @project.pictures.first.image(:large)), @project.pictures.first.image(:original), :data => { :colorbox => true }         
+        -#
+          .row    
+            -if @reg_before.present?
+              .col-md-5.reg-link
+                %b= 'شما در این پروژه ثبت نام کرده اید.'
+                %b= 'وضعیت درخواست مشارکت شما'
+                %p= 'در دست بررسی است.'
+                  
+            -else
+              .col-md-5.reg-link
+                = link_to 'لینک ثبت نام', new_pay_limit_path(:id => @project.id), :class => "btn btn-danger"
+        
+      .clear-float
+      
+      .sub-title 
+        .col-md-9.line-orange 
+        %h3.col-md-2= 'اطلاعیه ها'
+        .clear-float
+        -if @pro_informs.present?
+          - @pro_informs.each do |inform|
+            %div
+              %p
+                %b 
+                  = inform.title          
+              %p    
+                = raw inform.text
+      
+      %div
+        - @project.pictures.offset(1).each do |picture|
+          .col-lg-4
+            =link_to (image_tag picture.image(:small)), picture.image(:large), :data => { :colorbox => true }     
 

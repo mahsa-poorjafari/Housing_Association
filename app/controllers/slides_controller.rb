@@ -2,7 +2,7 @@
 class SlidesController < ApplicationController
   impressionist :actions=>[:show,:index]
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication, only: [:new, :edit]
+  
   # before_filter :check_autentication
   # GET /slides
   # GET /slides.json

@@ -1,0 +1,10 @@
+.flexslider  
+  %ul.slides
+    - Slide.all.each do |slide|
+      %li
+        .overlay
+        = image_tag slide.image(:gallery_size)
+        .slider-caption.visible-md.visible-lg
+          %h2 Digital Studio
+          %p Let us design your website
+          %a.slider-btn{href: "#"} Responsive Template

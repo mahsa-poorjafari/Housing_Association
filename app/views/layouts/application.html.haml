@@ -36,7 +36,7 @@
         .container
           .row
             .col-md-12.text-center
-              %h1= 'اتحادیه تعاونیهای مسکن فرهنگیان خراسان رضوی'
+              
             / /.col-md-12
           / /.row
         / /.container
@@ -44,23 +44,13 @@
           .container
             #menu-wrapper
               .row
-                .logo-wrapper.col-md-6.col-sm-2.col-xs-8
+                .logo-wrapper.col-md-6
                   %h4
-                    = link_to 'اتحادیه تعاونیهای مسکن فرهنگیان خراسان رضوی', '#'
+                    = link_to 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان', root_path
                   
                 / /.logo-wrapper
-                .col-md-6.col-sm-10.col-xs-4.main-menu.text-right
-                  %ul.menu-first.hidden-sm.hidden-xs
-                    %li.active
-                      = link_to 'صفحه اصلی' , '#'
-                    %li
-                      = link_to 'تعاونیها' , '#services'                      
-                    %li
-                      = link_to 'پروژه ها' , '#portfolio'                     
-                    %li
-                      = link_to 'مدیران' , '#our-team'                            
-                    %li
-                      = link_to 'ارتباط با ما' , '#contact'                            
+                .col-md-6.main-menu.text-right
+                  = render 'shared/nav_bar'                
                       
                   %a.toggle-menu.visible-sm.visible-xs{href: "#"}
                     %i.fa.fa-bars
@@ -82,64 +72,22 @@
             / /.menu-responsive
       .site-slider
         .slider
-          .flexslider
-            %ul.slides
-              %li
-                .overlay
-                = image_tag 'slide1.jpg'
-                .slider-caption.visible-md.visible-lg
-                  %h2 Digital Studio
-                  %p Let us design your website
-                  %a.slider-btn{href: "#"} Responsive Template
-              %li
-                .overlay
-                = image_tag 'slide2.jpg'
-                .slider-caption.visible-md.visible-lg
-                  %h2 Responsive Template
-                  %p Download and use it for your website
-                  %a.slider-btn{href: "#"} Go to Portfolio
-              %li
-                .overlay
-                = image_tag 'slide3.jpg'
-                .slider-caption.visible-md.visible-lg
-                  %h2 Professional Quality
-                  %p New standard of web design and coding
-                  %a.slider-btn{href: "#"} Mobile Website
-          / /.flexslider
+          = render 'slides/slide_show'
         / /.slider
-    -#
-      .wrapper
-        #three-column.container.set-center  
-          #tbox1
-            .title 
-              -if is_admin?
-                = render "shared/admin_menu"
-                = link_to "خروج", destroy_user_session_path, :method => :delete
-              -elsif is_inspector?
-                = render "shared/inspector_menu"
-                = link_to "خروج", destroy_user_session_path, :method => :delete
-              -elsif is_user?
-                = render "shared/user_menu"
-                = link_to "خروج", destroy_user_session_path, :method => :delete            
-              -else          
-                = render "devise/sessions/new", :resource => resource
-
-          %hr
-          .title
-            %h2= 'پروژه ها'
-            - Project.all.each do |project|
-              = link_to project.title, project
-              %hr
+    .clear-float 
+    
     = yield 
     .clear-float   
     #footer
       .container
         .row
           .col-md-8.col-xs-12.text-left
-            Copyright © 2084 Company Name -
-            %a{href: "http://www.templatemo.com/page/1", rel: "nofollow"} Responsive Template
+            Copyright © 2016 etehadiye Maskane farhangiyan   -
+            = link_to 'Develop', '#', rel: "nofollow"
+            
             by
-            %a{href: "http://www.templatemo.com/preview/templatemo_406_flex", rel: "nofollow"} Flex
+            = link_to 'Raush.net', '#', rel: "nofollow"
+            
           / /.text-center
           .col-md-4.hidden-xs.text-right
             %a#go-top{href: "#top"} Back to top
@@ -147,4 +95,4 @@
         / /.row
       / /.container
     / /#footer
-        
+          

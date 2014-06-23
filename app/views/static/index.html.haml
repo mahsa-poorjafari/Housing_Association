@@ -146,17 +146,8 @@
     / /.row
     .row
       .col-md-8.col-sm-6
-        %p
-          Aliquam faucibus in dolor sed vestibulum. Sed adipiscing malesuada luctus. Morbi tincidunt, tellus scelerisque scelerisque scelerisque, sapien dui pretium augue, at consectetur sapien tellus vitae nunc. Ut vitae metus quis nulla cursus adipiscing pretium vel dolor. Fusce lacinia accumsan arcu, quis porttitor nisi tincidunt ut.
-          %br/
-          %br/
-          Etiam tincidunt, magna eu elementum tristique, sapien nisl venenatis lacus, nec sagittis lectus dui eget lorem. Donec in tempus mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin laoreet ac quam et volutpat. Aenean egestas interdum dolor, et mollis lectus consequat a.
-          %br/
-          %br/
-          Nunc malesuada nunc eget nunc sollicitudin posuere. Maecenas vitae tortor quis odio hendrerit sagittis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris ullamcorper, felis sit amet gravida malesuada, nisi sem rhoncus massa, non tempor est erat sit amet diam.
-          / spacing for mobile viewing
-          %br/
-          %br/
+        = @about.first.text
+          
       / /.col-md-8
       .col-md-4.col-sm-6
         %ul.progess-bars
@@ -195,37 +186,12 @@
     / /.row
     .row
       .col-md-7.col-sm-6
-        %p
-          Flex is
-          %a{href: "#"} free responsive template
-          by templatemo that can be used for any commercial or personal website. Slider images and portfolio images are from
-          %a{href: "http://unsplash.com", rel: "nofollow"} Unsplash
-          website. Duis ullamcorper tortor tellus. Ut diam libero, ultricies non augue a, mollis congue risus. Fusce a quam eget nisi luctus imperdiet. Aenean semper erat neque. Nunc et scelerisque nunc, in adipiscing magna. Phasellus in erat non tellus molestie sagittis sed a justo. Nam vehicula volutpat nibh, in posuere dolor dictum sit amet.
-          %br/
-          %br/
-          Consectetur quod at aperiam corporis totam. Nesciunt minima laborum sapiente totam facere unde est cum quia. Hic, suscipit, praesentium earum quod ea distinctio impedit ullam deserunt minus dolore quibusdam quis saepe aliquam doloribus voluptatibus eum excepturi.
-        %ul.contact-info
-          %li Phone: 010-080-0180
-          %li
-            Email:
-            %a{href: "mailto:info@company.com"} info@company.com
-          %li Address: 123 Premium Studio, Thamine Street, Digital Estate
-        / spacing for mobile viewing
-        %br/
-        %br/
+        %p= @contact.first.text
+        
       / /.col-md-7
       .col-md-5.col-sm-6
         .contact-form
-          %form#contactform{method: "post", name: "contactform"}
-            %p
-              %input#name{name: "name", placeholder: "Your Name", type: "text"}/
-            %p
-              %input#email{name: "email", placeholder: "Your Email", type: "text"}/
-            %p
-              %input#subject{name: "subject", placeholder: "Subject", type: "text"}/
-            %p
-              %textarea#comments{name: "comments", placeholder: "Message"}
-            %input#submit.mainBtn{type: "submit", value: "Send Message"}/
+          = render 'shared/msg_form'
         / /.contact-form
       / /.col-md-5
     / /.row

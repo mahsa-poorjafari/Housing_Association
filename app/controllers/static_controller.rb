@@ -9,6 +9,7 @@ class StaticController < ApplicationController
     end      
   end
   def index
-    
+    @about = Page.where(title: "درباره ما")
+    @contact = Page.where(title: "تماس با ما")
   end
 end
