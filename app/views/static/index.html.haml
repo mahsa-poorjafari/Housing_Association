@@ -13,7 +13,7 @@
             پیوندهای مرتبط
           
           .service-icon
-            %i.fa.fa-file-code-o
+            = image_tag 'link.png', :class => "set-center"
           / /.service-icon
           .service-content{:style => "overflow-y: scroll;height: 300px"}
             .inner-service
@@ -30,7 +30,7 @@
             تعاونیهای تحت پوشش
           
           .service-icon
-            %i.fa.fa-paper-plane-o
+            = image_tag 'colab.png', :class => "set-center"
           / /.service-icon
           .service-content{:style => "overflow-y: scroll;height: 300px;"}
             .inner-service
@@ -42,28 +42,27 @@
       / /.col-md-3
       .col-md-3.col-sm-6
         #service-3.service-item{:style => "height:300px"}
+          %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
+            ابلاغیه ها
           .service-icon
-            %i.fa.fa-institution
+            = image_tag 'new.png', :class => "set-center"
           / /.service-icon
           .service-content
             .inner-service
-              %h3 Web Design
-              %p
-                We create
-                %a{href: "#"} mobile website templates
-                that are responsive for any screen size on any device. Feel free to download and use our templates without restrictions.
+              
           / /.service-content
         / /#service-1
       / /.col-md-3
       .col-md-3.col-sm-6
         #service-4.service-item{:style => "height:300px"}
+          %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
+            پرسش و پاسخ
           .service-icon
-            %i.fa.fa-flask
+            = image_tag 'question.png', :class => "set-center"
           / /.service-icon
           .service-content
             .inner-service
-              %h3 Mobile Ready
-              %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, assumenda, eveniet, consectetur, ex doloribus veniam asperiores incidunt mollitia placeat aniet adipscing.
+              
           / /.service-content
         / /#service-1
       / /.col-md-3

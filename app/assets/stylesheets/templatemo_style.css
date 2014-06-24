@@ -463,7 +463,8 @@ a.toggle-menu {
 }
 .service-item .service-content .inner-service {
   padding: 5%;
-  margin:5%;
+  margin-top:20px;
+  text-align:right;
 }
 .service-item .service-content h3 {
   font-size: 18px;
