@@ -1,10 +1,11 @@
-#tbox2
-  %p#notice= notice
+.width80.set-center.margin-top
+  .tbox2
+    %p#notice= notice
 
-  %p
-    %b Name:
-    = @role.name
+    %p
+      %b Name:
+      = @role.name
 
-  = link_to 'Edit', edit_role_path(@role)
-  \|
-  = link_to 'Back', roles_path
+    = link_to 'Edit', edit_role_path(@role)
+    \|
+    = link_to 'Back', roles_path

@@ -1,28 +1,29 @@
-#tbox2
-  .title
-    %h2= "اطلاعات  شخصی مدیر"
-  -if notice
-    .alert.alert-dismissable.alert-success
-      %p#notice= notice
-    
-  .col-lg-4
-    -if @management.image.present?
-      = image_tag @management.image(:medium)
-    -else
-      = image_tag "unknown.png"
-    
-  .col-lg-4  
-    %p
-      %b نام و نام خانوادگی
-      = @management.name + " " + @management.last_name
-    %p
-      %b سمت:
-      = @management.post
-    %p
-      %b سابقه کاری:
-      = @management.Work_Experience
-  %br        
-  - if is_admin?
-    = link_to 'ویرایش', edit_management_path(@management)
-    \|
-    = link_to 'بازگشت', managements_path
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h2= "اطلاعات  شخصی مدیر"
+    -if notice
+      .alert.alert-dismissable.alert-success
+        %p#notice= notice
+      
+    .col-lg-4
+      -if @management.image.present?
+        = image_tag @management.image(:medium)
+      -else
+        = image_tag "unknown.png"
+      
+    .col-lg-4  
+      %p
+        %b نام و نام خانوادگی
+        = @management.name + " " + @management.last_name
+      %p
+        %b سمت:
+        = @management.post
+      %p
+        %b سابقه کاری:
+        = @management.Work_Experience
+    %br        
+    - if is_admin?
+      = link_to 'ویرایش', edit_management_path(@management)
+      \|
+      = link_to 'بازگشت', managements_path

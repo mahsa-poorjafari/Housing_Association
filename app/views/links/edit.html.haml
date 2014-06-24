@@ -1,9 +1,10 @@
-#tbox2
-  .title
-    %h2= 'ویرایش پیوند'
-  .input-form
-    = render 'form'
-  -if is_admin?
-    = link_to 'مشاهده', @link
-    \|
-    = link_to 'بازگشت', links_path
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h2= 'ویرایش پیوند'
+    .input-form
+      = render 'form'
+    -if is_admin?
+      = link_to 'مشاهده', @link
+      \|
+      = link_to 'بازگشت', links_path

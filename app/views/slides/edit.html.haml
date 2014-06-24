@@ -1,48 +1,49 @@
-#tbox2
-  .title
-    
-    %h2= 'تنظیم اندازه تصویر'
-  = form_for @slide, :html => {:multipart => true} do |f| 
-    %div
-      = image_tag @slide.image.url(:original), :class => "crop cropImage", :height => "300", :width => "730"
-      = f.hidden_field :crop_x
-      = f.hidden_field :crop_y
-      = f.hidden_field :crop_w
-      = f.hidden_field :crop_h
-    %div
-              
-      .form-group        
-        = f.label "توضیحات ", :class => "control-label"
-        = f.text_area :description, :class => "form-control"    
-            
-      .form-group
-        = f.submit 'ثبت', :class => "button btn-sm"
-  
-      = link_to 'بازگشت', slide_path
-
-:javascript
-  $( '.crop' ).each( function () {
-    var image = $( this )
-    , crop  = image
-    .crop( {
-      controls : 'Drag to move, scroll to zoom'
-    } )
-    .on( 'crop', function( event ) {
-      console.log("golabi");
-      $("#slide_crop_x").val(event.cropX);
-      $("#slide_crop_y").val(event.cropY);  
-      $("#slide_crop_h").val(event.cropH);
-      $("#slide_crop_w").val(event.cropW);
-    })
-    .data('crop');
-      image
-      .on( 'dblclick', $.proxy( crop.zoomIn, crop ) )
-      .on( 'mousewheel', function ( event ) {
-      return event.originalEvent.wheelDelta < 0 ?
-      crop.zoomIn() :
-      crop.zoomOut();
-    } );
-  } );
+.width80.set-center.margin-top
+  .tbox2
+    .title
       
+      %h2= 'تنظیم اندازه تصویر'
+    = form_for @slide, :html => {:multipart => true} do |f| 
+      %div
+        = image_tag @slide.image.url(:original), :class => "crop cropImage", :height => "300", :width => "730"
+        = f.hidden_field :crop_x
+        = f.hidden_field :crop_y
+        = f.hidden_field :crop_w
+        = f.hidden_field :crop_h
+      %div
+                
+        .form-group        
+          = f.label "توضیحات ", :class => "control-label"
+          = f.text_area :description, :class => "form-control"    
+              
+        .form-group
+          = f.submit 'ثبت', :class => "button btn-sm"
     
+        = link_to 'بازگشت', slide_path
+
+  :javascript
+    $( '.crop' ).each( function () {
+      var image = $( this )
+      , crop  = image
+      .crop( {
+        controls : 'Drag to move, scroll to zoom'
+      } )
+      .on( 'crop', function( event ) {
+        console.log("golabi");
+        $("#slide_crop_x").val(event.cropX);
+        $("#slide_crop_y").val(event.cropY);  
+        $("#slide_crop_h").val(event.cropH);
+        $("#slide_crop_w").val(event.cropW);
+      })
+      .data('crop');
+        image
+        .on( 'dblclick', $.proxy( crop.zoomIn, crop ) )
+        .on( 'mousewheel', function ( event ) {
+        return event.originalEvent.wheelDelta < 0 ?
+        crop.zoomIn() :
+        crop.zoomOut();
+      } );
+    } );
+        
+      
 

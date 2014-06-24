@@ -1,5 +1,5 @@
 .width80.set-center.margin-top
-  .tbox2     
+  .tbox2    
     
     .title
       %h1= 'پروژه ' +  @project.title     
@@ -66,8 +66,8 @@
               %p    
                 = raw inform.text
       
-      %div
+      .pic-project
         - @project.pictures.offset(1).each do |picture|
-          .col-lg-4
+          .col-lg-4.image-project
             =link_to (image_tag picture.image(:small)), picture.image(:large), :data => { :colorbox => true }     
 

@@ -1,26 +1,27 @@
-#tbox2
-  %h2= 'اطلاعات پرداخت'
-  %p#notice= notice
-  
-  %p
-    %b پرو‌ژه
-    = @payment.project.title
- 
-
-  %p
-    %b سقف مبلغ پرداختی
-    = @payment.amount
-  %p
-    %b شماره فیش واریزی
-    = @payment.bank_draft_no
-  %p
-    %b نام و نام خانوادگی کاربر
-    = @payment.user.name
-    = @payment.user.last_name
+.width80.set-center.margin-top
+  .tbox2
+    %h2= 'اطلاعات پرداخت'
+    %p#notice= notice
     
-  %p
-    %b ایمیل کاربر
-    = @payment.user.email
+    %p
+      %b پرو‌ژه
+      = @payment.project.title
+   
+
+    %p
+      %b سقف مبلغ پرداختی
+      = @payment.amount
+    %p
+      %b شماره فیش واریزی
+      = @payment.bank_draft_no
+    %p
+      %b نام و نام خانوادگی کاربر
+      = @payment.user.name
+      = @payment.user.last_name
+      
+    %p
+      %b ایمیل کاربر
+      = @payment.user.email
 
 
 

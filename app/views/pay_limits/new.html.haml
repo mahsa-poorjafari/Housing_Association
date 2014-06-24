@@ -1,24 +1,25 @@
-#tbox2
-  .title    
-    - if @project.present?
-      %h2= "فرم ثبت نام در پروژه" + " " + @project.title
-    -else
-      %h2= "فرم ثبت نام در پروژه"
-  - if current_user.blank?
-    %h2= 'شما مجاز به دسترسی نیستید.'
-    = link_to 'عضو شوید', new_registration_path(resource_name), class:"link"
-  - else
-    #personal-info
-    %p
-      = current_user.name    
-      = current_user.last_name
+.width80.set-center.margin-top
+  .tbox2
+    .title    
+      - if @project.present?
+        %h2= "فرم ثبت نام در پروژه" + " " + @project.title
+      -else
+        %h2= "فرم ثبت نام در پروژه"
+    - if current_user.blank?
+      %h2= 'شما مجاز به دسترسی نیستید.'
+      = link_to 'عضو شوید', new_registration_path(resource_name), class:"link"
+    - else
+      #personal-info
+      %p
+        = current_user.name    
+        = current_user.last_name
+      
+      %p= current_user.email
+      
+      #pay-info.width70.set-center
+        %h4= 'فرم اطلاعات مالی'
+        = render 'form'
     
-    %p= current_user.email
-    
-    #pay-info.width70.set-center
-      %h4= 'فرم اطلاعات مالی'
-      = render 'form'
-  
-  = link_to 'بازگشت', Project
+    = link_to 'بازگشت', Project
 
 

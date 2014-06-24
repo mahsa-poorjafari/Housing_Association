@@ -1,32 +1,33 @@
-#tbox2
-  %p#notice= notice
-  .title 
-    %h2= 'درخواست مشارکت در پروژه'
-  
-  %h3 
-    %i= 'کد درخواست' 
-    = @pay_limit.id
-  %br
-  
- 
-  %p
-    %h4 اطلاعات کاربر:
+.width80.set-center.margin-top
+  .tbox2
+    %p#notice= notice
+    .title 
+      %h2= 'درخواست مشارکت در پروژه'
+    
+    %h3 
+      %i= 'کد درخواست' 
+      = @pay_limit.id
+    %br
+    
+   
     %p
-      = @pay_limit.user.email
-      = @pay_limit.user.name 
-      = @pay_limit.user.last_name
-      = @pay_limit.user.phone
-      = @pay_limit.user.mobile
+      %h4 اطلاعات کاربر:
+      %p
+        = @pay_limit.user.email
+        = @pay_limit.user.name 
+        = @pay_limit.user.last_name
+        = @pay_limit.user.phone
+        = @pay_limit.user.mobile
+        
       
-    
-  %p
-    %b اطلاعات پروژه
-    
-    = @pay_limit.project.title
-  %p
-    %b سقف مبلغ پرداختی:
-    = @pay_limit.amount
-  - if is_admin?
-    
-    = link_to 'ویرایش', edit_pay_limit_path(@pay_limit)
- 
+    %p
+      %b اطلاعات پروژه
+      
+      = @pay_limit.project.title
+    %p
+      %b سقف مبلغ پرداختی:
+      = @pay_limit.amount
+    - if is_admin?
+      
+      = link_to 'ویرایش', edit_pay_limit_path(@pay_limit)
+   

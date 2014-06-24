@@ -1,14 +1,15 @@
-#tbox2
-  .title    
-    %h2= "فرم ثبت نام" + " " + @project.title
-  - if current_user.present?
-    %h2= 'کاربر عضو است'
-  -else    
-    .col-lg-6
-      %h4= 'فرم اطلاعات شخصی'
-      =render 'users/form'
-  .row.col-lg-6
-    %h4= 'فرم اطلاعات مالی'
-    = render 'form'
-  
-  = link_to 'بازگشت', payments_path
+.width80.set-center.margin-top
+  .tbox2
+    .title    
+      %h2= "فرم ثبت نام" + " " + @project.title
+    - if current_user.present?
+      %h2= 'کاربر عضو است'
+    -else    
+      .col-lg-6
+        %h4= 'فرم اطلاعات شخصی'
+        =render 'users/form'
+    .row.col-lg-6
+      %h4= 'فرم اطلاعات مالی'
+      = render 'form'
+    
+    = link_to 'بازگشت', payments_path

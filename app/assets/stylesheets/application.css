@@ -38,3 +38,11 @@ body {direction:rtl}
 .admin-menu:hover { height:350px; cursor:pointer}
 .admin-menu a:hover {color:#000}
 .admin-menu .admin-menu-links {margin-top:5px}
+.pic-project .image-project {text-align:center; margin:2%; border-top-right-radius:10px;
+  border-right:2px dotted #ec523f;
+  
+ }
+.pic-project .image-project img{width:100%; height:100%; border-top-right-radius:20px; 
+  border-bottom-left-radius:20px;
+  
+}

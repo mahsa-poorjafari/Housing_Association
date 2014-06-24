@@ -1,20 +1,21 @@
-#tbox2
-  .title          
-    %h1= @page.title   
-  .visited
-    %i= 'تعداد بازدید '
-    = @page.impressionist_count    
-    نفر
-  %p    
-    =raw @page.text
-  - if @page.title == "تماس با ما"
-    #portfolio
-      = render "shared/msg_form"
-  - if is_admin?
-    = link_to 'ویرایش', edit_page_path(@page)
-    \|
-    = link_to 'بازگشت', pages_path
-  %br
-  
-  
-  
+.width80.set-center.margin-top
+  .tbox2
+    .title          
+      %h1= @page.title   
+    .visited
+      %i= 'تعداد بازدید '
+      = @page.impressionist_count    
+      نفر
+    %p    
+      =raw @page.text
+    - if @page.title == "تماس با ما"
+      #portfolio
+        = render "shared/msg_form"
+    - if is_admin?
+      = link_to 'ویرایش', edit_page_path(@page)
+      \|
+      = link_to 'بازگشت', pages_path
+    %br
+    
+    
+    
