@@ -1,12 +1,13 @@
-#tbox2
-  .title
-    %h2= 'پیام ارسالی توسط ' + @message.user_name  
-  %p
-    %b ایمیل کاربر
-    = @message.email
-  %p
-    %b متن پیام
-    = @message.text
-  
-   
-  = link_to 'بازگشت', messages_path
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h2= 'پیام ارسالی توسط ' + @message.user_name  
+    %p
+      %b ایمیل کاربر
+      = @message.email
+    %p
+      %b متن پیام
+      = @message.text
+    
+     
+    = link_to 'بازگشت', messages_path

@@ -2,6 +2,7 @@
   .tbox2
     .title
       %h1 لیست تعاونیهای تحت پوشش
+      = link_to '', '#', :name => "top"
           
     %div
       - @cooperatives.each_with_index do |cooperative, i|

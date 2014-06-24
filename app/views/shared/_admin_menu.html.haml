@@ -1,18 +1,27 @@
-.admin-title
-  %h3= "خوش آمدید"
-  %h5= current_user.name
+
   
-.list-group      
-  = link_to "گزارش گیری از کابران", User, :class => "list-group-item"
-  = link_to "گزارش گیری درخواست مشارکت", PayLimit, :class => "list-group-item"
-  = link_to "گزارش شکایات", Complaint, :class => "list-group-item"
-  = link_to " مدیریت اطلاعیه", Inform, :class => "list-group-item"
-  = link_to 'مدیریت اسلایدر', Slide, :class => "list-group-item"
-  = link_to "مدیریت پروژه ها", Project, :class => "list-group-item"
-  = link_to "مدیریت تعاونیها ", Cooperative, :class => "list-group-item"
-  = link_to "مدیریت صفحات متنی", Page, :class => "list-group-item"
-  = link_to "مدیریت پیوندها", Link, :class => "list-group-item"
-  = link_to "مدیریت مدیران", Management, :class => "list-group-item"  
-  = link_to "مدیریت پیام ها", Message, :class => "list-group-item"
-  = link_to 'پروفایل مدیر', edit_user_registration_path(current_user), :class => "list-group-item"
+= link_to "گزارش گیری از کابران", User
+%br
+= link_to "گزارش گیری درخواست مشارکت", PayLimit
+%br
+= link_to "گزارش شکایات", Complaint
+%br
+= link_to " مدیریت اطلاعیه", Inform
+%br
+= link_to 'مدیریت اسلایدر', Slide
+%br
+= link_to "مدیریت پروژه ها", Project
+%br
+= link_to "مدیریت تعاونیها ", Cooperative
+%br
+= link_to "مدیریت صفحات متنی", Page
+%br
+= link_to "مدیریت پیوندها", Link
+%br
+= link_to "مدیریت مدیران", Management
+%br
+= link_to "مدیریت پیام ها", Message
+%br
+= link_to 'پروفایل مدیر', edit_user_registration_path(current_user)
+%br
 

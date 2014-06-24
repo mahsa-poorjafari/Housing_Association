@@ -1,25 +1,26 @@
-#tbox2
-  .title
-    %h2 لیست پیام های ارسال شده
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h2 لیست پیام های ارسال شده
 
-  %table.table.table-striped.table-hover.message
-    %thead
-      %tr
-        %th ردیف      
-        %th متن      
-        %th فرستنده
-        %th عملیات
-        
-    %tbody
-      - @messages.each_with_index do |message, i|        
-        %tr{:class => ('visited' if message.visited == true)}
-          %td= (i+1)        
-          %td= message.text        
-          %td= message.user_name        
-          %td
-            = link_to 'مشاهده پیام', message
-            = link_to 'حذف', message, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+    %table.table.table-striped.table-hover.message
+      %thead
+        %tr
+          %th ردیف      
+          %th متن      
+          %th فرستنده
+          %th عملیات
+          
+      %tbody
+        - @messages.each_with_index do |message, i|        
+          %tr{:class => ('visited' if message.visited == true)}
+            %td= (i+1)        
+            %td= message.text        
+            %td= message.user_name        
+            %td
+              = link_to 'مشاهده پیام', message
+              = link_to 'حذف', message, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
-  %br
+    %br
 
 

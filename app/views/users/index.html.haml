@@ -1,61 +1,62 @@
-#tbox2
-  .title
-    %h2 لیست کاربران
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h2 لیست کاربران
 
-  
-  %table.table.table-striped{id:"users_table"}
-    %thead
-      %tr
-        %th
-        %th= 'نام و نام خانوادگی'      
-        %th= 'نقش کاربر'
-        %th= 'تلفن تماس'        
-        %th= 'ایمیل'
-        %th= 'تعداد پروژه ها'        
-        %th      
-        
-    %tbody{:id => "users_container"}
-      - @users.each_with_index do |user, i|
+    
+    %table.table.table-striped{id:"users_table"}
+      %thead
         %tr
-          %td= (i+1)          
-          %td             
-            = user.name 
-            = user.last_name        
-          %td= user.role_id
-          %td 
-            = user.phone
-            \-
-            = user.mobile        
-          %td= link_to user.email, user                    
-          %td          
-          %td
-            = link_to 'حذف', user, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-            \|
-            = link_to 'ویرایش', edit_user_path(user)
+          %th
+          %th= 'نام و نام خانوادگی'      
+          %th= 'نقش کاربر'
+          %th= 'تلفن تماس'        
+          %th= 'ایمیل'
+          %th= 'تعداد پروژه ها'        
+          %th      
           
-          
-:coffeescript
-  window.reloadDataTable = ->
-    if !!window.oTable
-      window.oTable.fnDestroy(); 
-    window.oTable = $("#users_table").dataTable aoColumnDefs: [
-      bSearchable: false
-      aTargets: [0,5]
-    ,  
-      bSortable: false
-      aTargets: [0,5]
-    ],  oLanguage:
-      sSearch: "جستجو:"
-      sLengthMenu: "نمایش _MENU_ ردیف"
-      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-      sZeroRecords: "هیچ داده ای وجود ندارد"
-      sInfoEmpty: "هیچ موردی یافت نشد"
-      sInfoFiltered: " - از بین _MAX_ داده موجود"
-      oPaginate:
-        sPrevious: "صفحه قبلی"
-        sNext: "صفحه بعدی"
+      %tbody{:id => "users_container"}
+        - @users.each_with_index do |user, i|
+          %tr
+            %td= (i+1)          
+            %td             
+              = user.name 
+              = user.last_name        
+            %td= user.role_id
+            %td 
+              = user.phone
+              \-
+              = user.mobile        
+            %td= link_to user.email, user                    
+            %td          
+            %td
+              = link_to 'حذف', user, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+              \|
+              = link_to 'ویرایش', edit_user_path(user)
+            
+            
+  :coffeescript
+    window.reloadDataTable = ->
+      if !!window.oTable
+        window.oTable.fnDestroy(); 
+      window.oTable = $("#users_table").dataTable aoColumnDefs: [
+        bSearchable: false
+        aTargets: [0,5]
+      ,  
+        bSortable: false
+        aTargets: [0,5]
+      ],  oLanguage:
+        sSearch: "جستجو:"
+        sLengthMenu: "نمایش _MENU_ ردیف"
+        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+        sZeroRecords: "هیچ داده ای وجود ندارد"
+        sInfoEmpty: "هیچ موردی یافت نشد"
+        sInfoFiltered: " - از بین _MAX_ داده موجود"
+        oPaginate:
+          sPrevious: "صفحه قبلی"
+          sNext: "صفحه بعدی"
 
-  window.reloadDataTable()
+    window.reloadDataTable()
 
 
 

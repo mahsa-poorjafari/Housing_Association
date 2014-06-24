@@ -56,7 +56,14 @@
                     %i.fa.fa-bars
                 / /.main-menu
               / /.row
+              
             / /#menu-wrapper
+            -if is_admin?
+              .col-md-2.admin-menu
+                %h2= 'منوی مدیرسایت'
+                .admin-menu-links
+                  = render 'shared/admin_menu'
+                  = link_to "خروج", destroy_user_session_path, :method => :delete
             .menu-responsive.hidden-md.hidden-lg
               %ul
                 %li.active

@@ -27,3 +27,14 @@ body {direction:rtl}
 .margin-top {margin-top:20%}
 .top94 {top:10%}
 .cooperative-index {border-bottom:2px dotted #ec523f; padding:2%; margin:2%; height:200px; overflow:hidden}
+.admin-menu {background:#ec523f; color:#fff; height:25px;-webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  text-align:right;
+  overflow:hidden;}
+.admin-menu h2{color:#fff; padding:2px; border-bottom:1px dotted #fff; text-align:center }
+.admin-menu a {color:#fff; width:100%; height:20px; text-align:right}
+.admin-menu:hover { height:350px; cursor:pointer}
+.admin-menu a:hover {color:#000}
+.admin-menu .admin-menu-links {margin-top:5px}

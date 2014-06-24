@@ -1,19 +1,20 @@
-#tbox2
-  .title
-    %h2 صفحات متنی
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h2 صفحات متنی
 
-  %table.table.table-striped.table-hover 
-    %tr
-      %th عنوان      
-      %th
-
-    - @pages.each do |page|
+    %table.table.table-striped.table-hover 
       %tr
-        %td=link_to page.title, page      
-        %td
-          = link_to 'ویرایش', edit_page_path(page)
-          = link_to 'حذف', page, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+        %th عنوان      
+        %th
 
-  %br
+      - @pages.each do |page|
+        %tr
+          %td=link_to page.title, page      
+          %td
+            = link_to 'ویرایش', edit_page_path(page)
+            = link_to 'حذف', page, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
-  = link_to 'تعریف صفحه متنی جدید', new_page_path, :class => "button btn-sm"
+    %br
+
+    = link_to 'تعریف صفحه متنی جدید', new_page_path, :class => "button btn-sm"

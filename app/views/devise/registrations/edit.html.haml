@@ -1,67 +1,68 @@
-#tbox2
-  %h2
-    پروفایل #{resource_name.to_s.humanize}
-  .width70.set-center
-    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-      = devise_error_messages!
-      .form-group
-        = f.label 'ایمیل'
-        %br/
-        = f.email_field :email, :autofocus => true, :class => "text"
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+.width80.set-center.margin-top
+  .tbox2
+    %h2
+      پروفایل #{resource_name.to_s.humanize}
+    .width70.set-center
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+        = devise_error_messages!
         .form-group
-          Currently waiting confirmation for: #{resource.unconfirmed_email}
-      .form-group
-        = f.label 'رمزعبور جدید'
-        %i (اگر نمی خواهید رمزعبور را تغییر دهید این فیلد را خالی بگذارید.)
-        %br/
-        = f.password_field :password, :autocomplete => "off", :class => "text"
-      .form-group
-        = f.label 'تکرار رمزعبور'
-        %br/
-        = f.password_field :password_confirmation, :class => "text"
-      .form-group
-        = f.label 'رمزعبور فعلی'
-        %i (برای هر گونه اعمال تغییرات باید رمزعبور فعلی را وارد کنید.)
-        %br/
-        = f.password_field :current_password, :class => "text"  
-        
+          = f.label 'ایمیل'
+          %br/
+          = f.email_field :email, :autofocus => true, :class => "text"
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          .form-group
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .form-group
+          = f.label 'رمزعبور جدید'
+          %i (اگر نمی خواهید رمزعبور را تغییر دهید این فیلد را خالی بگذارید.)
+          %br/
+          = f.password_field :password, :autocomplete => "off", :class => "text"
+        .form-group
+          = f.label 'تکرار رمزعبور'
+          %br/
+          = f.password_field :password_confirmation, :class => "text"
+        .form-group
+          = f.label 'رمزعبور فعلی'
+          %i (برای هر گونه اعمال تغییرات باید رمزعبور فعلی را وارد کنید.)
+          %br/
+          = f.password_field :current_password, :class => "text"  
+          
+        %hr
+          
+        - if is_admin?
+          .form-group
+            = f.label "نقش کاربر:"
+            = f.select :role_id, options_from_collection_for_select(Role.all, "id","name"), { :include_blank=>true }
+        .form-group
+          = f.label "نام:"
+          = f.text_field :name, :class => "text"
+        .form-group
+          = f.label "نام خانوادگی"
+          = f.text_field :last_name, :class => "text"
+        .form-group
+          = f.label "شماره ملی"
+          = f.text_field :national_code, :class => "text"
+        .form-group
+          = f.label "تاریخ تولد: " + "1392/01/01"
+          
+          = f.text_field :birthdate, :class => "text"
+        .form-group
+          = f.label "تلفن ثابت"
+          = f.text_field :phone, :class => "text"
+        .form-group
+          = f.label "تلفن همراه"
+          = f.text_field :mobile, :class => "text"
+        .form-group
+          = f.label "آدرس"
+          = f.text_area :address, :class => "text"
+          
+        .form-group= f.submit "ویرایش", :class => "button btn-sm"
       %hr
-        
-      - if is_admin?
-        .form-group
-          = f.label "نقش کاربر:"
-          = f.select :role_id, options_from_collection_for_select(Role.all, "id","name"), { :include_blank=>true }
-      .form-group
-        = f.label "نام:"
-        = f.text_field :name, :class => "text"
-      .form-group
-        = f.label "نام خانوادگی"
-        = f.text_field :last_name, :class => "text"
-      .form-group
-        = f.label "شماره ملی"
-        = f.text_field :national_code, :class => "text"
-      .form-group
-        = f.label "تاریخ تولد: " + "1392/01/01"
-        
-        = f.text_field :birthdate, :class => "text"
-      .form-group
-        = f.label "تلفن ثابت"
-        = f.text_field :phone, :class => "text"
-      .form-group
-        = f.label "تلفن همراه"
-        = f.text_field :mobile, :class => "text"
-      .form-group
-        = f.label "آدرس"
-        = f.text_area :address, :class => "text"
-        
-      .form-group= f.submit "ویرایش", :class => "button btn-sm"
-    %hr
-    %h3 لغو حساب کاربری
-    %p
-      Unhappy? #{button_to "حذف حساب کاربری", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "button btn-sm"}
-    = link_to "بازگشت", root_path
+      %h3 لغو حساب کاربری
+      %p
+        Unhappy? #{button_to "حذف حساب کاربری", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "button btn-sm"}
+      = link_to "بازگشت", root_path
 
-  
+    
 
 

@@ -1,61 +1,62 @@
-#tbox2
-  .title
-    %h1 لیست شکایات
-  - if current_user.present?
-    = link_to 'ثبت شکایت جدید', new_complaint_path, :class => "button btn-sm"
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 لیست شکایات
+    - if current_user.present?
+      = link_to 'ثبت شکایت جدید', new_complaint_path, :class => "button btn-sm"
 
-  %table.table.table-striped{id:"complaint_table"}
-    %thead
-      %tr 
-        %th ردیف      
-        %th موضوع شکایت             
-        %th پاسخ شکایت  
-        - if current_user.present?
-          %th عملیات
-        
-    %tbody{:id => "complaint_container"}
-      - @complaints.each_with_index do |complaint, i|
-        %tr
-          %td= (i+1) 
-          %td= link_to truncate( complaint.subject,  length: 50), complaint
+    %table.table.table-striped{id:"complaint_table"}
+      %thead
+        %tr 
+          %th ردیف      
+          %th موضوع شکایت             
+          %th پاسخ شکایت  
+          - if current_user.present?
+            %th عملیات
           
-          %td
-            - if  complaint.complaint_answer.present?
-              = truncate( complaint.complaint_answer ,  length: 50)
-            - else 
-              = 'هیچ پاسخی داده نشده'
-          
-          %td            
-            - if current_user.present?
-              - if complaint.complaint_answer || is_admin? 
-                - if complaint.user_id == current_user.id  || is_admin?               
-                  = link_to 'حذف', complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-              %br 
-              - if is_inspector?
-                = link_to 'ثبت/ ویرایش پاسخ', edit_complaint_path(complaint)
+      %tbody{:id => "complaint_container"}
+        - @complaints.each_with_index do |complaint, i|
+          %tr
+            %td= (i+1) 
+            %td= link_to truncate( complaint.subject,  length: 50), complaint
+            
+            %td
+              - if  complaint.complaint_answer.present?
+                = truncate( complaint.complaint_answer ,  length: 50)
+              - else 
+                = 'هیچ پاسخی داده نشده'
+            
+            %td            
+              - if current_user.present?
+                - if complaint.complaint_answer || is_admin? 
+                  - if complaint.user_id == current_user.id  || is_admin?               
+                    = link_to 'حذف', complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+                %br 
+                - if is_inspector?
+                  = link_to 'ثبت/ ویرایش پاسخ', edit_complaint_path(complaint)
 
-  %br
+    %br
 
-  
-:coffeescript
-  window.reloadDataTable = ->
-    if !!window.oTable
-      window.oTable.fnDestroy(); 
-    window.oTable = $("#complaint_table").dataTable aoColumnDefs: [
-      bSearchable: false
-      aTargets: [0,3]
-    ,  
-      bSortable: false
-      aTargets: [0,3]
-    ],  oLanguage:
-      sSearch: "جستجو:"
-      sLengthMenu: "نمایش _MENU_ ردیف"
-      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-      sZeroRecords: "هیچ داده ای وجود ندارد"
-      sInfoEmpty: "هیچ موردی یافت نشد"
-      sInfoFiltered: " - از بین _MAX_ داده موجود"
-      oPaginate:
-        sPrevious: "صفحه قبلی"
-        sNext: "صفحه بعدی"
+    
+  :coffeescript
+    window.reloadDataTable = ->
+      if !!window.oTable
+        window.oTable.fnDestroy(); 
+      window.oTable = $("#complaint_table").dataTable aoColumnDefs: [
+        bSearchable: false
+        aTargets: [0,3]
+      ,  
+        bSortable: false
+        aTargets: [0,3]
+      ],  oLanguage:
+        sSearch: "جستجو:"
+        sLengthMenu: "نمایش _MENU_ ردیف"
+        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+        sZeroRecords: "هیچ داده ای وجود ندارد"
+        sInfoEmpty: "هیچ موردی یافت نشد"
+        sInfoFiltered: " - از بین _MAX_ داده موجود"
+        oPaginate:
+          sPrevious: "صفحه قبلی"
+          sNext: "صفحه بعدی"
 
-  window.reloadDataTable()
+    window.reloadDataTable()
