@@ -19,6 +19,7 @@ body {direction:rtl}
 .clear-float {clear:both}
 .set-center {margin-right:auto; margin-left:auto}
 .width80 {width:80%}
+.width50 {width:50%}
 .title  h1 {font-size:27px; text-align:center; margin:2%}
 .sub-title h3 {font-size:20px; text-align:right; margin:2%}
 .sub-title .line-orange {border-bottom:2px dotted #ec523f; margin-top: 4%;}
@@ -46,3 +47,10 @@ body {direction:rtl}
   border-bottom-left-radius:20px;
   
 }
+.show-question {border-bottom:1px dotted #ec523f; margin:2%;padding:2%}
+.show-question a.complaint-admin {width:20%; margin:.5%; padding:1%; height:20px; color:#fff}
+.show-question a.complaint-admin:hover {color:#000}
+.show-question a.complaint-admin.complaint-del {background:#ec523f;}
+.show-question a.complaint-admin.complaint-send {background:#1abc9c;}
+.show-question a.complaint-admin.complaint-show-send {background:#3498db;}
+

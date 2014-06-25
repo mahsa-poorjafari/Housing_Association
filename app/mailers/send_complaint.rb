@@ -5,6 +5,6 @@ class SendComplaint < ActionMailer::Base
     @inspectors = User.find_by_role_id(2)
     p '111111111111'
     p @inspectors.email
-    mail(:to =>  @inspectors.email, :subject => 'متن شکایت از سایت اتحادیه مسکن', :from => "web.development@raush.ir")
+    mail(:to =>  'raush.co@gmail.com', :subject => 'پرسش از سمت کاربر سایت ', :from => "web.development@raush.ir")
   end
 end

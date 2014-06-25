@@ -1,4 +1,4 @@
-= form_for @comment_complaint ||= CommentComplaint.new do |f|
+= form_for @comment_complaint ||= CommentComplaint.new , :html => {name: "contactform", :id => "contactform"} do |f|
   - if @comment_complaint.errors.any?
     #error_explanation      
       %ul
@@ -15,6 +15,6 @@
     = f.hidden_field :complaint_id, :value => complaint_id
   .form-group
     = f.label 'متن:'
-    = f.text_area :text, :class => "text"
+    = f.text_area :text, :class => "text", :style => "resize: none; width:100%;", :rows => "5"
   .form-group
-    = f.submit 'ثبت نظر', :class => "button btn-sm"
+    = f.submit 'ثبت نظر', :class=>"mainBtn", :id => "submit"

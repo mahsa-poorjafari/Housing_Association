@@ -1,34 +1,32 @@
 .width80.set-center.margin-top
   .tbox2
-    %p#notice= notice
+    .show-question 
+      %p{:style => "margin-top:2%"}
+        = link_to 'حذف', @complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "complaint-admin complaint-del"
+       
+        = link_to 'ارسال به ایمیل کاربر', '#', :class => "complaint-admin complaint-send"
+       
+        = link_to 'ارسال و نمایش در سایت', '#', :class => "complaint-admin complaint-show-send"
     .title 
       %h3
+        = @complaint.subject    
+    .show-question 
+      %p
+        %b موضوع شکایت
         = @complaint.subject
-    
-      %i= 'تعداد بازدید '
-      = @complaint.impressionist_count 
-      نفر  
-    %p
-      %b موضوع شکایت
-      = @complaint.subject
-    %p
-      %b متن شکایت
-      = @complaint.complaint_text
-    %p
-      %b جواب شکایت
-      -if @complaint.complaint_answer.present?
-        = @complaint.complaint_answer
-      -else
-        هیچ پاسخی داده نشده
-    - if current_user.present?
-      - if @complaint.user_id == current_user.id 
-        = link_to 'ویرایش', edit_complaint_path(@complaint)
-        \|
-      - if @complaint.user_id == current_user.id || is_admin?
-        = link_to 'حذف', @complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-        \|
-    = link_to 'مشاهده شکایات', complaints_path
-    %br
+      %p
+        %b متن شکایت
+        = @complaint.complaint_text
+    .show-question 
+      %p
+        %b جواب شکایت
+        -if @complaint.complaint_answer.present?
+          = @complaint.complaint_answer
+        -else
+          هیچ پاسخی داده نشده
+      
+      
+      
     
     .commit
       %b= 'نظرات سایر کابران'
@@ -36,13 +34,7 @@
         - @commits.each do |commit|      
           %hr
           %div
-            .col-lg-2
-              - if commit.user_id.present?
-                %b= commit.user.name
-              - else
-                %b= 'کاربر ناشناس'
-            .col-lg-8
-              %p= commit.text
+            
             .col-lg-2
               %i= JalaliDate.new(commit.created_at).strftime("%y/%m/%e %X")
               - if current_user.present?
@@ -51,10 +43,17 @@
                   \|
                   = link_to 'حذف', commit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
             
+            .col-lg-8
+              %p= commit.text
+            .col-lg-2
+              - if commit.user_id.present?
+                %b= commit.user.name
+              - else
+                %b= 'کاربر ناشناس'
 
             
           .clear-float
       %hr
       %b= 'نظر شما'
-      %div
+      .contact-form.width50
         = render 'comment_complaints/form', :complaint_id => @complaint.id

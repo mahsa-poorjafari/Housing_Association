@@ -11,5 +11,6 @@ class StaticController < ApplicationController
   def index
     @about = Page.where(title: "درباره ما")
     @contact = Page.where(title: "تماس با ما")
+    @complaints = Complaint.all
   end
 end

@@ -1,9 +1,7 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h1 لیست شکایات
-    - if current_user.present?
-      = link_to 'ثبت شکایت جدید', new_complaint_path, :class => "button btn-sm"
+      %h1 لیست شکایات    
 
     %table.table.table-striped{id:"complaint_table"}
       %thead
@@ -27,36 +25,33 @@
                 = 'هیچ پاسخی داده نشده'
             
             %td            
-              - if current_user.present?
-                - if complaint.complaint_answer || is_admin? 
-                  - if complaint.user_id == current_user.id  || is_admin?               
-                    = link_to 'حذف', complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-                %br 
+              - if current_user.present?      
+                
                 - if is_inspector?
                   = link_to 'ثبت/ ویرایش پاسخ', edit_complaint_path(complaint)
 
     %br
 
     
-  :coffeescript
-    window.reloadDataTable = ->
-      if !!window.oTable
-        window.oTable.fnDestroy(); 
-      window.oTable = $("#complaint_table").dataTable aoColumnDefs: [
-        bSearchable: false
-        aTargets: [0,3]
-      ,  
-        bSortable: false
-        aTargets: [0,3]
-      ],  oLanguage:
-        sSearch: "جستجو:"
-        sLengthMenu: "نمایش _MENU_ ردیف"
-        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-        sZeroRecords: "هیچ داده ای وجود ندارد"
-        sInfoEmpty: "هیچ موردی یافت نشد"
-        sInfoFiltered: " - از بین _MAX_ داده موجود"
-        oPaginate:
-          sPrevious: "صفحه قبلی"
-          sNext: "صفحه بعدی"
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#complaint_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,3]
+    ,  
+      bSortable: false
+      aTargets: [0,3]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
 
-    window.reloadDataTable()
+  window.reloadDataTable()

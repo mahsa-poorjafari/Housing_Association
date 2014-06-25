@@ -2,7 +2,7 @@
 class ComplaintsController < ApplicationController
   impressionist :actions=>[:show,:index]
   before_action :set_complaint, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication, only: [:edit]
+  before_filter :check_autentication_complaint
 
   # GET /complaints
   # GET /complaints.json
@@ -33,23 +33,20 @@ class ComplaintsController < ApplicationController
 
     if @complaint.save
       SendComplaint.send_complaint_to_Inspector.deliver      
-      flash[:notice] = 'کاربر گرامی پیغام شما ارسال گردید.'      
+      flash[:notice] = 'کاربر گرامی پرسش شما ارسال گردید.'      
     end
-    render action: 'show'
+    redirect_to :back
   end
 
   # PATCH/PUT /complaints/1
   # PATCH/PUT /complaints/1.json
-  def update
-    respond_to do |format|
-      if @complaint.update(complaint_params)
-        format.html { redirect_to @complaint, notice: 'Complaint was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @complaint.errors, status: :unprocessable_entity }
-      end
+  def update  
+    
+    if @complaint.update(complaint_params)
+      flash[:notice] = 'پاسخ شما ارسال گردید.' 
     end
+    redirect_to :back    
+    
   end
 
   # DELETE /complaints/1
@@ -70,6 +67,6 @@ class ComplaintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def complaint_params
-      params.require(:complaint).permit(:user_id, :complaint_text, :complaint_answer, :subject)
+      params.require(:complaint).permit(:complaint_text, :complaint_answer, :subject, :user_email, :user_phone)
     end
 end

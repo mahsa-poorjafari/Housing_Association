@@ -2,6 +2,7 @@
 class Project < ActiveRecord::Base
   extend FriendlyId  
   friendly_id :title
+  
   is_impressionable
   has_many :pictures
   has_many :informs

@@ -1,12 +1,18 @@
-#tbox2
-  .title
-    %h1 ویرایش شکایت
-  .input-form    
-    - if is_inspector?
-      = render 'answer_form'
-    - else
-      = render 'form'
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 ثبت پاسخ برای پرسش
+    .input-form    
+      - if is_inspector?
+        .width80.set-center
+          %b= 'متن شکایت:'
+          %p= @complaint.complaint_text
+          %br
+        .contact-form.width50.set-center
+          = render 'answer_form'
+      - else
+        = render 'form'
 
-  = link_to 'مشاهده', @complaint
-  \|
-  = link_to 'بازگشت', complaints_path
+    = link_to 'مشاهده', @complaint
+    \|
+    = link_to 'بازگشت', complaints_path

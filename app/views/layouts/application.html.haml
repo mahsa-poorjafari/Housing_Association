@@ -64,6 +64,12 @@
                 .admin-menu-links
                   = render 'shared/admin_menu'
                   = link_to "خروج", destroy_user_session_path, :method => :delete
+            - if is_inspector?
+              .col-md-2.admin-menu
+                %h2= 'منوی داور'
+                .admin-menu-links
+                  = render 'shared/inspector_menu'
+                  = link_to "خروج", destroy_user_session_path, :method => :delete
             .menu-responsive.hidden-md.hidden-lg
               %ul
                 %li.active

@@ -1,12 +1,16 @@
 %div
   %h3
-    شکایت از اتحادیه مسکن
+    پرسش ارسال شده توسط کاربر سایت اتحادیه مسکن فرهنگیان خراسان رضوی
   %h3
     = @complaint.subject
   %h4   
     = @complaint.complaint_text
   %h4
-    = @complaint.user_id
+    = @complaint.user_email
+  %h4
+    = @complaint.user_phone
+    
+    
   %p
     تاریخ ارسال
     %br

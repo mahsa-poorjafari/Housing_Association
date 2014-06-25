@@ -35,7 +35,7 @@ class MessagesController < ApplicationController
       UserMailer.send_user_mail.deliver      
       flash[:notice] = 'کاربر گرامی پیام شما ارسال گردید.'      
     end
-    redirect_to :back
+    redirect_to :root
     
   end
 

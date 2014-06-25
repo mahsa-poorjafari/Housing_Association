@@ -1,19 +1,19 @@
-= form_for @complaint do |f|
+= form_for @complaint, :html => {:class => "contact", name: "contactform", :id => "contactform"} do |f|
   - if @complaint.errors.any?
-    #error_explanation
-      
+    #error_explanation      
       %ul
         - @complaint.errors.full_messages.each do |msg|
           %li= msg
-  
-  .form-group   
-    = f.hidden_field :user_id, :value => current_user.id
-  .form-group
-    = f.label 'موضوع شکایت:'
-    = f.text_field :subject, :class => "text"
-  .form-group
-    = f.label 'متن شکایت:'
-    = f.text_area :complaint_text, :class => "text"
-
-  .form-group
-    = f.submit 'ثبت شکایت', :class => "button btn-sm"
+  -if flash[:notice]        
+    .alert.alert-success= notice
+  %p
+    = f.text_field :subject, :id => "name", placeholder: "موضوع پرسش را وارد کنید"    
+  %p
+    = f.text_field :user_email, :id => "email", placeholder: "ایمیل خود را وارد کنید"    
+  %p
+    = f.text_field :user_phone, :id => "subject", placeholder: " تلفن خود را وارد کنید"    
+  %p
+    = f.text_area :complaint_text, :id => "comments", placeholder: "پرسش خود ر وارد کنید", :style => "resize: none"
+  = f.submit 'ارسال', :class=>"mainBtn", :id => "submit"
+%br
+ 

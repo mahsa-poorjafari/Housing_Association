@@ -56,13 +56,17 @@
       .col-md-3.col-sm-6
         #service-4.service-item{:style => "height:300px"}
           %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
-            پرسش و پاسخ
+            داوری
           .service-icon
             = image_tag 'question.png', :class => "set-center"
           / /.service-icon
           .service-content
             .inner-service
+              - @complaints.each do  |complaint|
+                %p
+                  = link_to complaint.subject, complaint
               
+              %b= link_to 'ثبت پرسش', new_complaint_path
           / /.service-content
         / /#service-1
       / /.col-md-3

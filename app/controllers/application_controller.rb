@@ -25,6 +25,9 @@ class ApplicationController < ActionController::Base
     def check_autentication
       redirect_to :root unless is_admin?
     end
+    def check_autentication_complaint
+      redirect_to :root unless is_inspector? or is_admin?
+    end
     def authenticate
       authenticate_or_request_with_http_basic do |username, password|
         username == "foo" && password == "bar"

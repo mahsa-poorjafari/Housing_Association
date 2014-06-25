@@ -1,4 +1,4 @@
-= form_for @complaint do |f|
+= form_for @complaint , :html => {:class => "contact", name: "contactform", :id => "contactform"} do |f|
   - if @complaint.errors.any?
     #error_explanation
       
@@ -6,12 +6,10 @@
         - @complaint.errors.full_messages.each do |msg|
           %li= msg
 
-  
+  -if flash[:notice]        
+    .alert.alert-success= notice
+ 
+  %p    
+    = f.text_area :complaint_answer, :class => "text", :style => "resize: none", placeholder: "پاسخ و داوری خود را وارد کنید"   
   .form-group
-    = f.label 'متن شکایت:'
-    %p= @complaint.complaint_text
-  .form-group
-    = f.label 'پاسخ به شکایت:'  
-    = f.text_area :complaint_answer, :class => "text"
-  .form-group
-    = f.submit 'ثبت ', :class => "button btn-sm"
+    = f.submit 'ثبت ', :class=>"mainBtn", :id => "submit"
