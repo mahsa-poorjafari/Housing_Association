@@ -1,12 +1,14 @@
 .width80.set-center.margin-top
   .tbox2
+    -if flash[:notice]        
+      .alert.alert-success= notice
     .show-question 
       %p{:style => "margin-top:2%"}
         = link_to 'حذف', @complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "complaint-admin complaint-del"
        
-        = link_to 'ارسال به ایمیل کاربر', '#', :class => "complaint-admin complaint-send"
+        = link_to 'ارسال به ایمیل کاربر', send_answer_complaint_path, :class => "complaint-admin complaint-send"
        
-        = link_to 'ارسال و نمایش در سایت', '#', :class => "complaint-admin complaint-show-send"
+        = link_to 'ارسال و نمایش در سایت', send_and_display_answer_complaint_path, :class => "complaint-admin complaint-show-send"
     .title 
       %h3
         = @complaint.subject    
@@ -24,8 +26,6 @@
           = @complaint.complaint_answer
         -else
           هیچ پاسخی داده نشده
-      
-      
       
     
     .commit

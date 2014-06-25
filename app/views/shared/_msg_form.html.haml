@@ -19,3 +19,16 @@
     = f.text_area :text, :id => "comments", placeholder: "پیام خود را وارد کنید"
   = f.submit 'ارسال پیام', :class=>"mainBtn", :id => "submit"
 %br
+:javascript   
+  
+  $(':submit').click(function(e) {
+    $(':text, textarea').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });
+
+
+

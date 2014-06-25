@@ -1,6 +1,6 @@
 .width80
   %h3
-    پرسش ارسال شده توسط کاربر سایت اتحادیه مسکن فرهنگیان خراسان رضوی
+    نتیجه داوری پرسش شما در سایت اتحادیه مسکن فرهنگیان خراسان رضوی
   %h3
     %b موضوع پرسش
     = @complaint.subject
@@ -13,6 +13,9 @@
   %h4
     %b تلفن همراه فرستنده
     = @complaint.user_phone
+  
+  %h4
+    = @complaint.complaint_answer 
     
   %p
     %i= 'لینک ورود به سایت'
@@ -20,4 +23,4 @@
   %p
     تاریخ ارسال
     %br
-    = JalaliDate.new(@complaint.created_at).strftime("%y/%m/%e %X")
+    = JalaliDate.new(DateTime.now).strftime("%y/%m/%e %X")

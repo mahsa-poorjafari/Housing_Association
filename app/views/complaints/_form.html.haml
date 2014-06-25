@@ -17,3 +17,16 @@
   = f.submit 'ارسال', :class=>"mainBtn", :id => "submit"
 %br
  
+:javascript   
+  
+  $(':submit').click(function(e) {
+    $(':text, textarea').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });
+
+
+

@@ -1,8 +1,8 @@
 # encoding: UTF-8
 class ComplaintsController < ApplicationController
   impressionist :actions=>[:show,:index]
-  before_action :set_complaint, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication_complaint
+  before_action :set_complaint, only: [:show, :edit, :update, :destroy, :send_and_display_answer]
+  before_filter :check_autentication_complaint, only: [:show, :edit, :update, :destroy]
 
   # GET /complaints
   # GET /complaints.json
@@ -15,6 +15,21 @@ class ComplaintsController < ApplicationController
   def show
     @commits = CommentComplaint.where(:complaint_id => @complaint.id)
     impressionist(@complaint, "message...") # 2nd argument is optional
+  end
+  
+  def send_answer    
+    SendComplaint.admin_confirm_answer.deliver  
+    flash[:notice] = 'نتیجه داوری برای کاربر ارسال گردید'  
+    redirect_to :back
+  end
+  
+  def send_and_display_answer
+    @complaint.update_attribute(:display, true)
+    if @complaint
+      SendComplaint.admin_confirm_answer.deliver  
+      flash[:notice] = 'نتیجه داوری برای کاربر ارسال گردید و در سایت نیز نمایش داده خواهد شد'  
+    end
+    redirect_to :back
   end
 
   # GET /complaints/new
@@ -67,6 +82,6 @@ class ComplaintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def complaint_params
-      params.require(:complaint).permit(:complaint_text, :complaint_answer, :subject, :user_email, :user_phone)
+      params.require(:complaint).permit(:complaint_text, :complaint_answer, :subject, :user_email, :user_phone, :display)
     end
 end

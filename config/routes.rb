@@ -3,7 +3,12 @@ HousingAssociation::Application.routes.draw do
 
   resources :comment_complaints
 
-  resources :complaints
+  resources :complaints do
+    member do
+      get :send_answer
+      get :send_and_display_answer
+    end
+  end
 
   resources :pay_limits 
   resources :roles
@@ -33,6 +38,7 @@ HousingAssociation::Application.routes.draw do
   resources :pages
   root :to => 'static#index'
   get 'login' => 'users#login'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

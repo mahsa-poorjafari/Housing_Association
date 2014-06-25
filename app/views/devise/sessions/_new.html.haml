@@ -2,17 +2,17 @@
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     %h4= "ورود به سایت"
     
-    = f.label "ایمیل:"
-    = f.text_field :email, :autofocus => true, :class => "text"
+    %p
+      = f.text_field :email, :autofocus => true, :class => "text", placeholder: "ایمیل خود را وارد کنید"   
    
-    = f.label "رمز عبور"    
-    = f.password_field :password, :id => "Emailid", :class => "text"
+    %p
+      = f.password_field :password, :id => "Emailid", :class => "text", placeholder: "رمز خود را وارد کنید"
     
     - if devise_mapping.rememberable?
-      %div
+      %p
         .col-lg-2
           = f.check_box :remember_me        
-        = f.label "مرا به خاطر بسپار"
+          = f.label "مرا به خاطر بسپار"
     
-    = f.submit "ورود", :class => "button"
+    = f.submit "ورود", :class=>"mainBtn"
   = render "devise/shared/links"    
