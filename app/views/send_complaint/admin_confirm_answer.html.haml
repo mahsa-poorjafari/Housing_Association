@@ -15,6 +15,7 @@
     = @complaint.user_phone
   
   %h4
+    %b نتیجه داوری
     = @complaint.complaint_answer 
     
   %p
@@ -23,4 +24,4 @@
   %p
     تاریخ ارسال
     %br
-    = JalaliDate.new(DateTime.now).strftime("%y/%m/%e %X")
+    = JalaliDate.new(@complaint.updated_at).strftime("%y/%m/%e %X")

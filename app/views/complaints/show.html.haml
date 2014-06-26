@@ -2,13 +2,14 @@
   .tbox2
     -if flash[:notice]        
       .alert.alert-success= notice
-    .show-question 
-      %p{:style => "margin-top:2%"}
-        = link_to 'حذف', @complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "complaint-admin complaint-del"
-       
-        = link_to 'ارسال به ایمیل کاربر', send_answer_complaint_path, :class => "complaint-admin complaint-send"
-       
-        = link_to 'ارسال و نمایش در سایت', send_and_display_answer_complaint_path, :class => "complaint-admin complaint-show-send"
+    - if is_admin?
+      .show-question 
+        %p{:style => "margin-top:2%"}
+          = link_to 'حذف', @complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "complaint-admin complaint-del"
+         
+          = link_to 'ارسال به ایمیل کاربر', send_answer_complaint_path, :class => "complaint-admin complaint-send"
+         
+          = link_to 'ارسال و نمایش در سایت', send_and_display_answer_complaint_path, :class => "complaint-admin complaint-show-send"
     .title 
       %h3
         = @complaint.subject    
@@ -37,19 +38,18 @@
             
             .col-lg-2
               %i= JalaliDate.new(commit.created_at).strftime("%y/%m/%e %X")
-              - if current_user.present?
-                - if commit.user_id == current_user.id
-                  = link_to 'ویرایش', edit_comment_complaint_path(commit)
-                  \|
-                  = link_to 'حذف', commit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+              %br
+              - if is_admin?
+                
+                = link_to 'ویرایش', edit_comment_complaint_path(commit)
+                \|
+                = link_to 'حذف', commit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
             
             .col-lg-8
               %p= commit.text
             .col-lg-2
-              - if commit.user_id.present?
-                %b= commit.user.name
-              - else
-                %b= 'کاربر ناشناس'
+              %p= commit.user_name
+              %p= commit.user_email
 
             
           .clear-float

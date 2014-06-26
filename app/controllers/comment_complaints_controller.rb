@@ -62,6 +62,6 @@ class CommentComplaintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_complaint_params
-      params.require(:comment_complaint).permit(:user_id, :complaint_id, :text)
+      params.require(:comment_complaint).permit(:user_id, :complaint_id, :text, :user_name, :user_email)
     end
 end

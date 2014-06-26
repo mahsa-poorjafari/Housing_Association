@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625054829) do
+ActiveRecord::Schema.define(version: 20140626071208) do
 
   create_table "comment_complaints", force: true do |t|
     t.integer  "user_id"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140625054829) do
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "user_name"
+    t.string   "user_email"
   end
 
   create_table "complaints", force: true do |t|
@@ -29,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140625054829) do
     t.string   "subject"
     t.string   "user_email"
     t.string   "user_phone"
+    t.boolean  "display"
   end
 
   create_table "cooperatives", force: true do |t|

@@ -1,0 +1,19 @@
+%tr
+  %td= (i+1) 
+  %td= link_to truncate( complaint.subject,  length: 50), complaint
+  
+  %td
+    - if  complaint.complaint_answer.present?
+      = truncate( complaint.complaint_answer ,  length: 50)
+    - else 
+      = 'هیچ پاسخی داده نشده'
+  
+  %td            
+    - if current_user.present?      
+      
+      - if is_inspector?
+        = link_sto 'ثبت/ ویرایش پاسخ', edit_complaint_path(complaint)
+      - if is_admin?
+        = link_to 'حذف', complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+
+%br

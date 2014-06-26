@@ -1,0 +1,28 @@
+.width80{:style=> "direction:rtl"}
+  %h3
+    نتیجه داوری پرسش در سایت اتحادیه مسکن فرهنگیان خراسان رضوی
+  %h3
+    %b موضوع پرسش:
+    %p= @complaint.subject
+  %h4   
+    %b متن پرسش:
+    %p= @complaint.complaint_text
+  %h4
+    %b ایمیل فرستنده:
+    %p= @complaint.user_email
+  %h4
+    %b تلفن همراه فرستنده:
+    %p= @complaint.user_phone
+  
+  %h4
+    %b نتیجه داوری:
+    %p= @complaint.complaint_answer 
+    
+  %p
+    %i= 'لینک ورود به سایت'
+    = link_to 'ورود به سایت ', 'maskan-ef.com'
+  %p
+    تاریخ ارسال:
+    %br
+    = JalaliDate.new(DateTime.now).strftime("%y/%m/%e %X")
+

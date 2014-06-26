@@ -14,4 +14,10 @@ class SendComplaint < ActionMailer::Base
     p 'admin_confirm_answer'
     mail(:to =>  @complaint.user_email, :subject => 'نتیجه داوری برای پرسش شما', :from => "web.development@raush.ir")
   end
+  
+  def send_answer_to_admin(complaint)
+    @complaint = complaint
+    p 'send_answer_to_admin'
+    mail(:to =>  'raush.co@gmail.com', :subject => 'نتیجه داوری برای یک پرسش مطرح شده در سایت', :from => "web.development@raush.ir")    
+  end
 end

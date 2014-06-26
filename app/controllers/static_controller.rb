@@ -11,6 +11,6 @@ class StaticController < ApplicationController
   def index
     @about = Page.where(title: "درباره ما")
     @contact = Page.where(title: "تماس با ما")
-    @complaints = Complaint.all
+    @complaints = Complaint.where( display: true).order(" created_at desc")
   end
 end

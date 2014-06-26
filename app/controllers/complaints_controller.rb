@@ -2,12 +2,13 @@
 class ComplaintsController < ApplicationController
   impressionist :actions=>[:show,:index]
   before_action :set_complaint, only: [:show, :edit, :update, :destroy, :send_and_display_answer]
-  before_filter :check_autentication_complaint, only: [:show, :edit, :update, :destroy]
+  before_filter :check_autentication_complaint, only: [:edit, :update, :destroy]
 
   # GET /complaints
   # GET /complaints.json
   def index
-    @complaints = Complaint.all
+    @complaints = Complaint.where( display: true)
+    @all_complaints = Complaint.order(" created_at desc")
   end
 
   # GET /complaints/1
@@ -55,12 +56,12 @@ class ComplaintsController < ApplicationController
 
   # PATCH/PUT /complaints/1
   # PATCH/PUT /complaints/1.json
-  def update  
-    
+  def update      
     if @complaint.update(complaint_params)
+      SendComplaint.send_answer_to_admin(@complaint).deliver  
       flash[:notice] = 'پاسخ شما ارسال گردید.' 
     end
-    redirect_to :back    
+    render action: 'show'    
     
   end
 

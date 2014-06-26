@@ -5,16 +5,28 @@
         - @comment_complaint.errors.each do |attr, msg|
           %li= msg
 
-  .form-group
-   
+  .form-group   
     - if current_user.present?
       = f.hidden_field :user_id, :value => current_user.id
     
-  .form-group
-    
-    = f.hidden_field :complaint_id, :value => complaint_id
-  .form-group
-    = f.label 'متن:'
-    = f.text_area :text, :class => "text", :style => "resize: none; width:100%;", :rows => "5"
-  .form-group
-    = f.submit 'ثبت نظر', :class=>"mainBtn", :id => "submit"
+  .form-group    
+    = f.hidden_field :complaint_id, :value => complaint_id 
+  %p
+    = f.text_field :user_name, :id => "name", placeholder: "نام خود را وارد کنید"    
+  %p
+    = f.text_field :user_email, :id => "email", placeholder: "ایمیل خود را وارد کنید"    
+  %p
+    = f.text_area :text, :id => "comments", placeholder: "متن نظر خود را در این کادر وارد کنید.", :style => "resize: none"      
+  
+  = f.submit 'ثبت نظر', :class=>"mainBtn", :id => "submit"
+:javascript   
+  
+  $(':submit').click(function(e) {
+    $(':text, textarea').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });
+
