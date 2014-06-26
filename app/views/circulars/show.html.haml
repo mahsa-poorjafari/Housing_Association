@@ -1,0 +1,23 @@
+.width80.set-center.margin-top
+  .tbox2
+
+    %p
+      %b عنوان
+      = @circular.title
+    %p
+      %b پروژه 
+      - if  @circular.project.present?
+        = @circular.project.title
+    %p
+      %b سایر توضیحات
+      = @circular.description
+    %p
+      -if @circular.pdf.url.present?
+        .pdf-link
+          =link_to @circular.pdf.url, :target => "blank" do
+            %i= 'دریافت فایل بخشنامه'
+
+    - if is_admin?
+      = link_to 'ویرایش', edit_circular_path(@circular)
+      \|
+      = link_to 'بازگشت', circulars_path

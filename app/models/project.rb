@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   friendly_id :title
   
   is_impressionable
+  has_many :circulars
   has_many :pictures
   has_many :informs
   has_many :pay_limits

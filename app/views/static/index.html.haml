@@ -43,13 +43,15 @@
       .col-md-3.col-sm-6
         #service-3.service-item{:style => "height:300px"}
           %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
-            ابلاغیه ها
+            بخشنامه ها
           .service-icon
             = image_tag 'new.png', :class => "set-center"
           / /.service-icon
           .service-content
             .inner-service
-              
+              - @circulars.each do |circular|
+                %p  
+                  = link_to circular.title, circular
           / /.service-content
         / /#service-1
       / /.col-md-3

@@ -1,0 +1,30 @@
+.width80.set-center.margin-top
+  .tbox2
+    %h1 لیست بخشنامه ها
+
+    %table.table
+      %tr
+        %th ردیف
+        %th عنوان بخشنامه
+        %th پروژه مربوط
+        %th سایر توضیحات
+        %th دریافت فایل
+        %th 
+        
+
+      - @circulars.each_with_index do |circular, i|
+        %tr
+          %td= (i+1)
+          %td= circular.title
+          %td= circular.project_id
+          %td= circular.description
+          %td
+          - if is_admin?
+            %td
+              = link_to 'مشاهده', circular
+              = link_to 'ویرایش', edit_circular_path(circular)
+              = link_to 'حذف', circular, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+
+    %br
+    - if is_admin?
+      = link_to 'تعریف بخشنامه جدید', new_circular_path, :class => "button btn-sm"

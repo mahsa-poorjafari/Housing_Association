@@ -1,6 +1,8 @@
 HousingAssociation::Application.routes.draw do  
 
 
+  resources :circulars
+
   resources :comment_complaints
 
   resources :complaints do
