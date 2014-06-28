@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
+  before_filter :check_autentication, only: [:new, :index, :show, :destroy]
   # GET /users
   # GET /users.json
   def index
