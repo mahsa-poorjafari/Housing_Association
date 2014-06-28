@@ -7,7 +7,8 @@
   - if is_admin?
     .form-group
       = f.label "نقش کاربر:"
-      = f.text_field :role_id, :class => "text"
+      = f.select :role_id, options_for_select(Role.all.collect{ |u| [u.name, u.id] }), prompt: "تعیین نقش کاربران"
+      
   .form-group
     = f.label "نام:"
     = f.text_field :name, :class => "text"
@@ -30,4 +31,4 @@
     = f.label "آدرس"
     = f.text_area :address, :class => "text"
   .actions
-    = f.submit 'مرحله بعد', :class => "button btn-sm"
+    = f.submit 'ثبت', :class => "button btn-sm"
