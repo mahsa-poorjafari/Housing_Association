@@ -14,6 +14,11 @@ class ComplaintsController < ApplicationController
   # GET /complaints/1
   # GET /complaints/1.json
   def show
+    if is_inspector?      
+      @complaint.update_attribute(:inspector_visited, true)
+      p 'inspector visite the complaint'
+    end
+      
     @commits = CommentComplaint.where(:complaint_id => @complaint.id)
     impressionist(@complaint, "message...") # 2nd argument is optional
   end
@@ -83,6 +88,6 @@ class ComplaintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def complaint_params
-      params.require(:complaint).permit(:complaint_text, :complaint_answer, :subject, :user_email, :user_phone, :display)
+      params.require(:complaint).permit(:complaint_text, :complaint_answer, :subject, :user_email, :user_phone, :display, :inspector_visited)
     end
 end

@@ -8,8 +8,12 @@
 
   -if flash[:notice]        
     .alert.alert-success= notice
- 
-  %p    
-    = f.text_area :complaint_answer, :class => "text", :style => "resize: none", placeholder: "پاسخ و داوری خود را وارد کنید"   
-  .form-group
-    = f.submit 'ثبت ', :class=>"mainBtn", :id => "submit"
+  - if display
+    - if @complaint.complaint_answer.present?
+      %b پاسخ داده شده
+      %p= @complaint.complaint_answer
+  - else
+    %p    
+      = f.text_area :complaint_answer, :class => "text", :style => "resize: none", placeholder: "پاسخ و داوری خود را وارد کنید"   
+    .form-group
+      = f.submit 'ثبت ', :class=>"mainBtn", :id => "submit"

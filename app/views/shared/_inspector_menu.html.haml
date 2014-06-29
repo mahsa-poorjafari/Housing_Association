@@ -1,5 +1,10 @@
     
 = link_to 'پروفایل بازرس', edit_user_registration_path(current_user)
 %br
-= link_to "گزارش شکایات", Complaint
+= link_to  Complaint do
+  %p.width50.pull-right= "گزارش شکایات"
+  %b.notif= Complaint.count(:conditions => "inspector_visited is null")
+
 %br
+
+.clear-float

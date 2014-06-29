@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626084254) do
+ActiveRecord::Schema.define(version: 20140629082724) do
 
   create_table "circulars", force: true do |t|
     t.string   "title"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140626084254) do
     t.string   "user_email"
     t.string   "user_phone"
     t.boolean  "display"
+    t.boolean  "inspector_visited"
   end
 
   create_table "cooperatives", force: true do |t|

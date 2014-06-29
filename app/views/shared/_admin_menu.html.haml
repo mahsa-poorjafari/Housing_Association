@@ -6,7 +6,9 @@
 %br
 = link_to " مدیریت بخشنامه ها", Circular
 %br
-= link_to "گزارش شکایات", Complaint
+= link_to  Complaint do
+  %p.width50.pull-right= "گزارش شکایات"
+  %b.notif= Complaint.count(:conditions => "display is null")
 %br
 = link_to " مدیریت اطلاعیه", Inform
 %br

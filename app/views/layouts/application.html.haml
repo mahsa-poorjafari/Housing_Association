@@ -60,14 +60,19 @@
             / /#menu-wrapper
             -if is_admin?
               .col-md-3.admin-menu
-                %h2= 'منوی مدیرسایت'
+                %h2
+                  %p.width50.pull-right= 'منوی مدیرسایت'
+                  %b.notif= Complaint.count(:conditions => "display is null")
                 .admin-menu-links
                   = render 'shared/admin_menu'
                   = link_to "خروج", destroy_user_session_path, :method => :delete
             - if is_inspector?
-              .col-md-2.admin-menu
-                %h2= 'منوی داور'
+              .col-md-3.admin-menu
+                %h2
+                  %p.width50.pull-right= 'منوی داور'
+                  %b.notif= Complaint.count(:conditions => "inspector_visited is null")
                 .admin-menu-links
+                
                   = render 'shared/inspector_menu'
                   = link_to "خروج", destroy_user_session_path, :method => :delete
             .menu-responsive.hidden-md.hidden-lg

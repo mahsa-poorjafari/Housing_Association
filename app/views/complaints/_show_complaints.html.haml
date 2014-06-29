@@ -1,4 +1,4 @@
-%tr
+%tr{:class => ('unread' if complaint.display.blank? && is_admin?), :id => ('unread' if complaint.inspector_visited.blank? && is_inspector?)}
   %td= (i+1) 
   %td= link_to truncate( complaint.subject,  length: 50), complaint
   
