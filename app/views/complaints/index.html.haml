@@ -13,7 +13,7 @@
             %th عملیات
           
       %tbody{:id => "complaint_container"}
-        - if is_admin?
+        - if is_admin? || is_inspector?
           - @all_complaints.each_with_index do |complaint, i|          
             = render 'show_complaints', :complaint => complaint, :i => i
         - else

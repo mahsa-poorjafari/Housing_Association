@@ -12,7 +12,7 @@
     - if current_user.present?      
       
       - if is_inspector?
-        = link_sto 'ثبت/ ویرایش پاسخ', edit_complaint_path(complaint)
+        = link_to 'ثبت/ ویرایش پاسخ', edit_complaint_path(complaint)
       - if is_admin?
         = link_to 'حذف', complaint, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 

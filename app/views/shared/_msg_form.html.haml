@@ -14,7 +14,7 @@
   %p
     = f.text_field :email, :id => "email", placeholder: "ایمیل خود را وارد کنید"    
   %p
-    = f.text_field :phone, :id => "subject", placeholder: " تلفن خود را وارد کنید"    
+    = f.text_field :phone, :id => "subject", placeholder: " تلفن خود را وارد کنید", :style => "resize:none"
   %p
     = f.text_area :text, :id => "comments", placeholder: "پیام خود را وارد کنید"
   = f.submit 'ارسال پیام', :class=>"mainBtn", :id => "submit"
