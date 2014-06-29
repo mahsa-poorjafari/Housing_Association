@@ -1,3 +1,29 @@
+
+#inform.content-section
+  .container
+    .row
+      .heading-section.col-md-12.text-center
+        %h2 اعلامیه ها
+        %p جدیدترین اعلامیه ها و اخبار تعاونی مسکن فرهنگیان استان خراسان
+      / /.heading-section
+    / /.row
+    .row
+      - Inform.all.each do |inform|
+        .col-sm-12          
+          .col-md-3         
+            = JalaliDate.new(inform.created_at).format("%A %d %b %Y")           
+          
+          -if inform.project_id
+            .col-md-3
+              = link_to inform.project.title, inform.project    
+          .col-md-4
+            = link_to inform.title, inform
+          .col-md-1
+            -if inform.important
+              .important= "مهم"   
+        .col-sm-12{:style => "border-bottom:2px dotted #ec523f; margin:2%; padding:2%"}          
+          = raw inform.text
+        
 #services.content-section
   .container
     .row

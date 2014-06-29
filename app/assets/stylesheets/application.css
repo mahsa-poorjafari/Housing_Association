@@ -19,6 +19,7 @@ body {direction:rtl}
 .clear-float {clear:both}
 .set-center {margin-right:auto; margin-left:auto}
 .width80 {width:80%}
+.width80.set-center.margin-top{ min-height:250px;}
 .width50 {width:50%}
 .title  h1 {font-size:27px; text-align:center; margin:2%}
 .sub-title h3 {font-size:20px; text-align:right; margin:2%}
@@ -56,3 +57,21 @@ body {direction:rtl}
 
 .inner-service .ask-question {width:100%; height:30px; background:#ec523f; text-align:center; margin:1%; padding:1%}
 .inner-service .ask-question a:hover {color:#000}
+.important {
+  font-weight:bold;
+  /* Safari */
+-webkit-transform: rotate(-45deg);
+
+/* Firefox */
+-moz-transform: rotate(-45deg);
+
+/* IE */
+-ms-transform: rotate(-45deg);
+
+/* Opera */
+-o-transform: rotate(-45deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+color:red;
+}
