@@ -1,7 +1,7 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h2 لیست پیام های ارسال شده
+      %h1 لیست پیام های ارسال شده
 
     %table.table.table-striped.table-hover.message
       %thead
@@ -17,9 +17,10 @@
             %td= (i+1)        
             %td= message.text        
             %td= message.user_name        
-            %td
-              = link_to 'مشاهده پیام', message
-              = link_to 'حذف', message, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+            - if is_admin?
+              %td
+                = link_to 'مشاهده پیام', message
+                = link_to 'حذف', message, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
     %br
 

@@ -16,11 +16,11 @@
     = f.hidden_field :user_id, :value => current_user.id
     
   .form-group
-    
+    = f.label 'انتخاب پروژه:', :class => "control-label"
     -if @project.present?
       = f.hidden_field :project_id, :value => @project.id
     - else
       = f.select :project_id, options_from_collection_for_select(@projects, "id","title"), { :include_blank=>true }
       
   .form-group
-    = f.submit 'ثبت', :class => "button btn-sm"
+    = f.submit 'ثبت', :class => "mainBtn"

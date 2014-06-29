@@ -3,9 +3,9 @@
     .title
       %h1 اخبار و اعلامیه ها
     - if is_admin?
-      = link_to 'ثبت اطلاعیه جدید', new_inform_path, :class => "button btn-sm"
+      = link_to 'ثبت اطلاعیه جدید', new_inform_path, :class => "save-btn"
 
-    %table.table
+    %table.table{:style => "margin-top:5%"}
       - @informs.each do |inform|
         %tr              
           %td.important

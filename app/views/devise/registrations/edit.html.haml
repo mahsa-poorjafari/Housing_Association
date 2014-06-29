@@ -1,8 +1,9 @@
 .width80.set-center.margin-top
   .tbox2
-    %h2
-      پروفایل #{resource_name.to_s.humanize}
-    .width70.set-center
+    .title
+      %h1
+        پروفایل #{resource_name.to_s.humanize}
+    .contact-form.width50
       = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
         = devise_error_messages!
         .form-group
@@ -56,11 +57,11 @@
           = f.label "آدرس"
           = f.text_area :address, :class => "text"
           
-        .form-group= f.submit "ویرایش", :class => "button btn-sm"
+        .form-group= f.submit "ویرایش", :class => "mainBtn"
       %hr
       %h3 لغو حساب کاربری
       %p
-        Unhappy? #{button_to "حذف حساب کاربری", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "button btn-sm"}
+        Unhappy? #{button_to "حذف حساب کاربری", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "mainBtn"}
       = link_to "بازگشت", root_path
 
     

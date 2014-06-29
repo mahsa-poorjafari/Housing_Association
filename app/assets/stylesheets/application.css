@@ -75,3 +75,5 @@ body {direction:rtl}
 filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
 color:red;
 }
+.save-btn {width:250px; height:30px; color:#fff; background:#e67e22; padding:1%; margin:5px; font-size:15px}
+.index-projects {margin-top:5%}

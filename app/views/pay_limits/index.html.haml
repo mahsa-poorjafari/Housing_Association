@@ -3,7 +3,10 @@
     .title 
 
       %h1= 'لیست در خواست مشارکت برای پروژه ها'
-    = link_to 'چاپ جدول', '#', :id => "print-table" 
+      
+      = link_to 'چاپ جدول', '#', :id => "print-table" , :class => "save-btn"
+      %div{:style => "margin:10px"}
+        = link_to 'ایجاد درخواست مشارکت', new_pay_limit_path, :class => "save-btn"
     %br
     %table.table.table-striped{id:"pay_limit_table"}
       %thead
@@ -28,8 +31,7 @@
               = link_to 'حذف', pay_limit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
     %br
-    %div{:style => "margin:10px"}
-      = link_to 'ایجاد درخواست مشارکت', new_pay_limit_path, :class => "button btn-sm"
+    
 
 
   :coffeescript

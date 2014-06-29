@@ -1,6 +1,7 @@
 .width80.set-center.margin-top
   .tbox2
-    %h1 لیست بخشنامه ها
+    .title      
+      %h1 لیست بخشنامه ها
 
     %table.table
       %tr
@@ -27,4 +28,4 @@
 
     %br
     - if is_admin?
-      = link_to 'تعریف بخشنامه جدید', new_circular_path, :class => "button btn-sm"
+      = link_to 'تعریف بخشنامه جدید', new_circular_path, :class => "save-btn"

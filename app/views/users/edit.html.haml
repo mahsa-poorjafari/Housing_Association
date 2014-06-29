@@ -1,9 +1,9 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h2= 'ویرایش پروفایل' + @user.email
+      %h1= 'ویرایش پروفایل' + @user.email
     
-    .input-form
+    .contact-form.width50
       = render 'form'
 
     = link_to 'مشاهده', @user

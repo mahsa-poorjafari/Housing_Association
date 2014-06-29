@@ -1,21 +1,20 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h2= 'پیوند های مرتبط'
-    -if notice
-      .alert.alert-dismissable.alert-success
-        %p#notice= notice
-    = link_to 'پیوند جدید', new_link_path, :class => "button btn-sm"
-    %table.table.table-striped.table-hover
+      %h1= 'پیوند های مرتبط'
+      - if is_admin?
+        = link_to 'پیوند جدید', new_link_path, :class => "save-btn"
+    %table.table.table-striped.table-hover{:style => "margin-top:5%"}
       - @links.each_with_index  do |link, i|
         %tr
           %td= (i+1)        
           %td= link.title
           %td= link_to link.web_site, url_with_protocol(link.web_site)        
-          %td
-            = link_to 'ویرایش', edit_link_path(link)
-            \|
-            = link_to 'حذف', link, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+          - if is_admin?
+            %td
+              = link_to 'ویرایش', edit_link_path(link)
+              \|
+              = link_to 'حذف', link, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
 
 

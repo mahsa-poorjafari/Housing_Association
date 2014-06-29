@@ -2,7 +2,7 @@
   .tbox2
     .title
       
-      %h2= 'تنظیم اندازه تصویر'
+      %h1= 'تنظیم اندازه تصویر'
     = form_for @slide, :html => {:multipart => true} do |f| 
       %div
         = image_tag @slide.image.url(:original), :class => "crop cropImage", :height => "300", :width => "730"

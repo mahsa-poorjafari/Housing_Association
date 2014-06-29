@@ -1,8 +1,10 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h2 صفحات متنی
-
+      %h1 صفحات متنی
+      - if is_admin?
+        = link_to 'تعریف صفحه متنی جدید', new_page_path, :class => "save-btn"
+        
     %table.table.table-striped.table-hover 
       %tr
         %th عنوان      
@@ -17,4 +19,4 @@
 
     %br
 
-    = link_to 'تعریف صفحه متنی جدید', new_page_path, :class => "button btn-sm"
+    
