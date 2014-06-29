@@ -1,0 +1,16 @@
+= form_for @pdf_form do |f|
+  - if @pdf_form.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@pdf_form.errors.count, "error")} prohibited this pdf_form from being saved:"
+      %ul
+        - @pdf_form.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions
+    = f.submit 'Save'

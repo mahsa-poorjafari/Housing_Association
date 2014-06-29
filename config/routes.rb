@@ -1,6 +1,8 @@
 HousingAssociation::Application.routes.draw do  
 
 
+  resources :pdf_forms
+
   resources :circulars
 
   resources :comment_complaints

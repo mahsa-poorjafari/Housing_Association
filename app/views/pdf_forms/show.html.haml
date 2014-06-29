@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @pdf_form.title
+%p
+  %b Description:
+  = @pdf_form.description
+
+= link_to 'Edit', edit_pdf_form_path(@pdf_form)
+\|
+= link_to 'Back', pdf_forms_path
