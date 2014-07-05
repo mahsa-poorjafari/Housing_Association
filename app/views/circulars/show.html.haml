@@ -13,9 +13,10 @@
       = @circular.description
     %p
       -if @circular.pdf.url.present?
-        .pdf-link
+        .pdf-link.col-sm-5
           =link_to @circular.pdf.url, :target => "blank" do
             %i= 'دریافت فایل بخشنامه'
+            = image_tag 'pdf-icon.png'            
 
     - if is_admin?
       = link_to 'ویرایش', edit_circular_path(@circular)

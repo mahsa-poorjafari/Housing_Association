@@ -22,7 +22,9 @@
     = f.label :متن,  :class => "control-label"
     .editor
       = f.text_area :text,  :class => "ckeditor text"
-  
+  .form-group
+    = f.label "وارد کردن تصویر", :class => "control-label"    
+    = f.file_field :image, :class => "text"
   .form-group    
     = f.submit 'ثبت', :class => "mainBtn"
 

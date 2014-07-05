@@ -9,20 +9,32 @@
     / /.row
     .row
       - Inform.all.each do |inform|
-        .col-sm-12          
-          .col-md-3         
+        
+        .col-sm-5.inform-info  
+          - if is_admin?
+            .admin-link
+              = link_to 'ویرایش', edit_inform_path(inform)
+              \|
+              = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+          .col-sm-6
             = JalaliDate.new(inform.created_at).format("%A %d %b %Y")           
-          
-          -if inform.project_id
-            .col-md-3
-              = link_to inform.project.title, inform.project    
-          .col-md-4
-            = link_to inform.title, inform
-          .col-md-1
+          .col-md-2
             -if inform.important
               .important= "مهم"   
-        .col-sm-12{:style => "border-bottom:2px dotted #ec523f; margin:2%; padding:2%"}          
-          = raw inform.text
+          .col-md-12
+            %b= link_to inform.title, inform
+          -if inform.project_id
+            .col-md-12
+              = link_to inform.project.title, inform.project  
+          - if inform.image.present?
+            .col-md-12{:style => "text-align:center"}
+              = image_tag inform.image(:small)
+          
+          .col-sm-12.inform-text{:style => " margin:2%; padding:2%"}          
+            
+            = raw inform.text
+          .col-sm-6
+            %i.more= link_to 'مشاهده بیشتر', inform
         
 #services.content-section
   .container
@@ -123,7 +135,7 @@
                 %p
                   = project.address                
                   %br
-                  = project.description               
+                  =truncate(project.description , length: 40)              
                   %br
                   - if project.Status
                     تحویل داده شده

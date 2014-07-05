@@ -58,22 +58,9 @@ body {direction:rtl}
 .inner-service .ask-question {width:100%; height:30px; background:#ec523f; text-align:center; margin:1%; padding:1%}
 .inner-service .ask-question a:hover {color:#000}
 .important {
-  font-weight:bold;
-  /* Safari */
--webkit-transform: rotate(-45deg);
-
-/* Firefox */
--moz-transform: rotate(-45deg);
-
-/* IE */
--ms-transform: rotate(-45deg);
-
-/* Opera */
--o-transform: rotate(-45deg);
-
-/* Internet Explorer */
-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
-color:red;
+  font-weight:bold; 
+  font-size:1.5em;
+  color:red;
 }
 .save-btn {width:250px; height:30px; color:#fff; background:#e67e22; padding:1%; margin:5px; font-size:15px}
 .index-projects {margin-top:5%}
@@ -91,3 +78,17 @@ b.notif {
 tr { text-align:right}
 tr th{ text-align:right}
 tr td{ text-align:right}
+.inform-info {border-right:2px dotted #ec523f; margin:2%; }
+.inform-text { 
+  min-height:250px;
+  max-height:250px;
+  overflow:hidden;  
+  text-align:justify;
+  margin-bottom:20px;
+}
+
+.admin-link {background:#3498db; position:absolute; width:auto}
+.admin-link a{color:#fff;}
+
+.more {background:#ec523f; padding:1%; margin-top:10px; }
+.more a{color:#fff;}
