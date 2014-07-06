@@ -1,0 +1,11 @@
+%h1 Editing education.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 ویرایش فایل آموزشی
+    .contact-form.width50
+      = render 'form'
+    - if is_admin?
+
+      = link_to 'مشاهده', @education
+      \|
+      = link_to 'بازگشت', educations_path

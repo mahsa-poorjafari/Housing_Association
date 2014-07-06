@@ -1,0 +1,15 @@
+.width80.set-center.margin-top
+  .tbox2
+    %p
+      %b عنوان
+      = @education.title
+    %p
+      -if @education.pdf.url.present?
+        .pdf-link.col-sm-5
+          =link_to @education.pdf.url, :target => "blank" do
+            %i= 'دریافت فایل آموزش'
+            = image_tag 'pdf-icon.png'            
+    - if is_admin?
+      = link_to 'ویرایش', edit_education_path(@education)
+      \|
+      = link_to 'بازگشت', educations_path

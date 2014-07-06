@@ -1,0 +1,28 @@
+.width80.set-center.margin-top
+  .tbox2
+    .title      
+      %h1 لیست مقالات
+
+
+    - @articles.each_with_index do |article, i|  
+      
+      - if is_admin?      
+        .col-sm-5
+          = link_to 'مشاهده', article
+          \|
+          = link_to 'ویرایش', edit_article_path(article)
+          \|
+          = link_to 'حذف', article, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+
+      -if article.pdf.url.present?
+        .pdf-link.col-sm-5
+          =link_to article.pdf.url, :target => "blank" do
+            %i= 'دریافت فایل مقاله'
+            %b= article.title
+      .col-sm-1= (i+1)
+    %br
+    - if is_admin?
+      .index-projects
+        = link_to 'افزودن مقاله جدید', new_article_path, :class => "save-btn"
+
+

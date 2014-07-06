@@ -1,0 +1,16 @@
+.width80.set-center.margin-top
+  .tbox2
+
+    %p
+      %b عنوان
+      = @article.title
+    %p
+      -if @article.pdf.url.present?
+        .pdf-link.col-sm-5
+          =link_to @article.pdf.url, :target => "blank" do
+            %i= 'دریافت فایل مقاله'
+            = image_tag 'pdf-icon.png'            
+    - if is_admin?
+      = link_to 'ویرایش', edit_article_path(@article)
+      \|
+      = link_to 'بازگشت', articles_path

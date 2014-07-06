@@ -1,0 +1,8 @@
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 مقاله جدید
+    .contact-form.width50
+      = render 'form'
+    - if is_admin?
+      = link_to 'بازگشت', articles_path

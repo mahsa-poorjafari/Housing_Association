@@ -45,7 +45,7 @@
       / /.heading-section
     / /.row
     .row
-      .col-md-3.col-sm-6
+      .col-md-4.col-sm-6
         #service-1.service-item{:style => "height:300px"}
           %h2{:style => "padding-top:2%; font-size:20px; color:#fff"}
             پیوندهای مرتبط
@@ -61,8 +61,8 @@
               
           / /.service-content
         / /#service-1
-      / /.col-md-3
-      .col-md-3.col-sm-6
+      / /.col-md-4
+      .col-md-4.col-sm-6
         #service-2.service-item{:style => "height:300px"}
           %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
             تعاونیهای تحت پوشش
@@ -78,7 +78,7 @@
           / /.service-content
         / /#service-1
       / /.col-md-3
-      .col-md-3.col-sm-6
+      .col-md-4.col-sm-6
         #service-3.service-item{:style => "height:300px"}
           %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
             بخشنامه ها
@@ -93,7 +93,45 @@
           / /.service-content
         / /#service-1
       / /.col-md-3
-      .col-md-3.col-sm-6
+      
+      .col-md-4.col-sm-6
+        #service-5.service-item{:style => "height:300px"}
+          %h2{:style => "padding:5%; font-size:20px; color:#fff; "}= 'مقالات'
+
+          .service-icon
+            = image_tag 'book.png', :class => "set-center"
+          / /.service-icon
+          .service-content
+            .inner-service
+              - @articles.each do  |article|
+                %p
+                  = link_to article.title, article
+              
+              
+          / /.service-content
+        / /#service-1
+      / /.col-md-3
+      
+      
+      .col-md-4.col-sm-6
+        #service-6.service-item{:style => "height:300px"}
+          %h2{:style => "padding:5%; font-size:20px; color:#fff; "}= 'آموزش'
+          .service-icon
+            = image_tag 'education.png', :class => "set-center"
+          / /.service-icon
+          .service-content
+            .inner-service
+              - @educations.each do  |education|
+                %p
+                  = link_to education.title, education
+              
+              
+          / /.service-content
+        / /#service-1
+      / /.col-md-3
+      
+      
+      .col-md-4.col-sm-6
         #service-4.service-item{:style => "height:300px"}
           %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
             داوری

@@ -275,7 +275,7 @@ hr {
 .logo-wrapper a {
   display: inline-block;
   overflow: hidden;
-  padding-left: 130px;
+  
   line-height: 100px;
   text-transform: uppercase;
   color: #ec523f;
@@ -288,9 +288,7 @@ hr {
   display: inline-block;
   margin: 0 2%;
 }
-.main-menu ul li:last-child {
-  margin-right: 35px;
-}
+
 .main-menu ul li a {
   text-transform: uppercase;
   font-size: 14px;
@@ -298,7 +296,7 @@ hr {
   line-height: 100px;
   padding-top: 37px;
 }
-.main-menu ul li.active a {
+.main-menu ul li.active a, .main-menu ul li:hover a {
   border-top: 3px solid #ec523f;
   color: #ec523f;
 }
@@ -499,7 +497,12 @@ a.toggle-menu {
 #service-4 {
   background-color: #2ecc71;
 }
-
+#service-5 {
+  background-color: #FFA500;
+}
+#service-6 {
+  background-color: #722AA5;
+}
 .portfolio-item {
   margin-bottom: 30px;
 }

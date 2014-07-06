@@ -1,11 +1,8 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h2= "اعلامیه "
-    .center-div.set-center.min-height
-      -if notice
-        .alert.alert-dismissable.alert-success
-          %p#notice= notice
+      %h1= @inform.title
+    .center-div.set-center.min-height.col-md-6      
       - if @inform.project.present?
         %p
           %h4 
@@ -15,11 +12,15 @@
       %p
         %b تعداد بازدید:
         = @inform.number_visit
+    .col-md-6
+      - if @inform.image.present?
+        = image_tag @inform.image(:original)
+    .col-md-12{:style => "text-align:justify"}  
       %p    
         = raw @inform.text
         
       
-      
+  - if  is_admin?
 
     = link_to 'ویرایش', edit_inform_path(@inform)
     \|

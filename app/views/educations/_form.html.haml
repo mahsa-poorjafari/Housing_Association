@@ -1,0 +1,16 @@
+= form_for @education do |f|
+  - if @education.errors.any?
+    #error_explanation
+      
+      %ul
+        - @education.errors.each do |attr, msg|
+          %li= msg
+
+  .form-group
+    = f.label "عنوان مطلب آموزشی:", :class => "control-label"    
+    = f.text_field :title, :class => "text"
+  .form-group
+    = f.label "فایل PDF:", :class => "control-label"    
+    = f.file_field :pdf, :class => "text"
+  .form-group
+    = f.submit 'ثبت', :class => "mainBtn"

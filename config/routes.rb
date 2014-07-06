@@ -1,6 +1,10 @@
 HousingAssociation::Application.routes.draw do  
 
 
+  resources :educations
+
+  resources :articles
+
   resources :pdf_forms
 
   resources :circulars
