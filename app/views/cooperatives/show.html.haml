@@ -2,6 +2,8 @@
   .tbox2
     .title
       %h1= @cooperative.name
+      -if flash[:AddCooper]        
+        .alert.alert-success= flash[:AddCooper]
     
 
     .width80.set-center 

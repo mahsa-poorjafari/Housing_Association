@@ -5,7 +5,7 @@ class CooperativesController < ApplicationController
   # GET /cooperatives
   # GET /cooperatives.json
   def index
-    @cooperatives = Cooperative.all
+    @cooperatives = Cooperative.order('name DESC')
   end
 
   # GET /cooperatives/1
@@ -25,17 +25,19 @@ class CooperativesController < ApplicationController
   # POST /cooperatives
   # POST /cooperatives.json
   def create
-    @cooperative = Cooperative.new(cooperative_params)
-
-    respond_to do |format|
-      if @cooperative.save
-        format.html { redirect_to @cooperative, notice: 'تعاونی جدید ثبت شد.' }
-        format.json { render action: 'show', status: :created, location: @cooperative }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @cooperative.errors, status: :unprocessable_entity }
-      end
+    @cooperative = Cooperative.new(cooperative_params)   
+    
+    if @cooperative.save      
+      flash[:AddCooper] = 'تعاونی جدید ثبت شد و اطلاعات ورود به سایت ارسال شد.' 
+      @generated_password = Devise.friendly_token.first(8)      
+      user = User.create!(:email => @cooperative.email_company, :password => @generated_password, :name => @cooperative.name, :last_name => @cooperative.managment_name , :phone => @cooperative.phone, :address => @cooperative.address, :role_id => 4)
+      UserMailer.send_cooperative_mail(@generated_password).deliver  
+      render action: 'show'      
+    else
+      flash[:AddCooper] = 'خطا در ثبت تعاونی جدید' 
+      redirect_to :back      
     end
+  
   end
 
   # PATCH/PUT /cooperatives/1
@@ -70,6 +72,6 @@ class CooperativesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cooperative_params
-      params.require(:cooperative).permit(:name, :managment_name, :board_Chairman_name, :address, :phone, :website)
+      params.require(:cooperative).permit(:name, :managment_name, :board_Chairman_name, :address, :phone, :website, :email_company)
     end
 end

@@ -10,6 +10,8 @@
           %th
           %th= 'نام و نام خانوادگی'      
           %th= 'نقش کاربر'
+          %th= 'نقش کاربر'
+          
           %th= 'تلفن تماس'        
           %th= 'ایمیل'
           %th= 'تعداد پروژه ها'        
@@ -23,6 +25,8 @@
               = user.name 
               = user.last_name        
             %td= user.role_id
+            %td= user.password
+            
             %td 
               = user.phone
               \-

@@ -12,6 +12,7 @@ namespace :db do
     Role.create(name:"admin") if Role.where(name:"admin").blank?
     Role.create(name:"Inspector") if Role.where(name:"Inspector").blank?
     Role.create(name:"user") if Role.where(name:"user").blank?
+    Role.create(name:"cooperative") if Role.where(name:"cooperative").blank?
     p 'roles created'
   end
 

@@ -14,22 +14,28 @@
             -if is_admin?
               .col-lg-4      
                 = link_to 'ویرایش', edit_cooperative_path(cooperative)
+                \|
                 = link_to 'حذف', cooperative, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }  
           .col-lg-12            
-            %b= 'مدیرعامل'
-            = cooperative.managment_name
+            %b= 'ایمیل تعاونی:'
+            = cooperative.email_company          
+            
           .col-lg-12            
-            %b= 'رییس هئیت مدیره'
+            %b= 'مدیرعامل:'
+            = cooperative.managment_name
+            
+          .col-lg-12            
+            %b= 'رییس هئیت مدیره:'
             = cooperative.board_Chairman_name
           .col-lg-12            
             %b= 'آدرس'
             = cooperative.address
           .col-lg-12            
-            %b= 'تلفن تماس'
+            %b= 'تلفن تماس:'
             = cooperative.phone
           .col-lg-12            
-            %b= 'وب سایت'
-            = cooperative.website      
+            %b= 'وب سایت:'
+            =link_to cooperative.website, url_with_protocol(cooperative.website)
           .clear-float
           
           

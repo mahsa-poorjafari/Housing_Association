@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     self.role.name == "Inspector"
   end 
   
+  def is_cooperative?
+    self.role.name == "cooperative"
+  end
+  
   def set_role 
     self.role_id = 3 if self.role_id.blank?
   end

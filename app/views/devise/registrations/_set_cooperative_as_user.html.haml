@@ -1,0 +1,24 @@
+.width80.set-center.margin-top
+  .tbox2    
+    .title        
+      -if flash[:AddCooper]        
+        .alert.alert-success= AddCooper
+      %h2 آیا می خواهید این تعاونی عضو شود؟ کلید عضویت تعاونی را انتخاب کنید.  
+      %br
+      %h2 در غیر اینصورت گزینه انصراف از عضویت را انتخاب کنید.
+      %br
+      .contact-form.width50
+        = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          
+          .form-group          
+            = f.hidden_field :email, :value => cooperative.email_company
+          .form-group         
+            = f.hidden_field :password, :value => cooperative.phone
+          .form-group          
+            = f.hidden_field :password_confirmation, :value => cooperative.phone
+          .form-group
+            = f.submit "عضویت", :class => "mainBtn"
+            = link_to 'انصراف از عضویت تعاونی', cooperatives_path, :class => "save-btn"
+          
+      
