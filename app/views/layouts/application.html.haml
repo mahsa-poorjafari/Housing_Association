@@ -75,19 +75,7 @@
                 
                   = render 'shared/inspector_menu'
                   = link_to "خروج", destroy_user_session_path, :method => :delete
-            .menu-responsive.hidden-md.hidden-lg
-              %ul
-                %li.active
-                  %a{href: "#"} Home
-                %li
-                  %a{href: "#services"} Services
-                %li
-                  %a{href: "#portfolio"} Portfolio
-                %li
-                  %a{href: "#our-team"} Team
-                %li
-                  %a{href: "#contact"} Contact
-            / /.menu-responsive
+            
       .site-slider
         .slider
           = render 'slides/slide_show'

@@ -1,6 +1,8 @@
 HousingAssociation::Application.routes.draw do  
 
 
+  resources :phone_books
+
   resources :educations
 
   resources :articles

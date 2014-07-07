@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140706131856) do
+ActiveRecord::Schema.define(version: 20140707065808) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -205,6 +205,16 @@ ActiveRecord::Schema.define(version: 20140706131856) do
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
     t.integer  "inform_id"
+  end
+
+  create_table "phone_books", force: true do |t|
+    t.string   "preson_name"
+    t.string   "company_name"
+    t.string   "phone"
+    t.string   "fax"
+    t.text     "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pictures", force: true do |t|

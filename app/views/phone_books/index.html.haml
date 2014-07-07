@@ -1,0 +1,60 @@
+.width80.set-center.margin-top
+  .tbox2
+    .title      
+      %h1 دفترچه تلفن
+    - if is_admin?
+      = link_to 'افزودن به دفترچه تلفن', new_phone_book_path, :class => "save-btn"
+    %table.table.table-striped{id:"phone_table"}
+      %thead
+        %tr
+          %th ردیف
+          %th نام و نام خانوادگی
+          %th نام شرکت
+          %th تلفن های تماس
+          %th فکس
+          %th آدرس
+          - if is_admin?          
+            %th عملیات
+          
+          
+      %tbody{:id => "phone_container"}
+        - @phone_books.each_with_index do |phone_book, i|
+          %tr          
+            %td= (i+1)
+            %td= phone_book.preson_name
+            %td= phone_book.company_name
+            %td= phone_book.phone
+            %td= phone_book.fax
+            %td= phone_book.address 
+            - if is_admin?          
+              %td            
+                = link_to 'مشاهده', phone_book
+                \|
+                = link_to 'ویرایش', edit_phone_book_path(phone_book)
+                \|
+                = link_to 'حذف', phone_book, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+
+    
+    
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#phone_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,6]
+    ,  
+      bSortable: false
+      aTargets: [0,6]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()

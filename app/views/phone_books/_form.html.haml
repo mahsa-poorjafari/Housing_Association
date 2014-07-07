@@ -1,0 +1,24 @@
+= form_for @phone_book do |f|
+  - if @phone_book.errors.any?
+    #error_explanation      
+      %ul
+        - @phone_book.errors.each do |attr, msg|
+          %li= msg
+
+  .form-group
+    = f.label 'نام و نام خانوادگی:', :class => "control-label"    
+    = f.text_field :preson_name, :class => "text"
+  .form-group
+    = f.label 'نام شرکت/تعاونی:', :class => "control-label"    
+    = f.text_field :company_name, :class => "text"
+  .form-group
+    = f.label 'تلفن:', :class => "control-label"    
+    = f.text_field :phone, :class => "text"
+  .form-group
+    = f.label 'فکس:', :class => "control-label"    
+    = f.text_field :fax, :class => "text"
+  .form-group
+    = f.label 'آدرس:', :class => "control-label"    
+    = f.text_area :address, :class => "text"
+  .form-group
+    = f.submit 'ثبت', :class => "mainBtn"

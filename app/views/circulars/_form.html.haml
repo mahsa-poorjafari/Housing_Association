@@ -3,7 +3,7 @@
     #error_explanation
       
       %ul
-        - @circular.errors.full_messages.each do |msg|
+        - @circular.errors.each do |attr, msg|
           %li= msg
 
   .form-group
