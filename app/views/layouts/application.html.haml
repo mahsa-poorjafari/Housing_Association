@@ -59,7 +59,7 @@
               
             / /#menu-wrapper
             -if is_admin?
-              .col-md-3.admin-menu
+              .col-md-3.admin-menu.login-menu
                 %h2
                   %p.width50.pull-right= 'منوی مدیرسایت'
                   %b.notif= Complaint.count(:conditions => "display is null")
@@ -67,7 +67,7 @@
                   = render 'shared/admin_menu'
                   = link_to "خروج", destroy_user_session_path, :method => :delete
             - if is_inspector?
-              .col-md-3.admin-menu
+              .col-md-3.inspector-menu.login-menu
                 %h2
                   %p.width50.pull-right= 'منوی داور'
                   %b.notif= Complaint.count(:conditions => "inspector_visited is null")
@@ -75,6 +75,17 @@
                 
                   = render 'shared/inspector_menu'
                   = link_to "خروج", destroy_user_session_path, :method => :delete
+            - if is_user?
+              .col-md-3.cooperative-menu.login-menu
+                %h2
+                  %p.width50.pull-right= 'منوی تعاونیهای عضو'                  
+                .admin-menu-links                  
+                  = render 'shared/cooperative_menu'
+                  = link_to "خروج", destroy_user_session_path, :method => :delete
+            - if current_user.blank?
+              .col-md-3.login-menu{:style => "text-align:center; height:50px"}                                                 
+                = link_to 'ورود به سایت', '/login', :class => "login-link"
+                    
             
       .site-slider
         .slider

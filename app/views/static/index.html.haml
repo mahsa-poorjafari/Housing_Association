@@ -38,17 +38,14 @@
         
 #services.content-section
   .container
-    .row
-      .heading-section.col-md-12.text-center
-        %h2 خدمات
-        %p لیست تعاونیهای تحت پوشش
-      / /.heading-section
-    / /.row
+    
     .row
       .col-md-4.col-sm-6
         #service-1.service-item{:style => "height:300px"}
+          = link_to 'پیوندهای مرتبط', Link
           %h2{:style => "padding-top:2%; font-size:20px; color:#fff"}
-            پیوندهای مرتبط
+            
+            
           
           .service-icon
             = image_tag 'link.png', :class => "set-center"

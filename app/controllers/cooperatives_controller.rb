@@ -1,11 +1,21 @@
 # encoding: UTF-8
 class CooperativesController < ApplicationController
   before_action :set_cooperative, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication, only: [:new, :edit]
+  before_filter :check_autentication_cooperative, only: [:new, :edit]
   # GET /cooperatives
   # GET /cooperatives.json
   def index
-    @cooperatives = Cooperative.order('name DESC')
+    if current_user.present?    
+      @user_email = current_user.email
+    end
+    if is_admin?
+      @cooperatives = Cooperative.order('name DESC')    
+    elsif is_user?
+      @cooperatives = Cooperative.where( email_company: @user_email)
+    else
+      @cooperatives = Cooperative.order('name DESC')    
+    end
+    
   end
 
   # GET /cooperatives/1
@@ -43,15 +53,15 @@ class CooperativesController < ApplicationController
   # PATCH/PUT /cooperatives/1
   # PATCH/PUT /cooperatives/1.json
   def update
-    respond_to do |format|
-      if @cooperative.update(cooperative_params)
-        format.html { redirect_to @cooperative, notice: 'ویرایش اطلاعات انجام شد.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @cooperative.errors, status: :unprocessable_entity }
-      end
+   
+    if @cooperative.update(cooperative_params)
+      flash[:AddCooper] = 'ویرایش انجام شد'        
+      render action: 'show'      
+    else
+      flash[:AddCooper] = 'خطا در ویرایش اطلاعات'
+      redirect_to :back      
     end
+  
   end
 
   # DELETE /cooperatives/1
