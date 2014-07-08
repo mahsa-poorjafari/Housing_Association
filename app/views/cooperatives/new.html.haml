@@ -3,6 +3,9 @@
     .title
       %h1= 'ثبت تعاونی جدید'
     .contact-form.width50
+      -if flash[:DupError]        
+        .alert.alert-warning= flash[:DupError]
+    
       = render 'form'
 
     = link_to 'بازگشت', cooperatives_path
