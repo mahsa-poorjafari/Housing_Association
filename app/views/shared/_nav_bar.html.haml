@@ -2,18 +2,24 @@
 %ul.menu-first.hidden-sm.hidden-xs
   - if current_page?(root_path)
     %li.active
-      = link_to 'صفحه اصلی' , '#'
-    %li{:style => "width:22%"}
-      = link_to 'آموزش داوری تعاونیها',  '#services' 
+      = link_to 'صفحه اصلی' , '#'    
+    %li
+      = link_to 'آموزش' , '#service-6'        
+    %li
+      = link_to 'داوری' , '#service-4'      
+    %li
+      = link_to 'تعاونی ها' , '#service-2'      
     %li
       = link_to 'اعلامیه ها' , '#inform'        
     %li
-      = link_to 'پروژه ها' , '#portfolio'                     
+      = link_to 'پروژه ها' , '#portfolio'  
     %li
-      = link_to 'مدیران' , '#our-team'                            
+      = link_to 'مدیران' , '#our-team'    
     %li
-      = link_to 'ارتباط با ما' , '#contact'            
+      = link_to 'ارتباط با ما' , '#contact'
+      
   - else    
+  
     %li{:class => ('active' if current_page?(root_path))} 
       = link_to "صفحه اصلی", root_path      
     %li{:class => ('active' if current_page?(educations_path))}

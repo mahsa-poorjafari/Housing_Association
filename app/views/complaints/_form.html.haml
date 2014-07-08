@@ -1,8 +1,8 @@
 = form_for @complaint, :html => {:class => "contact", name: "contactform", :id => "contactform"} do |f|
   - if @complaint.errors.any?
-    #error_explanation      
+    .alert.alert-warning      
       %ul
-        - @complaint.errors.full_messages.each do |msg|
+        - @complaint.errors.each do |attr, msg|
           %li= msg
   -if flash[:notice]        
     .alert.alert-success= notice
@@ -17,16 +17,6 @@
   = f.submit 'ارسال', :class=>"mainBtn", :id => "submit"
 %br
  
-:javascript   
-  
-  $(':submit').click(function(e) {
-    $(':text, textarea').each(function() {
-      if ($(this).val().length == 0) {
-        $(this).css('border', '2px solid red');
-        e.preventDefault();
-      }
-    });
-  });
 
 
 

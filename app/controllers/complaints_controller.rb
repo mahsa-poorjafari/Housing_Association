@@ -16,7 +16,7 @@ class ComplaintsController < ApplicationController
   def show
     if is_inspector?      
       @complaint.update_attribute(:inspector_visited, true)
-      p 'inspector visite the complaint'
+      p '~~~~~~~~~~~ inspector visite the complaint ~~~~~~~~~~~~~~~'
     end
       
     @commits = CommentComplaint.where(:complaint_id => @complaint.id)
@@ -45,18 +45,28 @@ class ComplaintsController < ApplicationController
 
   # GET /complaints/1/edit
   def edit
+     if is_inspector?      
+      @complaint.update_attribute(:inspector_visited, true)
+      p '~~~~~~~~~~~ inspector visited the complaint ~~~~~~~~~~~~~~~'
+    end
   end
 
   # POST /complaints
   # POST /complaints.json
   def create
     @complaint = Complaint.new(complaint_params)
-
+    
+    if @complaint.user_email.blank?
+      flash[:DupError] = 'لطفا ایمیل را وارد کنید.'
+    end
     if @complaint.save
       SendComplaint.send_complaint_to_Inspector.deliver      
       flash[:notice] = 'کاربر گرامی پرسش شما ارسال گردید.'      
+      redirect_to :back
+    else
+      render :new
     end
-    redirect_to :back
+    
   end
 
   # PATCH/PUT /complaints/1

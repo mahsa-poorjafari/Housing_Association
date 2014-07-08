@@ -25,9 +25,10 @@
         %b جواب شکایت
         -if @complaint.complaint_answer.present?
           = @complaint.complaint_answer
-        -else
-          هیچ پاسخی داده نشده
-      
+        - else
+          %h4.no-answer= 'هیچ پاسخی داده نشده'
+          - if is_inspector?                
+            = link_to 'ثبت جواب', edit_complaint_path(@complaint), :class => "save-btn"
     
     .commit
       %b= 'نظرات سایر کابران'
@@ -39,8 +40,7 @@
             .col-lg-2
               %i= JalaliDate.new(commit.created_at).strftime("%y/%m/%e %X")
               %br
-              - if is_admin?
-                
+              - if is_admin?                
                 = link_to 'ویرایش', edit_comment_complaint_path(commit)
                 \|
                 = link_to 'حذف', commit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }

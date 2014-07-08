@@ -3,6 +3,8 @@
     .title
       %h1 پرسش و داوری
   .contact-form.width50
+    -if flash[:DupError]        
+      .alert.alert-warning= flash[:DupError]
     = render 'form'
   
 

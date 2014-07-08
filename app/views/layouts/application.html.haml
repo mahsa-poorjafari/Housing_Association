@@ -62,7 +62,7 @@
               .col-md-3.admin-menu.login-menu
                 %h2
                   %p.width50.pull-right= 'منوی مدیرسایت'
-                  %b.notif= Complaint.count(:conditions => "display is null")
+                  %b.notif= Complaint.where("display is null").count
                 .admin-menu-links
                   = render 'shared/admin_menu'
                   = link_to "خروج", destroy_user_session_path, :method => :delete
@@ -70,7 +70,7 @@
               .col-md-3.inspector-menu.login-menu
                 %h2
                   %p.width50.pull-right= 'منوی داور'
-                  %b.notif= Complaint.count(:conditions => "inspector_visited is null")
+                  %b.notif= Complaint.where("inspector_visited is null").count
                 .admin-menu-links
                 
                   = render 'shared/inspector_menu'

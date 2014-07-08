@@ -5,6 +5,9 @@
     .input-form    
       - if is_inspector?
         .width80.set-center
+          %b= 'موضوع شکایت:'
+          %p= @complaint.subject
+          %br
           %b= 'متن شکایت:'
           %p= @complaint.complaint_text
           %br

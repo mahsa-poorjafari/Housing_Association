@@ -38,16 +38,7 @@ class CooperativesController < ApplicationController
   # POST /cooperatives.json
   def create
     @cooperative = Cooperative.new(cooperative_params)   
-    @duplicate = Cooperative.where(email_company: @cooperative.email_company)
-    p @cooperative.email_company
-    p '111111111111111'
-    if @duplicate.present?
-      p '2222222222222222'
-      flash[:DupError] = 'این ایمیل در سیستم وجود دارد'
-    end
-    if @cooperative.email_company.blank?
-      flash[:DupError] = 'لطفا ایمیل را وارد کنید.'
-    end
+    
     if @cooperative.save      
       flash[:AddCooper] = 'تعاونی جدید ثبت شد و اطلاعات ورود به سایت ارسال شد.' 
       @generated_password = Devise.friendly_token.first(8)      
@@ -56,7 +47,7 @@ class CooperativesController < ApplicationController
       render action: 'show'      
     else
       flash[:AddCooper] = 'خطا در ثبت تعاونی جدید' 
-      redirect_to :back      
+      render action: 'new'       
     end
   
   end

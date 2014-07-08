@@ -296,7 +296,7 @@ hr {
   line-height: 100px;
   padding-top: 37px;
 }
-.main-menu ul li.active a, .main-menu ul li:hover a {
+.main-menu ul li.active a, .main-menu ul li:hover a  {
   border-top: 3px solid #ec523f;
   color: #ec523f;
 }

@@ -3,7 +3,7 @@
 %br
 = link_to  Complaint do
   %p.width50.pull-right= "گزارش شکایات"
-  %b.notif= Complaint.count(:conditions => "inspector_visited is null")
+  %b.notif= Complaint.where('inspector_visited is null').count
 
 %br
 
