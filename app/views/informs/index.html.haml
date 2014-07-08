@@ -7,13 +7,14 @@
 
     %table.table{:style => "margin-top:5%"}
       - @informs.each do |inform|
-        %tr              
+        %tr#infotm-header              
           %td.important
             -if inform.important      
               مهم
           %th= link_to inform.title, inform 
-          -if inform.project_id        
-            %td= link_to inform.project.title, inform.project       
+          %td
+            -if inform.project_id        
+              = link_to inform.project.title, inform.project       
           %td
             %span= 'تعداد بازدید'
             = inform.number_visit
@@ -25,8 +26,11 @@
               = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
           
         %tr
-          %td{:colspan => "4"}= raw inform.text
-            
-            
+          %td#inform-text{:colspan => "5", :style => "height:20%; overflow:hidden; text-align:justify; display:none"}
+            = raw inform.text
+:javascript            
+  $('#infotm-header').click(function(){
+    $('#inform-text').toggle(800);
+  });
 
    

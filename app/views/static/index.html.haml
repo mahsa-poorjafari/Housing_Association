@@ -41,16 +41,16 @@
     
     .row
       .col-md-4.col-sm-6
-        #service-1.service-item{:style => "height:300px"}
-          = link_to 'پیوندهای مرتبط', Link
+        #service-1.service-item
           %h2{:style => "padding-top:2%; font-size:20px; color:#fff"}
+            = link_to 'پیوندهای مرتبط', Link
             
             
           
           .service-icon
             = image_tag 'link.png', :class => "set-center"
           / /.service-icon
-          .service-content{:style => "overflow-y: scroll;height: 300px"}
+          .service-content{:style => "overflow-y: scroll;"}
             .inner-service
               - Link.all.each do  |link|
                 %p
@@ -60,14 +60,15 @@
         / /#service-1
       / /.col-md-4
       .col-md-4.col-sm-6
-        #service-2.service-item{:style => "height:300px"}
+        #service-2.service-item
           %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
-            تعاونیهای تحت پوشش
+            = link_to 'تعاونیهای تحت پوشش', Cooperative
+            
           
           .service-icon
             = image_tag 'colab.png', :class => "set-center"
           / /.service-icon
-          .service-content{:style => "overflow-y: scroll;height: 300px;"}
+          .service-content{:style => "overflow-y: scroll;"}
             .inner-service
               - Cooperative.all.each do  |cooperative|
                 %p
@@ -76,9 +77,10 @@
         / /#service-1
       / /.col-md-3
       .col-md-4.col-sm-6
-        #service-3.service-item{:style => "height:300px"}
+        #service-3.service-item
           %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
-            بخشنامه ها
+            = link_to 'بخشنامه ها', Circular
+            
           .service-icon
             = image_tag 'new.png', :class => "set-center"
           / /.service-icon
@@ -92,9 +94,9 @@
       / /.col-md-3
       
       .col-md-4.col-sm-6
-        #service-5.service-item{:style => "height:300px"}
-          %h2{:style => "padding:5%; font-size:20px; color:#fff; "}= 'مقالات'
-
+        #service-5.service-item
+          %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
+            = link_to 'مقالات', Article
           .service-icon
             = image_tag 'book.png', :class => "set-center"
           / /.service-icon
@@ -103,16 +105,15 @@
               - @articles.each do  |article|
                 %p
                   = link_to article.title, article
-              
-              
           / /.service-content
         / /#service-1
       / /.col-md-3
       
       
       .col-md-4.col-sm-6
-        #service-6.service-item{:style => "height:300px"}
-          %h2{:style => "padding:5%; font-size:20px; color:#fff; "}= 'آموزش'
+        #service-6.service-item
+          %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
+            = link_to 'آموزش', Education
           .service-icon
             = image_tag 'education.png', :class => "set-center"
           / /.service-icon
@@ -129,9 +130,10 @@
       
       
       .col-md-4.col-sm-6
-        #service-4.service-item{:style => "height:300px"}
+        #service-4.service-item
           %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
-            داوری
+            = link_to 'داوری', Complaint
+            
           .service-icon
             = image_tag 'question.png', :class => "set-center"
           / /.service-icon
@@ -162,7 +164,7 @@
     .row
       - Project.all.each do |project|
         = link_to  project  do 
-          .portfolio-item.col-md-3.col-sm-6{:style => "height:300px; overflow:hidden"}
+          .portfolio-item.col-md-3.col-sm-6{:style => "overflow:hidden"}
             .portfolio-thumb
               = image_tag project.pictures.first.image(:small), :height => "300"
               .portfolio-overlay
