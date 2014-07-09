@@ -3,7 +3,7 @@
     .alert.alert-warning 
       
       %ul
-        - @member.errors.full_messages.each do |msg|
+        - @member.errors.each do |attr, msg|
           %li= msg
 
   .form-group
