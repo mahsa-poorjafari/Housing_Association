@@ -1,0 +1,10 @@
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 ویرایش عنوان پست اعضا
+    .contact-form.width50
+      = render 'form'
+
+    = link_to 'مشاهده', @member_post
+    \|
+    = link_to 'بازگشت', member_posts_path

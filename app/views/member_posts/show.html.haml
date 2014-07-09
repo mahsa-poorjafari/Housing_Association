@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @member_post.title
+
+= link_to 'Edit', edit_member_post_path(@member_post)
+\|
+= link_to 'Back', member_posts_path

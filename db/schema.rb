@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709073451) do
+ActiveRecord::Schema.define(version: 20140709123731) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -149,6 +149,34 @@ ActiveRecord::Schema.define(version: 20140709073451) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "member_posts", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "members", force: true do |t|
+    t.string   "name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "mobile"
+    t.text     "address"
+    t.string   "postal_code"
+    t.string   "father_name"
+    t.date     "birthdate"
+    t.string   "national_id_card"
+    t.string   "identify_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "cooperative_id"
+    t.integer  "member_post_id"
   end
 
   create_table "messages", force: true do |t|

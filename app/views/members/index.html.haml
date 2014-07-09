@@ -1,0 +1,33 @@
+.width80.set-center.margin-top
+  .tbox2
+    .title      
+      %h1 لیست اعضا تعاونی
+    = link_to 'معرفی عضو جدید', new_member_path, :class => "save-btn"
+    %br
+    %table
+      %tr
+        %th نام و نام خانوادگی
+        %th تلفن های تماس        
+        %th نام پدر               
+        %th سمت
+        %th عملیات
+
+      - @members.each do |member|
+        %tr
+          %td= member.name + member.last_name          
+          %td= member.phone_number + "-" + member.mobile               
+          %td= member.father_name          
+          %td
+            - if member.member_post_id.presen?
+              = member.member_post.title
+            - else
+              %i= 'عضو تعاونی'
+          
+          %td
+            = link_to 'مشاهده', member
+            = link_to 'ویرایش', edit_member_path(member)
+            = link_to 'حذف', member, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+
+    %br
+
+    

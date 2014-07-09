@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @member.name
+%p
+  %b Last name:
+  = @member.last_name
+%p
+  %b Email:
+  = @member.email
+%p
+  %b Phone number:
+  = @member.phone_number
+%p
+  %b Mobile:
+  = @member.mobile
+%p
+  %b Address:
+  = @member.address
+%p
+  %b Postal code:
+  = @member.postal_code
+%p
+  %b Father name:
+  = @member.father_name
+%p
+  %b Birthdate:
+  = @member.birthdate
+%p
+  %b National id card:
+  = @member.national_id_card
+%p
+  %b Identify number:
+  = @member.identify_number
+
+= link_to 'Edit', edit_member_path(@member)
+\|
+= link_to 'Back', members_path

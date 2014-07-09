@@ -1,0 +1,21 @@
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 لیست عناوین پست های اعضا
+
+    %table
+      %tr
+        %th عنوان پست
+        %th        
+
+      - @member_posts.each do |member_post|
+        %tr
+          %td= member_post.title
+          %td
+            - if is_admin?
+              = link_to 'ویرایش', edit_member_post_path(member_post)
+              = link_to 'حذف', member_post, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+
+    %br
+
+    = link_to 'افزودن عنوان پست جدید', new_member_post_path, :class => "save-btn"

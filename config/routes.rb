@@ -1,6 +1,10 @@
 HousingAssociation::Application.routes.draw do  
 
 
+  resources :member_posts
+
+  resources :members
+
   resources :phone_books
 
   resources :educations
