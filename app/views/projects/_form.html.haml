@@ -8,24 +8,39 @@
 
   .form-group
     = f.label  "عنوان پروژه", :class => "control-label"
-    = f.text_field :title, :class => "text"
+    = f.text_field :title,  :class => "control-label"
+  
   .form-group
-    = f.label " آدرس", :class => "control-label"
-    = f.text_area :address, :class => "text"
+    = f.label "متراژ زمین:", :class => "control-label"
+    = f.text_field :land_area,  :class => "control-label"
   .form-group
-    = f.label "توضیحات", :class => "control-label"
-    = f.text_area :description, :class => "text"
+    = f.label "متراژ هر واحد:", :class => "control-label"
+    = f.text_field :Area,  :class => "control-label"
   .form-group
-    = f.label "متراژ", :class => "control-label"
-    = f.text_field :Area, :class => "text"
+    = f.label "تعداد واحد:", :class => "control-label"
+    = f.number_field :unit,  :class => "control-label"
   .form-group
-    = f.label "تعداد واحد", :class => "control-label"
-    = f.number_field :unit, :class => "text"
+    = f.label "تعداد طبقات:", :class => "control-label"
+    = f.number_field :floor,  :class => "control-label"
+  .form-group
+    = f.label "تعداد بلوک:", :class => "control-label"
+    = f.number_field :block,  :class => "control-label"
+  .form-group
+    = f.label "سال شروع ساخت:", :class => "control-label"
+    = f.number_field :start_year,  :class => "control-label"
+  .form-group
+    = f.label "سال تحویل:", :class => "control-label"
+    = f.number_field :finish_year,  :class => "control-label"
   .form-group
     .col-md-1
-      = f.check_box :Status
-    = f.label "وضعیت", :class => "control-label"
-    
+      = f.check_box :Status,  :class => "control-label"
+    = f.label "اگر پروژه تحویل داده شده است تیک مقابل را فعال کنید:", :class => "control-label"
+  .form-group
+    = f.label " آدرس", :class => "control-label"
+    = f.text_area :address,  :class => "control-label", :style => "resize:none"
+  .form-group
+    = f.label "توضیحات", :class => "control-label"
+    = f.text_area :description,  :class => "control-label", :style => "resize:none"
     
     
   .form-group
@@ -33,12 +48,11 @@
       = render "shared/upload_image_form", :picture => picture
   
   .form-group
-    = f.link_to_add content_tag(:span, "افزودن تصویر"), :pictures, :id => "add_new_picture"    
-        
-        
-        
+    = f.label "برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:", :class => "control-label"
+    = f.label "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد.", :class => "control-label", :style=> "color:#ec523f"
+    = f.link_to_add content_tag(:span, "افزودن تصویر"), :pictures, :id => "add_new_picture", :class => "save-btn"
   .form-group
-    = f.submit 'ثبت', :class => "button btn-sm"
+    = f.submit 'ثبت', :class => "mainBtn"
     
     
 :javascript

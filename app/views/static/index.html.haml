@@ -225,30 +225,18 @@
     .row
       .col-md-12.text-center
         .skills-heading
-          %h3.skills-title Our skills on web design
-          %p.small-text Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %h3.skills-title درباره ما
+          %p.small-text معرفی اتحادیه مسکن فرهنگیان استان خراسان
       / /.col-md-12
     / /.row
     .row
-      .col-md-8.col-sm-6
-        = @about.first.text
+      .col-md-7
+        =raw @about.first.text
           
       / /.col-md-8
-      .col-md-4.col-sm-6
-        %ul.progess-bars
-          %li
-            .progress
-              .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "90", role: "progressbar", style: "width: 90%;"} Photoshop 90%
-          %li
-            .progress
-              .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "75", role: "progressbar", style: "width: 75%;"} HTML 75%
-          %li
-            .progress
-              .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "68", role: "progressbar", style: "width: 68%;"} WordPress 68%
-          %li
-            .progress
-              .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "95", role: "progressbar", style: "width: 95%;"} Marketing 95%
-      / /.col-md-4
+      .col-md-5
+        = image_tag 'housing-assoc.jpg'
+      / /.col-md-5
     / /.row
   / /.container
 / /#our-team
@@ -271,7 +259,7 @@
     / /.row
     .row
       .col-md-7.col-sm-6
-        %p= @contact.first.text
+        =raw @contact.first.text
         
       / /.col-md-7
       .col-md-5.col-sm-6

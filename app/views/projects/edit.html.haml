@@ -1,8 +1,8 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h2  ویرایش اطلاعات پروژه
-    .input-form
+      %h1= ' ویرایش اطلاعات پروژه' + ' ' + @project.title
+    .contact-form.width50
       = render 'form'
 
     = link_to 'بازگشت', projects_path

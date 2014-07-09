@@ -4,11 +4,10 @@
     .title
       %h1= 'پروژه ' +  @project.title     
        
-      -if is_admin?   
-        .admin-link
-          = link_to 'ویرایش', edit_project_path(@project)
-          \|
-          = link_to 'بازگشت', projects_path
+      -if is_admin?           
+        = link_to 'ویرایش', edit_project_path(@project)
+        \|
+        = link_to 'بازگشت', projects_path
         
     %div
       %i= 'تعداد بازدید '
@@ -19,24 +18,39 @@
       
         .col-md-5.info
           %p
+            %b وضعیت:
+            -if  @project.Status
+              تحویل داده شده
+            -else
+              در دست احداث
+          %hr
+          %p
+            %b متراژ زمین:
+            = @project.land_area
+          %p
+            %b متراژ هر واحد:
+            = @project.Area
+          %p
+            %b تعداد طبقات:
+            = @project.floor
+          %p
+            %b تعداد واحد:
+            = @project.unit
+          %p
+            %b تعداد بلوک:
+            = @project.block
+          %p
             %b آدرس:
             = @project.address
           %p
             %b توضیحات تکمیلی:
             = @project.description
           %p
-            %b متراژ:
-            = @project.Area
+            %b سال شروع ساخت:
+            = @project.start_year
           %p
-            %b تعداد واحد:
-            = @project.unit
-          %p
-            %b وضعیت:
-            -if  @project.Status
-              تحویل داده شده
-            -else
-              در دست احداث
-        
+            %b سال تحویل:
+            = @project.finish_year
         .col-md-6 
           =link_to (image_tag @project.pictures.first.image(:large)), @project.pictures.first.image(:original), :data => { :colorbox => true }         
         -#
@@ -70,4 +84,5 @@
         - @project.pictures.offset(1).each do |picture|
           .col-lg-4.image-project
             =link_to (image_tag picture.image(:small)), picture.image(:large), :data => { :colorbox => true }     
+            %p= picture.description
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707123308) do
+ActiveRecord::Schema.define(version: 20140709073451) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -238,6 +238,11 @@ ActiveRecord::Schema.define(version: 20140707123308) do
     t.boolean  "Status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "land_area"
+    t.string   "floor"
+    t.string   "block"
+    t.integer  "start_year"
+    t.integer  "finish_year"
   end
 
   create_table "projects_users", force: true do |t|

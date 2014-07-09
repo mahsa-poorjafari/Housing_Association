@@ -9,16 +9,18 @@
             = @inform.title 
             = link_to @inform.project.title, @inform.project
       
-      %p
-        %b تعداد بازدید:
-        = @inform.number_visit
+      
     .col-md-6
       - if @inform.image.present?
         = image_tag @inform.image(:original)
     .col-md-12{:style => "text-align:justify"}  
       %p    
         = raw @inform.text
-        
+    .clear-float
+    %hr
+    %p
+      %b تعداد بازدید:
+      = @inform.number_visit    
       
   - if  is_admin?
 
