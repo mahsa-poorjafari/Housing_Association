@@ -1,39 +1,40 @@
-%p#notice= notice
+.width80.set-center.margin-top
+  .tbox2
+    .title      
+      %h1 اطلاعات اعضا
 
-%p
-  %b Name:
-  = @member.name
-%p
-  %b Last name:
-  = @member.last_name
-%p
-  %b Email:
-  = @member.email
-%p
-  %b Phone number:
-  = @member.phone_number
-%p
-  %b Mobile:
-  = @member.mobile
-%p
-  %b Address:
-  = @member.address
-%p
-  %b Postal code:
-  = @member.postal_code
-%p
-  %b Father name:
-  = @member.father_name
-%p
-  %b Birthdate:
-  = @member.birthdate
-%p
-  %b National id card:
-  = @member.national_id_card
-%p
-  %b Identify number:
-  = @member.identify_number
+    %p
+      %b نام و نام خانوادگی
+      = @member.name + @member.last_name
+    
+    %p
+      %b ایمیل:
+      = @member.email
+    %p
+      %b تلفن ثابت:
+      = @member.phone_number
+    %p
+      %b تلفن همراه:
+      = @member.mobile
+    %p
+      %b آدرس:
+      = @member.address
+    %p
+      %b کدپستی:
+      = @member.postal_code
+    %p
+      %b نام پدر:
+      = @member.father_name
+    %p
+      %b تاریخ تولد:
+      = @member.birthdate
+    %p
+      %b شماره کارت ملی:
+      = @member.national_id_card
+    %p
+      %b شماره شناسنامه:
+      = @member.identify_number
 
-= link_to 'Edit', edit_member_path(@member)
-\|
-= link_to 'Back', members_path
+    = link_to 'ویرایش', edit_member_path(@member)
+    \|
+    = link_to 'بازگشت', members_path

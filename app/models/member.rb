@@ -5,6 +5,8 @@ class Member < ActiveRecord::Base
   has_attached_file :image, :styles => { :original => "500x500>" , :medium => "300x300>", :small => "200x200>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   
+  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => 'ایمیل نامعتبر است.' } 
+  
   belongs_to :cooperative
   belongs_to :member_posts
 end

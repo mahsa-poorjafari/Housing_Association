@@ -4,21 +4,23 @@
       %h1 لیست اعضا تعاونی
     = link_to 'معرفی عضو جدید', new_member_path, :class => "save-btn"
     %br
-    %table
+    %table.table
       %tr
+        %th ردیف
         %th نام و نام خانوادگی
         %th تلفن های تماس        
         %th نام پدر               
         %th سمت
         %th عملیات
 
-      - @members.each do |member|
+      - @members.each_with_index do |member, i|
         %tr
-          %td= member.name + member.last_name          
+          %td= (i+1)
+          %td= link_to member.name + member.last_name , member
           %td= member.phone_number + "-" + member.mobile               
           %td= member.father_name          
           %td
-            - if member.member_post_id.presen?
+            - if member.member_post_id.present?
               = member.member_post.title
             - else
               %i= 'عضو تعاونی'

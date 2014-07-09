@@ -8,3 +8,4 @@
 Rake::Task['db:add_default_pages'].invoke
 Rake::Task['db:create_default_users'].invoke
 Rake::Task['db:create_default_roles'].invoke
+Rake::Task['db:create_default_member_posts'].invoke

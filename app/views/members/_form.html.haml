@@ -1,43 +1,49 @@
 = form_for @member do |f|
   - if @member.errors.any?
-    #error_explanation
+    .alert.alert-warning 
       
       %ul
         - @member.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
+  .form-group
+    = f.label 'نام:', :class => "control-label"
     = f.text_field :name
-  .field
-    = f.label :last_name
+  .form-group
+    = f.label 'نام خانوادگی:', :class => "control-label"
     = f.text_field :last_name
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :phone_number
-    = f.text_field :phone_number
-  .field
-    = f.label :mobile
-    = f.text_field :mobile
-  .field
-    = f.label :address
-    = f.text_area :address
-  .field
-    = f.label :postal_code
-    = f.text_field :postal_code
-  .field
-    = f.label :father_name
+  .form-group
+    = f.label 'نام پدر:', :class => "control-label"
     = f.text_field :father_name
-  .field
-    = f.label :birthdate
-    = f.date_select :birthdate
-  .field
-    = f.label :national_id_card
+  .form-group
+    = f.label 'تاریخ تولد دقیق:', :class => "control-label"
+    = f.text_field :birthdate
+  .form-group
+    = f.label 'شماره کارت ملی:', :class => "control-label"
     = f.text_field :national_id_card
-  .field
-    = f.label :identify_number
+  .form-group
+    = f.label 'شماره شناسنامه:', :class => "control-label"
     = f.text_field :identify_number
-  .actions
-    = f.submit 'Save'
+  .form-group
+    = f.label 'ایمیل:', :class => "control-label"
+    = f.email_field :email
+  .form-group
+    = f.label 'تلفن ثابت:', :class => "control-label"
+    = f.text_field :phone_number
+  .form-group
+    = f.label 'تلفن همراه:', :class => "control-label"
+    = f.text_field :mobile
+  .form-group
+    = f.label 'آدرس:', :class => "control-label"
+    = f.text_area :address, :style => "resize:none"
+  .form-group
+    = f.label 'کدپستی:', :class => "control-label"    
+    = f.text_field :postal_code
+  .form-group
+    = f.label 'سمت:', :class => "control-label"
+    -if @member.member_post_id.present?
+      = f.label @member.member_post.title, :class => "control-label"
+    = f.select :member_post_id, options_for_select(MemberPost.all.collect{ |u| [u.title, u.id] }), prompt: "سمت و پست عضو را مشخص کنید."
+ 
+  .form-group
+    = f.submit 'ثبت', :class => "mainBtn"
