@@ -11,16 +11,7 @@
         .cooperative-index.col-lg-12    
           .cooperative-title
             %b.col-lg-12= cooperative.name
-            -if is_admin? || is_user?
-              
-              .col-lg-4 
-                = link_to 'مشاهده', cooperative
-                \|
-                = link_to 'ویرایش', edit_cooperative_path(cooperative)
-                \|
-                = link_to 'حذف', cooperative, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }  
-              
-                = link_to 'معرفی عضو جدید', new_member_path(cooperative_id: cooperative.id), :class => "save-btn"
+            
           .col-lg-12            
             %b= 'ایمیل تعاونی:'
             = cooperative.email_company          
@@ -42,7 +33,16 @@
             %b= 'وب سایت:'
             =link_to cooperative.website, url_with_protocol(cooperative.website)
           .clear-float
-        -if is_admin? || is_user?
+        -if is_admin? || is_user?              
+          .col-lg-4 
+            = link_to 'مشاهده', cooperative
+            \|
+            = link_to 'ویرایش', edit_cooperative_path(cooperative)
+            \|
+            = link_to 'حذف', cooperative, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }  
+          
+            = link_to 'معرفی عضو جدید', new_member_path(cooperative_id: cooperative.id), :class => "save-btn"
+        
           .col-lg-12
             %table.table
               %thead

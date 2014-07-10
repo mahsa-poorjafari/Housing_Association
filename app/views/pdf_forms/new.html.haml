@@ -1,5 +1,9 @@
-%h1 New pdf_form
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 افزودن فرم جدید
+    .contact-form.width50
+      = render 'form'
 
-= render 'form'
-
-= link_to 'Back', pdf_forms_path
+   
+    = link_to 'بازگشت', pdf_forms_path

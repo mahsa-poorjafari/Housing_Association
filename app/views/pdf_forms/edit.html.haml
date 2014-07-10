@@ -1,7 +1,10 @@
-%h1 Editing pdf_form
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 ویرایش فرم
+    .contact-form.width50
+      = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @pdf_form
-\|
-= link_to 'Back', pdf_forms_path
+    = link_to 'مشاهده', @pdf_form
+    \|
+    = link_to 'بازگشت', pdf_forms_path

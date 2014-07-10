@@ -1,21 +1,24 @@
-%h1 Listing pdf_forms
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 لیست فرم ها
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th
-    %th
-    %th
+    %table
+      %tr
+        %th عنوان
+        %th توضیحات
+        %th
+        %th
+        %th
 
-  - @pdf_forms.each do |pdf_form|
-    %tr
-      %td= pdf_form.title
-      %td= pdf_form.description
-      %td= link_to 'Show', pdf_form
-      %td= link_to 'Edit', edit_pdf_form_path(pdf_form)
-      %td= link_to 'Destroy', pdf_form, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - @pdf_forms.each do |pdf_form|
+        %tr
+          %td= pdf_form.title
+          %td= pdf_form.description
+          %td= link_to 'Show', pdf_form
+          %td= link_to 'Edit', edit_pdf_form_path(pdf_form)
+          %td= link_to 'Destroy', pdf_form, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
+    %br
 
-= link_to 'New Pdf form', new_pdf_form_path
+    = link_to 'افزودن فرم جدید', new_pdf_form_path, :class => "save-btn"

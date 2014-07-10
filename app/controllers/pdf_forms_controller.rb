@@ -69,6 +69,6 @@ class PdfFormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pdf_form_params
-      params.require(:pdf_form).permit(:title, :description)
+      params.require(:pdf_form).permit(:title, :description, :pdf, :image)
     end
 end

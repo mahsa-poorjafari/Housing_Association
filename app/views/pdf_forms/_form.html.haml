@@ -1,16 +1,22 @@
 = form_for @pdf_form do |f|
   - if @pdf_form.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@pdf_form.errors.count, "error")} prohibited this pdf_form from being saved:"
+      
       %ul
-        - @pdf_form.errors.full_messages.each do |msg|
+        - @pdf_form.errors.each do |attr, msg|
           %li= msg
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .actions
-    = f.submit 'Save'
+  .form-group
+    = f.label 'عنوان فرم', :class => "control-label"    
+    = f.text_field :title, :class => "form-control"
+  .form-group
+    = f.label 'اگر فرمت فرم فایل PDF است از این کادر فایل را انتخاب کنید.', :class => "control-label"    
+    = f.file_field :pdf
+  .form-group
+    = f.label 'اگر فرم بصورت عکس است از این کادر عکس را ضمیمه کنید', :class => "control-label"    
+    = f.file_field :image
+  .form-group
+    = f.label 'توضیحات', :class => "control-label"    
+    = f.text_area :description, :class => "form-control", :style => "resize:none"
+  .form-group
+    = f.submit 'ثبت', :class => "mainBtn"

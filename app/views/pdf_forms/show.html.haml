@@ -1,12 +1,19 @@
-%p#notice= notice
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 فرم اتحادیه
+    %p#notice= notice
 
-%p
-  %b Title:
-  = @pdf_form.title
-%p
-  %b Description:
-  = @pdf_form.description
+    %p
+      %b عنوان
+      = @pdf_form.title
+    %p
+      %b توضیحات
+      = @pdf_form.description
+    %p
+      %b عکس فرم
+      = @pdf_form.image(:small)
 
-= link_to 'Edit', edit_pdf_form_path(@pdf_form)
-\|
-= link_to 'Back', pdf_forms_path
+    = link_to 'Edit', edit_pdf_form_path(@pdf_form)
+    \|
+    = link_to 'Back', pdf_forms_path
