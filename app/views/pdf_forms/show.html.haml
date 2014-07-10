@@ -2,7 +2,8 @@
   .tbox2
     .title
       %h1 فرم اتحادیه
-    %p#notice= notice
+    - if  notice.present?
+      .alert.alert-success= notice
 
     %p
       %b عنوان
@@ -10,10 +11,19 @@
     %p
       %b توضیحات
       = @pdf_form.description
-    %p
-      %b عکس فرم
-      = @pdf_form.image(:small)
+    - if @pdf_form.pdf.present?
+      %p.col-sm-3
+        %b عکس فرم
+        =link_to @pdf_form.image.url, :target => "blank" do
+          %i= 'دریافت فایل فرم'
+          = image_tag @pdf_form.image(:small)
+        
+    - if @pdf_form.pdf.present?
+      .pdf-link.col-sm-3
+        =link_to @pdf_form.pdf.url, :target => "blank" do
+          %i= 'دریافت فایل فرم'
+          = image_tag 'pdf-icon.png'
 
-    = link_to 'Edit', edit_pdf_form_path(@pdf_form)
+    = link_to 'ویرایش', edit_pdf_form_path(@pdf_form)
     \|
-    = link_to 'Back', pdf_forms_path
+    = link_to 'بازگشت', pdf_forms_path

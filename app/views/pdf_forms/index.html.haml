@@ -2,23 +2,26 @@
   .tbox2
     .title
       %h1 لیست فرم ها
+    - if is_admin?
+      = link_to 'افزودن فرم جدید', new_pdf_form_path, :class => "save-btn"
+    .clear-float
 
-    %table
+    %table.table
       %tr
         %th عنوان
         %th توضیحات
         %th
-        %th
-        %th
+        
 
       - @pdf_forms.each do |pdf_form|
         %tr
           %td= pdf_form.title
           %td= pdf_form.description
-          %td= link_to 'Show', pdf_form
-          %td= link_to 'Edit', edit_pdf_form_path(pdf_form)
-          %td= link_to 'Destroy', pdf_form, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %td
+            = link_to 'مشاهده', pdf_form
+            = link_to 'ویرایش', edit_pdf_form_path(pdf_form)
+            = link_to 'حذف', pdf_form, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
     %br
 
-    = link_to 'افزودن فرم جدید', new_pdf_form_path, :class => "save-btn"
+    

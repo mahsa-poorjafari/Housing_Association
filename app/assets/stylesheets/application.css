@@ -107,7 +107,7 @@ tr td{ text-align:right}
   margin-bottom:20px;
 }
 
-.admin-link {background:#3498db; position:absolute; width:auto}
+.admin-link { position:absolute; width:auto}
 .admin-link a{color:#fff;}
 
 .more {background:#ec523f; padding:1%; margin-top:10px; }

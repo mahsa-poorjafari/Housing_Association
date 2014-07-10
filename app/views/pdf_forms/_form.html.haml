@@ -1,6 +1,6 @@
 = form_for @pdf_form do |f|
   - if @pdf_form.errors.any?
-    #error_explanation
+    .alert.alert-warning
       
       %ul
         - @pdf_form.errors.each do |attr, msg|
