@@ -29,19 +29,19 @@ text_area {resize:none}
 .text-center .info  {margin-right:3%}
 .margin-top {margin-top:20%}
 .top94 {top:10%}
-.cooperative-index {border-bottom:2px dotted #ec523f; padding:2%; margin:2%; height:200px; overflow:hidden}
-.login-menu {background:#ec523f; color:#fff; height:25px;-webkit-transition: all 1s ease;
+.cooperative-index {border-top:2px dotted #ec523f; padding:2%; margin:2%; height:200px; overflow:hidden}
+.login-menu {background:#ec523f; color:#fff;height:25px;-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
   text-align:right;
   overflow:hidden;}
-.login-menu a.login-link {color:#fff; font-size:1.5em; text-align:center}
+.login-menu a.login-link {color:#fff; font-size:1em; text-align:center}
 .admin-menu h2, .inspector-menu h2, .cooperative-menu h2{color:#fff; padding:3px; border-bottom:1px dotted #fff; text-align:center; height:30px; margin:3px;  }
 .admin-menu a, .inspector-menu a, .cooperative-menu a {color:#fff; width:100%; height:20px; text-align:right;}
-.admin-menu:hover { height:420px; cursor:pointer}
+.admin-menu:hover { height:280px; cursor:pointer}
 .inspector-menu:hover { height:100px; cursor:pointer}
-.cooperative-menu:hover { height:100px; cursor:pointer}
+.cooperative-menu:hover { height:150px; cursor:pointer}
 .admin-menu, .inspector-menu, .cooperative-menu a:hover {color:#000}
 .admin-menu .admin-menu-links {margin-top:5px}
 .pic-project .image-project {text-align:center; margin:2%; border-top-right-radius:10px;
@@ -119,3 +119,5 @@ tr td{ text-align:right}
 .pay-limit-box:hover  a {color:#ec523f}
 img.recyclebin-icon {width:50px; height:40px;}
 .text-cadr-home-page {text-align:justify}
+.form-group.col-sm-4 {float:right}
+#show-members {border:1px solid #000; height:200px;}

@@ -27,7 +27,6 @@ class CooperativesController < ApplicationController
   def new
     @cooperative = Cooperative.new
     
-    
   end
 
   # GET /cooperatives/1/edit
@@ -42,7 +41,7 @@ class CooperativesController < ApplicationController
     if @cooperative.save      
       flash[:AddCooper] = 'تعاونی جدید ثبت شد و اطلاعات ورود به سایت ارسال شد.' 
       @generated_password = Devise.friendly_token.first(8)      
-      user = User.create!(:email => @cooperative.email_company, :password => @generated_password, :name => @cooperative.name, :last_name => @cooperative.managment_name , :phone => @cooperative.phone, :address => @cooperative.address, :role_id => 4)
+      user = User.create!(:email => @cooperative.email_company, :password => @generated_password, :name => @cooperative.name, :last_name => @cooperative.managment_name , :phone => @cooperative.phone, :address => @cooperative.address, :role_id => 4, :cooperative_code => @cooperative.id)
       UserMailer.send_cooperative_mail(@generated_password).deliver  
       render action: 'show'      
     else

@@ -1,40 +1,46 @@
 .width80.set-center.margin-top
   .tbox2
     .title      
-      %h1 اطلاعات اعضا
-
-    %p
-      %b نام و نام خانوادگی
-      = @member.name + @member.last_name
+      %h1 اطلاعات شخصی عضو تعاونی
+    -if flash[:done]        
+      .alert.alert-success= flash[:done]
+    .col-sm-6
+      = image_tag @member.image(:medium)
+    .col-sm-6
+      %p
+        %b نام و نام خانوادگی
+        = @member.name + @member.last_name
+      %p
+        %b سمت:
+        = @member.member_post_id
+      %p
+        %b ایمیل:
+        = @member.email
+      %p
+        %b تلفن ثابت:
+        = @member.phone_number
+      %p
+        %b تلفن همراه:
+        = @member.mobile
+      %p
+        %b آدرس:
+        = @member.address
+      %p
+        %b کدپستی:
+        = @member.postal_code
+      %p
+        %b نام پدر:
+        = @member.father_name
+      %p
+        %b تاریخ تولد:
+        = @member.birthdate
+      %p
+        %b شماره کارت ملی:
+        = @member.national_id_card
+      %p
+        %b شماره شناسنامه:
+        = @member.identify_number
     
-    %p
-      %b ایمیل:
-      = @member.email
-    %p
-      %b تلفن ثابت:
-      = @member.phone_number
-    %p
-      %b تلفن همراه:
-      = @member.mobile
-    %p
-      %b آدرس:
-      = @member.address
-    %p
-      %b کدپستی:
-      = @member.postal_code
-    %p
-      %b نام پدر:
-      = @member.father_name
-    %p
-      %b تاریخ تولد:
-      = @member.birthdate
-    %p
-      %b شماره کارت ملی:
-      = @member.national_id_card
-    %p
-      %b شماره شناسنامه:
-      = @member.identify_number
-
     = link_to 'ویرایش', edit_member_path(@member)
     \|
-    = link_to 'بازگشت', members_path
+    = link_to 'بازگشت', cooperatives_path

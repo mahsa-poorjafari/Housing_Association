@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class MemberPostsController < ApplicationController
   before_action :set_member_post, only: [:show, :edit, :update, :destroy]
   before_filter :check_autentication

@@ -1,39 +1,42 @@
-= link_to "مدیریت دفترچه تلفن", PhoneBook  
-%br
-= link_to "گزارش گیری از کابران", User
-%br
-= link_to "گزارش گیری درخواست مشارکت", PayLimit
-%br
-= link_to " مدیریت بخشنامه ها", Circular
-%br
-= link_to  Complaint do
-  %p.width50.pull-right= "گزارش شکایات"
-  %b.notif= Complaint.count(:conditions => "display is null")
-%br
-= link_to " مدیریت اطلاعیه", Inform
-%br
-= link_to 'مدیریت اسلایدر', Slide
-%br
-= link_to "مدیریت پروژه ها", Project
-%br
-= link_to "مدیریت تعاونیها ", Cooperative
-%br
-= link_to "مدیریت مقالات", Article
-%br
-= link_to "مدیریت مطالب آموزشی", Education
-%br
-= link_to "معرفی عضو جدید تعاونی", Member
-%br
-= link_to "تعریف عنوان پست تعاونی", MemberPost
-%br
-= link_to "مدیریت صفحات متنی", Page
-%br
-= link_to "مدیریت پیوندها", Link
-%br
-= link_to "مدیریت مدیران", Management
-%br
-= link_to "مدیریت پیام ها", Message
-%br
-= link_to 'پروفایل مدیر', edit_user_registration_path(current_user)
-%br
+.col-md-6{:style => "border-right:solid 1px #fff"}
+  = link_to "مدیریت دفترچه تلفن", PhoneBook  
+  %br
+  = link_to "گزارش گیری از کابران", User
+  %br
+  = link_to "گزارش گیری درخواست مشارکت", PayLimit
+  %br
+  = link_to " مدیریت بخشنامه ها", Circular
+  %br
+  = link_to  Complaint do
+    %p.width50.pull-right= "گزارش شکایات"
+    %b.notif= Complaint.count(:conditions => "display is null")
+  %br
+  = link_to " مدیریت اطلاعیه", Inform
+  %br
+  = link_to 'مدیریت اسلایدر', Slide
+  %br
+  = link_to "مدیریت پروژه ها", Project
+  %br
+  = link_to "مدیریت تعاونیها ", Cooperative
+  %br
+  = link_to "مدیریت مقالات", Article
+.col-md-5
+  %br
+  = link_to "مدیریت مطالب آموزشی", Education
+  %br
+  = link_to "معرفی عضو جدید تعاونی", Member
+  %br
+  = link_to "تعریف عنوان پست تعاونی", MemberPost
+  %br
+  = link_to "مدیریت صفحات متنی", Page
+  %br
+  = link_to "مدیریت پیوندها", Link
+  %br
+  = link_to "مدیریت مدیران", Management
+  %br
+  = link_to "مدیریت پیام ها", Message
+  %br
+  = link_to 'پروفایل مدیر', edit_user_registration_path(current_user)
+  %br
+  = link_to "خروج", destroy_user_session_path, :method => :delete
 

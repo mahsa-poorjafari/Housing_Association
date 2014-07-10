@@ -1,8 +1,12 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h1 معرفی عضو جدید در تعاونی
-    .contact-form.width50
+      %h1= ' معرفی عضو جدید در ' + " " + @current_cooperative.name
+    -if flash[:done]        
+      .alert.alert-success= done
+    .col-sm-6#show-members
+      
+    .contact-form.col-sm-6
       = render 'form'
 
-    = link_to 'بازگشت', members_path
+    = link_to 'بازگشت', cooperatives_path

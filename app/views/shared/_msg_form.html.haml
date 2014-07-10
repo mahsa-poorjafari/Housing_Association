@@ -1,6 +1,6 @@
 = form_for @message ||= Message.new, :html => {:class => "contact", name: "contactform", :id => "contactform"} do |f|
   - if @message.errors.any?
-    #error_explanation
+    .alert.alert-warning 
       %ul
         - @message.errors.each do |attr, msg|
           %li= msg

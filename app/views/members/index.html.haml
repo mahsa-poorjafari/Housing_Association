@@ -2,7 +2,9 @@
   .tbox2
     .title      
       %h1 لیست اعضا تعاونی
-    = link_to 'معرفی عضو جدید', new_member_path, :class => "save-btn"
+    - if is_admin? || is_user?
+      = link_to 'معرفی عضو جدید', new_member_path(cooperative_id: current_user.cooperative_code), :class => "save-btn"
+    .clear-float
     %br
     %table.table
       %tr
@@ -21,7 +23,7 @@
           %td= member.father_name          
           %td
             - if member.member_post_id.present?
-              = member.member_post.title
+              = member.member_post_id
             - else
               %i= 'عضو تعاونی'
           
