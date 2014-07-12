@@ -40,8 +40,9 @@ class MembersController < ApplicationController
       @member.member_post_id = @default_mamber_post.id
     end
     
-    if @member.save
+    if @member.save      
       flash[:done] =  'عضو جدید با موفقیت ثبت گردید.' 
+      render action: 'show'
     else
       render action: 'new'
     end
@@ -80,6 +81,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:name, :last_name, :email, :phone_number, :mobile, :address, :postal_code, :father_name, :birthdate, :national_id_card, :identify_number, :image, :cooperative_id, :member_post_id)
+      params.require(:member).permit(:name, :last_name, :email, :phone_number, :mobile, :address, :postal_code, :father_name, :birthdate, :national_id_card, :identify_number, :image, :cooperative_id, :member_post_id, :deactive, :paid_member)
     end
 end

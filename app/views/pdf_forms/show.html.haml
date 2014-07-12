@@ -11,7 +11,7 @@
     %p
       %b توضیحات
       = @pdf_form.description
-    - if @pdf_form.pdf.present?
+    - if @pdf_form.image.present?
       %p.col-sm-3
         %b عکس فرم
         =link_to @pdf_form.image.url, :target => "blank" do

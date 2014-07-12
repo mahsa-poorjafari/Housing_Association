@@ -5,7 +5,7 @@
     -if flash[:done]        
       .alert.alert-success= flash[:done]
     .col-sm-6
-      = image_tag @member.image(:medium)
+      = image_tag @member.image(:original)
     .col-sm-6
       %p
         %b نام و نام خانوادگی
@@ -40,6 +40,9 @@
       %p
         %b شماره شناسنامه:
         = @member.identify_number
+      %p
+        %b مبلغ واریزی:
+        = @member.paid_member
     
     = link_to 'ویرایش', edit_member_path(@member)
     \|

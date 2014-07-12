@@ -13,8 +13,8 @@
         .col-sm-5.inform-info  
           - if is_admin?
             .admin-link
-              = link_to 'ویرایش', edit_inform_path(inform)
-              \|
+              = link_to 'ویرایش | ', edit_inform_path(inform)
+              
               = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
           .col-sm-10{:style => "text-align:left; margin-bottom:10%"}
             = JalaliDate.new(inform.created_at).format("%A %d %b %Y")           
@@ -33,7 +33,7 @@
           .col-sm-12.inform-text{:style => " margin:2%; padding:2%"}          
             
             = raw inform.text
-          .col-sm-6
+          .col-sm-4
             %i.more= link_to 'مشاهده بیشتر', inform
         
 #services.content-section
@@ -100,15 +100,25 @@
       .col-md-4.col-sm-6
         #service-5.service-item
           %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
-            = link_to 'مقالات', Article
+            .col-sm-5
+              = link_to 'مقالات', Article
+            .col-sm-2= ' و '              
+            .col-sm-5
+              = link_to 'آموزش', Education
+            
           .service-icon
             = image_tag 'book.png', :class => "set-center"
           / /.service-icon
           .service-content
             .inner-service
-              - @articles.each do  |article|
-                %p
-                  = link_to article.title, article
+              .col-sm-6
+                - @articles.each do  |article|
+                  %p
+                    = link_to article.title, article
+              .col-sm-6
+                - @educations.each do  |education|
+                  %p
+                    = link_to education.title, education
           / /.service-content
         / /#service-1
       / /.col-md-3
@@ -117,15 +127,15 @@
       .col-md-4.col-sm-6
         #service-6.service-item
           %h2{:style => "padding:5%; font-size:20px; color:#fff; "}
-            = link_to 'آموزش', Education
+            = link_to ' فرم های اتحادیه', PdfForm
           .service-icon
-            = image_tag 'education.png', :class => "set-center"
+            = image_tag 'form.png', :class => "set-center"
           / /.service-icon
           .service-content
             .inner-service
-              - @educations.each do  |education|
+              - @forms.each do  |form|
                 %p
-                  = link_to education.title, education
+                  = link_to form.title, form
               
               
           / /.service-content
@@ -170,7 +180,7 @@
         = link_to  project  do 
           .portfolio-item.col-md-3.col-sm-6{:style => "overflow:hidden"}
             .portfolio-thumb
-              = image_tag project.pictures.first.image(:small), :height => "300"
+              = image_tag project.pictures.first.image(:mediuml), :height => "300"
               .portfolio-overlay
                 %h3= project.title
                 %p
@@ -254,6 +264,9 @@
       .col-md-12
         .googlemap-wrapper
           #map_canvas.map-canvas
+          .phone-book
+            %h2= 'دفترچه تلفن اتحادیه'
+            
         / /.googlemap-wrapper
       / /.col-md-12
     / /.row

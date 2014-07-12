@@ -8,30 +8,37 @@
 
     %div
       - @cooperatives.each_with_index do |cooperative, i|
-        .cooperative-index.col-lg-12    
-          .cooperative-title
-            %b.col-lg-12= cooperative.name
-            
-          .col-lg-12            
-            %b= 'ایمیل تعاونی:'
-            = cooperative.email_company          
-            
-          .col-lg-12            
-            %b= 'مدیرعامل:'
-            = cooperative.managment_name
-            
-          .col-lg-12            
-            %b= 'رییس هئیت مدیره:'
-            = cooperative.board_Chairman_name
-          .col-lg-12            
-            %b= 'آدرس'
-            = cooperative.address
-          .col-lg-12            
-            %b= 'تلفن تماس:'
-            = cooperative.phone
-          .col-lg-12            
-            %b= 'وب سایت:'
-            =link_to cooperative.website, url_with_protocol(cooperative.website)
+        .cooperative-index.col-lg-12   
+          .col-lg-6 
+            - cooperative.members.each do |member|
+              .col-lg-3
+                = image_tag member.image(:icon)
+                %b= member.name + " " + member.last_name
+                %p= member.member_post_id
+          .col-lg-6 
+            .cooperative-title
+              %b.col-lg-12= cooperative.name
+              
+            .col-lg-12            
+              %b= 'ایمیل تعاونی:'
+              = cooperative.email_company          
+              
+            .col-lg-12            
+              %b= 'مدیرعامل:'
+              = cooperative.managment_name
+              
+            .col-lg-12            
+              %b= 'رییس هئیت مدیره:'
+              = cooperative.board_Chairman_name
+            .col-lg-12            
+              %b= 'آدرس'
+              = cooperative.address
+            .col-lg-12            
+              %b= 'تلفن تماس:'
+              = cooperative.phone
+            .col-lg-12            
+              %b= 'وب سایت:'
+              =link_to cooperative.website, url_with_protocol(cooperative.website)
           .clear-float
         -if is_admin? || is_user?              
           .col-lg-4 

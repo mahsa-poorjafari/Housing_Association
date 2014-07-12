@@ -240,6 +240,7 @@ hr {
 }
 
 .main-header {
+  font-family:open_sansregular;
   position: fixed;
   width: 100%;
   margin: 0 auto;
@@ -665,6 +666,8 @@ a.toggle-menu {
 }
 
 .map-canvas {
+  width:65%;
+  float:left;
   height: 380px;
   border: 10px solid #efefef;
 }
@@ -708,3 +711,6 @@ body, p, div, h1, h2, h3, h4, h5, h6 {
    	font-style: normal;
 }
 */
+.phone-book {height: 380px;
+  width:30%;
+  border: 10px solid #efefef;}

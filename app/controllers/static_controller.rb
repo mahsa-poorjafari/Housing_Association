@@ -15,5 +15,6 @@ class StaticController < ApplicationController
     @articles = Article.order(" created_at desc")
     @circulars = Circular.order(" created_at desc")
     @educations = Education.order(" created_at desc")
+    @forms = PdfForm.order(" created_at desc")
   end
 end

@@ -62,7 +62,7 @@ class ComplaintsController < ApplicationController
     if @complaint.save
       SendComplaint.send_complaint_to_Inspector.deliver      
       flash[:notice] = 'کاربر گرامی پرسش شما ارسال گردید.'      
-      redirect_to :back
+      render action: "show"
     else
       render :new
     end
