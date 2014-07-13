@@ -82,16 +82,19 @@
                 .admin-menu-links                  
                   = render 'shared/cooperative_menu'
                   = link_to "خروج", destroy_user_session_path, :method => :delete
-            - if current_user.blank?
-              .col-md-3.login-menu.signin{:style => "text-align:center;"} 
-                %b= 'ورود به سایت'
-                = render "shared/login"
-                
+            
                     
             
       .site-slider
         .slider
           = render 'slides/slide_show'
+        .login-box
+          - if current_user.blank?            
+            .signin{:style => "text-align:center;"} 
+              %b{:style => "color:#fff"}= 'ورود به سایت'
+              = render "shared/login"
+            
+                
         / /.slider
     .clear-float 
     

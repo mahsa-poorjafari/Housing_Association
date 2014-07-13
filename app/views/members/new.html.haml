@@ -2,7 +2,8 @@
   .tbox2
     .title
       %h1= ' معرفی عضو جدید'
-      %h2= @current_cooperative.name
+      - if @current_cooperative.present?
+        %h2= @current_cooperative.name
     -if flash[:done]        
       .alert.alert-success= flash[:done]
     - elsif flash[:error]        

@@ -4,7 +4,11 @@
       %ul
         - @member.errors.each do |attr, msg|
           %li= msg
-
+  .form-group    
+    - if @cooperative_id.blank?      
+      = f.select :cooperative_id, options_for_select(Cooperative.all.collect{ |u| [u.name, u.id] }), prompt: "تعاونی را انتخاب کنید"
+    - else
+      = f.hidden_field :cooperative_id, :value => @cooperative_id
   .form-group.col-sm-4
     = f.label 'نام:*', :class => "control-label"
     = f.text_field :name
@@ -33,12 +37,15 @@
     = f.label 'تلفن ثابت:', :class => "control-label"
     = f.text_field :phone_number
   
-  .form-group.col-sm-4
+  .form-group.col-sm-6
     = f.label 'کدپستی:', :class => "control-label"    
     = f.text_field :postal_code
-  .form-group.col-sm-4
+  .form-group.col-sm-6
+    = f.label 'مبلغ واریزی عضو:', :class => "control-label"    
+    = f.text_field :paid_member
+  .form-group.col-sm-12
     = f.label 'سمت:', :class => "control-label"
-    
+    %i= 'درصورتی که سمت عضو عادی تعاونی می باشد نیازی به وارد کردن نیست.'
     = f.select :member_post_id, options_for_select(MemberPost.all.collect{ |u| [u.title, u.id] }), prompt: "سمت و پست عضو را مشخص کنید."
   .form-group.col-sm-12
     = f.label 'ضمیمه عکس:', :class => "control-label"
@@ -46,16 +53,13 @@
   .form-group.col-sm-12
     = f.label 'آدرس:', :class => "control-label"
     = f.text_area :address, :style => "resize:none"
-  .form-group.col-sm-4
-    = f.label 'مبلغ واریزی عضو:', :class => "control-label"    
-    = f.text_field :paid_member
-  .form-group    
-    = f.hidden_field :cooperative_id, :value => @cooperative_id
+  
+  
   .clear-float  
   - if @member.present? && @member.deactive.blank?
-    .form-group
+    .form-group.deactive
       = f.label 'درصورتی که عضو می خواهد انصراف دهد تیک مقابل را فعال کنید.', :class => "control-label"   
-      = f.check_box :deactive
+      = f.check_box :deactive , :class => "form-control "
       
   .form-group
     = f.submit 'ثبت', :class => "mainBtn"

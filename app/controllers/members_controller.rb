@@ -5,27 +5,33 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    if is_admin? || current_user.blank?
-      @members = Member.all
-    else
-      @cooperative_id = params[:cooperative_id]
+    
+    if params[:cooperative_id].present?
       @current_cooperative = Cooperative.find(params[:cooperative_id])
       @members = @current_cooperative.members
+    else
+      @members = Member.all
     end
+    
   end
 
   # GET /members/1
   # GET /members/1.json
   def show
   end
-
+  def search   
+    @result = Member.search params[:search]    
+  end
   # GET /members/new
   def new
     @member = Member.new
-    @cooperative_id = params[:cooperative_id]
-    @current_cooperative = Cooperative.find(params[:cooperative_id])
-    
+    if params[:cooperative_id].present? 
+      @cooperative_id =  params[:cooperative_id]
+      @current_cooperative = Cooperative.find(params[:cooperative_id])
+    end
+      
   end
+  
 
   # GET /members/1/edit
   def edit

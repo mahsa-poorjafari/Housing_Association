@@ -10,11 +10,11 @@
       - @cooperatives.each_with_index do |cooperative, i|
         .cooperative-index.col-lg-12   
           .col-lg-6 
-            - cooperative.members.each do |member|
+            - cooperative.members.where.not(member_post_id:1).each do |member|
               .col-lg-3
                 = image_tag member.image(:icon)
                 %b= member.name + " " + member.last_name
-                %p= member.member_post_id
+                %p= member.member_post.title
           .col-lg-6 
             .cooperative-title
               %b.col-lg-12= cooperative.name
@@ -41,7 +41,7 @@
               =link_to cooperative.website, url_with_protocol(cooperative.website)
           .clear-float
         -if is_admin? || is_user?              
-          .col-lg-4 
+          .col-lg-6 
             = link_to 'مشاهده', cooperative
             \|
             = link_to 'ویرایش', edit_cooperative_path(cooperative)
@@ -49,27 +49,18 @@
             = link_to 'حذف', cooperative, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }  
           
             = link_to 'معرفی عضو جدید', new_member_path(cooperative_id: cooperative.id), :class => "save-btn"
-        
-          .col-lg-12
-            %table.table
-              %thead
-                %tr
-                  %th نام و نام خانوادگی
-                  %th تلفن های تماس
-                  %th سمت
-                  %th عملیات
-              %tbody                
-                -  cooperative.members.each do |member|
-                  %tr
-                    %td= member.name + " " + member.last_name
-                    %td= member.phone_number + " - " + member.mobile
-                    %td= member.member_post_id
-                    %td
-                      = link_to 'مشاهده', member
-                      \|
-                      = link_to 'ویرایش', edit_member_path(member)
-                      \|
-                      = link_to 'حذف', member, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }  
-                  
+            = link_to 'مشاهده تمام اعضا', members_path(cooperative_id: cooperative.id), :class => "save-btn"
+          
+          
     %br
-   
+  
+:javascript   
+  
+  $(':submit#search-submit').click(function(e) {
+    $(':text#search_field').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });   

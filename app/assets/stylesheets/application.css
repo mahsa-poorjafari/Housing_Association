@@ -31,6 +31,7 @@ text_area {resize:none}
 .text-center .info  {margin-right:3%}
 .margin-top {margin-top:20%}
 .top94 {top:10%}
+.tbox2 {min-height:300px}
 .cooperative-index {border-top:2px dotted #ec523f; padding:2%; margin:2%; height:200px; overflow:hidden}
 .login-menu {background:#ec523f; color:#fff;height:25px;-transition: all 1s ease;
   -moz-transition: all 1s ease;
@@ -147,3 +148,9 @@ img.recyclebin-icon {width:50px; height:40px;}
 #register a:hover {color:#000;}
 .search_result {margin-top:2%; border-top:solid 1px #BFBFBF; padding:1%}
 .immediate h1 {font-size:20px}
+.deactive {background:#FF0000; opacity:.5; color:#000;}
+.login-box {position:absolute;
+  top: 30%;
+right: 6%;
+z-index: 20;
+}

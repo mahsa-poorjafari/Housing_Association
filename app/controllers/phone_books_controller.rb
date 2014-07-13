@@ -13,8 +13,7 @@ class PhoneBooksController < ApplicationController
   end
   
   def search
-    @result = PhoneBook.search params[:search]
-    
+    @result = PhoneBook.search params[:search]    
   end
 
   # GET /phone_books/new
