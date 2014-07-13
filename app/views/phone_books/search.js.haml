@@ -1,0 +1,6 @@
+-if @result    
+  $('#search_result').empty();
+  $("#search_result").prepend("#{escape_javascript(render(:partial => 'search', :locals => {:result => @result}))}");        
+  $('form#search-form [type="text"]').val('');
+-else
+  $('#search_result').html("<h4>موردی یافت نشد...</h4>");

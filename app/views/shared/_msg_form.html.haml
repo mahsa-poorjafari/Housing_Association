@@ -21,8 +21,8 @@
 %br
 :javascript   
   
-  $(':submit').click(function(e) {
-    $(':text, textarea').each(function() {
+  $(':submit#submit').click(function(e) {
+    $(':text#name, :text#email, textarea#comments').each(function() {
       if ($(this).val().length == 0) {
         $(this).css('border', '2px solid red');
         e.preventDefault();
