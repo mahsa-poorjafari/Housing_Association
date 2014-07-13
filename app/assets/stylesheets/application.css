@@ -121,6 +121,12 @@ tr td{ text-align:right}
   text-align:justify;
   margin-bottom:20px;
   }
+.immediate-inform {background:#E5E5E5; border-radius:5px;
+  -webkit-box-shadow: 2px 2px 13px 5px rgba(50, 50, 50, 0.38);
+-moz-box-shadow:    2px 2px 13px 5px rgba(50, 50, 50, 0.38);
+box-shadow:         2px 2px 13px 5px rgba(50, 50, 50, 0.38);
+padding:2%;
+}
 .admin-link { position:absolute; width:auto}
 .admin-link a{color:#fff;}
 

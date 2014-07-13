@@ -10,7 +10,7 @@
     .row
       - Inform.all.each do |inform|
         - if inform.immediate.present?
-          .col-sm-12{:style => "background:#E5E5E5"}
+          .col-sm-12.immediate-inform
             = render 'informs/immediate_inform', :inform => inform
               
         - else  
