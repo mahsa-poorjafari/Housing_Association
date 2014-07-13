@@ -181,7 +181,7 @@
         = link_to  project  do 
           .portfolio-item.col-md-3.col-sm-6{:style => "overflow:hidden"}
             .portfolio-thumb
-              .set-center= image_tag project.pictures.first.image(:medium), :height => "300"
+              .set-center= image_tag project.pictures.first.image(:original), :height => "300"
               .portfolio-overlay
                 %h3= project.title
                 %p
