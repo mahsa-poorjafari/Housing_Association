@@ -85,4 +85,10 @@
           .col-lg-4.image-project
             =link_to (image_tag picture.image(:small)), picture.image(:large), :data => { :colorbox => true }     
             %p= picture.description
+            -if is_admin?           
+              = link_to 'ویرایش', edit_picture_path(picture)
+              \|
+              = link_to 'حذف', picture, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+              
+                    
 

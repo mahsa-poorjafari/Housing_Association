@@ -11,6 +11,11 @@ class PhoneBooksController < ApplicationController
   # GET /phone_books/1.json
   def show
   end
+  
+  def search
+    @result = PhoneBook.search params[:search]
+    
+  end
 
   # GET /phone_books/new
   def new
@@ -64,7 +69,7 @@ class PhoneBooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_phone_book
-      @phone_book = PhoneBook.find(params[:id])
+      @phone_book = PhoneBook.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -29,31 +29,31 @@
           %h4.no-answer= 'هیچ پاسخی داده نشده'
           - if is_inspector?                
             = link_to 'ثبت جواب', edit_complaint_path(@complaint), :class => "save-btn"
-    
-    .commit
-      %b= 'نظرات سایر کابران'
-      - if @commits
-        - @commits.each do |commit|      
-          %hr
-          %div
-            
-            .col-lg-2
-              %i= JalaliDate.new(commit.created_at).strftime("%y/%m/%e %X")
-              %br
-              - if is_admin?                
-                = link_to 'ویرایش', edit_comment_complaint_path(commit)
-                \|
-                = link_to 'حذف', commit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-            
-            .col-lg-8
-              %p= commit.text
-            .col-lg-2
-              %p= commit.user_name
-              %p= commit.user_email
+    -if is_admin?
+      .commit
+        %b= 'نظرات سایر کابران'
+        - if @commits
+          - @commits.each do |commit|      
+            %hr
+            %div
+              
+              .col-lg-2
+                %i= JalaliDate.new(commit.created_at).strftime("%y/%m/%e %X")
+                %br
+                - if is_admin?                
+                  = link_to 'ویرایش', edit_comment_complaint_path(commit)
+                  \|
+                  = link_to 'حذف', commit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+              
+              .col-lg-8
+                %p= commit.text
+              .col-lg-2
+                %p= commit.user_name
+                %p= commit.user_email
 
-            
-          .clear-float
-      %hr
-      %b= 'نظر شما'
-      .contact-form.width50
-        = render 'comment_complaints/form', :complaint_id => @complaint.id
+              
+            .clear-float
+        %hr
+        %b= 'نظر شما'
+        .contact-form.width50
+          = render 'comment_complaints/form', :complaint_id => @complaint.id

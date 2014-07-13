@@ -1,7 +1,12 @@
-%h1 Editing picture
+.width80.set-center.margin-top
+  .tbox2    
+    
+    .title
+      %h1= 'ویرایش تصاویر پروژه'
+      
+    .contact-form.width50
+      = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @picture
-\|
-= link_to 'Back', pictures_path
+    = link_to 'مشاهده', @picture
+    \|
+    = link_to 'بازگشت', :back

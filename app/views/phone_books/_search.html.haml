@@ -1,0 +1,11 @@
+%ul
+  -result.each do |result|
+    %li
+      %b= 'نام شخص:'
+      = result.preson_name
+      %br
+      %b= 'نام شرکت:'
+      = result.company_name
+      %br
+      %b= 'شماره تماس:'
+      = result.phone

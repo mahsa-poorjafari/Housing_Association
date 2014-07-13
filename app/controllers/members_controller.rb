@@ -35,15 +35,18 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
+   
     if @member.member_post_id.blank?
       @default_mamber_post = MemberPost.find_by_title('عضو تعاونی')
       @member.member_post_id = @default_mamber_post.id
     end
     
-    if @member.save
+    @saved = false
+    if @saved = @member.save      
       flash[:done] =  'عضو جدید با موفقیت ثبت گردید.' 
+      
     else
-      render action: 'new'
+      flash[:error] = 'خطا در ثبت عضو'
     end
   
   end
@@ -80,6 +83,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:name, :last_name, :email, :phone_number, :mobile, :address, :postal_code, :father_name, :birthdate, :national_id_card, :identify_number, :image, :cooperative_id, :member_post_id)
+      params.require(:member).permit(:name, :last_name, :email, :phone_number, :mobile, :address, :postal_code, :father_name, :birthdate, :national_id_card, :identify_number, :image, :cooperative_id, :member_post_id, :deactive, :paid_member)
     end
 end

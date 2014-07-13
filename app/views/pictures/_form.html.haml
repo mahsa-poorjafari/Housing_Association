@@ -5,10 +5,12 @@
         - @picture.errors.each do |attr, msg|
           %li= msg
   
-  .form-group    
+  .form-group 
+    - if @picture.image.present?
+      = image_tag @picture.image(:small)
     = f.file_field :image, :class => "form-control"
   .form-group
     = f.label "توضیحات", :class => "control-label"
     = f.text_area :description, :class => "form-control"
   .actions
-    = f.submit 'ثبت تصویر', :class => "btn btn-primary"
+    = f.submit 'ثبت تصویر', :class => "mainBtn"

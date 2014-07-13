@@ -23,7 +23,7 @@
             %td= (i+1) 
             %td= pay_limit.id
             %td= pay_limit.amount
-            %td= link_to  pay_limit.user.email, current_user
+            %td= link_to  pay_limit.user_id, current_user
             %td= pay_limit.project.title
             %td
               = link_to 'مشاهده جزئیات', pay_limit        

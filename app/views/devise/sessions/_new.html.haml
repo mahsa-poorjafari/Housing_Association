@@ -1,14 +1,10 @@
-#middlerightPan
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    
-    
-    %p
-      = f.text_field :email, :autofocus => true, :class => "text", placeholder: "ایمیل خود را وارد کنید"   
-   
-    %p
-      = f.password_field :password, :id => "Emailid", :class => "text", placeholder: "رمز خود را وارد کنید"
-    
-    
-    
-    = f.submit "ورود", :class=>"mainBtn"
-  = render "devise/shared/links"    
+
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  %p
+    = f.text_field :email, :autofocus => true, :class => "text", placeholder: "ایمیل خود را وارد کنید"   
+ 
+  %p
+    = f.password_field :password, :id => "Emailid", :class => "text", placeholder: "رمز خود را وارد کنید"
+ 
+  = f.submit "ورود", :class=>"btn"
+= render "devise/shared/links"    

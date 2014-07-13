@@ -1,6 +1,16 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_picture_path(@picture)
-\|
-= link_to 'Back', pictures_path
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 تصاویر پروژه ها
+      %h2= @picture.project.title
+    %p#notice= notice
+    
+    .col-md-6
+      = image_tag @picture.image(:original)
+    .col-md-5
+      %p= @picture.description
+    .clear-float
+    - if is_admin?
+      = link_to 'ویرایش', edit_picture_path(@picture)
+      \|
+      = link_to 'بازگشت', :back

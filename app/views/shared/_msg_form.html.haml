@@ -6,8 +6,8 @@
           %li= msg
   
       
-  -if flash[:notice]        
-    .alert.alert-success= notice
+  -if flash[:msgsended]        
+    .alert.alert-success= flash[:msgsended] 
   
   %p
     = f.text_field :user_name, :id => "name", placeholder: "نام خود را وارد کنید"    
@@ -16,13 +16,13 @@
   %p
     = f.text_field :phone, :id => "subject", placeholder: " تلفن خود را وارد کنید", :style => "resize:none"
   %p
-    = f.text_area :text, :id => "comments", placeholder: "پیام خود را وارد کنید"
+    = f.text_area :text, :id => "comments", placeholder: "پیام خود را وارد کنید", :style => "resize:none"
   = f.submit 'ارسال پیام', :class=>"mainBtn", :id => "submit"
 %br
 :javascript   
   
-  $(':submit').click(function(e) {
-    $(':text, textarea').each(function() {
+  $(':submit#submit').click(function(e) {
+    $(':text#name, :text#email, textarea#comments').each(function() {
       if ($(this).val().length == 0) {
         $(this).css('border', '2px solid red');
         e.preventDefault();

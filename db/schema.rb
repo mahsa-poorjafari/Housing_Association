@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710081448) do
+ActiveRecord::Schema.define(version: 20140712131839) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -177,6 +177,8 @@ ActiveRecord::Schema.define(version: 20140710081448) do
     t.datetime "image_updated_at"
     t.integer  "cooperative_id"
     t.integer  "member_post_id"
+    t.boolean  "deactive"
+    t.string   "paid_member"
   end
 
   create_table "messages", force: true do |t|

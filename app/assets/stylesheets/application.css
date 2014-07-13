@@ -13,7 +13,7 @@
  *= require_self
  *= require_tree .
  */
-body {direction:rtl}
+body {direction:rtl; font-family:open_sansregular}
 text_area {resize:none}
 .service-content .inner-service a{color:#fff; font-size:14px;}
 .service-content .inner-service a:hover{color:#ec523f; }
@@ -22,7 +22,9 @@ text_area {resize:none}
 .width80 {width:80%}
 .width80.set-center.margin-top{ min-height:250px;}
 .width50 {width:50%}
+.title {margin-bottom:10%}
 .title  h1 {font-size:27px; text-align:center; margin:2%}
+.title  h2 {font-size:18px; text-align:center; margin:2%; color:#7F7F7F}
 .sub-title h3 {font-size:20px; text-align:right; margin:2%}
 .sub-title .line-orange {border-bottom:2px dotted #ec523f; margin-top: 4%;}
 .text-center .info p {text-align:right}
@@ -37,6 +39,8 @@ text_area {resize:none}
   text-align:right;
   overflow:hidden;}
 .login-menu a.login-link {color:#fff; font-size:1em; text-align:center}
+.signin:hover {height:250px;}
+.signin b {margin-top:10px; margin-bottom:10px}
 .admin-menu h2, .inspector-menu h2, .cooperative-menu h2{color:#fff; padding:3px; border-bottom:1px dotted #fff; text-align:center; height:30px; margin:3px;  }
 .admin-menu a, .inspector-menu a, .cooperative-menu a {color:#fff; width:100%; height:20px; text-align:right;}
 .admin-menu:hover { height:280px; cursor:pointer}
@@ -67,15 +71,18 @@ text_area {resize:none}
 }
 .save-btn {
   width:250px; 
-  height:30px; 
+  height:40px; 
   color:#fff; 
   background:#e67e22; 
   padding:1%; 
   margin:5px; 
   font-size:15px;
   margin:2%;  
-
+  border-radius:5px;
+ 
 }
+
+.save-btn:hover {border:#e67e22 solid 2px; background:#fff;}
 .index-projects {margin-top:5%}
 b.notif {
   background:#fff;
@@ -110,7 +117,9 @@ tr td{ text-align:right}
 .admin-link { position:absolute; width:auto}
 .admin-link a{color:#fff;}
 
-.more {background:#ec523f; padding:1%; margin-top:10px; }
+.more {background:#ec523f; padding:1%; margin-top:10px; border-radius:5px; height:30px; text-align:center }
+.more:hover {border:#ec523f solid 2px; background:#fff;}
+.more:hover a{color:#000;}
 .more a{color:#fff;}
 .group-services-link h4{margin-right:2%; float:right }
 .pay-limit-box  {height:100px; margin:2%; padding:2%; background-color:#1abc9c; text-align:center}
@@ -120,4 +129,7 @@ tr td{ text-align:right}
 img.recyclebin-icon {width:50px; height:40px;}
 .text-cadr-home-page {text-align:justify}
 .form-group.col-sm-4 {float:right}
-#show-members {border:1px solid #000; height:200px;}
+
+#register a {color:#fff;}
+#register a:hover {color:#000;}
+.search_result {margin-top:2%; border-top:solid 1px #BFBFBF; padding:1%}

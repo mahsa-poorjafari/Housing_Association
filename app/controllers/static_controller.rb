@@ -1,13 +1,7 @@
 # encoding: UTF-8
 class StaticController < ApplicationController
   impressionist :actions=>[:show,:index]
-  def home
-    @informs = Inform.order(" created_at desc")
-    @projects = Project.all
-    if current_user.present?
-      @login = current_user
-    end      
-  end
+
   def index
     @about = Page.where(title: "درباره ما")
     @contact = Page.where(title: "تماس با ما")
@@ -15,5 +9,10 @@ class StaticController < ApplicationController
     @articles = Article.order(" created_at desc")
     @circulars = Circular.order(" created_at desc")
     @educations = Education.order(" created_at desc")
+    @forms = PdfForm.order(" created_at desc")
+    
+    
+    
   end
+  
 end

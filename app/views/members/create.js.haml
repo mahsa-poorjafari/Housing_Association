@@ -1,0 +1,8 @@
+-if @saved    
+  $("#show-members").prepend("#{escape_javascript(render(:partial => 'show_member_rows', :locals => {:member => @member}))}");        
+  $('form#new_member [type="text"]').val('');
+  $('form#new_member textarea').val('');
+  
+-else
+  $('.alert.alert-warning').html("<b>خطا در ثبت عضو</b>");
+

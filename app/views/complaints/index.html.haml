@@ -2,7 +2,9 @@
   .tbox2
     .title
       %h1 لیست شکایات    
-
+      
+      %div{:style => "margin:10px"}
+        = link_to 'ثبت پرسش برای داوری', new_complaint_path, :class => "save-btn"
     %table.table.table-striped{id:"complaint_table"}
       %thead
         %tr 

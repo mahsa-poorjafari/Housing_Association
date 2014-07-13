@@ -240,6 +240,7 @@ hr {
 }
 
 .main-header {
+  font-family:open_sansregular;
   position: fixed;
   width: 100%;
   margin: 0 auto;
@@ -511,10 +512,9 @@ a.toggle-menu {
 .portfolio-item .portfolio-thumb {
   position: relative;
   overflow: hidden;
+  text-align:center;
 }
-.portfolio-item .portfolio-thumb img {
-  width: 100%;
-}
+
 .portfolio-item .portfolio-thumb .portfolio-overlay {
   background-color: #ec523f;
   position: absolute;
@@ -665,6 +665,8 @@ a.toggle-menu {
 }
 
 .map-canvas {
+  width:65%;
+  float:left;
   height: 380px;
   border: 10px solid #efefef;
 }
@@ -708,3 +710,6 @@ body, p, div, h1, h2, h3, h4, h5, h6 {
    	font-style: normal;
 }
 */
+.phone-book {height: 380px;
+  width:30%;
+  border: 10px solid #efefef;}

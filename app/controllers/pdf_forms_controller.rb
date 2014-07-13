@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class PdfFormsController < ApplicationController
   before_action :set_pdf_form, only: [:show, :edit, :update, :destroy]
 
@@ -28,7 +29,7 @@ class PdfFormsController < ApplicationController
 
     respond_to do |format|
       if @pdf_form.save
-        format.html { redirect_to @pdf_form, notice: 'Pdf form was successfully created.' }
+        format.html { redirect_to @pdf_form, notice: 'فرم جدید اضافه شد.' }
         format.json { render action: 'show', status: :created, location: @pdf_form }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class PdfFormsController < ApplicationController
   def update
     respond_to do |format|
       if @pdf_form.update(pdf_form_params)
-        format.html { redirect_to @pdf_form, notice: 'Pdf form was successfully updated.' }
+        format.html { redirect_to @pdf_form, notice: 'ویرایش انجام شد.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
