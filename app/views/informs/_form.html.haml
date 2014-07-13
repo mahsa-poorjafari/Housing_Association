@@ -5,15 +5,17 @@
       %ul
         - @inform.errors.each do |attr, msg|
           %li= msg
-  %legend
-    اعلامیه جدید
+
   .form-group
     = f.label "پروژه مربوطه:"
     = f.select :project_id, options_for_select(Project.all.collect{ |u| [u.title, u.id] }), prompt: "پروژه مربوطه را انتخاب کنید"
-  .form-group.width50
+  .form-group.width50    
+    = f.check_box :important  , :class => "form-control"
+    = f.label "خبر مهم است.", :class => "control-label" 
     
-    = f.check_box :important  
-    = f.label "خبر مهم است."
+  .form-group.width50    
+    = f.check_box :immediate, :class => "form-control"
+    = f.label "خبر فوری است؟", :class => "control-label" 
   
   .form-group
     = f.label :عنوان, :class => "control-label"    

@@ -72,6 +72,6 @@ class InformsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inform_params
-      params.require(:inform).permit(:title, :text, :number_visit, :important, :image, :project_id)
+      params.require(:inform).permit(:title, :text, :number_visit, :important, :image, :project_id, :immediate)
     end
 end
