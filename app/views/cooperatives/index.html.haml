@@ -58,8 +58,8 @@
                   %th تلفن های تماس
                   %th سمت
                   %th عملیات
-              %tbody
-                - cooperative.members.each do |member|
+              %tbody                
+                -  cooperative.members.each do |member|
                   %tr
                     %td= member.name + " " + member.last_name
                     %td= member.phone_number + " - " + member.mobile

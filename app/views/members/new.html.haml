@@ -1,11 +1,23 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h1= ' معرفی عضو جدید در ' + " " + @current_cooperative.name
+      %h1= ' معرفی عضو جدید'
+      %h2= @current_cooperative.name
     -if flash[:done]        
-      .alert.alert-success= done
-    .col-sm-6#show-members
-      
+      .alert.alert-success= flash[:done]
+    - elsif flash[:error]        
+      .alert.alert-warning= flash[:error]
+    .col-sm-6
+      %table.table#show-members
+        %thead
+          %tr
+            %th= 'نام خانوادگی'
+            %th= 'نام'
+            %th= 'نام پدر'
+            %th= 'سمت'
+            %th= 'تلفن همراه'
+        %tbody
+          = render 'show_member_rows', :member => Member.last
     .contact-form.col-sm-6
       = render 'form'
 

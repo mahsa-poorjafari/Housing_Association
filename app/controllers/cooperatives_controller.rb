@@ -16,6 +16,7 @@ class CooperativesController < ApplicationController
       @cooperatives = Cooperative.order('name DESC')    
     end
     
+    
   end
 
   # GET /cooperatives/1

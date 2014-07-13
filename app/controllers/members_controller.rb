@@ -35,16 +35,18 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
+   
     if @member.member_post_id.blank?
       @default_mamber_post = MemberPost.find_by_title('عضو تعاونی')
       @member.member_post_id = @default_mamber_post.id
     end
     
-    if @member.save      
+    @saved = false
+    if @saved = @member.save      
       flash[:done] =  'عضو جدید با موفقیت ثبت گردید.' 
-      render action: 'show'
+      
     else
-      render action: 'new'
+      flash[:error] = 'خطا در ثبت عضو'
     end
   
   end

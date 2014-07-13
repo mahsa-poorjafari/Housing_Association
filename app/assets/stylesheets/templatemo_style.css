@@ -512,10 +512,9 @@ a.toggle-menu {
 .portfolio-item .portfolio-thumb {
   position: relative;
   overflow: hidden;
+  text-align:center;
 }
-.portfolio-item .portfolio-thumb img {
-  width: 100%;
-}
+
 .portfolio-item .portfolio-thumb .portfolio-overlay {
   background-color: #ec523f;
   position: absolute;

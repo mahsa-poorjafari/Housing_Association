@@ -34,7 +34,8 @@
             
             = raw inform.text
           .col-sm-4
-            %i.more= link_to 'مشاهده بیشتر', inform
+            .more
+              = link_to 'مشاهده بیشتر', inform
         
 #services.content-section
   .container
@@ -180,7 +181,7 @@
         = link_to  project  do 
           .portfolio-item.col-md-3.col-sm-6{:style => "overflow:hidden"}
             .portfolio-thumb
-              = image_tag project.pictures.first.image(:mediuml), :height => "300"
+              .set-center= image_tag project.pictures.first.image(:medium), :height => "300"
               .portfolio-overlay
                 %h3= project.title
                 %p

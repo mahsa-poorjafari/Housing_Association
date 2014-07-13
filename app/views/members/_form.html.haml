@@ -1,4 +1,4 @@
-= form_for @member do |f|
+= form_for @member, :remote => true do |f|
   - if @member.errors.any?
     .alert.alert-warning 
       %ul
@@ -6,14 +6,17 @@
           %li= msg
 
   .form-group.col-sm-4
-    = f.label 'نام:', :class => "control-label"
+    = f.label 'نام:*', :class => "control-label"
     = f.text_field :name
   .form-group.col-sm-4
-    = f.label 'نام خانوادگی:', :class => "control-label"
+    = f.label 'نام خانوادگی:*', :class => "control-label"
     = f.text_field :last_name
   .form-group.col-sm-4
-    = f.label 'نام پدر:', :class => "control-label"
+    = f.label 'نام پدر:*', :class => "control-label"
     = f.text_field :father_name
+  .form-group.col-sm-4
+    = f.label 'تلفن همراه:*', :class => "control-label"
+    = f.text_field :mobile 
   .form-group.col-sm-4
     = f.label 'تاریخ تولد دقیق:', :class => "control-label"
     = f.text_field :birthdate
@@ -29,9 +32,7 @@
   .form-group.col-sm-4
     = f.label 'تلفن ثابت:', :class => "control-label"
     = f.text_field :phone_number
-  .form-group.col-sm-4
-    = f.label 'تلفن همراه:', :class => "control-label"
-    = f.text_field :mobile 
+  
   .form-group.col-sm-4
     = f.label 'کدپستی:', :class => "control-label"    
     = f.text_field :postal_code
