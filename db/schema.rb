@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140710081448) do
     t.string   "subject"
     t.string   "user_email"
     t.string   "user_phone"
-    t.boolean  "display"
+    t.boolean  "display",           default: false
     t.boolean  "inspector_visited"
   end
 
@@ -227,17 +227,6 @@ ActiveRecord::Schema.define(version: 20140710081448) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-  end
-
-  create_table "petitions", force: true do |t|
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "pdf_file_name"
-    t.string   "pdf_content_type"
-    t.integer  "pdf_file_size"
-    t.datetime "pdf_updated_at"
-    t.integer  "inform_id"
   end
 
   create_table "phone_books", force: true do |t|
