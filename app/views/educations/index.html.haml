@@ -4,6 +4,7 @@
       %h1 لیست عناوین آموزش
 
     - @educations.each_with_index do |education, i|
+      
       - if is_admin?      
         .col-sm-5
           = link_to 'مشاهده', education

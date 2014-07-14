@@ -2,30 +2,56 @@
   .tbox2
     .title      
       %h1 لیست بخشنامه ها
-
-    %table.table
-      %tr
-        %th ردیف
-        %th عنوان بخشنامه
-        %th پروژه مربوط
-        %th سایر توضیحات
-        %th دریافت فایل
-        %th 
+      - if is_admin?
+        = link_to 'تعریف بخشنامه جدید', new_circular_path, :class => "save-btn"
+    %table.table.table-striped{id:"circular_table"}
+      %thead
+        %tr
+          %th ردیف
+          %th عنوان بخشنامه
+          %th پروژه مربوط
+          %th سایر توضیحات
+          %th دریافت فایل
+          %th 
         
 
       - @circulars.each_with_index do |circular, i|
-        %tr
-          %td= (i+1)
-          %td= circular.title
-          %td= circular.project_id
-          %td= circular.description
-          %td
-          - if is_admin?
+        %tbody
+          %tr{:id => "circular_container"}
+            %td= (i+1)
+            %td= circular.title
+            %td= circular.project_id
+            %td= circular.description
             %td
-              = link_to 'مشاهده', circular
-              = link_to 'ویرایش', edit_circular_path(circular)
-              = link_to 'حذف', circular, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+            - if is_admin?
+              %td
+                = link_to 'مشاهده', circular
+                \|              
+                = link_to 'ویرایش', edit_circular_path(circular)
+                \|
+                = link_to 'حذف', circular, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
     %br
-    - if is_admin?
-      = link_to 'تعریف بخشنامه جدید', new_circular_path, :class => "save-btn"
+    
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#circular_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,5]
+    ,  
+      bSortable: false
+      aTargets: [0,5]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()

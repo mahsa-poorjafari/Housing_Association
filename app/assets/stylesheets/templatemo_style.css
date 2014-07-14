@@ -712,4 +712,6 @@ body, p, div, h1, h2, h3, h4, h5, h6 {
 */
 .phone-book {height: 380px;
   width:30%;
-  border: 10px solid #efefef;}
+  border: 10px solid #efefef;
+  overflow-y:scroll;
+}

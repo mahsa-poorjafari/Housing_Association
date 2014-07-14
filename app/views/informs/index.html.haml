@@ -2,35 +2,64 @@
   .tbox2
     .title
       %h1 اخبار و اعلامیه ها
-    - if is_admin?
-      = link_to 'ثبت اطلاعیه جدید', new_inform_path, :class => "save-btn"
+      - if is_admin?
+        = link_to 'ثبت اطلاعیه جدید', new_inform_path, :class => "save-btn"
 
-    %table.table{:style => "margin-top:5%"}
-      - @informs.each do |inform|
-        %tr#infotm-header              
-          %td.important
-            -if inform.important      
-              مهم
-          %th= link_to inform.title, inform 
-          %td
-            -if inform.project_id        
-              = link_to inform.project.title, inform.project       
-          %td
-            %span= 'تعداد بازدید'
-            = inform.number_visit
-          %td= JalaliDate.new(inform.created_at).format("%A %d %b %Y") 
-          - if is_admin?
-            %td
-              = link_to 'ویرایش', edit_inform_path(inform)
-              \|
-              = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-          
+    %table.table.table-striped{id:"inform_table",:style => "margin-top:5%"}      
+      %thead
         %tr
-          %td#inform-text{:colspan => "5", :style => "height:20%; overflow:hidden; text-align:justify; display:none"}
-            = raw inform.text
+          %th ردیف
+          %th اهمیت اعلامیه
+          %th عنوان اعلامیه
+          %th پروژه مربوطه
+          %th تعداد بازدید
+          %th تاریخ ثبت
+          %th 
+      %tbody{:id => "inform_container"}
+        - @informs.each_with_index do |inform, i|
+          %tr#infotm-header      
+            %td= (i+1)
+            %td.important
+              -if inform.important      
+                مهم
+            %th= link_to inform.title, inform 
+            %td
+              -if inform.project_id        
+                = link_to inform.project.title, inform.project       
+            %td
+              %span= 'تعداد بازدید'
+              = inform.number_visit
+            %td= JalaliDate.new(inform.created_at).format("%A %d %b %Y") 
+            - if is_admin?
+              %td
+                = link_to 'ویرایش', edit_inform_path(inform)
+                \|
+                = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+         
 :javascript            
   $('#infotm-header').click(function(){
     $('#inform-text').toggle(800);
   });
 
-   
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#inform_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,6]
+    ,  
+      bSortable: false
+      aTargets: [0,6]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()

@@ -2,27 +2,62 @@
   .tbox2
     .title      
       %h1 لیست مقالات
+      - if is_admin?
+        .index-projects
+          = link_to 'افزودن مقاله جدید', new_article_path, :class => "save-btn"
+    %table.table.table-striped{id:"article_table"}
+      %thead
+        %tr 
+          %th ردیف      
+          %th عنوان مقاله             
+          %th دریافت فایل 
+          - if is_admin?
+            %th عملیات
+          
+      %tbody{:id => "article_container"}
+        - @articles.each_with_index do |article, i|
+          %tr
+            %td= (i+1)
+            %td= article.title
+            %td
+              -if article.pdf.url.present?
+                .pdf-link.col-sm-5
+                  =link_to article.pdf.url, :target => "blank" do
+                    %i= 'دریافت فایل pdf'
+                    
+            %td          
+              - if is_admin?      
+                = link_to 'مشاهده', article
+                \|
+                = link_to 'ویرایش', edit_article_path(article)
+                \|
+                = link_to 'حذف', article, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
-
-    - @articles.each_with_index do |article, i|  
-      
-      - if is_admin?      
-        .col-sm-5
-          = link_to 'مشاهده', article
-          \|
-          = link_to 'ویرایش', edit_article_path(article)
-          \|
-          = link_to 'حذف', article, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-
-      -if article.pdf.url.present?
-        .pdf-link.col-sm-5
-          =link_to article.pdf.url, :target => "blank" do
-            %i= 'دریافت فایل مقاله'
-            %b= article.title
-      .col-sm-1= (i+1)
+          
+          
     %br
-    - if is_admin?
-      .index-projects
-        = link_to 'افزودن مقاله جدید', new_article_path, :class => "save-btn"
+
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#article_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,3]
+    ,  
+      bSortable: false
+      aTargets: [0,3]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
 
 
