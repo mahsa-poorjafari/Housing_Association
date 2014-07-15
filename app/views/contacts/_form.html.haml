@@ -1,8 +1,8 @@
-= form_for @phone_book do |f|
-  - if @phone_book.errors.any?
+= form_for @contact do |f|
+  - if @contact.errors.any?
     #error_explanation      
       %ul
-        - @phone_book.errors.each do |attr, msg|
+        - @contact.errors.each do |attr, msg|
           %li= msg
 
   .form-group

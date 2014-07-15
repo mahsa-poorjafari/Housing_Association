@@ -1,0 +1,24 @@
+.width80.set-center.margin-top
+  .tbox2
+
+
+  %p
+    %b نام و نام خانوادگی:
+    = @contact.preson_name
+  %p
+    %b نام شرکت/تعاونی:
+    = @contact.company_name
+  %p
+    %b تلفن های تماس:
+    = @contact.phone
+  %p
+    %b فکس:
+    = @contact.fax
+  %p
+    %b آدرس:
+    = @contact.address
+  - if is_admin?
+
+    = link_to 'ویرایش', edit_contact_path(@contact)
+    \|
+    = link_to 'بازگشت', contacts_path

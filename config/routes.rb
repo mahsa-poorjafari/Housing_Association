@@ -9,7 +9,7 @@ HousingAssociation::Application.routes.draw do
     end
   end
 
-  resources :phone_books do
+  resources :contacts do
     member do
       get :search  
     end
@@ -60,7 +60,7 @@ HousingAssociation::Application.routes.draw do
   resources :pages
   root :to => 'static#index'
   get 'login' => 'users#login'
-  get 'search_phone' => 'phone_books#search'
+  get 'search_phone' => 'contacts#search'
   get 'search_member' => 'members#search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
