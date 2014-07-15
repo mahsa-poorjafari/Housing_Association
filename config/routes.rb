@@ -1,6 +1,8 @@
 HousingAssociation::Application.routes.draw do  
 
 
+  resources :letters
+
   resources :member_posts
 
   resources :members do

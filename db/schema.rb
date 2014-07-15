@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715175739) do
+ActiveRecord::Schema.define(version: 20140715185529) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -140,6 +140,18 @@ ActiveRecord::Schema.define(version: 20140715175739) do
     t.datetime "image_updated_at"
     t.integer  "project_id"
     t.boolean  "immediate"
+  end
+
+  create_table "letters", force: true do |t|
+    t.string   "letter_type"
+    t.string   "summary"
+    t.date     "sent_date"
+    t.date     "received_date"
+    t.integer  "sender"
+    t.text     "content"
+    t.string   "attachment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "links", force: true do |t|

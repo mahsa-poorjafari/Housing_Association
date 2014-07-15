@@ -1,0 +1,34 @@
+.width80.set-center.margin-top
+  .page-title-holder
+    .title
+      %h1 Listing letters
+
+  %table
+    %tr
+      %th Letter type
+      %th Summary
+      %th Sent date
+      %th Received date
+      %th Sender
+      %th Content
+      %th Attachment
+      %th
+      %th
+      %th
+
+    - @letters.each do |letter|
+      %tr
+        %td= letter.letter_type
+        %td= letter.summary
+        %td= letter.sent_date
+        %td= letter.received_date
+        %td= letter.sender
+        %td= letter.content
+        %td= letter.attachment
+        %td= link_to 'Show', letter
+        %td= link_to 'Edit', edit_letter_path(letter)
+        %td= link_to 'Destroy', letter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Letter', new_letter_path

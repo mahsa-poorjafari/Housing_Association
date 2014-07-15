@@ -33,7 +33,12 @@ namespace :db do
     p "#{MemberPost.count} MemberPosts created"
   end
   
-  
+  desc "creates test contact"
+  task :create_test_contacts => :environment do
+    Contact.create(preson_name:  'مدیر شرکت تست', company_name: 'نام شرکت تست') if Contact.where(preson_name: 'مدیر شرکت تست').blank?
+    p "#{Contact.count} MemberPosts created"
+  end
+    
 
 end
 
