@@ -11,6 +11,8 @@ end
 
 group :development, :test do
   gem 'mysql2'
+  gem 'thin'
+  gem 'quiet_assets'
 end
 gem "twitter-bootstrap-rails"
 gem 'devise'
