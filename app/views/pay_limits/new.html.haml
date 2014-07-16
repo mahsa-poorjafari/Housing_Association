@@ -5,22 +5,30 @@
         %h1= "فرم ثبت نام در پروژه" + " " + @project.title
       -else
         %h1= "فرم ثبت نام در پروژه"
-    - if current_user.blank?
-      %h2= 'شما مجاز به دسترسی نیستید.'
-      = link_to 'عضو شوید', new_registration_path(resource_name), class:"link"
-    - else
+    .col-sm-4
+      .step
+        %p= 'مرحله اول'
+        %p= 'تکمیل اطلاعات شخصی'
+      .step
+        %p= 'مرحله دوم'
+        %p= 'تکمیل اطلاعات مالی'
+      .step
+        %p= 'مرحله سوم'
+        %p= 'دریافت کد رهگیری'
+        
+    .col-sm-8.pay-limit-steps
       #personal-info
-      %p
-        = current_user.name    
-        = current_user.last_name
-      
-      %p= current_user.email
-      
+        .title 
+          %h2= 'فرم اطلاعات شخصی'
+        
       #pay-info.width70.set-center
-        %h4= 'فرم اطلاعات مالی'
+        .title 
+          %h2= 'فرم اطلاعات مالی'
         .contact-form.width50
           = render 'form'
     
-    = link_to 'بازگشت', Project
+:javascript
+  
+  
 
 

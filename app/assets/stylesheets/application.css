@@ -168,3 +168,11 @@ table.dataTable thead tr th {text-align:center}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.step {border-radius:5px; width:60%; height:70px; border:solid 2px #427342;
+  font-size:18px;
+  padding:2%;
+  text-align:center;
+  margin:2%;
+}
+.pay-limit-steps  .title  h2 {border-bottom:1px dotted #ec523f}
+#pay-info
