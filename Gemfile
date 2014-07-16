@@ -30,7 +30,7 @@ gem 'jalalidate'
 gem "nested_form"
 
 
-gem 'jquery-datatables-rails', '~> 1.12.2', git: 'git://github.com/rweng/jquery-datatables-rails.git'
+gem 'jquery-datatables-rails', '~> 2.1.10.0.3'
 
 
 # Use SCSS for stylesheets
