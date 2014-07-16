@@ -2,8 +2,8 @@
   .tbox2
     .title      
       %h1 دفترچه تلفن
-    - if is_admin?
-      = link_to 'افزودن به دفترچه تلفن', new_phone_book_path, :class => "save-btn"
+      - if is_admin?
+        = link_to 'افزودن به دفترچه تلفن', new_contact_path, :class => "save-btn"
     %table.table.table-striped{id:"phone_table"}
       %thead
         %tr
@@ -18,21 +18,21 @@
           
           
       %tbody{:id => "phone_container"}
-        - @phone_books.each_with_index do |phone_book, i|
+        - @contacts.each_with_index do |contact, i|
           %tr          
             %td= (i+1)
-            %td= phone_book.preson_name
-            %td= phone_book.company_name
-            %td= phone_book.phone
-            %td= phone_book.fax
-            %td= phone_book.address 
+            %td= contact.preson_name
+            %td= contact.company_name
+            %td= contact.phone
+            %td= contact.fax
+            %td= contact.address 
             - if is_admin?          
               %td            
-                = link_to 'مشاهده', phone_book
+                = link_to 'مشاهده', contact
                 \|
-                = link_to 'ویرایش', edit_phone_book_path(phone_book)
+                = link_to 'ویرایش', edit_contact_path(contact)
                 \|
-                = link_to 'حذف', phone_book, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+                = link_to 'حذف', contact, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
     
     

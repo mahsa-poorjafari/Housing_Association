@@ -19,11 +19,11 @@ class User < ActiveRecord::Base
   end  
   
   def is_user?
-    self.role.name == "cooperative"
+    self.role.try(:name) == "cooperative"
   end  
   
   def is_inspector?
-    self.role.name == "Inspector"
+    self.role.try(:name) == "Inspector"
   end 
   
  

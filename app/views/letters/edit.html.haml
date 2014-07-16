@@ -1,0 +1,10 @@
+.width80.set-center.margin-top
+  .page-title-holder
+    .title
+      %h1 Editing letter
+
+  = render 'form'
+
+  = link_to 'Show', @letter
+  \|
+  = link_to 'Back', letters_path

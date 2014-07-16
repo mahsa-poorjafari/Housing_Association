@@ -40,7 +40,7 @@ class CooperativesController < ApplicationController
     @cooperative = Cooperative.new(cooperative_params)   
     
     if @cooperative.save      
-      phone_book = PhoneBook.create!(:company_name => @cooperative.name, :preson_name => @cooperative.managment_name , :phone => @cooperative.phone, :fax => @cooperative.fax, :address => @cooperative.address, :cooperative_id => @cooperative.id)
+      phone_book = Contact.create!(:company_name => @cooperative.name, :preson_name => @cooperative.managment_name , :phone => @cooperative.phone, :fax => @cooperative.fax, :address => @cooperative.address, :cooperative_id => @cooperative.id)
       flash[:AddCooper] = 'تعاونی جدید ثبت شد و اطلاعات ورود به سایت ارسال شد.' 
       @generated_password = Devise.friendly_token.first(8)      
       user = User.create!(:email => @cooperative.email_company, :password => @generated_password, :name => @cooperative.name, :last_name => @cooperative.managment_name , :phone => @cooperative.phone, :address => @cooperative.address, :role_id => 4, :cooperative_code => @cooperative.id)

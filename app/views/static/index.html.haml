@@ -249,7 +249,7 @@
             .title
               %h2= 'دفترچه تلفن اتحادیه'              
               .text-cadr-home-page
-                = form_tag search_phone_book_path(1), :method => "get", id: "search-form", :remote => true do 
+                = form_tag search_contact_path(1), :method => "get", id: "search-form", :remote => true do 
                   = text_field_tag :search, params[:search], :id => 'search_field' 
                   = submit_tag "جستجو", :name => nil, :id => "search-submit" 
                   #clear.col-md-4= link_to  "تصحیح", '#phone'            

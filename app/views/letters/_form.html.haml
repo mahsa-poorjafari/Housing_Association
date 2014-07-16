@@ -1,0 +1,31 @@
+= form_for @letter do |f|
+  - if @letter.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@letter.errors.count, "error")} prohibited this letter from being saved:"
+      %ul
+        - @letter.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    =Letter::LetterTypes[@letter.letter_type.to_sym]
+  .field
+    = f.label :summary
+    = f.text_field :summary
+  .field
+    = f.label :sent_date
+    = f.text_field :sent_date
+  .field
+    = f.label :received_date
+    = f.text_field :received_date
+  .field
+    = f.label :sender
+    = f.number_field :sender
+    /should be auto complete
+  .field
+    = f.label :content
+    = f.text_area :content
+  .field
+    = f.label :attachment
+    = f.text_field :attachment
+  .actions
+    = f.submit 'Save'

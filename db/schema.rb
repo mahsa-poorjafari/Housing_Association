@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716070527) do
+ActiveRecord::Schema.define(version: 20140716073425) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -55,6 +55,17 @@ ActiveRecord::Schema.define(version: 20140716070527) do
     t.string   "user_phone"
     t.boolean  "display"
     t.boolean  "inspector_visited"
+  end
+
+  create_table "contacts", force: true do |t|
+    t.string   "preson_name"
+    t.string   "company_name"
+    t.string   "phone"
+    t.string   "fax"
+    t.text     "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cooperative_id"
   end
 
   create_table "cooperatives", force: true do |t|
@@ -131,6 +142,18 @@ ActiveRecord::Schema.define(version: 20140716070527) do
     t.datetime "image_updated_at"
     t.integer  "project_id"
     t.boolean  "immediate"
+  end
+
+  create_table "letters", force: true do |t|
+    t.string   "letter_type"
+    t.string   "summary"
+    t.date     "sent_date"
+    t.date     "received_date"
+    t.integer  "sender"
+    t.text     "content"
+    t.string   "attachment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "links", force: true do |t|
@@ -242,17 +265,6 @@ ActiveRecord::Schema.define(version: 20140716070527) do
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
     t.integer  "inform_id"
-  end
-
-  create_table "phone_books", force: true do |t|
-    t.string   "preson_name"
-    t.string   "company_name"
-    t.string   "phone"
-    t.string   "fax"
-    t.text     "address"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "cooperative_id"
   end
 
   create_table "pictures", force: true do |t|

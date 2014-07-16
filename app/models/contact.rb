@@ -1,4 +1,4 @@
-class PhoneBook < ActiveRecord::Base
+class Contact < ActiveRecord::Base
   extend FriendlyId  
   friendly_id :preson_name
   
