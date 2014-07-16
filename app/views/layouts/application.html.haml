@@ -75,9 +75,10 @@
           = render 'slides/slide_show'
         .login-box
           - if current_user.blank?            
-            .signin{:style => "text-align:center;"} 
-              %b{:style => "color:#fff"}= 'ورود به سایت'
-              = render "shared/login"
+            - if current_page?(root_path)
+              .signin
+                %b{:style => "color:#fff"}= 'ورود به سایت'
+                = render "shared/login"
             
                 
         / /.slider
