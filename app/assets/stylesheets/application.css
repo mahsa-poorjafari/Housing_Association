@@ -159,3 +159,12 @@ z-index: 20;
 }
 table.dataTable thead tr th {text-align:center}
 .cooperative-title {font-size:1.5em}
+.fa {
+  display: inline-block;
+  font-family: open_sansregular;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
