@@ -2,10 +2,11 @@
   .tbox2
     .title
       %h1 پرسش و داوری
-  .contact-form.width50
-    -if flash[:DupError]        
-      .alert.alert-warning= flash[:DupError]
-    = render 'form'
-  
-
-  = link_to 'مشاهده شکایات', complaints_path
+    .width50.pull-right
+      .contact-form
+        -if flash[:DupError]        
+          .alert.alert-warning= flash[:DupError]
+        = render 'form'
+    
+    .width40.pull-left.pay-limit-box
+      = link_to 'مشاهده پرسش و پاسخ ها', complaints_path

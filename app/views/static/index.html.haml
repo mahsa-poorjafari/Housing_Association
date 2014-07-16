@@ -252,7 +252,7 @@
                 = form_tag search_phone_book_path(1), :method => "get", id: "search-form", :remote => true do 
                   = text_field_tag :search, params[:search], :id => 'search_field' 
                   = submit_tag "جستجو", :name => nil, :id => "search-submit" 
-                  #clear= link_to  "تصحیح", '#phone'            
+                  #clear.col-md-4= link_to  "تصحیح", '#phone'            
             #search_result.search_result
                 
                 
@@ -282,3 +282,15 @@
     $('#search_result').empty();
   });
   
+
+  
+  $(':submit#search-submit').click(function(e) {
+    $(':text#search_field').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });
+
+

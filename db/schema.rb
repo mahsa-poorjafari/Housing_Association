@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140713100213) do
+ActiveRecord::Schema.define(version: 20140716070527) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140713100213) do
     t.string   "subject"
     t.string   "user_email"
     t.string   "user_phone"
-    t.boolean  "display",           default: false
+    t.boolean  "display"
     t.boolean  "inspector_visited"
   end
 
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140713100213) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email_company"
+    t.string   "fax"
   end
 
   create_table "educations", force: true do |t|
@@ -232,6 +233,17 @@ ActiveRecord::Schema.define(version: 20140713100213) do
     t.datetime "image_updated_at"
   end
 
+  create_table "petitions", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
+    t.integer  "inform_id"
+  end
+
   create_table "phone_books", force: true do |t|
     t.string   "preson_name"
     t.string   "company_name"
@@ -240,6 +252,7 @@ ActiveRecord::Schema.define(version: 20140713100213) do
     t.text     "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cooperative_id"
   end
 
   create_table "pictures", force: true do |t|

@@ -8,8 +8,9 @@
   = link_to " مدیریت بخشنامه ها", Circular
   %br
   = link_to  Complaint do
-    %p.width50.pull-right= "گزارش شکایات"
+    %p.width80.pull-right= "گزارش پرسش و پاسخ ها"
     %b.notif= Complaint.count(:conditions => "display is null")
+    
   %br
   = link_to " مدیریت اخبار و اعلامیه ها", Inform
   %br

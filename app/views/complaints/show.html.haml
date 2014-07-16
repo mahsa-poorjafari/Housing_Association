@@ -15,14 +15,14 @@
         = @complaint.subject    
     .show-question 
       %p
-        %b موضوع شکایت
+        %b موضوع پرسش
         = @complaint.subject
       %p
-        %b متن شکایت
+        %b متن پرسش
         = @complaint.complaint_text
     .show-question 
       %p
-        %b جواب شکایت
+        %b پاسخ پرسش
         -if @complaint.complaint_answer.present?
           = @complaint.complaint_answer
         - else
@@ -31,7 +31,7 @@
             = link_to 'ثبت جواب', edit_complaint_path(@complaint), :class => "save-btn"
     -if is_admin?
       .commit
-        %b= 'نظرات سایر کابران'
+        %b= 'نظر مدیران'
         - if @commits
           - @commits.each do |commit|      
             %hr
@@ -54,6 +54,6 @@
               
             .clear-float
         %hr
-        %b= 'نظر شما'
+        %b= 'نظر مدیرسایت'
         .contact-form.width50
           = render 'comment_complaints/form', :complaint_id => @complaint.id

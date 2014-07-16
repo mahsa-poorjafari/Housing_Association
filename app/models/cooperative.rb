@@ -7,4 +7,5 @@ class Cooperative < ActiveRecord::Base
   validates :email_company, :uniqueness => {:message => 'ایمیل در سیستم وجود دارد'}
   
   has_many :members
+  has_one :phone_book
 end

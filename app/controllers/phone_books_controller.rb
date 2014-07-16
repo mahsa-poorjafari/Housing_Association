@@ -73,6 +73,6 @@ class PhoneBooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def phone_book_params
-      params.require(:phone_book).permit(:preson_name, :company_name, :phone, :fax, :address)
+      params.require(:phone_book).permit(:preson_name, :company_name, :phone, :fax, :address, :cooperative_id)
     end
 end

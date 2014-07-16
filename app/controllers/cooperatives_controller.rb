@@ -40,6 +40,7 @@ class CooperativesController < ApplicationController
     @cooperative = Cooperative.new(cooperative_params)   
     
     if @cooperative.save      
+      phone_book = PhoneBook.create!(:company_name => @cooperative.name, :preson_name => @cooperative.managment_name , :phone => @cooperative.phone, :fax => @cooperative.fax, :address => @cooperative.address, :cooperative_id => @cooperative.id)
       flash[:AddCooper] = 'تعاونی جدید ثبت شد و اطلاعات ورود به سایت ارسال شد.' 
       @generated_password = Devise.friendly_token.first(8)      
       user = User.create!(:email => @cooperative.email_company, :password => @generated_password, :name => @cooperative.name, :last_name => @cooperative.managment_name , :phone => @cooperative.phone, :address => @cooperative.address, :role_id => 4, :cooperative_code => @cooperative.id)
@@ -57,11 +58,12 @@ class CooperativesController < ApplicationController
   def update
    
     if @cooperative.update(cooperative_params)
+      
       flash[:AddCooper] = 'ویرایش انجام شد'        
       render action: 'show'      
     else
       flash[:AddCooper] = 'خطا در ویرایش اطلاعات'
-      redirect_to :back      
+      render action: 'new'     
     end
   
   end
@@ -84,6 +86,6 @@ class CooperativesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cooperative_params
-      params.require(:cooperative).permit(:name, :managment_name, :board_Chairman_name, :address, :phone, :website, :email_company)
+      params.require(:cooperative).permit(:name, :managment_name, :board_Chairman_name, :address, :phone, :website, :email_company, :fax)
     end
 end
