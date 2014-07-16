@@ -5,8 +5,7 @@ gem 'rails', '4.0.4'
 
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+  gem 'mysql2'
 end
 
 group :development, :test do
@@ -30,7 +29,7 @@ gem 'jalalidate'
 gem "nested_form"
 
 
-gem 'jquery-datatables-rails', '~> 1.12.2', git: 'git://github.com/rweng/jquery-datatables-rails.git'
+gem 'jquery-datatables-rails', '~> 2.1.10.0.3'
 
 
 # Use SCSS for stylesheets
