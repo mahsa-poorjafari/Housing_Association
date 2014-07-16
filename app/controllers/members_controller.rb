@@ -43,8 +43,10 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
    
     if @member.member_post_id.blank?
-      @default_mamber_post = MemberPost.find_by_title('عضو تعاونی')
-      @member.member_post_id = @default_mamber_post.id
+      @default_member_post = MemberPost.find_by_title('عضو تعاونی')
+      @member.member_post_id = @default_member_post.id
+      p '111111111111'
+      p @member
     end
     
     @saved = false
@@ -52,7 +54,8 @@ class MembersController < ApplicationController
       flash[:done] =  'عضو جدید با موفقیت ثبت گردید.' 
       
     else
-      flash[:error] = 'خطا در ثبت عضو'
+      flash[:error] = 'خطا در ثبت عضو' 
+      p @member.errors
     end
   
   end

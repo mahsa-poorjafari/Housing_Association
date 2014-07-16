@@ -6,9 +6,11 @@ class Member < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
  
-  validates :name, :last_name, :mobile, :father_name, :presence => {:message => 'فیلد های ستاره دار را پر کنید'}    
-  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => 'ایمیل نامعتبر است.' } 
-  validates :mobile, format: { with: /\d{10}/, message: "لطفا ده رقم شماره تلفن همراه خود را بدون صفر وارد کنید." }
+  validates :name, :last_name, :mobile, :father_name, :presence => {:message => 'فیلد های ستاره دار را پر کنید'}      
+  validates :mobile, format: { with: /[1234567890۱۲۳۴۵۶۷۸۹۰]{10}/, message: "لطفا ده رقم شماره تلفن همراه خود را بدون صفر وارد کنید." }
+  
+  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => 'ایمیل نامعتبر است.' } , :unless => proc{|member| member.email.blank?}
+  
 
   
   
