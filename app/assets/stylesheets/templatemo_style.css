@@ -141,7 +141,7 @@ textarea {
 }
 
 body {
-  font-family: "Open Sans", Arial, sans-serif;
+  
   font-size: .83em;
   line-height: 1.75;
   color: #666666;
@@ -163,7 +163,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", Arial, sans-serif;
+  
   color: #444444;
 }
 
@@ -240,7 +240,7 @@ hr {
 }
 
 .main-header {
-  font-family:open_sansregular;
+  font-family: 'open_sansregular';
   position: fixed;
   width: 100%;
   margin: 0 auto;

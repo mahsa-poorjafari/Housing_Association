@@ -14,6 +14,8 @@
  *= require_tree .
  */
 body {direction:rtl; font-family:open_sansregular}
+div {direction:rtl; font-family:open_sansregular}
+h1, h2, h3, h4, h5 {direction:rtl; font-family:open_sansregular}
 text_area {resize:none}
 .service-content .inner-service a{color:#fff; font-size:14px;}
 .service-content .inner-service a:hover{color:#ec523f; }
@@ -32,7 +34,8 @@ text_area {resize:none}
 .margin-top {margin-top:20%}
 .top94 {top:10%}
 .tbox2 {min-height:300px}
-.cooperative-index {border-top:2px dotted #ec523f; padding:2%; margin:2%; height:200px; overflow:hidden}
+.cooperative-index {
+  border-top:2px dotted #ec523f; padding:2%; margin:2%; height:220px; overflow:hidden}
 .login-menu {background:#ec523f; color:#fff;height:25px;-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
@@ -129,7 +132,7 @@ box-shadow:         2px 2px 13px 5px rgba(50, 50, 50, 0.38);
 padding:2%;
 }
 .admin-link { position:absolute; width:auto}
-.admin-link a{color:#fff;}
+
 
 .more {background:#ec523f; padding:1%; margin-top:10px; border-radius:5px; height:30px; text-align:center }
 .more:hover {border:#ec523f solid 2px; background:#fff;}
@@ -155,3 +158,4 @@ right: 6%;
 z-index: 20;
 }
 table.dataTable thead tr th {text-align:center}
+.cooperative-title {font-size:1.5em}

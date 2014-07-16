@@ -4,41 +4,61 @@
       %h1 لیست اعضا تعاونی
       -if @current_cooperative.present?
         %h2= @current_cooperative.name
-    - if  is_user?
-      = link_to 'معرفی عضو جدید', new_member_path(cooperative_id: current_user.cooperative_code), :class => "save-btn"
-    - if is_admin? 
-      = link_to 'معرفی عضو جدید', new_member_path(), :class => "save-btn"
+      - if  is_user?
+        = link_to 'معرفی عضو جدید', new_member_path(cooperative_id: current_user.cooperative_code), :class => "save-btn"
+      - if is_admin? 
+        = link_to 'معرفی عضو جدید', new_member_path(), :class => "save-btn"
     .clear-float
     %br
-    %table.table
-      %tr
-        %th ردیف
-        - if is_admin?
-          %th نام تعاونی مربوط    
-        %th نام و نام خانوادگی
-        %th تلفن های تماس        
-        %th نام پدر               
-        %th سمت
-        %th عملیات
-
-      - @members.each_with_index do |member, i|
+    %table.table.table-striped{id:"member_table"}
+      %thead
         %tr
-          %td= (i+1)
-          -if is_admin?
+          %th ردیف       
+          %th نام تعاونی مربوط    
+          %th نام و نام خانوادگی
+          %th تلفن های تماس        
+          %th نام پدر               
+          %th سمت
+          %th عملیات
+      %tbody{:id => "member_container"}
+        - @members.each_with_index do |member, i|
+          %tr
+            %td= (i+1)        
             %td= member.cooperative.name
-          %td= link_to member.name + member.last_name , member
-          %td= member.phone_number + "-" + member.mobile               
-          %td= member.father_name          
-          %td
-            - if member.member_post_id.present?
-              = member.member_post.title
-          %td
-            = link_to 'مشاهده', member
-            \|
-            = link_to 'ویرایش', edit_member_path(member)
-            \|
-            = link_to 'حذف', member, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+            %td= link_to member.name + member.last_name , member
+            %td= member.phone_number + "-" + member.mobile               
+            %td= member.father_name          
+            %td
+              - if member.member_post_id.present?
+                = member.member_post.title
+            %td
+              = link_to 'مشاهده', member
+              \|
+              = link_to 'ویرایش', edit_member_path(member)
+              \|
+              = link_to 'حذف', member, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
-    %br
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#member_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,6]
+    ,  
+      bSortable: false
+      aTargets: [0,6]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
 
     

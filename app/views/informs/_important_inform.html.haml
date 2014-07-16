@@ -1,10 +1,12 @@
-- if is_admin?
-  .admin-link
-    = link_to 'ویرایش | ', edit_inform_path(inform)    
-    = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+
     
-.col-sm-10{:style => "text-align:left; margin-bottom:10%"}
+.col-sm-7{:style => "text-align:left; margin-bottom:10%"}
   = JalaliDate.new(inform.created_at).format("%A %d %b %Y")           
+.col-md-3
+  - if is_admin?
+    .admin-link
+      = link_to 'ویرایش | ', edit_inform_path(inform)    
+      = link_to 'حذف', inform, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 .col-md-2
   -if inform.important
     .important= "مهم"   

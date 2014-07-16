@@ -9,7 +9,7 @@
     %div
       - @cooperatives.each_with_index do |cooperative, i|
         .cooperative-index.col-lg-12   
-          .col-lg-6 
+          .col-lg-6            
             - cooperative.members.where.not(member_post_id:1).each do |member|
               .col-lg-3
                 = image_tag member.image(:icon)
