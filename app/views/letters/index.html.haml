@@ -11,6 +11,7 @@
       %th Sent date
       %th Received date
       %th Sender
+      %th recievers
       %th Content
       %th Attachment
       %th
@@ -24,6 +25,7 @@
         %td= letter.sent_date
         %td= letter.received_date
         %td= letter.senderpreson_name
+        %td= letter.recievers.collect(&:preson_name).join(',')
         %td= letter.content
         %td= letter.attachment
         %td= link_to 'Show', letter

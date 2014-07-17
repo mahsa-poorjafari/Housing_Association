@@ -19,7 +19,11 @@
     = f.text_field :received_date
   .field
     = f.label :senderpreson_name
-    = f.text_field :senderpreson_name
+    = f.text_field :senderpreson_name, data: {autocomplete_source: preson_names_contacts_path}
+  .field
+    =f.label :recievers
+    =f.text_field :reciever_tokens, data: {autocomplete_source: reciever_names_contacts_path, load: @letter.recievers.map{|c|{id:c.id, name:c.preson_name}}}
+    =link_to "افزودن دریافت کننده جدید", new_contact_path, target:"_blank"
     /should be auto complete
   .field
     = f.label :content

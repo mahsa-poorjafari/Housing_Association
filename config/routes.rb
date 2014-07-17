@@ -1,7 +1,7 @@
 HousingAssociation::Application.routes.draw do  
 
 
-  resources :letters
+  resources :letters 
 
   resources :member_posts
 
@@ -15,6 +15,11 @@ HousingAssociation::Application.routes.draw do
     member do
       get :search  
     end
+    collection do
+      get :preson_names
+      get :reciever_names
+    end
+
   end
 
   resources :educations
