@@ -1,17 +1,64 @@
 %div{:style => "direction:rtl"}
-  %h2= "ثبت نام در پروژه " + @reg_pro.project.title
-
+  %h3= 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان'
+  %h1= 'شما در پروژه'+ " "+ @reg_pro.project.title+ " " + 'ثبت نام کرده اید.'  
+  %p
+    %b کدرهگیری ثبت نام:
+    %h3= @reg_pro.tracking_code
   
-  %h3= 'عنوان پروژه'
-  %p
-    =@reg_pro.project.title
-  %h3= 'سقف مبلغ پرداختی'
-  %p
-    =@reg_pro.amount
-    
-  %h3= 'توضیحات'
-  %p
-    =@reg_pro.description
-    
-    
+  .col-sm-12.reg-info
+    .col-sm-6
+      %h4 اطلاعات مالی
+      .part
+        %b عنوان پروژه:      
+        = @reg_pro.project.title
+        %p
+          %b سقف مبلغ پرداختی:
+          = @reg_pro.amount
+        %p
+          %b سایر توضیحات:
+          = @reg_pro.description
+        
+    .col-sm-6
+      %h4 اطلاعات کاربری
+      .part
+        %p 
+          %b نام و نام  خانوادگی:
+          =@reg_pro.partnership.first_name + " " + @reg_pro.partnership.last_name
+        %p
+          %b ایمیل:
+          =@reg_pro.partnership.email
+        %p
+          %b نام پدر:
+          =@reg_pro.partnership.father_name
+        %p
+          %b تاریخ تولد:
+          =@reg_pro.partnership.birthdate
+        %p
+          %b  جنسیت:
+          -if @reg_pro.partnership.gender?
+            %i= 'مذکر'
+          - else
+            %i= 'مونث'
+        %p
+          %b تلفن تماس ثابت:
+          =@reg_pro.partnership.phone_number
+        %p
+          %b تلفن تماس همراه:
+          =@reg_pro.partnership.mobile
+        %p
+          %b آدرس:
+          =@reg_pro.partnership.address
+        %p
+          %b توضیحات:  
+          =@reg_pro.partnership.description
+        %p
+          %b از اعضاء فرهنگیان           
+          - if @reg_pro.partnership.farhangi
+            %i= 'هستم'
+          - else  
+            %i= 'نیستم'
+        
+
+
+ 
     

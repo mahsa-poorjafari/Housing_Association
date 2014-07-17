@@ -1,0 +1,18 @@
+%ul.search-result
+  -result.each do |result|
+    %li
+      %b= 'نام و نام خانوادگی'
+      = result.name + result.last_name
+      %br
+      %b= 'سمت:'
+      = result.member_post.title
+      %br
+      %b= 'نام تعاونی:'
+      = result.cooperative.name
+      %br
+      %b= 'تلفن تماس ثابت:'
+      = result.phone_number
+      %br
+      %b= 'تلفن تماس همراه'
+      = result.mobile
+    

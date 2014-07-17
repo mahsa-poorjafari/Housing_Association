@@ -17,6 +17,7 @@
           %th نام تعاونی مربوط    
           %th نام و نام خانوادگی
           %th تلفن های تماس        
+          %th تلفن های تماس        
           %th نام پدر               
           %th سمت
           %th عملیات
@@ -26,7 +27,8 @@
             %td= (i+1)        
             %td= member.cooperative.name
             %td= link_to member.name + member.last_name , member
-            %td= member.phone_number + "-" + member.mobile               
+            %td= member.phone_number 
+            %td= member.mobile               
             %td= member.father_name          
             %td
               - if member.member_post_id.present?

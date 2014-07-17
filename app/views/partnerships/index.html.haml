@@ -1,0 +1,37 @@
+%h1 Listing partnerships
+
+%table
+  %tr
+    
+    %th First name
+    %th Last name
+    %th Email
+    %th Father name
+    %th Birthdate
+    %th Gender
+    %th Phone number
+    %th Mobile
+    %th Farhangi
+    %th
+    %th
+    %th
+
+  - @partnerships.each do |partnership|
+    %tr
+      
+      %td= partnership.first_name
+      %td= partnership.last_name
+      %td= partnership.email
+      %td= partnership.father_name
+      %td= partnership.birthdate
+      %td= partnership.gender
+      %td= partnership.phone_number
+      %td= partnership.mobile
+      %td= partnership.farhangi
+      %td= link_to 'Show', partnership
+      %td= link_to 'Edit', edit_partnership_path(partnership)
+      %td= link_to 'Destroy', partnership, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Partnership', new_partnership_path

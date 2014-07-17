@@ -6,6 +6,8 @@
       = ',' + Project.all.collect(&:title).join(",") #{@head.fetch(:title, '') if @head}
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
+    -#
+      http://www.google.com/mapmaker?gw=129&activity_src=2&activity_filter=0&activity_sort=0&ll=36.289434,59.545891&spn=0.00061,0.001058&z=20&vpid=1405513955844&lyt=large_map_v3&htll=36.289379,59.545716
     = csrf_meta_tags
     %meta{:charset => "utf-8"}
     %meta{:name => "keywords", :content => Project.all.collect(&:title).join(",") } 
@@ -90,15 +92,15 @@
       .container
         .row
           .col-md-8.col-xs-12.text-left
-            Copyright © 2016 etehadiye Maskane farhangiyan   -
-            = link_to 'Develop', '#', rel: "nofollow"
+            Copyright © 2016 Etehadiye Maskane Farhangiyan   -
+            = link_to 'Developed', '#', rel: "nofollow"
             
             by
-            = link_to 'Raush.net', '#', rel: "nofollow"
+            = link_to 'Raush.net', url_with_protocol('Raush.net'), rel: "nofollow", :target => "_blank"
             
           / /.text-center
           .col-md-4.hidden-xs.text-right
-            %a#go-top{href: "#top"} Back to top
+            %a#go-top{href: "#top"} رفتن به بالای صفحه
           / /.text-center
         / /.row
       / /.container

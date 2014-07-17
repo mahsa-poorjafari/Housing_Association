@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Tracking code:
+  = @partnership.tracking_code
+%p
+  %b First name:
+  = @partnership.first_name
+%p
+  %b Last name:
+  = @partnership.last_name
+%p
+  %b Email:
+  = @partnership.email
+%p
+  %b Father name:
+  = @partnership.father_name
+%p
+  %b Birthdate:
+  = @partnership.birthdate
+%p
+  %b Gender:
+  = @partnership.gender
+%p
+  %b Phone number:
+  = @partnership.phone_number
+%p
+  %b Mobile:
+  = @partnership.mobile
+%p
+  %b Farhangi:
+  = @partnership.farhangi
+
+= link_to 'Edit', edit_partnership_path(@partnership)
+\|
+= link_to 'Back', partnerships_path

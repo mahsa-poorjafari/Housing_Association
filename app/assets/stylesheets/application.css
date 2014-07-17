@@ -170,3 +170,19 @@ table.dataTable thead tr th {text-align:center}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.step {border-radius:5px; width:60%; height:90px; border:solid 2px #427342;
+  font-size:18px;
+  padding:2%;
+  text-align:center;
+  margin:2%;
+}
+.step.active {background:#427342; color:#fff;
+  
+}
+.pay-limit-steps  .title  h2 {border-bottom:1px dotted #ec523f}
+#pay-info {display:none}
+ul.search-result li{border-bottom:1px dotted #ec523f}
+.code {font-size:1.5em; margin-top:5%; margin-bottom:5%; border:solid 1px #ec523f; text-align:center}
+.code p{ font-family: 'glyphicons-halflings-regular';}
+.reg-info .part{border-right:2px dotted #ec523f; padding:2%}
+.reg-info h4{border-bottom:2px dotted #ec523f; text-align:center; padding:2%; font-size:18px;}

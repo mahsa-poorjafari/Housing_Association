@@ -13,7 +13,13 @@ class ContactsController < ApplicationController
   end
   
   def search
-    @result = Contact.search params[:search]    
+    q = params[:search]
+    if q      
+      @contact = Contact.search q      
+      @cooperative = Cooperative.search q      
+      @member = Member.search q
+      
+    end 
   end
 
   # GET /contacts/new

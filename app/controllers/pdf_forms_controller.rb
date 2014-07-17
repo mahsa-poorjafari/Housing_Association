@@ -65,7 +65,7 @@ class PdfFormsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pdf_form
-      @pdf_form = PdfForm.find(params[:id])
+      @pdf_form = PdfForm.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
