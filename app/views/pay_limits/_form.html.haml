@@ -5,22 +5,24 @@
         - @pay_limit.errors.each do |attr, msg|
           %li= msg
   
-  .form-group
-    = f.label 'سقف مبلغ پرداختی', :class => "control-label"
-    = f.text_field :amount, :class => "form-control"
-  .form-group
+  
+  
+  .form-group.col-sm-5
     = f.label 'سایر توضیحات:', :class => "control-label"
-    = f.text_area :description, :class => "form-control"
+    = f.text_area :description, :class => "form-control", :style => "resize:none"
+  .form-group.col-sm-3
+    = f.label 'سقف مبلغ پرداختی به ریال', :class => "control-label"
+    = f.text_field :amount, :class => "form-control"
+  -if @project.blank? 
+    .form-group.col-sm-3        
+      = f.select :project_id, options_for_select(Project.all.collect{ |u| [u.title, u.id] }), prompt: "پروژه مورد نظر خود را انتخاب کنید."
+  - else
+    = f.hidden_field :project_id, :value => @project_id
+  .clear-float
   .form-group
-   
-    = f.hidden_field :user_id, :value => current_user.id
+    = f.hidden_field :partnership_id, :value => @partnership_id
     
-  .form-group
-    = f.label 'انتخاب پروژه:', :class => "control-label"
-    -if @project.present?
-      = f.hidden_field :project_id, :value => @project.id
-    - else
-      = f.select :project_id, options_from_collection_for_select(@projects, "id","title"), { :include_blank=>true }
-      
-  .form-group
+  
+  .col-sm-7
+  .form-group.col-sm-5
     = f.submit 'ثبت', :class => "mainBtn"

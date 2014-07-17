@@ -11,13 +11,15 @@ class PayLimitsController < ApplicationController
   # GET /pay_limits/1
   # GET /pay_limits/1.json
   def show
+    
   end
   
   
   # GET /pay_limits/new
   def new
     @pay_limit = PayLimit.new
-    @project_id = params[:id]
+    @project_id = params[:project_id]
+    @partnership_id = params[:partnership_id]
     if @project_id
       @project = Project.find(@project_id)
     else
@@ -35,11 +37,17 @@ class PayLimitsController < ApplicationController
     @pay_limit = PayLimit.new(pay_limit_params)
     @tracking_code = Devise.friendly_token.first(10)
     @pay_limit.tracking_code = @tracking_code
+    @project_id = params[:pro_id]
+    @partnership_id = params[:partnership_id]
+    
     if @pay_limit.save
-      # CodeMailer.send_pro_reg_code.deliver      
-      flash[:notice] = 'کاربر گرامی کدرهگیری به ایمیل شما ارسال گردید.'      
+      CodeMailer.send_pro_reg_code.deliver      
+      flash[:CodeSend] = 'کاربر گرامی کدرهگیری به ایمیل شما ارسال گردید.' 
+      render action: 'show'
+    
+    else
+      render action: 'new'
     end
-    render action: 'show'
   end
 
   # PATCH/PUT /pay_limits/1

@@ -4,16 +4,18 @@
 }
 text_area {resize:none}
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+ 
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(255, 39, 15, 0.75);
+  -moz-box-shadow:    7px 7px 5px 0px rgba(255, 39, 15, 0.75);
+  box-shadow:         7px 7px 5px 0px rgba(255, 39, 15, 0.75);
+  
   width:100%;
 }
 
 #error_explanation {
   
   border: 2px solid red;
-  padding: 7px;
+  padding: 2%;
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;

@@ -1,0 +1,14 @@
+%ul.search-result
+  -result.each do |result|
+    %li
+      %b= 'عنوان تعاونی:'
+      = result.name
+      %br
+      %b= 'نام مدیرعامل:'
+      = result.managment_name
+      %br
+      %b= 'شماره تماس:'
+      = result.phone
+      %br
+      %b= 'فاکس:'
+      = result.fax

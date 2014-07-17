@@ -1,19 +1,26 @@
 .width80.set-center.margin-top
   .tbox2
     .title  
-      %h1= 'ثبت نام در پروژه'
+      - if @project.present?
+        %h1= "فرم ثبت نام در پروژه" + " " + @project.title
+      -else
+        %h1= "فرم ثبت نام در پروژه"
       %h2= 'وارد کردن اطلاعات شخصی'
-    
-    .col-sm-4
-      .step.active
-        %p= 'مرحله اول'
-        %p= 'تکمیل اطلاعات شخصی'
-      .step
-        %p= 'مرحله دوم'
-        %p= 'تکمیل اطلاعات مالی'
-      .step
+    .col-sm-1
+    .col-sm-11
+      .step.col-sm-3
         %p= 'مرحله سوم'
         %p= 'دریافت کد رهگیری'
-    .contact-form.col-sm-8
+      .step.col-sm-3
+        %p= 'مرحله دوم'
+        %p= 'تکمیل اطلاعات مالی'
+      .step.active.col-sm-3
+        %p= 'مرحله اول'
+        %p= 'تکمیل اطلاعات شخصی'
+      
+      
+    .contact-form.col-sm-12{:style => "direction:rtl"}
+      -if flash[:error]        
+        .alert.alert-warning= flash[:error]
       = render 'form'
-    = link_to 'بازگشت', :back
+    

@@ -1,49 +1,54 @@
-= form_for @partnership ||= Partnership.new do |f|
+= form_for @partnership ||= Partnership.new, {:style => "direction:rtl"} do |f|
   - if @partnership.errors.any?
     #error_explanation      
       %ul
         - @partnership.errors.each do |attr, msg|
           %li= msg
 
-  
-  .form-group
+  =hidden_field_tag :project_id, @project_id
+  .form-group.col-sm-3.pull-right
     = f.label 'نام:*', :class => "control-label"
     = f.text_field :first_name, :class => "form-control", :id => "first_name"
-  .form-group
+  .form-group.col-sm-3.pull-right
     = f.label 'نام خانوادگی:*', :class => "control-label"
     = f.text_field :last_name, :class => "form-control", :id => "last_name"
-  .form-group
+  .form-group.col-sm-3.pull-right
     = f.label 'ایمیل:*', :class => "control-label"
     = f.text_field :email, :class => "form-control", :id => "email"
-  .form-group
+  .form-group.col-sm-3.pull-right
     = f.label 'نام پدر:*', :class => "control-label"
-    = f.text_field :father_name, :class => "form-control", :id => "father_name"
-  .form-group
-    = f.label 'تاریخ تولد:', :class => "control-label"
-    = f.date_select :birthdate, :class => "form-control"
-  .form-group
-    = f.label 'جنسیت:', :class => "control-label"
-    =  f.select(:gender, [['مذکر',1], ['مونث',0]])
-    
-  .form-group
+    = f.text_field :father_name, :class => "form-control", :id => "father_name"    
+  .form-group.col-sm-3.pull-right
     = f.label 'شماره تماس ثابت:', :class => "control-label"
     = f.text_field :phone_number, :class => "form-control"
-  .form-group
+  .form-group.col-sm-3.pull-right
     = f.label 'شماره تماس همراه:*', :class => "control-label"
     = f.text_field :mobile, :class => "form-control", :id => "mobile"
-  
-    .clear-float
-  .form-group
-    = f.label 'آدرس', :class => "control-label"
-    = f.text_area :address, :class => "form-control", :style => "resize:none"
-  .form-group
-    = f.label 'سایر توضیحات:', :class => "control-label"
-    = f.text_area :description, :class => "form-control", :style => "resize:none"
-  .form-group
+  .form-group.col-sm-6.pull-right
+    = f.label 'تاریخ تولد:', :class => "control-label"
+    = f.date_select :birthdate, :class => "form-control"
+  .clear-float
+  .form-group.col-sm-3.pull-right
+    = f.label 'جنسیت:', :class => "control-label"
+    =  f.select(:gender, [['مذکر',1], ['مونث',0]])  
+  .form-group.col-sm-6.pull-right
     .col-sm-8= f.label 'عضو خانواده فرهنگیان هستم.', :class => "control-label"
     .col-sm-2= f.check_box :farhangi
-  .form-group
+  .clear-float
+  .form-group.col-sm-6.pull-right
+    = f.label 'آدرس', :class => "control-label"
+    = f.text_area :address, :class => "form-control", :style => "resize:none"
+  .form-group.col-sm-6.pull-right
+    = f.label 'سایر توضیحات:', :class => "control-label"
+    = f.text_area :description, :class => "form-control", :style => "resize:none"  
+  .clear-float
+  .col-sm-4
+    = link_to 'بازگشت', :back
+  .form-group.col-sm-4
     = f.submit 'مرحله بعد', :class => "mainBtn partnership-hide", :id => "partnership-submit"
+    
+    
+    
 :javascript  
   
   $(':submit#partnership-submit').click(function(e) {

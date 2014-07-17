@@ -16,6 +16,7 @@ class PartnershipsController < ApplicationController
   # GET /partnerships/new
   def new
     @partnership = Partnership.new
+    @project_id = params[:project_id]
   end
 
   # GET /partnerships/1/edit
@@ -25,14 +26,16 @@ class PartnershipsController < ApplicationController
   # POST /partnerships
   # POST /partnerships.json
   def create
-    @partnership = Partnership.new(partnership_params)
+    @partnership = Partnership.new(partnership_params)    
+    p '----------------'
+    @project_id = params[:project_id]
     
-    if @partnership.save
-      format.html { redirect_to @partnership, notice: 'اطلاعات شخصی شما ثبت شد' }
-      format.json { render action: 'show', status: :created, location: @partnership }
+    if @partnership.save     
+      redirect_to new_pay_limit_path(:partnership_id => @partnership.id, :project_id => @project_id)
+      flash[:reg]= 'اطلاعات شخصی شما ثبت شد' 
     else
-      format.html { render action: 'new' }
-      format.json { render json: @partnership.errors, status: :unprocessable_entity }
+      render action: 'new'
+      flash[:error] = 'خطا در ثبت اطلاعات شخصی'
     end
   
   end

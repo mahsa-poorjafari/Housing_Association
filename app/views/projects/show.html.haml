@@ -54,7 +54,7 @@
         .col-md-6 
           =link_to (image_tag @project.pictures.first.image(:large)), @project.pictures.first.image(:original), :data => { :colorbox => true }         
         .col-md-4.col-sm-6.pay-limit-box
-          = link_to 'ثبت نام در پروژه ', new_partnership_path(:id => @project.id)
+          = link_to 'ثبت نام در پروژه ', new_partnership_path(:project_id => @project.id)
           
         
       .clear-float

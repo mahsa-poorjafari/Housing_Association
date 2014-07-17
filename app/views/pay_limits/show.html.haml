@@ -1,33 +1,82 @@
 .width80.set-center.margin-top
-  .tbox2
-    %p#notice= notice
+  .tbox2    
     .title 
-      %h2= 'درخواست مشارکت در پروژه'
-    
-    %h3 
-      %i= 'کد درخواست' 
-      = @pay_limit.id
+      %h1= 'ثبت نام در پروژه'
+      %h2= 'دریافت کد رهگیری'
+      -if flash[:CodeSend]        
+        .alert.alert-success= flash[:CodeSend] 
+      
+    .col-sm-1
+    .col-sm-11
+      .step.active.col-sm-3
+        %p= 'مرحله سوم'
+        %p= 'دریافت کد رهگیری'
+      .step.col-sm-3
+        %p= 'مرحله دوم'
+        %p= 'تکمیل اطلاعات مالی'
+      .step.col-sm-3
+        %p= 'مرحله اول'
+        %p= 'تکمیل اطلاعات شخصی'
+      
+    .col-sm-4
+    .code.set-center.col-sm-5
+      %b= 'کد رهگیری:' 
+      %p= @pay_limit.tracking_code
+      %br
+      %i= 'کاربر گرامی کدرهگیری خود را به خاطر بسپارید.'
     %br
-    
-   
-    %p
-      %h4 اطلاعات کاربر:
-      %p
-        = @pay_limit.user.email
-        = @pay_limit.user.name 
-        = @pay_limit.user.last_name
-        = @pay_limit.user.phone
-        = @pay_limit.user.mobile
-        
-      
-    %p
-      %b اطلاعات پروژه
-      
-      = @pay_limit.project.title
-    %p
-      %b سقف مبلغ پرداختی:
-      = @pay_limit.amount
-    - if is_admin?
-      
-      = link_to 'ویرایش', edit_pay_limit_path(@pay_limit)
+    .clear-float
+    .col-sm-12.reg-info
+      .col-sm-6
+        %h4 اطلاعات مالی
+        .part
+          %b عنوان پروژه:      
+          = @pay_limit.project.title
+          %p
+            %b سقف مبلغ پرداختی:
+            = @pay_limit.amount
+          - if is_admin?          
+            = link_to 'ویرایش اطلاعات مالی', edit_pay_limit_path(@pay_limit)
+      .col-sm-6
+        %h4 اطلاعات کاربری
+        .part
+          %p 
+            %b نام و نام  خانوادگی:
+            =@pay_limit.partnership.first_name + " " + @pay_limit.partnership.last_name
+          %p
+            %b ایمیل:
+            =@pay_limit.partnership.email
+          %p
+            %b نام پدر:
+            =@pay_limit.partnership.father_name
+          %p
+            %b تاریخ تولد:
+            =@pay_limit.partnership.birthdate
+          %p
+            %b  جنسیت:
+            -if @pay_limit.partnership.gender?
+              %i= 'مذکر'
+            - else
+              %i= 'مونث'
+          %p
+            %b تلفن تماس ثابت:
+            =@pay_limit.partnership.phone_number
+          %p
+            %b تلفن تماس همراه:
+            =@pay_limit.partnership.mobile
+          %p
+            %b آدرس:
+            =@pay_limit.partnership.address
+          %p
+            %b توضیحات:  
+            =@pay_limit.partnership.description
+          %p
+            %b از اعضاء فرهنگیان هستم.          
+            - if @pay_limit.partnership.farhangi
+              %i= 'بله'
+            - else  
+              %i= 'خیر'
+          - if is_admin?          
+            = link_to 'ویرایش اطلاعات کاربری', edit_partnership_path(@pay_limit.partnership_id)
+    = link_to 'بازگشت'  , projects_path
    

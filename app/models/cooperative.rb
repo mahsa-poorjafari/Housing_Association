@@ -8,4 +8,10 @@ class Cooperative < ActiveRecord::Base
   
   has_many :members
   has_one :phone_book
+  
+  def self.search(search)
+    search_condition = "%" + search + "%"  
+    find(:all, :conditions => ['name LIKE ? OR managment_name LIKE ?', search_condition, search_condition])
+  end
+  
 end
