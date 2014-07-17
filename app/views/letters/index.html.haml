@@ -2,7 +2,8 @@
   .page-title-holder
     .title
       %h1 Listing letters
-
+    = link_to 'ثبت نامه ارسالی', new_letter_path(letter_type:"sent")
+    = link_to 'ثبت نامه دریافتی', new_letter_path(letter_type:"recieved")
   %table
     %tr
       %th Letter type
@@ -22,7 +23,7 @@
         %td= letter.summary
         %td= letter.sent_date
         %td= letter.received_date
-        %td= letter.sender
+        %td= letter.senderpreson_name
         %td= letter.content
         %td= letter.attachment
         %td= link_to 'Show', letter
@@ -31,4 +32,4 @@
 
   %br
 
-  = link_to 'New Letter', new_letter_path
+  
