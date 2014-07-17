@@ -1,6 +1,6 @@
 %div{:style => "direction:rtl"}
   %h3= 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان'
-  %h1= 'شما در پروژه'+ @reg_pro.project.title + 'ثبت نام کرده اید.'  
+  %h1= 'شما در پروژه'+ " "+ @reg_pro.project.title+ " " + 'ثبت نام کرده اید.'  
   %p
     %b کدرهگیری ثبت نام:
     %h3= @reg_pro.tracking_code
@@ -14,6 +14,9 @@
         %p
           %b سقف مبلغ پرداختی:
           = @reg_pro.amount
+        %p
+          %b سایر توضیحات:
+          = @reg_pro.description
         
     .col-sm-6
       %h4 اطلاعات کاربری
@@ -49,11 +52,11 @@
           %b توضیحات:  
           =@reg_pro.partnership.description
         %p
-          %b از اعضاء فرهنگیان هستم.          
+          %b از اعضاء فرهنگیان           
           - if @reg_pro.partnership.farhangi
-            %i= 'بله'
+            %i= 'هستم'
           - else  
-            %i= 'خیر'
+            %i= 'نیستم'
         
 
 
