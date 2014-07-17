@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.autocomplete
+//= require jquery.tokeninput
 //= require colorbox-rails
 //= require ckeditor-jquery
 //= require jquery_nested_form
