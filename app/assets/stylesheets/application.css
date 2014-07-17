@@ -174,5 +174,8 @@ table.dataTable thead tr th {text-align:center}
   text-align:center;
   margin:2%;
 }
+.step.active {background:#427342; color:#fff;
+  
+}
 .pay-limit-steps  .title  h2 {border-bottom:1px dotted #ec523f}
-#pay-info
+#pay-info {display:none}

@@ -53,23 +53,16 @@
             = @project.finish_year
         .col-md-6 
           =link_to (image_tag @project.pictures.first.image(:large)), @project.pictures.first.image(:original), :data => { :colorbox => true }         
-        -#
-          .row    
-            -if @reg_before.present?
-              .col-md-5.reg-link
-                %b= 'شما در این پروژه ثبت نام کرده اید.'
-                %b= 'وضعیت درخواست مشارکت شما'
-                %p= 'در دست بررسی است.'
-                  
-            -else
-              .col-md-5.reg-link
-                = link_to 'لینک ثبت نام', new_pay_limit_path(:id => @project.id), :class => "btn btn-danger"
+        .col-md-4.col-sm-6.pay-limit-box
+          = link_to 'ثبت نام در پروژه ', new_partnership_path(:id => @project.id)
+          
         
       .clear-float
       
       .sub-title 
-        .col-md-9.line-orange 
         %h3.col-md-2= 'اطلاعیه ها'
+        .col-md-9.line-orange 
+        
         .clear-float
         -if @pro_informs.present?
           - @pro_informs.each do |inform|
@@ -82,7 +75,7 @@
       
       .pic-project
         - @project.pictures.offset(1).each do |picture|
-          .col-lg-4.image-project
+          .col-lg-3.image-project
             =link_to (image_tag picture.image(:small)), picture.image(:large), :data => { :colorbox => true }     
             %p= picture.description
             -if is_admin?           

@@ -33,7 +33,8 @@ class PayLimitsController < ApplicationController
   # POST /pay_limits.json
   def create
     @pay_limit = PayLimit.new(pay_limit_params)
-
+    @tracking_code = Devise.friendly_token.first(10)
+    @pay_limit.tracking_code = @tracking_code
     if @pay_limit.save
       # CodeMailer.send_pro_reg_code.deliver      
       flash[:notice] = 'کاربر گرامی کدرهگیری به ایمیل شما ارسال گردید.'      
@@ -73,6 +74,6 @@ class PayLimitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pay_limit_params
-      params.require(:pay_limit).permit(:amount, :user_id, :project_id, :description)
+      params.require(:pay_limit).permit(:amount, :user_id, :project_id, :description, :partnership_id, :tracking_code)
     end
 end

@@ -1,0 +1,19 @@
+.width80.set-center.margin-top
+  .tbox2
+    .title  
+      %h1= 'ثبت نام در پروژه'
+      %h2= 'وارد کردن اطلاعات شخصی'
+    
+    .col-sm-4
+      .step.active
+        %p= 'مرحله اول'
+        %p= 'تکمیل اطلاعات شخصی'
+      .step
+        %p= 'مرحله دوم'
+        %p= 'تکمیل اطلاعات مالی'
+      .step
+        %p= 'مرحله سوم'
+        %p= 'دریافت کد رهگیری'
+    .contact-form.col-sm-8
+      = render 'form'
+    = link_to 'بازگشت', :back

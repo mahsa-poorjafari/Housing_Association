@@ -195,6 +195,7 @@ textarea:focus {
 
 .text-left {
   text-align: left;
+  font-family: 'glyphicons-halflings-regular';
 }
 
 .text-center {
@@ -702,6 +703,7 @@ a.toggle-menu {
 
 #footer {
   margin-top: 130px;
+  
 }
 
 /*

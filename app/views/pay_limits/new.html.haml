@@ -16,19 +16,17 @@
         %p= 'مرحله سوم'
         %p= 'دریافت کد رهگیری'
         
-    .col-sm-8.pay-limit-steps
+    .col-sm-8.pay-limit-steps      
+      .title 
+        %h2= 'فرم اطلاعات شخصی'
       #personal-info
-        .title 
-          %h2= 'فرم اطلاعات شخصی'
+        = render 'partnerships/form'
         
-      #pay-info.width70.set-center
+      .width70.set-center
         .title 
           %h2= 'فرم اطلاعات مالی'
-        .contact-form.width50
+        .contact-form.width50#pay-info
           = render 'form'
     
-:javascript
-  
-  
 
 
