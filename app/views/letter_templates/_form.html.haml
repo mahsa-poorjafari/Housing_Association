@@ -1,0 +1,16 @@
+= form_for @letter_template do |f|
+  - if @letter_template.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@letter_template.errors.count, "error")} prohibited this letter_template from being saved:"
+      %ul
+        - @letter_template.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :content
+  = f.text_area :content, :class => "ckeditor"
+  .actions
+    = f.submit 'Save'

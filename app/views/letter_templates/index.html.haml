@@ -1,0 +1,21 @@
+%h1 Listing letter_templates
+
+%table
+  %tr
+    %th Name
+    %th Content
+    %th
+    %th
+    %th
+
+  - @letter_templates.each do |letter_template|
+    %tr
+      %td= letter_template.name
+      %td= letter_template.content
+      %td= link_to 'Show', letter_template
+      %td= link_to 'Edit', edit_letter_template_path(letter_template)
+      %td= link_to 'Destroy', letter_template, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Letter template', new_letter_template_path

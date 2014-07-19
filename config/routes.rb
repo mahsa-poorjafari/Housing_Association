@@ -1,5 +1,11 @@
 HousingAssociation::Application.routes.draw do  
 
+  resources :letter_templates do
+    collection do
+      get :set
+    end
+  end
+
   resources :partnerships
 
   resources :letters

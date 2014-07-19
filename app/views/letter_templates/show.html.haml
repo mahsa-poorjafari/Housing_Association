@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @letter_template.name
+%p
+  %b Content:
+  =raw @letter_template.content
+
+= link_to 'Edit', edit_letter_template_path(@letter_template)
+\|
+= link_to 'Back', letter_templates_path

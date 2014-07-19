@@ -29,10 +29,22 @@
     .field
       = f.label :attachment
       = f.text_field :attachment  
+  .row
+    .field
+      ایجاد نمه از روی نامه های آمادا
+      =select_tag :set_template, options_for_select(LetterTemplate.all.collect{ |lt| [lt.name, lt.id] }),{ :include_blank=>true }
   .col-lg-12   
     .field
       = f.label :content
-      = f.text_area :content
+      = f.text_area :content, :class => "ckeditor"
   
   .actions
     = f.submit 'Save'
+:coffeescript
+
+  $('#set_template').change ->
+    if $('#set_template').val() != ""
+      $.ajax({
+      url: '#{set_letter_templates_path}',
+      data: id: $('#set_template').val(),
+      });  
