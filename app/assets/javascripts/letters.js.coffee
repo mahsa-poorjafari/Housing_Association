@@ -11,3 +11,8 @@ jQuery ->
     allowCustomEntry: true
     preventDuplicates: true
     prePopulate: $('#letter_reciever_tokens').data('load')
+
+
+  console.log("setting datepicker");
+  $(".fa_date").datepicker();
+  
