@@ -22,8 +22,8 @@
       %tr
         %td= letter.letter_type
         %td= letter.summary
-        %td= letter.sent_date
-        %td= letter.received_date
+        %td= letter.sent_date_fa
+        %td= letter.received_date_fa
         %td= letter.senderpreson_name
         %td= letter.recievers.collect(&:preson_name).join(',')
         %td= letter.content
