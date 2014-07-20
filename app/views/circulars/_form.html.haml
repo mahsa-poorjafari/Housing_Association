@@ -8,13 +8,13 @@
 
   .form-group
     = f.label "عنوان بخشنامه", :class => "control-label"    
-    = f.text_field :title, :class => "text"
+    = f.text_field :title, :class => "form-control"
   .form-group
     = f.label "درصورتی که این بخشنامه به پروژه ای مربوط می باشد", :class => "control-label"    
     = f.select :project_id, options_for_select(Project.all.collect{ |u| [u.title, u.id] }), prompt: "پروژه مربوطه را انتخاب کنید"
   .form-group
     = f.label "توضیحات", :class => "control-label"    
-    = f.text_area :description, :class => "text"
+    = f.text_area :description, :class => "form-control"
   .form-group
     = f.label "فایل متنی بخشنامه", :class => "control-label"    
     = f.file_field :pdf
