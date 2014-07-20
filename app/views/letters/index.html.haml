@@ -1,41 +1,70 @@
 .width80.set-center.margin-top
   .page-title-holder
     .title
-      %h1 Listing letters
-    = link_to 'ثبت نامه ارسالی', new_letter_path(letter_type:"sent")
-    = link_to 'ثبت نامه دریافتی', new_letter_path(letter_type:"recieved")
-  %table
-    %tr
-      %th Letter type
-      %th Summary
-      %th Sent date
-      %th Received date
-      %th Sender
-      %th recievers
-      
-      %th Attachment
-      %th
-      %th
-      %th
-
-    - @letters.each do |letter|
+      %h1 لیست نامه ها
+      = link_to 'ثبت نامه ارسالی', new_letter_path(letter_type:"sent"), :class => "save-btn"
+      = link_to 'ثبت نامه دریافتی', new_letter_path(letter_type:"recieved"), :class => "save-btn"
+  %table.table.table-striped{id:"letters_table"}
+    %thead
       %tr
-        %td= letter.letter_type
-        %td= letter.summary
-        %td= letter.sent_date_fa
-        %td= letter.received_date_fa
-        %td 
-          =letter.senderpreson_name
-          =letter.sendercompany_name
-        %td
-          = letter.recievers.collect(&:preson_name).join(',')
-          = letter.recievers.collect(&:company_name).join(',')
-      
-        %td= letter.attachment
-        %td= link_to 'Show', letter
-        %td= link_to 'Edit', edit_letter_path(letter)
-        %td= link_to 'Destroy', letter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th ردیف‍
+        %th نوع نامه
+        %th خلاصه
+        %th تاریخ ارسال
+        %th تاریخ دریافت
+        %th ارسال کننده
+        %th دریافت کننده
+        
+        %th ضمیمه
+        - if is_admin?
+          %th عملیات
+        
+    %tbody{:id => "letter_container"}
+      - @letters.each_with_index do |letter, i|      
+        %tr
+          %td= (i+1)
+          %td= letter.letter_type
+          %td= letter.summary
+          %td= letter.sent_date_fa
+          %td= letter.received_date_fa
+          %td 
+            =letter.senderpreson_name
+            =letter.sendercompany_name
+          %td
+            = letter.recievers.collect(&:preson_name).join(',')
+            = letter.recievers.collect(&:company_name).join(',')
+        
+          %td= letter.attachment
+          - if is_admin?
+            %td         
+              = link_to 'Show', letter
+              = link_to 'Edit', edit_letter_path(letter)
+              = link_to 'Destroy', letter, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   %br
+
+
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#letters_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,8]
+    ,  
+      bSortable: false
+      aTargets: [0,8]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
 
   

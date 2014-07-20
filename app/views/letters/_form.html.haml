@@ -1,50 +1,51 @@
 = form_for @letter do |f|
   - if @letter.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@letter.errors.count, "error")} prohibited this letter from being saved:"
+    #error_explanation      
       %ul
-        - @letter.errors.full_messages.each do |msg|
+        - @letter.errors.each do |attr, msg|
           %li= msg
   .col-lg-6
-    .field
+    .form-group
       =Letter::LetterTypes[@letter.letter_type.to_sym]
       =f.hidden_field :letter_type
-    .field
+    .form-group
       = f.label :summary
       = f.text_field :summary
-    .field
+    .form-group
       = f.label :sent_date
       = f.text_field :sent_date_fa, class:"fa_date"
-    .field
+    .form-group
       = f.label :received_date
       = f.text_field :received_date_fa, class:"fa_date"
   .col-lg-6
-    .field
+    .form-group
       = f.label :senderpreson_name
       = f.text_field :senderpreson_name, data: {autocomplete_source: preson_names_contacts_path}
-      .field
+      .form-group
       = f.label :sendercompany_name
       = f.text_field :sendercompany_name, data: {autocomplete_source: company_names_contacts_path}
-    .field
+    .form-group
       =f.label :recievers
       =f.text_field :reciever_tokens, data: {autocomplete_source: reciever_names_contacts_path, load: @letter.recievers.map{|c|{id:c.id, name:c.preson_name}}}
-      =link_to "افزودن دریافت کننده جدید", new_contact_path, target:"_blank"
+      =link_to "افزودن دریافت کننده جدید", new_contact_path, target:"_blank", :class => "save-btn"
       /should be auto complete
-    .field
+    .form-group
       = f.label :attachment
       = f.text_field :attachment  
   .row
-    .field
+    .form-group
       از قالب های آماده استفاده کنید
       =select_tag :set_template, options_for_select(LetterTemplate.all.collect{ |lt| [lt.name, lt.id] }),{ :include_blank=>true }
-      =link_to "قالب آماده بسازید", new_letter_template_path, target:"_blank"
+      =link_to "قالب آماده بسازید", new_letter_template_path, target:"_blank", :class => "save-btn"
   .col-lg-12   
-    .field
+    .form-group
       = f.label :content
       = f.text_area :content, :class => "ckeditor"
   
-  .actions
-    = f.submit 'Save'
+  .form-group.col-lg-3
+    = f.submit 'ثبت', :class => "mainBtn"
+  .clear-float  
+    
 :coffeescript
 
   $('#set_template').change ->
