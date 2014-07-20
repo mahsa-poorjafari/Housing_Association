@@ -15,6 +15,14 @@ class Letter < ActiveRecord::Base
     self.sender = Contact.where(preson_name:senderperson_name).first || Contact.create(preson_name:senderperson_name)
   end
 
+  def sendercompany_name
+    self.sender.try(:preson_name) 
+  end
+  def sendercompany_name=(sendercompany_name)
+    sendercompany_name.strip!
+    self.sender = Contact.where(company_name:sendercompany_name).first || Contact.create(company_name:sendercompany_name)
+  end
+
   def reciever_tokens=(ids)
     self.reciever_ids = ids.split(',')
   end

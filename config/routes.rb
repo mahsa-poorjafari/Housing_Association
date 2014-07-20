@@ -24,6 +24,7 @@ HousingAssociation::Application.routes.draw do
     end
     collection do
       get :preson_names
+      get :company_names
       get :reciever_names
     end
 

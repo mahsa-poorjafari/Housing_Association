@@ -77,11 +77,18 @@ class ContactsController < ApplicationController
     @contacts = Contact.order(:preson_name).where("preson_name like ?", "%#{term}%")
     render json: @contacts.map(&:preson_name)
   end
-
+  def company_names
+    term = params[:term] || params[:q] #term is from jquery autocomplete and q is from token-input
+    @contacts = Contact.order(:company_name).where("company_name like ?", "%#{term}%")
+    render json: @contacts.map(&:company_name)
+  end
   def reciever_names
     term = params[:term] || params[:q] #term is from jquery autocomplete and q is from token-input
     @contacts = Contact.order(:preson_name).where("preson_name like ?", "%#{term}%")
-    render json: @contacts.map{|c|{id:c.id, name:c.preson_name}}
+    ret = @contacts.map{|c|{id:c.id, name:c.preson_name}}
+    @contacts = Contact.order(:company_name).where("company_name like ?", "%#{term}%")
+    ret += @contacts.map{|c|{id:c.id, name:c.company_name}}
+    render json: ret
   end
 
   private

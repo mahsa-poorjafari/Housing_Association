@@ -8,6 +8,7 @@
   .col-lg-6
     .field
       =Letter::LetterTypes[@letter.letter_type.to_sym]
+      =f.hidden_field :letter_type
     .field
       = f.label :summary
       = f.text_field :summary
@@ -21,6 +22,9 @@
     .field
       = f.label :senderpreson_name
       = f.text_field :senderpreson_name, data: {autocomplete_source: preson_names_contacts_path}
+      .field
+      = f.label :sendercompany_name
+      = f.text_field :sendercompany_name, data: {autocomplete_source: company_names_contacts_path}
     .field
       =f.label :recievers
       =f.text_field :reciever_tokens, data: {autocomplete_source: reciever_names_contacts_path, load: @letter.recievers.map{|c|{id:c.id, name:c.preson_name}}}
@@ -31,8 +35,9 @@
       = f.text_field :attachment  
   .row
     .field
-      ایجاد نمه از روی نامه های آمادا
+      از قالب های آماده استفاده کنید
       =select_tag :set_template, options_for_select(LetterTemplate.all.collect{ |lt| [lt.name, lt.id] }),{ :include_blank=>true }
+      =link_to "قالب آماده بسازید", new_letter_template_path, target:"_blank"
   .col-lg-12   
     .field
       = f.label :content

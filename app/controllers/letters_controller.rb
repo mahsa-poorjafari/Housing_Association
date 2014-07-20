@@ -14,7 +14,8 @@ class LettersController < ApplicationController
 
   # GET /letters/new
   def new
-    @letter = Letter.new(letter_type:params["letter_type"])
+    letter_type = params["letter_type"] || Letter::LetterTypes[:sent]
+    @letter = Letter.new(letter_type:letter_type)
   end
 
   # GET /letters/1/edit
@@ -69,6 +70,6 @@ class LettersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def letter_params
-      params.require(:letter).permit(:letter_type, :summary, :sent_date_fa, :received_date_fa, :senderpreson_name, :content, :attachment, :reciever_ids, :reciever_tokens)
+      params.require(:letter).permit(:letter_type, :summary, :sent_date_fa, :received_date_fa, :senderpreson_name, :sendercompany_name, :content, :attachment, :reciever_ids, :reciever_tokens)
     end
 end

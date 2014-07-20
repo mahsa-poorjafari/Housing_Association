@@ -5,6 +5,8 @@
 jQuery ->
   $("#letter_senderpreson_name").autocomplete
   	source: $('#letter_senderpreson_name').data('autocomplete-source')
+  $("#letter_sendercompany_name").autocomplete
+  	source: $('#letter_sendercompany_name').data('autocomplete-source')	
 
   $('#letter_reciever_tokens').tokenInput $('#letter_reciever_tokens').data('autocomplete-source'),
     minChars: 2

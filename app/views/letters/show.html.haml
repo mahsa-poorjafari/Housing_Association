@@ -1,27 +1,36 @@
-%p#notice= notice
+.width80.set-center.margin-top
+  .page-title-holder
+  %p#notice= notice
 
-%p
-  %b Letter type:
-  = @letter.letter_type
-%p
-  %b Summary:
-  = @letter.summary
-%p
-  %b Sent date:
-  = @letter.sent_date
-%p
-  %b Received date:
-  = @letter.received_date
-%p
-  %b Sender:
-  = @letter.sender
-%p
-  %b Content:
-  = @letter.content
-%p
-  %b Attachment:
-  = @letter.attachment
+  %p
+    %b Letter type:
+    = @letter.letter_type
+  %p
+    %b Summary:
+    = @letter.summary
+  %p
+    %b Sent date:
+    = @letter.sent_date_fa
+  %p
+    %b Received date:
+    = @letter.received_date_fa
+  %p
+    %b
+    Sender:
+    = @letter.senderpreson_name
+    = @letter.sendercompany_name
+  %p
+    %b
+    recievers:
+    = @letter.recievers.collect(&:preson_name).join(',')
+    = @letter.recievers.collect(&:company_name).join(',')
+  %p
+    %b Content:
+    =raw @letter.content
+  %p
+    %b Attachment:
+    = @letter.attachment
 
-= link_to 'Edit', edit_letter_path(@letter)
-\|
-= link_to 'Back', letters_path
+  = link_to 'Edit', edit_letter_path(@letter)
+  \|
+  = link_to 'Back', letters_path

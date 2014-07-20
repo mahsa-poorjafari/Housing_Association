@@ -12,7 +12,7 @@
       %th Received date
       %th Sender
       %th recievers
-      %th Content
+      
       %th Attachment
       %th
       %th
@@ -24,9 +24,13 @@
         %td= letter.summary
         %td= letter.sent_date_fa
         %td= letter.received_date_fa
-        %td= letter.senderpreson_name
-        %td= letter.recievers.collect(&:preson_name).join(',')
-        %td= letter.content
+        %td 
+          =letter.senderpreson_name
+          =letter.sendercompany_name
+        %td
+          = letter.recievers.collect(&:preson_name).join(',')
+          = letter.recievers.collect(&:company_name).join(',')
+      
         %td= letter.attachment
         %td= link_to 'Show', letter
         %td= link_to 'Edit', edit_letter_path(letter)
