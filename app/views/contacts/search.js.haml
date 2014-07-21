@@ -1,14 +1,14 @@
--if @contact    
+-if @contact.present?
   $('#search_result').empty();
   $("#search_result").prepend("#{escape_javascript(render(:partial => 'contact_search', :locals => {:result => @contact }))}");        
   $('form#search-form [type="text"]').val('');
   
--elsif @cooperative
+-elsif @cooperative.present?
   $('#search_result').empty();
   $("#search_result").prepend("#{escape_javascript(render(:partial => 'cooperative_search', :locals => {:result => @cooperative }))}");         
   $('form#search-form [type="text"]').val('');
   
--elsif @member
+-elsif @member.present?
   $('#search_result').empty();
   $("#search_result").prepend("#{escape_javascript(render(:partial => 'member_search', :locals => {:result => @member }))}");         
   $('form#search-form [type="text"]').val('');
