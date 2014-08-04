@@ -1,0 +1,8 @@
+-if @find_email.present? 
+  $('#pay-limit-search-result').empty();
+  $("#pay-limit-search-result").prepend("#{escape_javascript(render(:partial => 'email_search_result', :locals => {:result => @contact }))}");        
+  $('form#email-form [type="text"]').val('');
+  $('form#code-form [type="text"]').val('');
+- else
+  %h1= 'ایمیل وجود ندارد'
+  

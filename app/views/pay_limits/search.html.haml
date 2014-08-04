@@ -1,0 +1,24 @@
+.width80.set-center.margin-top
+  .tbox2
+    .title 
+      %h1= 'نتیجه پیگیری مشارکت'
+    #pay-limit-search-result
+      - if @find_code.present?  
+        .info-cadre
+          %p
+            - @find_code.each do |result|
+              = result.description
+              = result.partnership.first_name
+              = result.partnership.last_name
+      -else
+        .alert.alert-warning
+          %p= 'موردی یافت نشد. کدرهگیری خود را صحیح وارد کنید'
+        .info-cadre
+          .signin{:style => "background:#4D4D4D; margin:2%; float:right"}
+            %b{:style => "color:#fff"}= 'جستجو بر اساس کدرهگیری'
+            = render "pay_limits/search_by_code"
+          
+          .signin{:style => "background:#4D4D4D; margin:2%;"}
+            %b{:style => "color:#fff"}= 'جستجو بر اساس اطلاعات فردی'
+            = render "partnerships/search_by_email"
+          .clear-float  

@@ -6,7 +6,11 @@ HousingAssociation::Application.routes.draw do
     end
   end
 
-  resources :partnerships
+  resources :partnerships do
+    collection do
+      get :search_by_email
+    end
+  end
 
   resources :letters
 
@@ -47,7 +51,11 @@ HousingAssociation::Application.routes.draw do
     end
   end
 
-  resources :pay_limits 
+  resources :pay_limits do
+    collection do
+      get :search
+    end
+  end 
   resources :roles
 
   resources :slides

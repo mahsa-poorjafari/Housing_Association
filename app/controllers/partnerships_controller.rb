@@ -12,6 +12,13 @@ class PartnershipsController < ApplicationController
   # GET /partnerships/1.json
   def show
   end
+  
+  def search_by_email
+    email = params[:email]   
+    if email
+      @find_email = Partnership.search(email)
+    end 
+  end
 
   # GET /partnerships/new
   def new

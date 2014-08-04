@@ -8,5 +8,4 @@ class Complaint < ActiveRecord::Base
   validates :subject, :user_email, :user_phone, :presence => {:message => 'فیلدها را وارد کنید.'}
   validates :user_email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => 'ایمیل نامعتبر است.' } 
   validates :user_phone, format: { with: /\d{10}/, message: "لطفا ده رقم شماره تلفن همراه خود را بدون صفر وارد کنید." }
-#validates :subject, format: { with: /\d{3}-\d{3}-\d{4}/, message: "تلفن خود را صحیح وارد کنید." }
 end

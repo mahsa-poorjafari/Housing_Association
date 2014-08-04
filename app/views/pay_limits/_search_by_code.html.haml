@@ -1,0 +1,22 @@
+= form_tag search_pay_limits_path, :method => "get", id: "code-form" do 
+  = text_field_tag :search, params[:search], :id => 'code_field', placeholder: 'کدرهگیری خود را وارد کنید' 
+  = submit_tag "جستجو", :name => nil, :id => "code-submit" 
+  #code-clear.col-md-4= link_to  "تصحیح", '#code'            
+  .clear-float
+  
+
+:javascript
+  $('#code-clear').click(function()
+  {
+    $('#code_field').val('');
+    $('#search_code_result').empty();
+  });
+  
+  $(':submit#code-submit').click(function(e) {
+    $(':text#code_field').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });

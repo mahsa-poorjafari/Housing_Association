@@ -1,0 +1,21 @@
+= form_tag search_by_email_partnerships_path, :method => "get", id: "email-form", :remote => "true" do 
+  = text_field_tag :email, params[:email], :id => 'email_field', placeholder: 'ایمیل خود را وارد کنید' 
+  = submit_tag "جستجو", :name => nil, :id => "email-submit" 
+  #email-clear.col-md-4= link_to  "تصحیح", '#code'            
+  .clear-float
+  
+
+:javascript
+  $('#email-clear').click(function()
+  {
+    $('#email_field').val('');    
+  });
+  
+  $(':submit#email-submit').click(function(e) {
+    $(':text#email_field').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });

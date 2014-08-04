@@ -1,4 +1,4 @@
- module PersianNumbers 
+module PersianNumbers 
   def persian_numbers(*args)
     args.each do |arg|
       define_method "#{arg.to_s}=" do |str|

@@ -1,0 +1,31 @@
+- if @find_email.present?
+  .info-cadre
+    - @find_email.each do |partnership|
+      .pull-right.width50
+        %h3= 'اطلاعات فردی'
+        %p  
+          %b نام و نام خانوادگی:
+          = partnership.first_name + " " + partnership.last_name
+        %p
+          %b نام پدر:
+          = partnership.father_name
+        %p
+          %b ایمیل:
+          = partnership.email
+      .pull-right.width50
+        %h3= 'اطلاعات مشارکتی'
+        - partnership.pay_limits.each do |pay_limit|
+          .info-pay_limits
+            %p
+              %b عنوان پروژه:
+              = pay_limit.project.title
+            %p
+              %b تاریخ ثبت درخواست:
+              =JalaliDate.new(pay_limit.created_at) 
+            %p
+              %b سقف مبلغ پرداختی:
+              = pay_limit.amount
+            %p
+              %b سایر توضیحات:
+              = pay_limit.description
+      .clear-float

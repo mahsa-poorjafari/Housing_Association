@@ -13,6 +13,12 @@ class PayLimitsController < ApplicationController
   def show
     
   end
+  def search
+    code = params[:search]   
+    if code      
+      @find_code = PayLimit.search(code)
+    end 
+  end
   
   
   # GET /pay_limits/new

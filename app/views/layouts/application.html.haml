@@ -81,7 +81,15 @@
               .signin
                 %b{:style => "color:#fff"}= 'ورود به سایت'
                 = render "shared/login"
-            
+          - if current_page?(root_path)
+            .signin
+              %b{:style => "color:#fff"}= 'پیگیری ثبت نام'
+              = render "pay_limits/search_by_code"
+              %p.search-by-email
+                %i= 'اگر کدرهگیری خود را فراموش کرده اید '
+                = link_to 'اینجا', search_pay_limits_path
+                %i= 'کلیک کنید.'
+            .clear-float  
                 
         / /.slider
     .clear-float 
