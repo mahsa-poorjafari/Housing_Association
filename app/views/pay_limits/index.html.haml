@@ -1,7 +1,6 @@
 .width80.set-center.margin-top
   .tbox2
     .title 
-
       %h1= 'لیست در خواست مشارکت برای پروژه ها'
       
       = link_to 'چاپ جدول', '#', :id => "print-table" , :class => "save-btn"
@@ -21,12 +20,14 @@
         - @pay_limits.each_with_index do |pay_limit, i|
           %tr
             %td= (i+1) 
-            %td= pay_limit.id
+            %td= pay_limit.tracking_code
             %td= pay_limit.amount
-            %td= pay_limit.partnership_id
+            %td= pay_limit.partnership.email
             %td= pay_limit.project.title
-            %td
+            %td{:style => "text-align:left"}
               = link_to 'مشاهده جزئیات', pay_limit        
+              \|
+              = link_to 'ثبت نتیجه', pay_limit
               \|
               = link_to 'حذف', pay_limit, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 

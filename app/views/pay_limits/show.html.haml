@@ -37,6 +37,12 @@
             = @pay_limit.amount
           - if is_admin?          
             = link_to 'ویرایش اطلاعات مالی', edit_pay_limit_path(@pay_limit)
+            
+        - if is_admin?
+          %h4 ثبت نتیجه مشارکت
+          .part
+            = render 'set_result'            
+          
       .col-sm-6
         %h4 اطلاعات کاربری
         .part

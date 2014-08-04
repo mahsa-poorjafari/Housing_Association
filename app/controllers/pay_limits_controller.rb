@@ -13,6 +13,7 @@ class PayLimitsController < ApplicationController
   def show
     
   end
+  
   def search
     code = params[:search]   
     if code      
@@ -88,6 +89,6 @@ class PayLimitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pay_limit_params
-      params.require(:pay_limit).permit(:amount, :user_id, :project_id, :description, :partnership_id, :tracking_code)
+      params.require(:pay_limit).permit(:amount, :project_id, :description, :partnership_id, :tracking_code, :accept_description, :accept)
     end
 end
