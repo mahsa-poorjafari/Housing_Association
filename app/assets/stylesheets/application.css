@@ -147,7 +147,7 @@ padding:2%;
 .pay-limit-box:hover  {cursor:pointer}
 .pay-limit-box:hover  a {color:#ec523f}
 img.recyclebin-icon {width:50px; height:40px;}
-.text-cadr-home-page {text-align:justify}
+.text-cadr-home-page {text-align:justify; font-family:open_sansregular}
 .form-group.col-sm-4 {float:right}
 
 #register a {color:#fff;}
