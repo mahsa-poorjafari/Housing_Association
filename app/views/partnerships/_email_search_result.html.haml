@@ -28,4 +28,16 @@
             %p
               %b سایر توضیحات:
               = pay_limit.description
+          .info-pay_limits{:style => "background:#E6E6FA"}
+            %h3= 'نتیجه درخواست'
+            %p
+              - if pay_limit.accept
+                %b این درخواست تایید شده است. 
+                %i برای هماهنگی های بعدی با شما تماس گرفته خواهد شد.
+              - else
+                %b درخواست شما در حال بررسی است
+                
+            %p
+              %b سایر توضیحات:
+              = pay_limit.accept_description
       .clear-float
