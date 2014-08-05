@@ -26,15 +26,16 @@ class LetterTemplatesController < ApplicationController
   def create
     @letter_template = LetterTemplate.new(letter_template_params)
 
-    respond_to do |format|
-      if @letter_template.save
-        format.html { redirect_to @letter_template, notice: 'Letter template was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @letter_template }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @letter_template.errors, status: :unprocessable_entity }
-      end
+    
+    if @letter_template.save
+      redirect_to new_letter_path
+      
+      
+    else
+      render action: 'new' 
+      
     end
+  
   end
 
   # PATCH/PUT /letter_templates/1

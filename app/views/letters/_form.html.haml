@@ -3,6 +3,7 @@
     = text_field_tag :cunter, params[:cunter], :id => 'cunter_field' , placeholder: "عدد شروع کننده شمارنده"
     = submit_tag "ثبت", :name => nil, :id => "cunter-submit" , :style => "width:30%; float:right " 
     #cunter-clear.col-md-4= link_to  "تصحیح", '#phone'
+    #cunter-close.col-md-4= link_to  "بستن", '#close'
 .clear-float
 = form_for @letter do |f|
   - if @letter.errors.any?
@@ -48,55 +49,44 @@
         = f.label 'تاریخ ارسال:', :class => "control-label ", :style => "width:30%; float:right "    
         = f.text_field :sent_date_fa, class:" fa_date form-control", :value => @current_date, :style => "width:50%; "    
   .clear-float
-  %hr
-  .col-lg-10
+  .base-letter
     .form-group
-      =Letter::LetterTypes[@letter.letter_type.to_sym]
-      =f.hidden_field :letter_type, :class => "form-control"
-    .col-lg-12
-      .col-lg-6
-        .form-group
-          = f.text_field :sent_date_fa, class:" fa_date col-sm-3 form-control", :value => @current_date
-          = f.label 'تاریخ ارسال:', :class => "col-sm-3 control-label "    
-          
-        .form-group
-          = f.label 'خلاصه نامه:', :class => "control-label"    
-          = f.text_field :summary, :class => "form-control"
-    .form-group
-      = f.label 'تاریخ ارسال:', :class => "control-label"    
-      = f.text_field :sent_date_fa, class:"fa_date form-control"
-    .form-group
-      = f.label 'تاریخ دریافت:', :class => "control-label"    
-      = f.text_field :received_date_fa, class:"fa_date form-control"
-  .col-lg-6
-    .form-group
-      = f.label 'شخص ارسال کننده:', :class => "control-label"    
-      = f.text_field :senderpreson_name, data: {autocomplete_source: preson_names_contacts_path}, :class => "form-control"
+      = f.label 'خلاصه نامه:', :class => "control-label"    
+      = f.text_field :summary, :class => "form-control"
+    .col-sm-3
+    .col-sm-9
+      .form-group.col-sm-6
+        = f.label 'شخص ارسال کننده:', :class => "control-label"    
+        = f.text_field :senderpreson_name, data: {autocomplete_source: preson_names_contacts_path}, :class => "form-control"
+      .form-group.col-sm-6
+        = f.label 'شرکت ارسال کننده', :class => "control-label"    
+        = f.text_field :sendercompany_name, data: {autocomplete_source: company_names_contacts_path}, :class => "form-control"
       .form-group
-      = f.label 'شرکت ارسال کننده', :class => "control-label"    
-      = f.text_field :sendercompany_name, data: {autocomplete_source: company_names_contacts_path}, :class => "form-control"
+        =f.label 'دریافت کننده:', :class => "control-label"    
+        =f.text_field :reciever_tokens, data: {autocomplete_source: reciever_names_contacts_path, load: @letter.recievers.map{|c|{id:c.id, name:c.preson_name}}}
+        =link_to "افزودن دریافت کننده جدید", new_contact_path, target:"_blank", :class => "save-btn"
+        /should be auto complete
+      .form-group
+        = f.label 'ضمایم:', :class => "control-label"    
+        = f.text_field :attachment  , :class => "form-control"
+    .clear-float
     .form-group
-      =f.label 'دریافت کننده:', :class => "control-label"    
-      =f.text_field :reciever_tokens, data: {autocomplete_source: reciever_names_contacts_path, load: @letter.recievers.map{|c|{id:c.id, name:c.preson_name}}}
-      =link_to "افزودن دریافت کننده جدید", new_contact_path, target:"_blank", :class => "save-btn"
-      /should be auto complete
-    .form-group
-      = f.label 'ضمایم:', :class => "control-label"    
-      = f.text_field :attachment  , :class => "form-control"
-  .row
-    .form-group
-      از قالب های آماده استفاده کنید
+      %i= 'از قالب های آماده استفاده کنید'      
       =select_tag :set_template, options_for_select(LetterTemplate.all.collect{ |lt| [lt.name, lt.id] }), prompt: "قالب نامه موردنظر را انتخاب کنید", :include_blank=>true 
+      %br
+      %i= 'می توانید برای سهولت ثبت نامه، برای نامه هایی که قالب یکسان دارند. قالب را یک بار تعریف کنید و به دفعات از آن استفاده کنید'
       =link_to "قالب آماده بسازید", new_letter_template_path, target:"_blank", :class => "save-btn"
-  .col-lg-12   
+      
+    .clear-float
     .form-group
       = f.label 'محتوی:', :class => "control-label"    
       = f.text_area :content, :class => "ckeditor"
-  
-  .form-group.col-lg-3
-    = f.submit 'ثبت', :class => "mainBtn"
-  .clear-float  
-    
+  .clear-float
+  .maskan-address.set-center
+    %div= 'آدرس و تلفن'
+  .form-group.col-sm-3
+    = f.submit 'ثبت نامه', :class => "mainBtn"  
+
 :coffeescript
   $('#set_template').change ->
     if $('#set_template').val() != ""
@@ -107,12 +97,17 @@
 
 :javascript
   $('#change-letter-cunter').click(function(){
+    alert ('آیا مطمئن هستید؟');
     $('#letter_cunter').fadeIn(1000);
   });
 
   $('#cunter-clear').click(function()
   {
     $('#cunter_field').val('');    
+  }); 
+  $('#cunter-close').click(function()
+  {
+    $('#letter_cunter').hide();
   }); 
 
   

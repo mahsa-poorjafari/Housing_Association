@@ -1,16 +1,16 @@
 = form_for @letter_template do |f|
   - if @letter_template.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@letter_template.errors.count, "error")} prohibited this letter_template from being saved:"
+    #error_explanation      
       %ul
-        - @letter_template.errors.full_messages.each do |msg|
+        - @letter_template.errors.each do |attr, msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :content
-  = f.text_area :content, :class => "ckeditor"
-  .actions
-    = f.submit 'Save'
+  .form-group
+    = f.label 'عنوان قالب:', :class => "control-label "
+    = f.text_field :name, :class => "form-control"
+  .form-group
+    = f.label 'متن قالب/فرمت قالب', :class => "control-label "
+    = f.text_area :content, :class => "ckeditor"
+  .form-group.col-sm-4
+    = f.submit 'ذخیره قالب', :class => "mainBtn"  
+  .clear-float  
