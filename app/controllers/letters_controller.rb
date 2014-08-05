@@ -18,13 +18,15 @@ class LettersController < ApplicationController
     @letter = Letter.new(letter_type:letter_type)
     @current_date = JalaliDate.new(Date.today)
     @current_year = JalaliDate.new(Date.today).strftime("%y")
-    @last_letter = Letter.last.letter_number
-    p @last_letter_split = @last_letter.split('-').first
-    p '1111111111'
-    p @last_letter_split = @last_letter_split.to_i
-    p @last_letter_split = @last_letter_split + 1
-    p @last_letter_split = @last_letter_split.to_s
-    p '222222222'
+    if Letter.last.present?
+      @last_letter = Letter.last.letter_number
+      p @last_letter_split = @last_letter.split('-').first
+      p '1111111111'
+      p @last_letter_split = @last_letter_split.to_i
+      p @last_letter_split = @last_letter_split + 1
+      p @last_letter_split = @last_letter_split.to_s
+      p '222222222'
+    end
     
     
   end

@@ -72,7 +72,7 @@
     .clear-float
     .form-group
       %i= 'از قالب های آماده استفاده کنید'      
-      =select_tag :set_template, options_for_select(LetterTemplate.all.collect{ |lt| [lt.name, lt.id] }), prompt: "قالب نامه موردنظر را انتخاب کنید", :include_blank=>true 
+      =select_tag :set_template, options_for_select(LetterTemplate.all.collect{ |lt| [lt.name, lt.id] }), prompt: "قالب نامه موردنظر را انتخاب کنید"
       %br
       %i= 'می توانید برای سهولت ثبت نامه، برای نامه هایی که قالب یکسان دارند. قالب را یک بار تعریف کنید و به دفعات از آن استفاده کنید'
       =link_to "قالب آماده بسازید", new_letter_template_path, target:"_blank", :class => "save-btn"
