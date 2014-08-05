@@ -2,8 +2,8 @@
   .page-title-holder
     .title
       %h1 لیست نامه ها
-      = link_to 'ثبت نامه ارسالی', new_letter_path(letter_type:"sent"), :class => "save-btn"
-      = link_to 'ثبت نامه دریافتی', new_letter_path(letter_type:"recieved"), :class => "save-btn"
+      = link_to 'ثبت نامه صادره', new_letter_path(letter_type:"sent"), :class => "save-btn"
+      = link_to 'ثبت نامه وارده', new_letter_path(letter_type:"recieved"), :class => "save-btn"
   %table.table.table-striped{id:"letters_table"}
     %thead
       %tr

@@ -24,16 +24,17 @@
   .form-group.col-sm-3.pull-right
     = f.label 'شماره تماس همراه:*', :class => "control-label"
     = f.text_field :mobile, :class => "form-control", :id => "mobile"
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-3.pull-right
     = f.label 'تاریخ تولد:', :class => "control-label"
-    = f.date_select :birthdate, :class => "form-control"
-  .clear-float
+    = f.text_field :birthdate_fa, :class => "fa_date form-control"
+  
   .form-group.col-sm-3.pull-right
     = f.label 'جنسیت:', :class => "control-label"
     =  f.select(:gender, [['مذکر',1], ['مونث',0]])  
+  .clear-float
   .form-group.col-sm-6.pull-right
     .col-sm-8= f.label 'عضو خانواده فرهنگیان هستم.', :class => "control-label"
-    .col-sm-2= f.check_box :farhangi
+    .col-sm-2= f.check_box :farhangi, :class => "form-control"
   .clear-float
   .form-group.col-sm-6.pull-right
     = f.label 'آدرس', :class => "control-label"

@@ -1,7 +1,9 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h1 ثبت نامه جدید
+      %h1
+        ثبت نامه  
+        =Letter::LetterTypes[@letter.letter_type.to_sym]
     .contact-form
       = render 'form'
 

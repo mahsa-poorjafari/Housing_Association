@@ -1,16 +1,67 @@
+#letter_cunter{:style => "width:30%; float:right " }
+  = form_tag cunter_letters_path, :method => "get", id: "cunter-form", :remote => true do 
+    = text_field_tag :cunter, params[:cunter], :id => 'cunter_field' , placeholder: "عدد شروع کننده شمارنده"
+    = submit_tag "ثبت", :name => nil, :id => "cunter-submit" , :style => "width:30%; float:right " 
+    #cunter-clear.col-md-4= link_to  "تصحیح", '#phone'
+.clear-float
 = form_for @letter do |f|
   - if @letter.errors.any?
     #error_explanation      
       %ul
         - @letter.errors.each do |attr, msg|
           %li= msg
-  .col-lg-6
+  
+  
+  .col-sm-12.andicator
+    .col-sm-4          
+      .form-group.dates
+        = f.label 'تاریخ دریافت:', :class => "control-label", :style => "width:30%; float:right "        
+        = f.text_field :received_date_fa, class:"fa_date form-control", :style => "width:50%; " 
+      
+        
+    .col-sm-3.besella
+      %h2= 'بسمه تعالی'
+    .col-sm-5
+      .form-group.dates
+        = f.label 'شماره نامه:', :class => "control-label ", :style => "width:30%; float:right " 
+        .col-sm-9 
+          
+          - if @last_letter.present?
+            %b#counter-number{:style => "width:20%; float:right "}= @last_letter_split
+            = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field', :value => @last_letter_split
+          - else
+            %b#counter-number{:style => "width:20%; float:right "}                      
+            = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field'
+          %select#region_3{name: "alphabet", :style => "width:30%; float:right; "}
+            %option{value: "اد"} اد
+            %option{selected: "selected", value: "الف"} الف
+          %b{:style => "width:20%; float:right "}= @current_year
+          = hidden_field_tag :current_year, params[:current_year], :id => 'current_year_field' , :value => @current_year
+      .clear-float  
+      #change-letter-cunter
+        %i= 'برای تغییر عدد شروع کننده شمارنده نامه '
+        = link_to 'اینجا کلیک کنید.', '#'
+        
+        
+      .clear-float  
+      .form-group.dates
+        = f.label 'تاریخ ارسال:', :class => "control-label ", :style => "width:30%; float:right "    
+        = f.text_field :sent_date_fa, class:" fa_date form-control", :value => @current_date, :style => "width:50%; "    
+  .clear-float
+  %hr
+  .col-lg-10
     .form-group
       =Letter::LetterTypes[@letter.letter_type.to_sym]
       =f.hidden_field :letter_type, :class => "form-control"
-    .form-group
-      = f.label 'خلاصه نامه:', :class => "control-label"    
-      = f.text_field :summary, :class => "form-control"
+    .col-lg-12
+      .col-lg-6
+        .form-group
+          = f.text_field :sent_date_fa, class:" fa_date col-sm-3 form-control", :value => @current_date
+          = f.label 'تاریخ ارسال:', :class => "col-sm-3 control-label "    
+          
+        .form-group
+          = f.label 'خلاصه نامه:', :class => "control-label"    
+          = f.text_field :summary, :class => "form-control"
     .form-group
       = f.label 'تاریخ ارسال:', :class => "control-label"    
       = f.text_field :sent_date_fa, class:"fa_date form-control"
@@ -53,3 +104,23 @@
       url: '#{set_letter_templates_path}',
       data: id: $('#set_template').val(),
       });  
+
+:javascript
+  $('#change-letter-cunter').click(function(){
+    $('#letter_cunter').fadeIn(1000);
+  });
+
+  $('#cunter-clear').click(function()
+  {
+    $('#cunter_field').val('');    
+  }); 
+
+  
+  $(':submit#cunter-submit').click(function(e) {
+    $(':text#cunter_field').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });

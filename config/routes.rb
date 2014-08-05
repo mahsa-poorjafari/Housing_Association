@@ -12,7 +12,11 @@ HousingAssociation::Application.routes.draw do
     end
   end
 
-  resources :letters
+  resources :letters do
+    collection do
+      get :cunter
+    end
+  end
 
   resources :member_posts
 

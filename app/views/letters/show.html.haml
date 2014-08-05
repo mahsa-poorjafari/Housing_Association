@@ -1,36 +1,42 @@
 .width80.set-center.margin-top
   .page-title-holder
   %p#notice= notice
-
+  
   %p
-    %b Letter type:
+    %b شماره نامه:
+    = @letter.letter_number
+  %p
+    %b نوع نامه:
     = @letter.letter_type
   %p
-    %b Summary:
+    %b چکیده نامه:
     = @letter.summary
   %p
-    %b Sent date:
+    %b تاریخ ارسال نامه:
     = @letter.sent_date_fa
   %p
-    %b Received date:
+    %b تاریخ دریافت نامه:
     = @letter.received_date_fa
   %p
-    %b
-    Sender:
+    %b= ' فرد فرستنده:'
     = @letter.senderpreson_name
+  %p
+    %b= 'شرکت فرستنده:'
+      
     = @letter.sendercompany_name
   %p
-    %b
-    recievers:
+    %b= 'فرد گیرنده:'          
     = @letter.recievers.collect(&:preson_name).join(',')
+  %p
+    %b= 'شرکت گیرنده:'
     = @letter.recievers.collect(&:company_name).join(',')
   %p
-    %b Content:
+    %b متن نامه
     =raw @letter.content
   %p
-    %b Attachment:
+    %b ضمایم
     = @letter.attachment
 
-  = link_to 'Edit', edit_letter_path(@letter)
+  = link_to 'ویرایش', edit_letter_path(@letter)
   \|
-  = link_to 'Back', letters_path
+  = link_to 'بازگشت', :back

@@ -189,3 +189,6 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
 .reg-info .part{border-right:2px dotted #ec523f; padding:2%}
 .reg-info h4{border-bottom:2px dotted #ec523f; text-align:center; padding:2%; font-size:18px;}
 .info-cadre {border:1px dotted #ec523f; min-height:50px;  padding:2%; font-size:1.5em}
+.andicator .dates {text-align:right}
+.andicator .besella {text-align:center}
+#letter_cunter {display:none}

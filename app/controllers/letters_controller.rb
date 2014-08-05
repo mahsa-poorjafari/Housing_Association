@@ -16,6 +16,21 @@ class LettersController < ApplicationController
   def new
     letter_type = params["letter_type"] || Letter::LetterTypes[:sent]
     @letter = Letter.new(letter_type:letter_type)
+    @current_date = JalaliDate.new(Date.today)
+    @current_year = JalaliDate.new(Date.today).strftime("%y")
+    @last_letter = Letter.last.letter_number
+    p @last_letter_split = @last_letter.split('-').first
+    p '1111111111'
+    p @last_letter_split = @last_letter_split.to_i
+    p @last_letter_split = @last_letter_split + 1
+    p @last_letter_split = @last_letter_split.to_s
+    p '222222222'
+    
+    
+  end
+  def cunter
+    c = params[:cunter]    
+    p @start_count = c
   end
 
   # GET /letters/1/edit
@@ -26,16 +41,20 @@ class LettersController < ApplicationController
   # POST /letters.json
   def create
     @letter = Letter.new(letter_params)
-
-    respond_to do |format|
-      if @letter.save
-        format.html { redirect_to @letter, notice: 'Letter was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @letter }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @letter.errors, status: :unprocessable_entity }
-      end
+    p @current_year = params[:current_year]
+    p @alphabet = params[:alphabet] 
+    p @counter_number = params[:counter_number]
+    
+    p @letter_number = @counter_number + '-' + @alphabet + @current_year
+    @letter.letter_number = @letter_number
+    
+    if @letter.save
+      redirect_to @letter
+      flash[:letter] = 'Letter was successfully created.' 
+    else
+      render action: 'new'      
     end
+  
   end
 
   # PATCH/PUT /letters/1
