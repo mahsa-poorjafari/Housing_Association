@@ -37,9 +37,11 @@
           %td= letter.attachment
           - if is_admin?
             %td         
-              = link_to 'Show', letter
-              = link_to 'Edit', edit_letter_path(letter)
-              = link_to 'Destroy', letter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              = link_to 'مشاهده', letter
+              \|
+              = link_to 'ویرایش', edit_letter_path(letter)
+              \|
+              = link_to 'حذف', letter, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
 
 :coffeescript

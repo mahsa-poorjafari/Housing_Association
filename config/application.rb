@@ -21,6 +21,6 @@ module HousingAssociation
     # config.i18n.default_locale = :de
     config.assets.initialize_on_precompile = false    
     config.serve_static_assets = true
-    
+    config.middleware.use "PDFKit::Middleware", :print_media_type => true
   end
 end

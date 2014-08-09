@@ -1,42 +1,76 @@
 .width80.set-center.margin-top
-  .page-title-holder
-  %p#notice= notice
-  
-  %p
-    %b شماره نامه:
-    = @letter.letter_number
-  %p
-    %b نوع نامه:
-    = @letter.letter_type
-  %p
-    %b چکیده نامه:
-    = @letter.summary
-  %p
-    %b تاریخ ارسال نامه:
-    = @letter.sent_date_fa
-  %p
-    %b تاریخ دریافت نامه:
-    = @letter.received_date_fa
-  %p
-    %b= ' فرد فرستنده:'
-    = @letter.senderpreson_name
-  %p
-    %b= 'شرکت فرستنده:'
-      
-    = @letter.sendercompany_name
-  %p
-    %b= 'فرد گیرنده:'          
-    = @letter.recievers.collect(&:preson_name).join(',')
-  %p
-    %b= 'شرکت گیرنده:'
-    = @letter.recievers.collect(&:company_name).join(',')
-  %p
-    %b متن نامه
-    =raw @letter.content
-  %p
-    %b ضمایم
-    = @letter.attachment
+  - if notice.present?
+    .alert.alert-success= notice
+  .page-title-holder  
+    
+    %a.print{href: "#", rel: "content"} Print
+    .letter-show#content      
+      .col-sm-12.letter-info
+        .col-sm-3.letter-left-info          
+          %p
+            %b= 'تاریخ' 
+            = JalaliDate.new(@letter.created_at)              
+          %p
+            %b= 'شماره'                  
+            = @letter.letter_number
+          %p
+            %b= 'پیوست'            
+        .col-sm-5.letter-besmei
+          %b= 'بسمه تعالی'
+        .col-sm-4.letter-right-info          
+          .letter-company-name= 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان'
+          %p
+            %b= 'شماره ثبت ۱۱۹۰۵'
+      .col-sm-12.letter-holder
+        .col-sm-12.letter-inner-title= @letter.senderpreson_name
+        .col-sm-12.letter-text
+          %p=raw @letter.content
+        .col-sm-12.letter-signture  
+          .col-sm-5
+            %p= 'باتشکر'
+            %b= 'مدیریت اتحادیه مسکن فرهنگیان خراسان'
+        
+            
+        .set-center.show-address= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۷۶۲۰۷۷۵-۰۵۱۳'
+        
+    .avoid-this
+      %p
+        %b شماره نامه:
+        = @letter.letter_number
+      %p
+        %b نوع نامه:
+        = @letter.letter_type
+      %p
+        %b چکیده نامه:
+        = @letter.summary
+      %p
+        %b تاریخ ارسال نامه:
+        = @letter.sent_date_fa
+      %p
+        %b تاریخ دریافت نامه:
+        = @letter.received_date_fa
+      %p
+        %b= ' فرد فرستنده:'
+        = @letter.senderpreson_name
+      %p
+        %b= 'شرکت فرستنده:'
+          
+        = @letter.sendercompany_name
+      %p
+        %b= 'فرد گیرنده:'          
+        = @letter.recievers.collect(&:preson_name).join(',')
+      %p
+        %b= 'شرکت گیرنده:'
+        = @letter.recievers.collect(&:company_name).join(',')
+      %p
+        %b متن نامه
+        =raw @letter.content
+      %p
+        %b ضمایم
+        = @letter.attachment
 
-  = link_to 'ویرایش', edit_letter_path(@letter)
-  \|
-  = link_to 'بازگشت', :back
+      = link_to 'ویرایش', edit_letter_path(@letter)
+      \|
+      = link_to 'بازگشت', :back
+
+

@@ -21,6 +21,7 @@ gem 'impressionist'
 gem 'ahoy_matey'
 gem "farsifu"
 
+
 gem 'colorbox-rails'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'ckeditor_rails'
