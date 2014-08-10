@@ -24,9 +24,7 @@
   = link_to "مدیریت مقالات", Article
   %br
   = link_to "مدیریت فرم های اتحادیه", PdfForm
-.col-md-5 
-  = link_to "مدیریت نامه ها", Letter
-  %br
+.col-md-5   
   = link_to "مدیریت تعاونیها ", Cooperative
   %br
   = link_to "نمایش اعضا تعاونیها", Member
@@ -43,7 +41,7 @@
   %br
   = link_to 'پروفایل مدیر سایت', edit_user_registration_path(current_user)
   %br
-  = link_to 'بایگانی', Letter
+  = link_to 'بایگانی و مدیریت نامه ها', Letter
   %br
   = link_to "خروج", destroy_user_session_path, :method => :delete
 
