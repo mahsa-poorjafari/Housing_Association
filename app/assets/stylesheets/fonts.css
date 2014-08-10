@@ -1,27 +1,27 @@
-/*
+
 @font-face {
   font-family: 'open_sansregular';
-  src: url('fonts/BYekan.eot');
-  src: url('fonts/BYekan.eot?#iefix') format('embedded-opentype'),
-    url('fonts/BYekan.woff') format('woff'),
-    url('fonts/BYekan.ttf') format('truetype'),
-    url('fonts/BYekan.svg#open_sansregular') format('svg');
+  src: url('BYekan.eot');
+  src: url('BYekan.eot?#iefix') format('embedded-opentype'),
+    url('BYekan.woff') format('woff'),
+    url('BYekan.ttf') format('truetype'),
+    url('BYekan.svg#open_sansregular') format('svg');
   font-weight: normal;
   font-style: normal;
 
 }
 @font-face {
     font-family: 'IranNastaligh';
-    src: url('fonts/IranNastaligh.eot');
-    src: url('fonts/IranNastaligh.eot?#iefix') format('embedded-opentype'),        
-         url('fonts/IranNastaligh.otf') format('otf'),
-         url('fonts/IranNastaligh.ttf') format('truetype'),
-         url('fonts/IranNastaligh.svg#IranNastaligh_box') format('svg');
+    src: url('IranNastaligh.eot');
+    src: url('IranNastaligh.eot?#iefix') format('embedded-opentype'),        
+         url('IranNastaligh.otf') format('otf'),
+         url('IranNastaligh.ttf') format('truetype'),
+         url('IranNastaligh.svg#IranNastaligh_box') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
-*/
+/*
 @font-face {
     font-family: 'open_sansregular';
     src: font-url('/assets/BYekan.eot');
@@ -46,7 +46,7 @@
 }
 
 
-
+*/
 body {
   font-family: 'open_sansregular';
   direction:rtl;
