@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class LettersController < ApplicationController
   before_action :set_letter, only: [:show, :edit, :update, :destroy]
 
@@ -64,7 +65,7 @@ class LettersController < ApplicationController
   def update
     respond_to do |format|
       if @letter.update(letter_params)
-        format.html { redirect_to @letter, notice: 'Letter was successfully updated.' }
+        format.html { redirect_to @letter, notice: 'ویرایش انجام شد.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -86,7 +87,7 @@ class LettersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_letter
-      @letter = Letter.find(params[:id])
+      @letter = Letter.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
