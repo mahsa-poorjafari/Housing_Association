@@ -1,4 +1,4 @@
-@import url("fonts.css") print;
+@import url("fonts.css.scss") print;
 @media print {    
   body {
     direction:rtl;
@@ -14,7 +14,7 @@
   .letter-show .letter-right-info .letter-company-name{font-size:2em; font-weight:bold}
   .letter-show .letter-right-info p{font-size:1.5em; }
   .letter-left-info {font-size:1.5em; }
-  .letter-besmei {font-size:1.5em; text-align:center}
+  .letter-besmei {font-size:1.5em; text-align:right}
   .letter-show .letter-holder {     
     min-height:700px;
     margin-top:20%;    
