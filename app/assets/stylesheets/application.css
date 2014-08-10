@@ -222,9 +222,11 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
   position:relative;
 }
 .letter-show .letter-holder .letter-inner-title {font-family:IranNastaligh; font-size:2em; color:#000;}
-.letter-show .letter-holder .letter-text {font-size:1.5em; color:#000; margin:10% 0;
+.letter-show .letter-holder .letter-text {font-size:1.5em; color:#000; margin:5% 2%;
  text-align:justify; direction:rtl; 
+ font-family: 'open_sansregular';
 }
+.letter-show .letter-holder .letter-text p {font-family: 'open_sansregular';}
 .letter-show .letter-holder .letter-signture  {text-align:center; font-size:1.5em;
 }
 .show-address {width:70%; height:50px; 
