@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'open_sansregular';
-  src: asset_url('fonts/BYekan.eot');
-  src: asset_url('fonts/BYekan.eot?#iefix') format('embedded-opentype'),
-    asset_url('fonts/BYekan.woff') format('woff'),
-    asset_url('fonts/BYekan.ttf') format('truetype'),
-    asset_url('fonts/BYekan.svg#open_sansregular') format('svg');
+  src: url('fonts/BYekan.eot');
+  src: url('fonts/BYekan.eot?#iefix') format('embedded-opentype'),
+    url('fonts/BYekan.woff') format('woff'),
+    url('fonts/BYekan.ttf') format('truetype'),
+    url('fonts/BYekan.svg#open_sansregular') format('svg');
   font-weight: normal;
   font-style: normal;
 
@@ -35,11 +35,11 @@
 
 @font-face {
     font-family: 'IranNastaligh';
-    src: asset_url('fonts/IranNastaligh.eot');
-    src: asset_url('fonts/IranNastaligh.eot?#iefix') format('embedded-opentype'),        
-         asset_url('fonts/IranNastaligh.otf') format('otf'),
-         asset_url('fonts/IranNastaligh.ttf') format('truetype'),
-         asset_url('fonts/IranNastaligh.svg#IranNastaligh_box') format('svg');
+    src: url('fonts/IranNastaligh.eot');
+    src: url('fonts/IranNastaligh.eot?#iefix') format('embedded-opentype'),        
+         url('fonts/IranNastaligh.otf') format('otf'),
+         url('fonts/IranNastaligh.ttf') format('truetype'),
+         url('fonts/IranNastaligh.svg#IranNastaligh_box') format('svg');
     font-weight: normal;
     font-style: normal;
 }
