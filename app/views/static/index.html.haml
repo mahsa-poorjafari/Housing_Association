@@ -35,7 +35,7 @@
           .service-icon
             = image_tag 'link.png', :class => "set-center"
           / /.service-icon
-          .service-content{:style => "overflow-y: scroll;"}
+          .service-content
             .inner-service
               - Link.all.each do  |link|
                 %p

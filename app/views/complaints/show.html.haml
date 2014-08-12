@@ -26,10 +26,10 @@
         -if @complaint.complaint_answer.present?
           = @complaint.complaint_answer
         - else
-          %h4.no-answer= 'هیچ پاسخی داده نشده'
+          %h4.no-answer= 'در انتظار پاسخ'
           - if is_inspector?                
             = link_to 'ثبت جواب', edit_complaint_path(@complaint), :class => "save-btn"
-    -if is_admin?
+    -if is_admin? 
       .commit
         %b= 'نظر مدیران'
         - if @commits
