@@ -56,7 +56,7 @@
               .col-md-5.admin-menu.login-menu
                 %h2
                   %p.width50.pull-right= 'منوی مدیرسایت'
-                  %b.notif= Complaint.where("display is null").count
+                  %b.notif= Complaint.where(display: false).count
                 .admin-menu-links
                   = render 'shared/admin_menu'
                   
