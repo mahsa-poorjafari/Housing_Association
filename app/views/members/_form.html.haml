@@ -11,38 +11,38 @@
       = f.hidden_field :cooperative_id, :value => @cooperative_id
   .form-group.col-sm-6.pull-right
     = f.label 'نام:*', :class => "control-label"
-    = f.text_field :name, :id => "name"
+    = f.text_field :name, :id => "name", class:"form-control"
   .form-group.col-sm-6.pull-right
     = f.label 'نام خانوادگی:*', :class => "control-label"
-    = f.text_field :last_name, :id => "last-name"
+    = f.text_field :last_name, :id => "last-name", class:"form-control"
   .form-group.col-sm-6.pull-right
     = f.label 'نام پدر:*', :class => "control-label"
-    = f.text_field :father_name, :id => "father-name"
+    = f.text_field :father_name, :id => "father-name", class:"form-control"
   .form-group.col-sm-6.pull-right
     = f.label 'تلفن همراه:*', :class => "control-label"
-    = f.text_field :mobile , :id => "mobile", placeholder: "ده رقم شماره موبایل بدون صفر "
-  .form-group.col-sm-6.pull-right
+    = f.text_field :mobile , :id => "mobile", placeholder: "ده رقم شماره موبایل بدون صفر ", class:"form-control"
+  .form-group.col-sm-6.pull-right.dates
     = f.label 'تاریخ تولد دقیق:', :class => "control-label"
-    = f.text_field :birthdate
+    = f.text_field :birthdate_fa, class:" fa_date form-control"
   .form-group.col-sm-6.pull-right
     = f.label 'شماره کارت ملی:', :class => "control-label"
-    = f.text_field :national_id_card
+    = f.text_field :national_id_card, class:"form-control"
   .form-group.col-sm-6.pull-right
     = f.label 'شماره شناسنامه:', :class => "control-label"
-    = f.text_field :identify_number
+    = f.text_field :identify_number, class:"form-control"
   .form-group.col-sm-6.pull-right
     = f.label 'ایمیل:', :class => "control-label"
-    = f.email_field :email
+    = f.email_field :email, class:"form-control"
   .form-group.col-sm-6.pull-right
     = f.label 'تلفن ثابت:', :class => "control-label"
-    = f.text_field :phone_number
+    = f.text_field :phone_number, class:"form-control"
   
   .form-group.col-sm-6.pull-right
     = f.label 'کدپستی:', :class => "control-label"    
-    = f.text_field :postal_code
+    = f.text_field :postal_code, class:"form-control"
   .form-group.col-sm-6.pull-right
     = f.label 'مبلغ واریزی عضو:', :class => "control-label"    
-    = f.text_field :paid_member
+    = f.text_field :paid_member, class:"form-control"
   .form-group.col-sm-6.pull-right
     = f.label 'ضمیمه عکس:', :class => "control-label"
     = f.file_field :image
@@ -53,17 +53,17 @@
   
   .form-group.col-sm-12
     = f.label 'آدرس:', :class => "control-label"
-    = f.text_area :address, :style => "resize:none"
+    = f.text_area :address, :style => "resize:none", class:"form-control"
   
   
-  .clear-float  
+  .clear-float   
+      
+  .form-group
+    = f.submit 'ثبت', :class => "mainBtn", :id => "member-submit"
   - if @member.present? && @member.deactive.blank?
     .form-group.deactive
       = f.label 'درصورتی که عضو می خواهد انصراف دهد تیک مقابل را فعال کنید.', :class => "control-label"   
       = f.check_box :deactive , :class => "form-control "
-      
-  .form-group
-    = f.submit 'ثبت', :class => "mainBtn", :id => "member-submit"
 :javascript  
   
   $(':submit#member-submit').click(function(e) {

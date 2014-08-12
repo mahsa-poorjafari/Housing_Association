@@ -13,7 +13,7 @@
           
       %tbody
         - @messages.each_with_index do |message, i|        
-          %tr{:class => ('visited' if message.visited == true)}
+          %tr{:class => (message.visited == true ? 'visited' : 'not-read')}
             %td= (i+1)        
             %td= message.text        
             %td= message.user_name        

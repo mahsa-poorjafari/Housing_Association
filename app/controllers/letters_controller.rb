@@ -16,6 +16,8 @@ class LettersController < ApplicationController
   # GET /letters/new
   def new
     letter_type = params["letter_type"] || Letter::LetterTypes[:sent]
+    p '111'
+    p @letter_type_show = params[:letter_type] 
     @letter = Letter.new(letter_type:letter_type)
     @current_date = JalaliDate.new(Date.today)
     @current_year = JalaliDate.new(Date.today).strftime("%y")
@@ -92,6 +94,6 @@ class LettersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def letter_params
-      params.require(:letter).permit(:letter_type, :summary, :sent_date_fa, :received_date_fa, :senderpreson_name, :sendercompany_name, :content, :attachment, :reciever_ids, :reciever_tokens)
+      params.require(:letter).permit(:letter_type, :summary, :sent_date_fa, :received_date_fa, :senderpreson_name, :sendercompany_name, :content, :attachment, :reciever_ids, :reciever_tokens, :letter_number)
     end
 end

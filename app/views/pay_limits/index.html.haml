@@ -18,7 +18,7 @@
           %th عملیات
       %tbody{:id => "pay_limit_container"}
         - @pay_limits.each_with_index do |pay_limit, i|
-          %tr
+          %tr{:class => (pay_limit.visited == true ? 'visited' : 'not-read')}
             %td= (i+1) 
             %td= pay_limit.tracking_code
             %td= pay_limit.amount

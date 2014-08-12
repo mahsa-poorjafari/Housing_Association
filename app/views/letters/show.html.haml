@@ -7,7 +7,7 @@
       = image_tag 'icon_printer.gif'
       %span= 'پرینت نامه'
     
-    .letter-show#content      
+    .letter-show#content{:style => "font-family: 'open_sansregular';"}      
       .col-sm-12.letter-info
         .col-sm-3.letter-left-info          
           %p
@@ -20,59 +20,26 @@
             %b= 'پیوست'            
         .col-sm-5.letter-besmei
           %b= 'بسمه تعالی'
-        .col-sm-4.letter-right-info          
+        .col-sm-4.letter-right-info{:style => "font-family: 'open_sansregular'; font-size:12px"}                
           .letter-company-name= 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان'
           %p
             %b= 'شماره ثبت ۱۱۹۰۵'
-      .col-sm-12.letter-holder
-        .col-sm-12.letter-inner-title= @letter.recievers.collect(&:company_name).join(',')
-        .col-sm-12.letter-inner-title= @letter.recievers.collect(&:preson_name).join(',')
-        .col-sm-12.letter-text
-          %p=raw @letter.content
+      .col-sm-12.letter-holder{:style => "font-family: 'open_sansregular';"}      
+        .col-sm-12.letter-inner-title{:style => "font-family:IranNastaligh;"}= @letter.recievers.collect(&:company_name).join(',')
+        .col-sm-12.letter-inner-title{:style => "font-family:IranNastaligh;"}= @letter.recievers.collect(&:preson_name).join(',')
+        .col-sm-12.letter-text{:style => "font-family: 'open_sansregular';"}      
+          %p{:style => "font-family: 'open_sansregular';"}=raw @letter.content
         .col-sm-12.letter-signture  
-          .col-sm-5
+          .tank-box{:style => "width:40%; float:left; text-align:center"}
             %p= 'باتشکر'
             %b= 'مدیریت اتحادیه مسکن فرهنگیان خراسان'
-        
+          .clear{:style => "clear:both"}
+          .attachment
+            = @letter.attachment
             
         .set-center.show-address= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۷۶۲۰۷۷۵-۰۵۱۳'
         
-    .avoid-this
-      %p
-        %b شماره نامه:
-        = @letter.letter_number
-      %p
-        %b نوع نامه:
-        = @letter.letter_type
-      %p
-        %b چکیده نامه:
-        = @letter.summary
-      %p
-        %b تاریخ ارسال نامه:
-        = @letter.sent_date_fa
-      %p
-        %b تاریخ دریافت نامه:
-        = @letter.received_date_fa
-      %p
-        %b= ' فرد فرستنده:'
-        = @letter.senderpreson_name
-      %p
-        %b= 'شرکت فرستنده:'
-          
-        = @letter.sendercompany_name
-      %p
-        %b= 'فرد گیرنده:'          
-        = @letter.recievers.collect(&:preson_name).join(',')
-      %p
-        %b= 'شرکت گیرنده:'
-        = @letter.recievers.collect(&:company_name).join(',')
-      %p
-        %b متن نامه
-        =raw @letter.content
-      %p
-        %b ضمایم
-        = @letter.attachment
-
+    
       = link_to 'ویرایش', edit_letter_path(@letter)
       \|
       = link_to 'بازگشت', :back

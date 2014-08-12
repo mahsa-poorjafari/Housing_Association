@@ -2,6 +2,9 @@
 class Member < ActiveRecord::Base
   extend FriendlyId  
   friendly_id :last_name
+  extend PersianNumbers
+  persian_dates :birthdate
+  
   has_attached_file :image, :styles => { :original => "500x500>" , :icon => "100x100>", :small => "200x200>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 

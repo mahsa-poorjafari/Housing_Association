@@ -15,7 +15,7 @@
     = f.text_field :amount, :class => "form-control"
   -if @project.blank? 
     .form-group.col-sm-3        
-      = f.select :project_id, options_for_select(Project.all.collect{ |u| [u.title, u.id] }), prompt: "پروژه مورد نظر خود را انتخاب کنید."
+      = f.select :project_id, options_for_select(@current_project.collect{ |u| [u.title, u.id] }), prompt: "پروژه مورد نظر خود را انتخاب کنید."
   - else
     = f.hidden_field :project_id, :value => @project_id
   .clear-float

@@ -4,15 +4,28 @@
       %ul
         - @pay_limit.errors.each do |attr, msg|
           %li= msg
+  - if flash[:accept].present?
+    .alert.alert-success= flash[:accept]
   - if @pay_limit.present?
-    .alert.alert-success= 'نتیجه ثبت شد.'
-  .form-group
-    .col-sm-8= f.label 'این درخواست را تایید می کنم.', :class => "control-label"
-    .col-sm-2= f.check_box :accept  , :class => "form-control"
-    .clear-float  
-  .form-group
-    = f.label 'سایر توضیحات:', :class => "control-label"
-    = f.text_area :accept_description, :class => "form-control", :style => "resize:none"
-  .form-group
-    = f.submit 'ثبت', :class => "mainBtn"
+    - if @pay_limit.accept
+      %b= 'درخواست تایید شده'
+      %p= @pay_limit.accept_description
+    - else
+      %b= 'درخواست تایید نشده'
+      %p= @pay_limit.accept_description
+    %br
+    = link_to 'ویرایش نتیجه', edit_pay_limit_path(@pay_limit)
+  - else    
+    .form-group
+      .col-sm-8= f.label 'این درخواست را تایید می کنم.', :class => "control-label"
+      .col-sm-2= f.check_box :accept  , :class => "form-control"
+      .clear-float  
+    .form-group
+      = f.label 'سایر توضیحات:', :class => "control-label"
+      = f.text_area :accept_description, :class => "form-control", :style => "resize:none"
+    .form-group
+      = f.submit 'ثبت', :class => "mainBtn"
+  
     
+
+  

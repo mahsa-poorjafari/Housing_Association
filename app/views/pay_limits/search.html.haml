@@ -7,9 +7,34 @@
         .info-cadre
           %p
             - @find_code.each do |result|
-              = result.description
-              = result.partnership.first_name
-              = result.partnership.last_name
+              - if result.partnership.gender == 0
+                %b= 'سرکار خانم'
+              -else  
+                %b= 'جناب آقای'              
+              %span  
+                = result.partnership.first_name
+                = result.partnership.last_name
+              %b= 'فرزند'  
+              %span= result.partnership.father_name
+              %b= 'به تاریخ تولد'  
+              %span= result.partnership.birthdate
+              %h5
+                شما در پروژه
+                =result.project.title
+                ثبت نام کرده اید.
+              %b= 'تاریخ ثبت درخواست مشارکت در پروژه'
+              %span= JalaliDate.new(result.created_at)
+              %br
+              %b= 'نتیجه بررسی'
+              - if result.accept
+                %h2= 'شما در مشارکت پذیرفته شدید.'
+                %h3= result.accept_description
+              - else
+                %h2= 'شما در مشارکت پذیرفته نشده اید.'
+                %h3= result.accept_description
+              
+              
+              
       -else
         .alert.alert-warning
           %p= 'موردی یافت نشد. کدرهگیری خود را صحیح وارد کنید'

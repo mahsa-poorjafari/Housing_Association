@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804130308) do
+ActiveRecord::Schema.define(version: 20140812114802) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -262,6 +262,7 @@ ActiveRecord::Schema.define(version: 20140804130308) do
     t.string   "tracking_code"
     t.string   "accept_description"
     t.boolean  "accept",             default: false
+    t.boolean  "visited",            default: false
   end
 
   create_table "payments", force: true do |t|

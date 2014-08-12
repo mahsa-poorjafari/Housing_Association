@@ -5,13 +5,13 @@ class PayLimitsController < ApplicationController
   # GET /pay_limits
   # GET /pay_limits.json
   def index
-    @pay_limits = PayLimit.all
+    @pay_limits = PayLimit.order(" created_at desc")
   end
 
   # GET /pay_limits/1
   # GET /pay_limits/1.json
   def show
-    
+    @pay_limit.update_attribute(:visited, true)
   end
   
   def search
@@ -26,8 +26,9 @@ class PayLimitsController < ApplicationController
   def new
     @pay_limit = PayLimit.new
     @project_id = params[:project_id]
+    p @current_project = Project.where(:Status => "is null")
     @partnership_id = params[:partnership_id]
-    if @project_id
+    if @project_id.present?
       @project = Project.find(@project_id)
     else
       @projects = Project.all
@@ -60,15 +61,15 @@ class PayLimitsController < ApplicationController
   # PATCH/PUT /pay_limits/1
   # PATCH/PUT /pay_limits/1.json
   def update
-    respond_to do |format|
-      if @pay_limit.update(pay_limit_params)
-        format.html { redirect_to @pay_limit, notice: 'Pay limit was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @pay_limit.errors, status: :unprocessable_entity }
-      end
+    
+    if @pay_limit.update(pay_limit_params)
+      redirect_to @pay_limit
+      flash[:accept] = 'نتیجه ثبت شد.'
+    else
+      redirect_to @pay_limit
+      flash[:accept] = 'خطا در ثبت نتیجه'
     end
+  
   end
 
   # DELETE /pay_limits/1
@@ -89,6 +90,6 @@ class PayLimitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pay_limit_params
-      params.require(:pay_limit).permit(:amount, :project_id, :description, :partnership_id, :tracking_code, :accept_description, :accept)
+      params.require(:pay_limit).permit(:amount, :project_id, :description, :partnership_id, :tracking_code, :accept_description, :accept, :visited)
     end
 end

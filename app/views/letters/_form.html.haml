@@ -5,6 +5,7 @@
     #cunter-clear.col-md-4= link_to  "تصحیح", '#phone'
     #cunter-close.col-md-4= link_to  "بستن", '#close'
 .clear-float
+
 = form_for @letter do |f|
   - if @letter.errors.any?
     #error_explanation      
@@ -14,40 +15,47 @@
   
   
   .col-sm-12.andicator
-    .col-sm-4          
-      .form-group.dates
-        = f.label 'تاریخ دریافت:', :class => "control-label", :style => "width:30%; float:right "        
-        = f.text_field :received_date_fa, class:"fa_date form-control", :style => "width:50%; " 
-      
-        
-    .col-sm-3.besella
-      %h2= 'بسمه تعالی'
     .col-sm-5
       .form-group.dates
         = f.label 'شماره نامه:', :class => "control-label ", :style => "width:30%; float:right " 
         .col-sm-9 
-          
-          - if @last_letter.present?
-            %b#counter-number{:style => "width:20%; float:right "}= @last_letter_split
-            = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field', :value => @last_letter_split
+          - if @letter.letter_number.present?
+            = f.text_field :letter_number
           - else
-            %b#counter-number{:style => "width:20%; float:right "}                      
-            = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field'
-          %select#region_3{name: "alphabet", :style => "width:30%; float:right; "}
-            %option{value: "اد"} اد
-            %option{selected: "selected", value: "الف"} الف
-          %b{:style => "width:20%; float:right "}= @current_year
-          = hidden_field_tag :current_year, params[:current_year], :id => 'current_year_field' , :value => @current_year
+            - if @last_letter.present?
+              %b#counter-number{:style => "width:20%; float:right "}= @last_letter_split
+              = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field', :value => @last_letter_split
+            - else
+              %b#counter-number{:style => "width:20%; float:right "}                      
+              = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field'
+            %select#region_3{name: "alphabet", :style => "width:30%; float:right; "}
+              %option{value: "د"} د
+              %option{selected: "selected", value: "الف"} الف
+            %b{:style => "width:20%; float:right "}= @current_year
+            = hidden_field_tag :current_year, params[:current_year], :id => 'current_year_field' , :value => @current_year
       .clear-float  
       #change-letter-cunter
         %i= 'برای تغییر عدد شروع کننده شمارنده نامه '
         = link_to 'اینجا کلیک کنید.', '#'
         
-        
       .clear-float  
-      .form-group.dates
-        = f.label 'تاریخ ارسال:', :class => "control-label ", :style => "width:30%; float:right "    
-        = f.text_field :sent_date_fa, class:" fa_date form-control", :value => @current_date, :style => "width:50%; "    
+        - if @letter_type_show == 'sent'
+          .form-group.dates
+            = f.label 'تاریخ ارسال:', :class => "control-label ", :style => "width:30%; float:right "    
+            = f.text_field :sent_date_fa, class:" fa_date form-control", :value => @current_date, :style=> "width:50%; "            
+        - elsif @letter_type_show == 'recieved'
+          .form-group.dates
+            = f.label 'تاریخ دریافت:', :class => "control-label", :style => "width:30%; float:right "        
+            = f.text_field :received_date_fa, class:"fa_date form-control", :style => "width:50%; " , :value => @current_date
+      
+        
+    .col-sm-3.besella
+      %b= 'بسمه تعالی'
+    .col-sm-4
+      %h1.letter-title-new= 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان شماره ثبت ۱۱۹۰۵'
+        
+        
+      
   .clear-float
   .base-letter
     .form-group
@@ -67,8 +75,8 @@
         =link_to "افزودن دریافت کننده جدید", new_contact_path, target:"_blank", :class => "save-btn"
         /should be auto complete
       .form-group
-        = f.label 'ضمایم:', :class => "control-label"    
-        = f.text_field :attachment  , :class => "form-control"
+        = f.label 'رونوشت:', :class => "control-label"    
+        = f.text_area :attachment, :class => "ckeditor"
     .clear-float
     .form-group
       %i= 'از قالب های آماده استفاده کنید'      
@@ -83,7 +91,7 @@
       = f.text_area :content, :class => "ckeditor"
   .clear-float
   .maskan-address.set-center
-    %div= 'آدرس و تلفن'
+    %div= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۷۶۲۰۷۷۵-۰۵۱۳'
   .form-group.col-sm-3
     = f.submit 'ثبت نامه', :class => "mainBtn"  
 
