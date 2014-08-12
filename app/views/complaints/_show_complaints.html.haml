@@ -4,9 +4,9 @@
   
   %td
     - if  complaint.complaint_answer.present?
-      = truncate( complaint.complaint_answer ,  length: 50)
+      = 'پاسخ داده شده '
     - else 
-      = 'هیچ پاسخی داده نشده'
+      = 'در انتظار پاسخ'
   
   %td            
     - if current_user.present?      

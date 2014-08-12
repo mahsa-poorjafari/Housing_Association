@@ -19,12 +19,12 @@
         = @complaint.subject
       %p
         %b متن پرسش
-        = @complaint.complaint_text
+        =raw @complaint.complaint_text
     .show-question 
       %p
         %b پاسخ پرسش
         -if @complaint.complaint_answer.present?
-          = @complaint.complaint_answer
+          =raw @complaint.complaint_answer
         - else
           %h4.no-answer= 'در انتظار پاسخ'
           - if is_inspector?                
