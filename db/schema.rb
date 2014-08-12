@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812114802) do
+ActiveRecord::Schema.define(version: 20140812131239) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 20140812114802) do
     t.string   "subject"
     t.string   "user_email"
     t.string   "user_phone"
-    t.boolean  "display"
     t.boolean  "inspector_visited"
   end
 
