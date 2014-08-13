@@ -209,7 +209,7 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
 
 
 /* Letter show style */
-
+.print {width:50%; background:#BFBFBF;}
 .letter-show .letter-right-info .letter-company-name{font-size:2em; font-weight:bold}
 .letter-show .letter-right-info p{font-size:1.5em; }
 .letter-left-info {font-size:1.5em; }
