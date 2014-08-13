@@ -22,7 +22,7 @@ module HousingAssociation
     config.assets.initialize_on_precompile = false    
     config.serve_static_assets = true
     config.assets.precompile += ['letter-print.css', 'fonts.css']
-    config.assets.paths += Dir["#{Rails.root}/app/asset-libs/*"].sort_by { |dir| -dir.size }
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
     
   end
 end
