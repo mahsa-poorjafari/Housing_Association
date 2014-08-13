@@ -24,14 +24,17 @@
           - else
             - if @last_letter.present?
               %b#counter-number{:style => "width:20%; float:right "}= @last_letter_split
+              
               = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field', :value => @last_letter_split
             - else
               %b#counter-number{:style => "width:20%; float:right "}                      
               = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field'
+            
             %select#region_3{name: "alphabet", :style => "width:30%; float:right; "}
               %option{value: "د"} د
               %option{selected: "selected", value: "الف"} الف
             %b{:style => "width:20%; float:right "}= @current_year
+            
             = hidden_field_tag :current_year, params[:current_year], :id => 'current_year_field' , :value => @current_year
       .clear-float  
       #change-letter-cunter

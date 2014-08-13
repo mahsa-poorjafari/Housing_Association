@@ -50,7 +50,7 @@ class LettersController < ApplicationController
     p @alphabet = params[:alphabet] 
     p @counter_number = params[:counter_number]
     
-    p @letter_number = @counter_number + '-' + @alphabet + @current_year
+    p @letter_number = @counter_number + '/' + @alphabet + '/' + @current_year
     @letter.letter_number = @letter_number
     
     if @letter.save

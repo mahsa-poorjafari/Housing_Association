@@ -52,12 +52,12 @@
   .letter-show .letter-info{ position:absolute; top:0; width:100%;}
   .letter-left-info  {width:28%; float:left; text-align:right; font-size:9px}
   .letter-besmei {width:32%;  float:left; font-size:5px; padding-top:10%; text-align:center}
-  .letter-right-info  {width:40%; float:left; text-align:right;}
+  .letter-right-info  {width:35%; float:left; text-align:right;}
 
-  .letter-show .letter-right-info .letter-company-name{font-size:11px; font-weight:bold}
+  .letter-show .letter-right-info .letter-company-name{font-size:15px; font-weight:bold}
   .letter-show .letter-right-info p{font-size:9px; }
   .letter-left-info {font-size:9px; }
-  .letter-besmei {font-size:9px; text-align:right}
+  .letter-besmei {font-size:10px; text-align:right}
   .letter-show .letter-holder {     
     min-height:80%;
     width:100%;
@@ -85,7 +85,7 @@
     }
   .letter-show .letter-holder .letter-text p span{font-family: 'open_sansregular';  }
   .letter-show .letter-holder .letter-signture  { font-size:9px;
-    width:50%; 
+    width:100%; 
     margin-top:10%;
   }
   .show-address {width:70%; height:6%; 
@@ -98,7 +98,7 @@
     font-size:9px;
     
   }
-  .tank-box {float:left;}
+  
   .clear {clear:both}
-  .attachment {width:100%;  text-align:right; margin-top:20%; font-size:7px}
+  
 }
