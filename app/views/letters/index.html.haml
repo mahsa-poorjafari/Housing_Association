@@ -8,14 +8,14 @@
     %thead
       %tr
         %th ردیف‍
+        %th شماره نامه
         %th نوع نامه
         %th خلاصه
         %th تاریخ ارسال
         %th تاریخ دریافت
         %th ارسال کننده
-        %th دریافت کننده
+        %th دریافت کننده      
         
-        %th ضمیمه
         - if is_admin?
           %th عملیات
         
@@ -23,18 +23,23 @@
       - @letters.each_with_index do |letter, i|      
         %tr
           %td= (i+1)
-          %td= letter.letter_type
+          %td= letter.letter_number
+          %td 
+            - if letter.letter_type == 'sent'
+              صادره
+            - elsif  letter.letter_type == 'recieved'
+              وارده
           %td= letter.summary
           %td= letter.sent_date_fa
           %td= letter.received_date_fa
           %td 
             =letter.senderpreson_name
+            
             =letter.sendercompany_name
           %td
             = letter.recievers.collect(&:preson_name).join(',')
             = letter.recievers.collect(&:company_name).join(',')
-        
-          %td= letter.attachment
+                  
           - if is_admin?
             %td         
               = link_to 'مشاهده', letter

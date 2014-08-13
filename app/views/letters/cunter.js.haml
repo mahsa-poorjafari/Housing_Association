@@ -1,6 +1,8 @@
 -if @start_count.present?  
   $("#counter-number").replaceWith("#{escape_javascript(render(:partial => 'set_counter_number', :locals => {:start_count => @start_count }))}");        
   $('form#cunter-form [type="text"]').val('');
-  $('#counter_number_field').val(#{@start_count}); 
-  
+  $('#counter_number_field').val(#{@start_count});   
   $('#letter_cunter').hide();
+  
+- else @permission_error.present?
+  alert('#{@permission_error}');

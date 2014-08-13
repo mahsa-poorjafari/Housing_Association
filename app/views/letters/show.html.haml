@@ -31,7 +31,7 @@
       = image_tag 'icon_printer.gif'
       %span= 'پرینت نامه'
     
-    .letter-show#content{:style => "font-family: 'open_sansregular';"}      
+    .letter-show#content
       .col-sm-12.letter-info
         .col-sm-3.letter-left-info          
           %p
@@ -44,23 +44,26 @@
             %b= 'پیوست'            
         .col-sm-5.letter-besmei
           %b= 'بسمه تعالی'
-        .col-sm-4.letter-right-info{:style => "font-family: 'open_sansregular'; font-size:12px"}                
+        .col-sm-4.letter-right-info
           .letter-company-name= 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان'
           %p
             %b= 'شماره ثبت ۱۱۹۰۵'
-      .col-sm-12.letter-holder{:style => "font-family: 'open_sansregular'; "}      
-        .col-sm-12.letter-inner-title{:style => "font-family:IranNastaligh;"}= @letter.recievers.collect(&:company_name).join(',')
-        .col-sm-12.letter-inner-title{:style => "font-family:IranNastaligh;"}= @letter.recievers.collect(&:preson_name).join(',')
+      .col-sm-12.letter-holder
+        .col-sm-12.letter-inner-title= @letter.recievers.collect(&:company_name).join(',')
+        .col-sm-12.letter-inner-title= @letter.recievers.collect(&:preson_name).join(',')
         .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}      
-          %p{:style => "font-family: 'open_sansregular';"}=raw @letter.content
-        .col-sm-12.letter-signture{:style => "font-family: 'open_sansregular';"}      
+          %p=raw @letter.content
+        .col-sm-12.letter-signture
           .tank-box{:style => "width:50%; text-align:center; float:left;"}
             %p= 'باتشکر'
             %b= 'مدیریت اتحادیه مسکن فرهنگیان خراسان'
           .clear{:style => "clear:both; "}
           %br
+          
           .attachment{:style => "width:100%; text-align:right; margin-right:5%;"}
-            =raw @letter.attachment
+            - if @letter.attachment.present?
+              %p= 'رونوشت:'
+              =raw @letter.attachment
             
         .set-center.show-address= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۷۶۲۰۷۷۵-۰۵۱۳'
         

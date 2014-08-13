@@ -5,7 +5,13 @@
     #cunter-clear.col-md-4= link_to  "تصحیح", '#phone'
     #cunter-close.col-md-4= link_to  "بستن", '#close'
 .clear-float
-
+-#
+  #add_reciever{:style => "position:absolute; left:0; bottom:-10%"}
+    = form_tag new_contact_path, :method => "put", id: "search-form", :remote => true do 
+      = text_field_tag :add_reciever, params[:add_reciever], :id => 'add_reciever_field', placeholder: 'نام دریافت کننده جدید را اضافه کنید'
+      %button.save-btn#search-submit= 'send'
+      #clear.col-md-4= link_to  "تصحیح", '#phone'            
+    #search_result.search_result
 = form_for @letter do |f|
   - if @letter.errors.any?
     #error_explanation      
@@ -16,8 +22,9 @@
   
   .col-sm-12.andicator
     .col-sm-5
+      = f.hidden_field :letter_type, :value => @letter_type_show
       .form-group.dates
-        = f.label 'شماره نامه:', :class => "control-label ", :style => "width:30%; float:right " 
+        = f.label 'شماره نامه:', :class => "control-label ", :style => "width:30%; float:right; font-weight:bold " 
         .col-sm-9 
           - if @letter.letter_number.present?
             = f.text_field :letter_number
@@ -29,12 +36,17 @@
             - else
               %b#counter-number{:style => "width:20%; float:right "}                      
               = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field'
+            - if @letter_type_show == 'sent'  
+              %span{:style => "width:12%; float:right; "}= '/ص/'
+            - elsif @letter_type_show == 'recieved'
+              %span{:style => "width:12%; float:right; "}= '/و/'
+            = hidden_field_tag :type_of_letter, params[:type_of_letter], :id => 'type_of_letter_field' , :value => ( @letter_type_show == 'sent'  ? 'ص' : 'و')
             
             %select#region_3{name: "alphabet", :style => "width:30%; float:right; "}
               %option{value: "د"} د
               %option{selected: "selected", value: "الف"} الف
-            %b{:style => "width:20%; float:right "}= @current_year
-            
+              
+            %b{:style => "width:20%; float:right "}= @current_year            
             = hidden_field_tag :current_year, params[:current_year], :id => 'current_year_field' , :value => @current_year
       .clear-float  
       #change-letter-cunter
@@ -64,19 +76,33 @@
     .form-group
       = f.label 'خلاصه نامه:', :class => "control-label"    
       = f.text_field :summary, :class => "form-control"
-    .col-sm-3
-    .col-sm-9
-      .form-group.col-sm-6
-        = f.label 'شخص ارسال کننده:', :class => "control-label"    
-        = f.text_field :senderpreson_name, data: {autocomplete_source: preson_names_contacts_path}, :class => "form-control"
-      .form-group.col-sm-6
-        = f.label 'شرکت ارسال کننده', :class => "control-label"    
-        = f.text_field :sendercompany_name, data: {autocomplete_source: company_names_contacts_path}, :class => "form-control"
-      .form-group
-        =f.label 'دریافت کننده:', :class => "control-label"    
-        =f.text_field :reciever_tokens, data: {autocomplete_source: reciever_names_contacts_path, load: @letter.recievers.map{|c|{id:c.id, name:c.preson_name}}}
-        =link_to "افزودن دریافت کننده جدید", new_contact_path, target:"_blank", :class => "save-btn"
-        /should be auto complete
+    
+    .col-sm-12
+      - if @letter_type_show == 'recieved'
+        .form-group.col-sm-6
+          = f.label 'شخص ارسال کننده:', :class => "control-label"    
+          = f.text_field :senderpreson_name, data: {autocomplete_source: preson_names_contacts_path}, :class => "form-control"
+        .form-group.col-sm-6
+          = f.label 'شرکت ارسال کننده', :class => "control-label"    
+          = f.text_field :sendercompany_name, data: {autocomplete_source: company_names_contacts_path}, :class => "form-control"
+      - elsif @letter_type_show == 'sent'
+      
+      
+        .form-group.width50.pull-right
+          =f.label 'دریافت کننده:', :class => "control-label"    
+          =f.text_field :reciever_tokens, data: {autocomplete_source: reciever_names_contacts_path, load: @letter.recievers.map{|c|{id:c.id, name:c.preson_name}}}
+        .form-group.width50.pull-right
+          = link_to "افزودن دریافت کننده جدید", new_contact_path, :class => "save-btn", :id => "add-reciever", :target => "_blank"
+        %br  
+        %br  
+        %br  
+          
+          
+          
+          /should be auto complete
+        .clear-float
+    .col-sm-3      
+    .col-sm-9      
       .form-group
         = f.label 'رونوشت:', :class => "control-label"    
         = f.text_area :attachment, :class => "ckeditor"
@@ -130,3 +156,6 @@
       }
     });
   });
+
+
+        

@@ -5,12 +5,17 @@ class LettersController < ApplicationController
   # GET /letters
   # GET /letters.json
   def index
-    @letters = Letter.all(include:"sender")
+    #@letters = Letter.all(include:"sender")
+    @letters = Letter.order(" created_at desc")
+    
   end
 
   # GET /letters/1
   # GET /letters/1.json
+  
+   
   def show
+    
   end
 
   # GET /letters/new
@@ -23,7 +28,7 @@ class LettersController < ApplicationController
     @current_year = JalaliDate.new(Date.today).strftime("%y")
     if Letter.last.present?
       @last_letter = Letter.last.letter_number
-      p @last_letter_split = @last_letter.split('-').first
+      p @last_letter_split = @last_letter.split('/').first
       p '1111111111'
       p @last_letter_split = @last_letter_split.to_i
       p @last_letter_split = @last_letter_split + 1
@@ -35,7 +40,11 @@ class LettersController < ApplicationController
   end
   def cunter
     c = params[:cunter]    
-    p @start_count = c
+    if Letter.last.letter_number >= c
+      p @permission_error = 'شماره وارد شده مجاز نمی باشد.'
+    else
+      p @start_count = c
+    end
   end
 
   # GET /letters/1/edit
@@ -49,13 +58,14 @@ class LettersController < ApplicationController
     p @current_year = params[:current_year]
     p @alphabet = params[:alphabet] 
     p @counter_number = params[:counter_number]
+    p @type_of_letter = params[:type_of_letter]
     
-    p @letter_number = @counter_number + '/' + @alphabet + '/' + @current_year
+    p @letter_number = @counter_number + '/' + @type_of_letter + '/' + @alphabet  + '/' + @current_year 
     @letter.letter_number = @letter_number
     
     if @letter.save
       redirect_to @letter
-      flash[:letter] = 'Letter was successfully created.' 
+      flash[:letter] = 'نامه در سیستم ثبت شد' 
     else
       render action: 'new'      
     end
