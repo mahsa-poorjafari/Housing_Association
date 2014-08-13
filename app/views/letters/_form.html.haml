@@ -27,7 +27,7 @@
         = f.label 'شماره نامه:', :class => "control-label ", :style => "width:30%; float:right; font-weight:bold " 
         .col-sm-9 
           - if @letter.letter_number.present?
-            %b= letter_number
+            %b= @letter.letter_number
           - else
             - if @last_letter.present?
               %b#counter-number{:style => "width:20%; float:right "}= @last_letter_split
