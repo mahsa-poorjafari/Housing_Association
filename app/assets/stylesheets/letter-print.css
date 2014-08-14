@@ -1,14 +1,15 @@
 @import url("fonts.scss");
-@page 
+
+@media print {   
+  @page 
   {
     size: A5;   /* auto is the initial value */
       /* this affects the margin in the printer settings */
     margin: 0mm 3mm;      
   }
-@page :first {
-  margin-top: 0 !important   /* Top margin on first page 10cm */
-}
-@media print {   
+  @page :first {
+    margin-top: 0 !important   /* Top margin on first page 10cm */
+  }
  .print-hole-page, .main-header, #footer, .link-admin {display:none}
   html { background: #ffffff; margin-top: 0 }
   body {
