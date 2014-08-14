@@ -5,7 +5,7 @@
       /* this affects the margin in the printer settings */
     margin: 0mm 3mm;      
   }
-@page:first {
+@page :first {
   margin-top: 0 !important   /* Top margin on first page 10cm */
 }
 @media print {   
