@@ -50,7 +50,7 @@
   }
   .letter-show { font-family: 'open_sansregular';}
   .letter-show .letter-info{ position:absolute; top:0; width:100%;}
-  .letter-left-info  {width:30%; float:left; text-align:right; font-size:12px}
+  .letter-left-info  {width:28%; float:left; text-align:right; font-size:12px}
   .letter-besmei {width:32%;  float:left; font-size:9px; padding-top:10%; text-align:center}
   .letter-right-info  {width:35%; float:left; text-align:right;}
 
@@ -82,21 +82,22 @@
   .letter-show .letter-holder .letter-text p {width:90%;
     margin-right:5%;    
     margin-left:5%;
-    line-height:19px;
+    line-height:15px;
     }
   .letter-show .letter-holder .letter-text p span{font-family: 'open_sansregular';  }
   .letter-show .letter-holder .letter-signture  { font-size:12px;
     width:100%; 
     margin-top:10%;
   }
-  .show-address {width:80%; height:6%; 
+  .show-address {width:70%; height:6%; 
     bottom: -5%;
     right:10%;
     left:10%;
     background:#fff;
     text-align:center;
     position:absolute;
-    font-size:11px;    
+    font-size:11px;
+    
   }
   
   .clear {clear:both}
