@@ -27,7 +27,7 @@
     .alert.alert-success= notice
   .page-title-holder  
     
-    = link_to '#' , rel: "content", :class => "print" do
+    = link_to '#' , rel: "content", :class => "print-hole-page" do
       = image_tag 'icon_printer.gif'
       %span= 'پرینت نامه'
     
@@ -76,3 +76,17 @@
   $('.letter-text p').css('font-family', 'open_sansregular');
   $('.letter-text p').css('text-align', 'justify');
   $('.letter-text p span').css('font-family', 'open_sansregular');
+  $('a.print-hole-page').click(function(){
+    $("#content").printThis({
+      debug: false,               
+      importCSS: true,            
+      printContainer: true,       
+      loadCSS: "letter-print.css.scss",  
+      pageTitle: "",              
+      removeInline: false,        
+      printDelay: 333,            
+      header: null,               
+      formValues: true            
+    });
+ 
+  });
