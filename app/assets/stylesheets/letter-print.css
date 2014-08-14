@@ -2,14 +2,13 @@
   @import url("fonts.scss");
   @page 
     {
-      size: a5;   /* auto is the initial value */
+      size: A5;   /* auto is the initial value */
         /* this affects the margin in the printer settings */
-      margin-left: 3mm;
-      margin-right: 3mm;
-      margin-top: 0mm;
-      margin-bottom: 1mm;
-      
+      margin: 0mm 3mm;      
     }
+  @page :first {
+    margin-top: 0cm    /* Top margin on first page 10cm */
+  }
  .print-hole-page, .main-header, #footer, .link-admin {display:none}
   body {
     direction:rtl;
