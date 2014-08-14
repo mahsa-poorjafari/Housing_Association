@@ -3,7 +3,12 @@
   @page 
     {
       size: a5;   /* auto is the initial value */
-      margin: 3mm;  /* this affects the margin in the printer settings */
+        /* this affects the margin in the printer settings */
+      margin-left: 3mm;
+      margin-right: 3mm;
+      margin-top: 0mm;
+      margin-bottom: 1mm;
+      
     }
  .print-hole-page, .main-header, #footer, .link-admin {display:none}
   body {
