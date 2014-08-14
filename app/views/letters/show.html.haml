@@ -31,7 +31,7 @@
       = image_tag 'icon_printer.gif'
       %span= 'پرینت نامه'
     
-    .letter-show#content{:style => "height:1000px"}
+    .letter-show#content
       .col-sm-12.letter-info
         .col-sm-3.letter-left-info          
           %p
@@ -82,7 +82,7 @@
       debug: false,               
       importCSS: true,            
       printContainer: true,       
-      loadCSS: "assets/letter-print.css.scss",  
+      loadCSS: "/assets/letter-print.css.scss",  
       pageTitle: "",              
       removeInline: false,        
       printDelay: 333,            
