@@ -43,10 +43,10 @@
             
         .set-center.show-address= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۳۷۶۲۰۷۵۵-۰۵۱'
         
-    
-    = link_to 'ویرایش', edit_letter_path(@letter)
-    \|
-    = link_to 'بازگشت', :back
+    .link-admin
+      = link_to 'ویرایش', edit_letter_path(@letter)
+      \|
+      = link_to 'بازگشت', :back
 
 :javascript 
   $('.letter-text p').css('font-family', 'open_sansregular');
@@ -55,7 +55,7 @@
   
   
   $('a.print-hole-page').click(function(){
-    $("#content").printThis(); 
+    window.print();
   });
 
   
