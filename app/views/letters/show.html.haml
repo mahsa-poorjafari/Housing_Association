@@ -54,15 +54,5 @@
   $('.letter-text p span').css('font-family', 'open_sansregular');
   
   $('a.print-hole-page').click(function(){
-    $("#content").printThis({
-      debug: false,               
-      importCSS: true,            
-      printContainer: true,       
-      loadCSS: "application.css",  
-      pageTitle: "",              
-      removeInline: false,        
-      printDelay: 333,            
-      header: null,               
-      formValues: true            
-    }); 
+    $("#content").printThis(); 
   });
