@@ -6,6 +6,12 @@ class PayLimitsController < ApplicationController
   # GET /pay_limits.json
   def index
     @pay_limits = PayLimit.order(" created_at desc")
+    filename = "pay_limits.xls"
+    respond_to do |format|
+      format.html
+      format.csv { send_data @pay_limits.to_csv }
+      format.xls {send_data @pay_limits.to_csv}
+    end
   end
 
   # GET /pay_limits/1

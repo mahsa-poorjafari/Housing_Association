@@ -27,8 +27,6 @@ gem 'ckeditor_rails'
 gem "friendly_id", "~> 5.0.1"
 gem 'jalalidate'
 gem "nested_form"
-
-
 gem 'jquery-datatables-rails', '~> 2.1.10.0.3'
 
 

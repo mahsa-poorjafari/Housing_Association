@@ -4,6 +4,7 @@
       %h1= 'لیست در خواست مشارکت برای پروژه ها'
       
       = link_to 'چاپ جدول', '#', :id => "print-table" , :class => "save-btn"
+      = link_to "فایل اکسل", pay_limits_path(format: "xls")
       %div{:style => "margin:10px"}
         = link_to 'ایجاد درخواست مشارکت', new_pay_limit_path, :class => "save-btn"
     %br
