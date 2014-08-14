@@ -3,7 +3,7 @@
 @media print {   
   @page 
   {
-    size: A5;   /* auto is the initial value */
+    size: auto;   /* auto is the initial value */
       /* this affects the margin in the printer settings */
     margin: 3mm;      
   }
