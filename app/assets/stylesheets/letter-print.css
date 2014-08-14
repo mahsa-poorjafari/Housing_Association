@@ -1,4 +1,5 @@
 @media print { 
+  @import url("fonts.scss");
  .print-hole-page, .main-header, #footer, .link-admin {display:none}
   body {
     direction:rtl;
