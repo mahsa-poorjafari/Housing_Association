@@ -31,7 +31,7 @@
       = image_tag 'icon_printer.gif'
       %span= 'پرینت نامه'
     
-    .letter-show#content
+    .letter-show#content{:style => "height:1000px"}
       .col-sm-12.letter-info
         .col-sm-3.letter-left-info          
           %p
@@ -54,13 +54,13 @@
         .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}      
           %p=raw @letter.content
         .col-sm-12.letter-signture
-          .tank-box{:style => "width:50%; text-align:center; float:left;"}
+          .tank-box
             %p= 'باتشکر'
             %b= 'مدیریت اتحادیه مسکن فرهنگیان خراسان'
           .clear{:style => "clear:both; "}
           %br
           
-          .attachment{:style => "width:100%; text-align:right; margin-right:5%;"}
+          .attachment
             - if @letter.attachment.present?
               %p= 'رونوشت:'
               =raw @letter.attachment
@@ -76,6 +76,7 @@
   $('.letter-text p').css('font-family', 'open_sansregular');
   $('.letter-text p').css('text-align', 'justify');
   $('.letter-text p span').css('font-family', 'open_sansregular');
+  
   $('a.print-hole-page').click(function(){
     $("#content").printThis({
       debug: false,               
@@ -87,6 +88,5 @@
       printDelay: 333,            
       header: null,               
       formValues: true            
-    });
- 
+    }); 
   });

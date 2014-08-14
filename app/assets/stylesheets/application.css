@@ -222,6 +222,7 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
   border-radius:10%;
   position:relative;
 }
+
 .letter-show .letter-holder .letter-inner-title {font-family:IranNastaligh; font-size:2em; color:#000;}
 .letter-show .letter-holder .letter-text {font-size:1.5em; color:#000; margin:5% 2%;
  text-align:justify; direction:rtl; 
@@ -230,6 +231,9 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
 .letter-show .letter-holder .letter-text p {font-family: 'open_sansregular';}
 .letter-show .letter-holder .letter-signture  {font-size:1.5em;
 }
+.tank-box {width:50%; text-align:center; float:left;}
+.attachment{
+    width:100%; text-align:right; margin-right:5%;}
 .show-address {width:70%; height:50px; 
   bottom: -5%;
   right:10%;
