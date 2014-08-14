@@ -1,5 +1,10 @@
 @media print { 
   @import url("fonts.scss");
+  @page 
+    {
+      size: auto;   /* auto is the initial value */
+      margin: 0mm;  /* this affects the margin in the printer settings */
+    }
  .print-hole-page, .main-header, #footer, .link-admin {display:none}
   body {
     direction:rtl;
