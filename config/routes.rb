@@ -70,7 +70,11 @@ HousingAssociation::Application.routes.draw do
 
   devise_for :views
   devise_for :users
-  resources :users
+  resources :users do
+    collection do
+      get :new_inspector
+    end
+  end
 
   resources :links
 

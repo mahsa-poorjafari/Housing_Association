@@ -21,7 +21,16 @@ class UsersController < ApplicationController
   end
   def login
   end
-
+  def new_inspector
+    @generated_password = Devise.friendly_token.first(8)      
+    @inspector_email = params[:inspector_email]
+    @user = User.create!(:email => @inspector_email, :password => @generated_password, :role_id => 2)
+    UserMailer.send_inspector_mail(@generated_password).deliver  
+    if @user.present?
+      flash[:AddInspector] = 'بازرس جدید تعریف شد. لطفا اطلاعات را کامل کنید'
+      render action: 'edit'
+    end
+  end
   # GET /users/1/edit
   def edit
     @role = Role.all

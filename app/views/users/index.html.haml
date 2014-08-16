@@ -3,7 +3,14 @@
     .title
       %h2 لیست کاربران
 
-    
+      = link_to 'تعریف مدیر جدید', '#', :class => "save-btn"
+      
+      = form_tag new_inspector_users_path, :method => "get", id: "add_inspector" do 
+        = email_field_tag :inspector_email, params[:inspector_email], :id => 'inspector_field' , placeholder: "ایمیل بازرس جدید را وارد کنید."
+        = submit_tag "تعریف بازرس جدید", :id => "inspector-submit" , :class => "save-btn"
+        
+      = link_to 'تعریف بازرس جدید', new_inspector_users_path , :class => "save-btn"
+      
     %table.table.table-striped{id:"users_table"}
       %thead
         %tr
@@ -37,29 +44,37 @@
               = link_to 'ویرایش', edit_user_path(user)
             
             
-  :coffeescript
-    window.reloadDataTable = ->
-      if !!window.oTable
-        window.oTable.fnDestroy(); 
-      window.oTable = $("#users_table").dataTable aoColumnDefs: [
-        bSearchable: false
-        aTargets: [0,5]
-      ,  
-        bSortable: false
-        aTargets: [0,5]
-      ],  oLanguage:
-        sSearch: "جستجو:"
-        sLengthMenu: "نمایش _MENU_ ردیف"
-        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-        sZeroRecords: "هیچ داده ای وجود ندارد"
-        sInfoEmpty: "هیچ موردی یافت نشد"
-        sInfoFiltered: " - از بین _MAX_ داده موجود"
-        oPaginate:
-          sPrevious: "صفحه قبلی"
-          sNext: "صفحه بعدی"
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#users_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,5]
+    ,  
+      bSortable: false
+      aTargets: [0,5]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
 
-    window.reloadDataTable()
+  window.reloadDataTable()
 
 
-
+:javascript
+  $(':submit#inspector-submit').click(function(e) {
+    $(':input#inspector_field').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });
 

@@ -7,7 +7,11 @@
   - if is_admin?
     .form-group
       = f.label "نقش کاربر:"
-      = f.select :role_id, options_for_select(Role.all.collect{ |u| [u.name, u.id] }), prompt: "تعیین نقش کاربران"
+      - if @user.present?
+        %b= @user.role.name
+      %p#change-role= 'برای تغییر نقش کاربر اینجا کلیک کنید.'
+      .select-role
+        = f.select :role_id, options_for_select(Role.all.collect{ |u| [u.name, u.id] }), prompt: "تعیین نقش کاربران"
       
   .form-group
     = f.label "نام:"
@@ -32,3 +36,7 @@
     = f.text_area :address, :class => "text"
   .actions
     = f.submit 'ثبت', :class => "mainBtn"
+:javascript
+  $('p#change-role').click(function()  {
+    $('.select-role').fadeIn(100);
+  });

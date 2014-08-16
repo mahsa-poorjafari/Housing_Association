@@ -37,10 +37,10 @@
               %b#counter-number{:style => "width:20%; float:right "}                      
               = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field'
             - if @letter_type_show == 'sent'  
-              %span{:style => "width:12%; float:right; "}= '/ص/'
+              %span{:style => "width:12%; float:right; "}= '/۱-'
             - elsif @letter_type_show == 'recieved'
-              %span{:style => "width:12%; float:right; "}= '/و/'
-            = hidden_field_tag :type_of_letter, params[:type_of_letter], :id => 'type_of_letter_field' , :value => ( @letter_type_show == 'sent'  ? 'ص' : 'و')
+              %span{:style => "width:12%; float:right; "}= '/۲-'
+            = hidden_field_tag :type_of_letter, params[:type_of_letter], :id => 'type_of_letter_field' , :value => ( @letter_type_show == 'sent'  ? '۱' : '۲')
             
             %select#region_3{name: "alphabet", :style => "width:30%; float:right; "}
               %option{value: "د"} د

@@ -2,7 +2,8 @@
   .tbox2
     .title
       %h1= 'ویرایش پروفایل' + @user.email
-    
+    -if flash[:AddInspector]        
+      .alert.alert-success= flash[:AddInspector] 
     .contact-form.width50
       = render 'form'
 
