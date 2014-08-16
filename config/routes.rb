@@ -73,6 +73,7 @@ HousingAssociation::Application.routes.draw do
   resources :users do
     collection do
       get :new_inspector
+      get :new_subadmin
     end
   end
 

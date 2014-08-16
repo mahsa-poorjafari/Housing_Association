@@ -1,16 +1,15 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h2 لیست کاربران
-
-      = link_to 'تعریف مدیر جدید', '#', :class => "save-btn"
-      
+      %h2 لیست کاربران     
+            
       = form_tag new_inspector_users_path, :method => "get", id: "add_inspector" do 
         = email_field_tag :inspector_email, params[:inspector_email], :id => 'inspector_field' , placeholder: "ایمیل بازرس جدید را وارد کنید."
-        = submit_tag "تعریف بازرس جدید", :id => "inspector-submit" , :class => "save-btn"
-        
-      = link_to 'تعریف بازرس جدید', new_inspector_users_path , :class => "save-btn"
-      
+        = submit_tag "تعریف داور جدید", :id => "inspector-submit" , :class => "save-btn"
+      -#
+        = form_tag new_subadmin_users_path, :method => "get", id: "add_subadmin" do 
+          = email_field_tag :subadmin_email, params[:subadmin_email], :id => 'subadmin_field' , placeholder: "ایمیل مدیر جدید را وارد کنید."
+          = submit_tag "تعریف مدیر جدید", :id => "subadmin-submit" , :class => "save-btn"  
     %table.table.table-striped{id:"users_table"}
       %thead
         %tr
@@ -71,6 +70,14 @@
 :javascript
   $(':submit#inspector-submit').click(function(e) {
     $(':input#inspector_field').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });
+  $(':submit#subadmin-submit').click(function(e) {
+    $(':input#subadmin_field').each(function() {
       if ($(this).val().length == 0) {
         $(this).css('border', '2px solid red');
         e.preventDefault();

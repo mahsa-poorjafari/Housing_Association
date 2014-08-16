@@ -247,3 +247,4 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
 .not-read {font-weight:bold}
 .letter-title-new {font-size:1.5em}
 .select-role {display:none}
+input.save-btn:hover {color:#000}

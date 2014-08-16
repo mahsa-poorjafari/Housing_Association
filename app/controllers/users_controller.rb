@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
   def login
   end
+  
   def new_inspector
     @generated_password = Devise.friendly_token.first(8)      
     @inspector_email = params[:inspector_email]
@@ -28,6 +29,16 @@ class UsersController < ApplicationController
     UserMailer.send_inspector_mail(@generated_password).deliver  
     if @user.present?
       flash[:AddInspector] = 'بازرس جدید تعریف شد. لطفا اطلاعات را کامل کنید'
+      render action: 'edit'
+    end
+  end
+  def new_subadmin
+    @generated_password = Devise.friendly_token.first(8)      
+    @subadmin_email = params[:subadmin_email]
+    @user = User.create!(:email => @subadmin_email, :password => @generated_password, :role_id => 2)
+    UserMailer.send_subadmin_mail(@generated_password).deliver  
+    if @user.present?
+      flash[:AddInspector] = 'مدیر جدید تعریف شد. لطفا اطلاعات را کامل کنید'
       render action: 'edit'
     end
   end
