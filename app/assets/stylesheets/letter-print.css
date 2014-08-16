@@ -23,7 +23,10 @@
   .print-hole-page, .main-header, #footer, .link-admin, .site-main {display:none}
   
   
-  .letter-show { font-family: 'open_sansregular'; width:100%; height:430px; position:absolute; right:0; top:0; margin:0;padding-top:0px;}
+  .letter-show { 
+    font-family: 'open_sansregular'; width:100%; height:430px; position:absolute; right:0; top:0; margin:0;padding-top:0px;
+    z-index:10;
+    }
   .letter-show .letter-info{ position:absolute; top:0; width:100%; padding:0}
   .letter-left-info  {width:28%; float:left; text-align:right; font-size:12px}
   .letter-besmei {width:32%;  float:left; font-size:9px; padding-top:10%; text-align:center}
@@ -34,14 +37,14 @@
   .letter-left-info {font-size:12px; }
   .letter-besmei {font-size:14px; text-align:right}
   .letter-show .letter-holder {     
-    min-height:100%;
-    width:100%;
-    margin-top:30%;    
+    height:50%;
+    width:128%;
+    top:10%;    
     border-top: 2px solid #4D4D4D;
     border-left: 2px solid #4D4D4D;
     border-right: 2px solid #4D4D4D;
     border-radius:10%;
-    position:relative;
+    position:fixed;
   }
   .letter-show .letter-holder .letter-inner-title {    
   font-size:17px; color:#000; 
@@ -66,7 +69,7 @@
     margin-top:10%;
   }
   .show-address {width:70%; height:6%; 
-    bottom:-7%;
+    bottom:-7%;    
     right:10%;
     left:10%;
     background:#fff;
