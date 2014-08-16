@@ -3,7 +3,7 @@
 @media print {   
   @page 
   {
-    size: A5;   /* auto is the initial value */
+    size: A4;   /* auto is the initial value */
       /* this affects the margin in the printer settings */
     margin:0 3mm !important;   
     padding:0;   
@@ -11,7 +11,7 @@
   @page :first {
     margin-top: 0mm !important   /* Top margin on first page 0cm */
   }
-  .print-hole-page, .main-header, #footer, .link-admin {display:none}
+  
    
   html, body {
     direction:rtl;
@@ -20,6 +20,9 @@
     margin: 0;
     padding: 0;
   }
+  .print-hole-page, .main-header, #footer, .link-admin, .site-main {display:none}
+  
+  
   .letter-show { font-family: 'open_sansregular'; width:100%; height:430px; position:absolute; right:0; top:0; margin:0;padding-top:0px;}
   .letter-show .letter-info{ position:absolute; top:0; width:100%; padding:0}
   .letter-left-info  {width:28%; float:left; text-align:right; font-size:12px}
