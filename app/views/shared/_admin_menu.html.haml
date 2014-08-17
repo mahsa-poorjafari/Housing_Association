@@ -9,7 +9,7 @@
   %br
   = link_to  Complaint do
     %p.width80.pull-right= "گزارش داوری"
-    %b.notif= Complaint.where(display: false).count
+    %b.notif= Complaint.where(display: false, admin_visited: false).count
     
   %br
   = link_to " مدیریت اخبار و اعلامیه ها", Inform
