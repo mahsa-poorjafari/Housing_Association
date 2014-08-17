@@ -1,17 +1,7 @@
 @import url("fonts.scss");
 
 @media print {   
-  @page 
-  {
-    size: auto;   /* auto is the initial value */
-      /* this affects the margin in the printer settings */
-    margin:0 3mm !important;   
-    padding:0;   
-  }
-  @page :first {
-    margin-top: 0mm !important   /* Top margin on first page 0cm */
-  }
-  
+ 
    
   html, body {
     direction:rtl;
@@ -24,31 +14,30 @@
   
   
   .letter-show { 
-    font-family: 'open_sansregular'; width:100%; height:430px; position:absolute; right:0; top:0; margin:0;padding-top:0px;
+    font-family: 'open_sansregular'; width:100%;  position:absolute; right:0; top:0; margin:0;padding-top:0px;
     z-index:10;
     }
   .letter-show .letter-info{ position:absolute; top:0; width:100%; padding:0}
-  .letter-left-info  {width:28%; float:left; text-align:right; font-size:12px}
-  .letter-besmei {width:32%;  float:left; font-size:9px; padding-top:10%; text-align:center}
+  .letter-left-info  {width:35%; float:left; text-align:right; font-size:12px}
+  .letter-besmei {width:30%;  float:left; font-size:9px; padding-top:10%; text-align:center}
   .letter-right-info  {width:35%; float:left; text-align:right;}
 
   .letter-show .letter-right-info .letter-company-name{font-size:17px; font-weight:bold}
   .letter-show .letter-right-info p{font-size:12px; }
   .letter-left-info {font-size:12px; }
   .letter-besmei {font-size:14px; text-align:right}
-  .letter-show .letter-holder {     
-    
-    width:124%;
-    top:10%;    
-    
+  .letter-show .letter-holder {         
+    width:100%;
+    margin-top:25%;
+    min-height:500px;
     border-top: 2px solid #4D4D4D;
     border-left: 2px solid #4D4D4D;
     border-right: 2px solid #4D4D4D;
     border-radius:10%;
-    position:fixed;
+    position:relative;
   }
   .letter-show .letter-holder .letter-inner-title {    
-  font-size:17px; color:#000; 
+    font-size:17px; color:#000; 
     margin-right:5%;    
     height:5%;
     

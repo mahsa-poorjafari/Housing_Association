@@ -1,13 +1,12 @@
 .width80.set-center.margin-top
   - if notice.present?
     .alert.alert-success= notice
-  .page-title-holder  
-    
-    = link_to '#' , rel: "content", :class => "print-hole-page" do
+  
+  .page-title-holder    
+    = link_to  '#', rel: "content", :class => "print-hole-page" do
       = image_tag 'icon_printer.gif'
-      %span= 'پرینت نامه'
-    
-    .letter-show#content
+      %span.print= 'پرینت نامه'
+    .letter-show              
       .col-sm-12.letter-info
         .col-sm-3.letter-left-info          
           %p
@@ -52,10 +51,9 @@
   $('.letter-text p').css('font-family', 'open_sansregular');
   $('.letter-text p').css('text-align', 'justify');
   $('.letter-text p span').css('font-family', 'open_sansregular');
-  
-  
+ 
+
   $('a.print-hole-page').click(function(){
     window.print();
   });
-
   
