@@ -1,0 +1,64 @@
+.width80.set-center.margin-top
+  .page-title-holder
+    .title
+      %h1 لیست فایل های ارسالی توسط تعاونی ها
+      - if is_user?  
+        = link_to 'ارسال فایل جدید', new_upload_file_path, :class => "save-btn"
+
+  %table.table.table-striped{id:"file_table"}
+    %thead
+      %tr
+        %th= 'ردیف'
+        %th= 'نام تعاونی'
+        %th= 'فایل ارسالی'
+        %th= 'توضیحات'        
+        %th= 'تاریخ ارسال'                
+        %th عملیات
+        
+    %tbody{:id => "file_container"}
+      - @upload_files.each_with_index do |upload_file, i|
+        %tr
+          %td= (i+1)          
+          %td= upload_file.cooperative_id
+          %td            
+            =link_to upload_file.pdf.url, :target => "blank" do
+              %span= image_tag 'icon_download_pdf.gif'
+              = upload_file.pdf_file_name
+            
+          %td= upload_file.description
+          %td= JalaliDate.new(upload_file.created_at).strftime("%A %e %b %Y %X")
+          %td
+            - if is_admin?
+              = link_to 'مشاهده', upload_file          
+              \|
+              = link_to 'حذف', upload_file, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            - if is_user? && (upload_file.cooperative_id == current_user.id)              
+              = link_to 'مشاهده', upload_file          
+              \|
+              = link_to 'ویرایش', edit_upload_file_path(upload_file)
+        
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#file_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,5]
+    ,  
+      bSortable: false
+      aTargets: [0,5]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
+
+  
+

@@ -48,8 +48,9 @@
             = link_to 'مشاهده', cooperative
             \|
             = link_to 'ویرایش', edit_cooperative_path(cooperative)
-            \|
-            = link_to 'حذف', cooperative, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }  
+            - if is_admin?
+              \|
+              = link_to 'حذف', cooperative, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }  
           
             = link_to 'معرفی عضو جدید', new_member_path(cooperative_id: cooperative.id), :class => "save-btn"
             = link_to 'مشاهده تمام اعضا', members_path(cooperative_id: cooperative.id), :class => "save-btn"

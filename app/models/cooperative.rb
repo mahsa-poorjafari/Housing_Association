@@ -6,6 +6,7 @@ class Cooperative < ActiveRecord::Base
   validates :email_company, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => 'ایمیل نامعتبر است.' } 
   validates :email_company, :uniqueness => {:message => 'ایمیل در سیستم وجود دارد'}
   
+  has_many :upload_files
   has_many :members
   has_one :phone_book
   

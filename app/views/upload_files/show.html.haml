@@ -1,0 +1,29 @@
+.width80.set-center.margin-top
+  .tbox2
+    .title
+      %h1 فایل ارسالی 
+      - if notice.present?
+        .alert.alert-success= notice
+    .width80.set-center 
+
+      %p
+        %b توضیحات:
+        = @upload_file.description
+      %p
+        %b نام تعاونی ارسال کننده:
+        -if @upload_file.cooperative_id.present?
+          = @upload_file.cooperative_id
+      %p
+        %b  تاریخ ارسال
+        = JalaliDate.new(@upload_file.created_at).strftime("%A %e %b %Y %X")
+      %p
+        -if @upload_file.pdf.url.present?
+          .pdf-link.col-sm-5
+            =link_to @upload_file.pdf.url, :target => "blank" do
+              %i= 'دریافت فایل '
+              = image_tag 'pdf-icon.png'            
+
+      - if is_user? && (@upload_file.cooperative_id == current_user.id)
+        = link_to 'ویرایش', edit_upload_file_path(@upload_file)
+        \|
+      = link_to 'بازگشت', :back

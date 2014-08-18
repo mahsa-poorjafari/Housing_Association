@@ -1,0 +1,19 @@
+= form_for @upload_file do |f|
+  - if @upload_file.errors.any?
+    #error_explanation
+      
+      %ul
+        - @upload_file.errors.each do |attr, msg|
+          %li= msg
+
+  .form-group
+    = f.label 'توضیحات:', :class => "control-label"
+    = f.text_area :description, :class => "form-control"
+  .form-group
+    = f.label 'فایل:', :class => "control-label"
+    = f.file_field :pdf, :class => "form-control"
+  - if current_user.present?
+    .form-group    
+      = f.hidden_field :cooperative_id, :value => current_user.id
+  .form-group
+    = f.submit 'ثبت', :class => "mainBtn"

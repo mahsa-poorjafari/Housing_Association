@@ -1,0 +1,10 @@
+.width80.set-center.margin-top
+  .page-title-holder
+    .title
+      %h1 ویرایش فایل
+  .contact-form.width50
+    = render 'form'
+
+  = link_to 'مشاهده', @upload_file
+  \|
+  = link_to 'بازگشت', :back

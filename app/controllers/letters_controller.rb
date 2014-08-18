@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class LettersController < ApplicationController
   before_action :set_letter, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication
   # GET /letters
   # GET /letters.json
   def index

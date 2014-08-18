@@ -1,5 +1,7 @@
 HousingAssociation::Application.routes.draw do  
 
+  resources :upload_files
+
   resources :letter_templates do
     collection do
       get :set
