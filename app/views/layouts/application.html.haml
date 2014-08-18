@@ -51,12 +51,17 @@
               
             / /#menu-wrapper
             -if is_admin?
-              .col-md-5.admin-menu.login-menu
+              .col-md-4.admin-menu.login-menu
                 %h2
-                  %p.width50.pull-right= 'منوی مدیرسایت'
+                  %p.pull-right= 'منوی مدیرسایت'
                   %b.notif= Complaint.where(display: false, admin_visited: false).count
                 .admin-menu-links
                   = render 'shared/admin_menu'
+              .col-md-2.admin-menu.login-menu{:style => "margin-right:2%"}
+                %h2
+                  %p.pull-right= 'مدیریت تعاونیهای تحت پوشش'
+                .admin-menu-links
+                  = render 'shared/admin_menu_cooperatives'  
                   
             - if is_inspector?
               .col-md-3.inspector-menu.login-menu
