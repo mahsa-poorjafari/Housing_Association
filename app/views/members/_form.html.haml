@@ -9,59 +9,57 @@
       = f.select :cooperative_id, options_for_select(Cooperative.all.collect{ |u| [u.name, u.id] }), prompt: "تعاونی را انتخاب کنید"
     - else
       = f.hidden_field :cooperative_id, :value => @cooperative_id
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-2.pull-right
     = f.label 'نام:*', :class => "control-label"
     = f.text_field :name, :id => "name", class:"form-control"
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-2.pull-right
     = f.label 'نام خانوادگی:*', :class => "control-label"
     = f.text_field :last_name, :id => "last-name", class:"form-control"
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-2.pull-right
     = f.label 'نام پدر:*', :class => "control-label"
     = f.text_field :father_name, :id => "father-name", class:"form-control"
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-2.pull-right
     = f.label 'تلفن همراه:*', :class => "control-label"
     = f.text_field :mobile , :id => "mobile", placeholder: "ده رقم شماره موبایل بدون صفر ", class:"form-control"
-  .form-group.col-sm-6.pull-right.dates
+  .form-group.col-sm-2.pull-right.dates
     = f.label 'تاریخ تولد دقیق:', :class => "control-label"
     = f.text_field :birthdate_fa, class:" fa_date form-control"
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-2.pull-right
     = f.label 'شماره کارت ملی:', :class => "control-label"
     = f.text_field :national_id_card, class:"form-control"
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-2.pull-right
     = f.label 'شماره شناسنامه:', :class => "control-label"
     = f.text_field :identify_number, class:"form-control"
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-2.pull-right
     = f.label 'ایمیل:', :class => "control-label"
     = f.email_field :email, class:"form-control"
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-2.pull-right
     = f.label 'تلفن ثابت:', :class => "control-label"
     = f.text_field :phone_number, class:"form-control"
   
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-2.pull-right
     = f.label 'کدپستی:', :class => "control-label"    
     = f.text_field :postal_code, class:"form-control"
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-2.pull-right
     = f.label 'مبلغ واریزی عضو:', :class => "control-label"    
     = f.text_field :paid_member, class:"form-control"
-  .form-group.col-sm-6.pull-right
+  .form-group.col-sm-2.pull-right
     = f.label 'ضمیمه عکس:', :class => "control-label"
     = f.file_field :image
-  .form-group.col-sm-12
+  .form-group.col-sm-4
     = f.label 'سمت:', :class => "control-label"
     %i= 'درصورتی که سمت عضو عادی تعاونی می باشد نیازی به وارد کردن نیست.'
     = f.select :member_post_id, options_for_select(MemberPost.all.collect{ |u| [u.title, u.id] }), prompt: "سمت و پست عضو را مشخص کنید."
   
-  .form-group.col-sm-12
+  .form-group.col-sm-4
     = f.label 'آدرس:', :class => "control-label"
     = f.text_area :address, :style => "resize:none", class:"form-control"
   
-  
-  .clear-float   
-      
-  .form-group
+  .form-group.col-sm-2
     = f.submit 'ثبت', :class => "mainBtn", :id => "member-submit"
+  .clear-float   
   - if @member.present? && @member.deactive.blank?
-    .form-group.deactive
+    .form-group.deactive.col-sm-2
       = f.label 'درصورتی که عضو می خواهد انصراف دهد تیک مقابل را فعال کنید.', :class => "control-label"   
       = f.check_box :deactive , :class => "form-control "
 :javascript  

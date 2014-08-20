@@ -1,9 +1,15 @@
 %tr  
-  - if member.present?
+  - if member.present?    
     %td= member.last_name
     %td= member.name
     %td= member.father_name  
-    %td= member.member_post_id
+    %td= member.member_post.title
     %td= member.mobile
+    %td
+      - if is_admin?
+        = link_to 'ویرایش', edit_member_path(member)
+        \|
+        = link_to 'حذف', member, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+        
   
     

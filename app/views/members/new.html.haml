@@ -8,18 +8,48 @@
       .alert.alert-success= flash[:done]
     - elsif flash[:error]        
       .alert.alert-warning= flash[:error]
-    .col-sm-6
-      %table.table#show-members
+    .col-sm-12
+      %table.table.table-striped#show-members
         %thead
-          %tr
+          %tr            
             %th= 'نام خانوادگی'
             %th= 'نام'
             %th= 'نام پدر'
             %th= 'سمت'
             %th= 'تلفن همراه'
+            %th= 'عملیات'
         %tbody
           = render 'show_member_rows', :member => Member.last
-    .contact-form.col-sm-6
+    .clear-float
+    %br
+    %br    
+    .contact-form.col-sm-12{:style => "background:#DAF5DA"}
       = render 'form'
 
     = link_to 'بازگشت', cooperatives_path
+    
+    
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#show-members").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,4]
+    ,  
+      bSortable: false
+      aTargets: [0,4]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
+
+    
