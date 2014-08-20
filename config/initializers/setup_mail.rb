@@ -2,9 +2,9 @@
 ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :domain               => "maskan-ef.com",
-  :user_name            => "info@maskan-ef.com",
-  :password             => "37620755",
+  :domain               => "gmail.com",
+  :user_name            => "testing.raush@gmail.com",
+  :password             => "raush.net",
   :authentication       => "plain",
   :enable_starttls_auto => true
 }

@@ -10,6 +10,7 @@
           %th ردیف
           %th نام و نام خانوادگی
           %th نام شرکت
+          %th ایمیل
           %th تلفن های تماس
           %th فکس
           %th آدرس
@@ -23,6 +24,7 @@
             %td= (i+1)
             %td= contact.preson_name
             %td= contact.company_name
+            %td= contact.email
             %td= contact.phone
             %td= contact.fax
             %td= contact.address 
@@ -42,10 +44,10 @@
       window.oTable.fnDestroy(); 
     window.oTable = $("#phone_table").dataTable aoColumnDefs: [
       bSearchable: false
-      aTargets: [0,6]
+      aTargets: [0,7]
     ,  
       bSortable: false
-      aTargets: [0,6]
+      aTargets: [0,7]
     ],  oLanguage:
       sSearch: "جستجو:"
       sLengthMenu: "نمایش _MENU_ ردیف"

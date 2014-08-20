@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class UserMailer < ActionMailer::Base
-  default from: "web.development@raush.ir"
+  default from: "info@maskan-ef.com"
   
   def send_user_mail
     mail(to: 'mahsa.poorjafari@gmail.com', subject: 'house')
