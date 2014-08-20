@@ -66,6 +66,17 @@ class LettersController < ApplicationController
     if @letter.save
       redirect_to @letter
       flash[:letter] = 'نامه در سیستم ثبت شد' 
+      
+      if params[:letter_type_email]  == 'email'
+        if params[:send_all] == 'send_to_all'
+          p 'aaaaaaaaaaaaaaaaaaaaaaaaaa'
+          @cooperative = Contact.where.not('cooperative_id' => nil)
+          p @recievers = @cooperative.map { |x| x[:id] }          
+          @letter.update_attribute(:reciever_ids, @recievers.collect )
+          UserMailer.send_group_mail(@letter).deliver      
+        end
+      end
+      
     else
       render action: 'new'      
     end

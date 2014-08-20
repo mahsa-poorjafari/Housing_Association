@@ -1,0 +1,19 @@
+%h2= 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان'
+%div
+  %p= @reciever.preson_name
+  %p= @reciever.company_name
+  
+  %p
+    = @letter.letter_number
+    =raw @letter.content
+    %b= 'رونوشت'
+    =raw @letter.attachment
+%p
+  برای اطلاعات بیشتر به سایت اتحادیه مراجعه فرمایید.
+  = link_to 'maskan-ef.com', 'maskan-ef.com'  
+با تشکر
+%br
+مدیریت اتحادیه مسکن فرهنگیان استان خراسان
+
+  
+  

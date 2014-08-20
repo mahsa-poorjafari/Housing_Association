@@ -9,6 +9,8 @@ class Cooperative < ActiveRecord::Base
   has_many :upload_files
   has_many :members
   has_one :phone_book
+  has_one :contact
+  
   
   def self.search(search)
     search_condition = "%" + search + "%"  

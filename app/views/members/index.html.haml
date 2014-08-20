@@ -24,8 +24,10 @@
       %tbody{:id => "member_container"}
         - @members.each_with_index do |member, i|
           %tr
-            %td= (i+1)        
-            %td= member.cooperative.name
+            %td= (i+1)                      
+            %td
+              - if member.cooperative_id.present?
+                = member.cooperative_id
             %td= link_to member.name + member.last_name , member
             %td= member.phone_number 
             %td= member.mobile               

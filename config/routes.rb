@@ -81,7 +81,11 @@ HousingAssociation::Application.routes.draw do
 
   resources :links
 
-  resources :cooperatives
+  resources :cooperatives do
+    collection do      
+      get :select_group      
+    end
+  end
 
   resources :messages
 

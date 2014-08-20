@@ -16,4 +16,14 @@ class UserMailer < ActionMailer::Base
     mail(to: @inspector.email, subject: 'شما به عنوان بازرس در سیستم تعریف شدید.', :from => "web.development@raush.ir")
   end
   
+  def send_group_mail(letter)
+    letter.recievers.each do  |reciever|  
+      p 'reciever email -------------'      
+      @reciever = reciever
+      @letter = letter        
+      if reciever.cooperative_id.present?        
+        mail(to: letter.recievers.collect(&:email).join(','), subject: letter.summary , :from => "web.development@raush.ir")
+      end
+    end
+  end  
 end

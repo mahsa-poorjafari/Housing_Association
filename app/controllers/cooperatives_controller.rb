@@ -23,7 +23,20 @@ class CooperativesController < ApplicationController
   # GET /cooperatives/1.json
   def show
   end
-
+  def select_group
+    if is_admin?
+      @cooperatives = Cooperative.order('name DESC')  
+    else
+      flash[:PermissonError] = 'دسترسی غیر مجاز است.'
+    end    
+  end
+  def send_email_group
+    @cooperative_ids = params[:cooperative_ids]  
+    
+    
+  end
+  
+  
   # GET /cooperatives/new
   def new
     @cooperative = Cooperative.new
@@ -43,6 +56,7 @@ class CooperativesController < ApplicationController
       flash[:AddCooper] = 'تعاونی جدید ثبت شد و اطلاعات ورود به سایت ارسال شد.' 
       @generated_password = Devise.friendly_token.first(8)      
       user = User.create!(:email => @cooperative.email_company, :password => @generated_password, :name => @cooperative.name, :last_name => @cooperative.managment_name , :phone => @cooperative.phone, :address => @cooperative.address, :role_id => 4, :cooperative_code => @cooperative.id)
+      user = Contact.create!(:email => @cooperative.email_company, :company_name => @cooperative.name, :preson_name => @cooperative.managment_name , :phone => @cooperative.phone, :address => @cooperative.address, :cooperative_id => @cooperative.id)
       UserMailer.send_cooperative_mail(@generated_password).deliver  
       render action: 'show'      
     else

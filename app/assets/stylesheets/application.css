@@ -90,7 +90,18 @@ text_area {resize:none}
  
 }
 
-.save-btn:hover {border:#e67e22 solid 2px; background:#fff;}
+.save-btn:hover, .set-btn:hover {border:#e67e22 solid 2px; background:#fff; color:#000}
+.set-btn {
+  width:90%; 
+  height:40px; 
+  color:#fff; 
+  background:#e67e22; 
+  padding:1%; 
+  margin:5px; 
+  font-size:15px;
+  margin:2%;  
+  border-radius:5px; 
+}
 .index-projects {margin-top:5%}
 b.notif {
   background:#fff;
@@ -250,3 +261,10 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
 .letter-title-new {font-size:1.5em}
 .select-role {display:none}
 input.save-btn:hover {color:#000}
+
+
+/* send email to cooperatives  */
+
+.adding-list {height:200px; border:#4D4D4D groove 2px; padding:3%; overflow-y:scroll; }
+ul.cooperatives-list li:hover {cursor:pointer; background:#BFBFBF;}
+ul.cooperatives-list li{list-style:none}

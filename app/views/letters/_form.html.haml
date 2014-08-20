@@ -41,6 +41,7 @@
             - elsif @letter_type_show == 'recieved'
               %span{:style => "width:12%; float:right; "}= '/۲-'
             = hidden_field_tag :type_of_letter, params[:type_of_letter], :id => 'type_of_letter_field' , :value => ( @letter_type_show == 'sent'  ? '۱' : '۲')
+            = hidden_field_tag :letter_type_email, params[:letter_type_email], :id => 'type_of_letter_field' , :value => ('email' if @letter_type_show == 'email')
             
             %select#region_3{name: "alphabet", :style => "width:30%; float:right; "}
               %option{value: "د"} د
@@ -54,14 +55,15 @@
         = link_to 'اینجا کلیک کنید.', '#'
         
       .clear-float  
-        - if @letter_type_show == 'sent'
+        - if @letter_type_show == 'sent' || @letter_type_show == 'email' 
           .form-group.dates
             = f.label 'تاریخ ارسال:', :class => "control-label ", :style => "width:30%; float:right "    
             = f.text_field :sent_date_fa, class:" fa_date form-control", :value => @current_date, :style=> "width:50%; "            
-        - elsif @letter_type_show == 'recieved'
+        - elsif @letter_type_show == 'recieved' 
           .form-group.dates
             = f.label 'تاریخ دریافت:', :class => "control-label", :style => "width:30%; float:right "        
             = f.text_field :received_date_fa, class:"fa_date form-control", :style => "width:50%; " , :value => @current_date
+        
       
         
     .col-sm-3.besella
@@ -85,9 +87,18 @@
         .form-group.col-sm-6
           = f.label 'شرکت ارسال کننده', :class => "control-label"    
           = f.text_field :sendercompany_name, data: {autocomplete_source: company_names_contacts_path}, :class => "form-control"
-      - elsif @letter_type_show == 'sent'
+          
+      - elsif @letter_type_show == 'sent'       
+        .form-group.width50.pull-right
+          =f.label 'دریافت کننده:', :class => "control-label"    
+          =f.text_field :reciever_tokens, data: {autocomplete_source: reciever_names_contacts_path, load: @letter.recievers.map{|c|{id:c.id, name:c.preson_name}}}
+        .form-group.width50.pull-right
+          = link_to "افزودن دریافت کننده جدید", new_contact_path, :class => "save-btn", :id => "add-reciever", :target => "_blank"
       
-      
+      - elsif @letter_type_show == 'email'        
+        .form-group.width50
+          %span.width50.pull-right= check_box_tag 'send_all', 'send_to_all'
+          %span= 'ارسال برای تمام تعاونیها'
         .form-group.width50.pull-right
           =f.label 'دریافت کننده:', :class => "control-label"    
           =f.text_field :reciever_tokens, data: {autocomplete_source: reciever_names_contacts_path, load: @letter.recievers.map{|c|{id:c.id, name:c.preson_name}}}

@@ -1,13 +1,18 @@
 .col-md-12
   = link_to "فایل های ارسالی تعاونیها", upload_files_path
   %br
+  %br
   = link_to "لیست تعاونیها ", Cooperative
+  %br
   %br
   = link_to "تعریف تعاونی جدید", new_cooperative_path
   %br
+  %br
   = link_to "نمایش اعضا تعاونیها", Member
   %br
-  = link_to "ارسال ایمیل به تعاونیها", '#'
+  %br
+  = link_to "ارسال ایمیل به تعاونیها", new_letter_path(letter_type:"email")
+  %br
   %br
   = link_to "تعریف عنوان پست تعاونی", MemberPost
   %br
