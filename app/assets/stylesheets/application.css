@@ -26,7 +26,7 @@ text_area {resize:none}
 .width80 {width:80%}
 .width80.set-center.margin-top{ min-height:250px;}
 .width50 {width:50%}
-.title {margin-bottom:10%}
+.title {margin-bottom:10%; padding: 6%;}
 .title  h1 {font-size:27px; text-align:center; margin:2%}
 .title  h2 {font-size:18px; text-align:center; margin:2%; color:#7F7F7F}
 .sub-title h3 {font-size:20px; text-align:right; margin:2%}
@@ -48,9 +48,14 @@ text_area {resize:none}
 .signin {text-align:center; padding:2%; float:right}
 .signin p.search-by-email{color:#fff}
 .signin b {margin-top:10px; margin-bottom:10px}
+@media (min-width: 768px) { 
+  .admin-menu {width: 40%; float: right}
+  .admin-menu .admin-menu-links .col-md-6{width: 50%; float: right}
+  .admin-menu:hover { height:500px; cursor:pointer;}
+}
 .admin-menu h2, .inspector-menu h2, .cooperative-menu h2{color:#fff; padding:3px; border-bottom:1px dotted #fff; text-align:center; height:30px; margin:3px;  }
 .admin-menu a, .inspector-menu a, .cooperative-menu a {color:#fff; width:100%; height:20px; text-align:right;}
-.admin-menu:hover { height:290px; cursor:pointer}
+.admin-menu:hover { height:300px; cursor:pointer}
 .inspector-menu:hover { height:100px; cursor:pointer}
 .cooperative-menu:hover { height:150px; cursor:pointer}
 .admin-menu, .inspector-menu, .cooperative-menu a:hover {color:#000}
@@ -167,7 +172,7 @@ img.recyclebin-icon {width:50px; height:40px;}
 .immediate h1 {font-size:20px}
 .deactive {background:#FF0000; opacity:.5; color:#000;}
 .login-box {position:absolute;
-  width:50%;
+  width:60%;
   top: 30%;
 right: 6%;
 z-index: 20;
@@ -185,7 +190,7 @@ table.dataTable thead tr th {text-align:center}
 }
 .step {border-radius:5px; width:60%; height:90px; border:solid 2px #427342;
   font-size:18px;
-  padding:2%;
+  
   text-align:center;
   margin:2%;
 }
@@ -225,7 +230,7 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
   .print-hole-page {width:50%; background:#BFBFBF;}
   .letter-show .letter-right-info .letter-company-name{font-size:2em; font-weight:bold}
   .letter-show .letter-right-info p{font-size:1.5em; }
-  .letter-left-info {font-size:1.5em; }
+  .letter-left-info {font-size:1.2em; direction:rtl}
   .letter-besmei {font-size:1.5em; text-align:center; padding:5%;}
   .letter-show .letter-holder {
     min-height:700px;
@@ -247,6 +252,7 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
   .tank-box {width:50%; text-align:center; float:left;}
   .attachment{
       width:100%; text-align:right; margin-right:5%;}
+  
   .show-address {width:70%; height:50px; 
     bottom: -5%;
     right:10%;
@@ -254,7 +260,7 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
     background:#fff;
     text-align:center;
     position:absolute;
-    font-size:1.5em;
+    font-size:1em;
   }
 
 .not-read {font-weight:bold}
@@ -268,3 +274,5 @@ input.save-btn:hover {color:#000}
 .adding-list {height:200px; border:#4D4D4D groove 2px; padding:3%; overflow-y:scroll; }
 ul.cooperatives-list li:hover {cursor:pointer; background:#BFBFBF;}
 ul.cooperatives-list li{list-style:none}
+
+.mainBtn:hover, .mainBtn:focus { border:solid 2px #fff; border-radius:5px}

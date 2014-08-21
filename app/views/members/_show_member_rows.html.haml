@@ -1,15 +1,16 @@
-%tr  
-  - if member.present?    
-    %td= member.last_name
-    %td= member.name
-    %td= member.father_name  
-    %td= member.member_post.title
-    %td= member.mobile
-    %td
-      - if is_admin?
-        = link_to 'ویرایش', edit_member_path(member)
-        \|
-        = link_to 'حذف', member, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-        
-  
+-if member.present?
+  %tr{:id => member.id}  
+    - if member.present?    
+      %td= member.last_name
+      %td= member.name
+      %td= member.father_name  
+      %td= member.member_post.title
+      %td= member.mobile
+      %td
+        - if is_admin?
+          = link_to 'ویرایش', edit_member_path(member), :remote => true
+          \|
+          = link_to 'حذف', member, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+          
+    
     

@@ -1,0 +1,10 @@
+-if @update    
+  $("#show-members tr##{@member.id}").replaceWith("#{escape_javascript(render(:partial => 'show_member_rows', :locals => {:member => @member}))}");        
+  $('form.edit_member [type="text"]').val('');
+  $('form.edit_member [type="email"]').val('');
+  $('form.edit_member textarea').val('');
+  
+-else
+  alert('خطا در ثبت عضو');
+  $('.alert.alert-warning').html("<b>خطا در ثبت عضو</b>");
+

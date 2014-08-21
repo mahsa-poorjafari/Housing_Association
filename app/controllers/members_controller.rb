@@ -63,15 +63,15 @@ class MembersController < ApplicationController
   # PATCH/PUT /members/1
   # PATCH/PUT /members/1.json
   def update
-    respond_to do |format|
-      if @member.update(member_params)
-        format.html { redirect_to @member, done: 'ویرایش اطلاعات انحام شد.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @member.errors, status: :unprocessable_entity }
-      end
+    
+    @update = @member.update(member_params)
+    if @update
+      flash[:done] = 'ویرایش اطلاعات انجام شد.'
+    else
+      flash[:error] = 'خطا در ویرایش اطاعات'
     end
+    
+    
   end
 
   # DELETE /members/1
@@ -87,7 +87,7 @@ class MembersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member
-      @member = Member.friendly.find(params[:id])
+      @member = Member.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

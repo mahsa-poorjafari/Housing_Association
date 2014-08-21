@@ -1,9 +1,9 @@
 #member_form  
-  = form_for @member, :remote => true do |f|
-    - if @member.errors.any?
+  = form_for member, :remote => true do |f|
+    - if member.errors.any?
       .alert.alert-warning 
         %ul
-          - @member.errors.each do |attr, msg|
+          - member.errors.each do |attr, msg|
             %li= msg
     .form-group    
       - if @cooperative_id.blank?      

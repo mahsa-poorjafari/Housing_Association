@@ -1,7 +1,6 @@
 # encoding: UTF-8
 class Member < ActiveRecord::Base
-  extend FriendlyId  
-  friendly_id :last_name
+  
   extend PersianNumbers
   persian_dates :birthdate
   

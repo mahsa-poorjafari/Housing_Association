@@ -732,17 +732,37 @@ pre code {
 }
 @media (min-width: 768px) {
   .container {
-    width: 750px;
+    width: 90%;
   }
+  .logo-wrapper {width: 40%;
+    float: right;
+    padding: 0 1%;
+    
+  }
+  .logo-wrapper h4 a {font-size:15px;}
+  .main-menu {
+    width: 55%;
+    float: right;
+    
+  }
+  
 }
 @media (min-width: 992px) {
   .container {
     width: 970px;
   }
+  .logo-wrapper {width: 50%;
+    float: right;
+    padding: 0 1%;
+  }
 }
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
+  }
+  .logo-wrapper {width: 50%;
+    float: right;
+    padding: 0 1%;
   }
 }
 .container-fluid {

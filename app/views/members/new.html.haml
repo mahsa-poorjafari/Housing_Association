@@ -6,6 +6,7 @@
         %h2= @current_cooperative.name
     -if flash[:done]        
       .alert.alert-success= flash[:done]
+    
     - elsif flash[:error]        
       .alert.alert-warning= flash[:error]
     .col-sm-12

@@ -293,7 +293,7 @@ hr {
 
 .main-menu ul li a {
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: .9em;
   color: #444444;
   line-height: 100px;
   padding-top: 37px;
@@ -336,7 +336,7 @@ a.toggle-menu {
 
 .flexslider {
   position: relative;
-  top: -96px;
+  
 }
 .flexslider .overlay {
   position: absolute;
