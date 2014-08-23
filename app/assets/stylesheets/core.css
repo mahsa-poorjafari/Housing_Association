@@ -19,6 +19,7 @@
   .avoid-this, .site-main, #footer {display:none}
   
   .letter-show { 
+    font-family: 'open_sansregular';
     width:15cm;  
     height:21cm;
     position:absolute; 
@@ -45,6 +46,7 @@
     position:absolute;
   }
   .letter-show .letter-holder .letter-inner-title {    
+  font-family: 'IranNastaligh';
     font-size:15px; color:#000; 
     margin-right:5%;    
     height:5%;
@@ -61,7 +63,7 @@
     margin-left:5%;
     line-height:19px;
     }
-  .letter-show .letter-holder .letter-text p span{}
+  .letter-show .letter-holder .letter-text p span{font-family: 'open_sansregular';}
   .letter-show .letter-holder .letter-signture  { font-size:11px;
     width:100%; 
     margin-top:10%;
@@ -74,6 +76,7 @@
     text-align:center;
     position:absolute;
     font-size:9px;
+    font-family: 'open_sansregular';
   }
   .tank-box{width:50%; text-align:center; float:left;}
   .attachment{
