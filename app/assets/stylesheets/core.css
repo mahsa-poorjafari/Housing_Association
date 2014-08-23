@@ -1,6 +1,6 @@
 @media print {   
   @page {
-    
+    size: A5;
     orphans:0; widows:0;
     margin:.5cm;
     padding:0;
