@@ -28,9 +28,9 @@
     z-index:10;    
     }
   .letter-show .letter-info{ position:absolute; top:0; width:100%; padding:0}
-  .letter-left-info  {width:35%; float:left; text-align:right; font-size:14px; }
-  .letter-besmei {width:22%;  float:left; font-size:12px; padding-top:10%; margin-right:3%; text-align:center}
-  .letter-right-info  {width:35%; float:left; text-align:right;}
+  .letter-left-info  {width:30%; float:left; text-align:right; font-size:14px;  margin-right:5%; }
+  .letter-besmei {width:22%;  float:left; font-size:12px; padding-top:10%; margin-right:3%; text-align:right; }
+  .letter-right-info  {width:35%; float:left; text-align:right;  }
 
   .letter-show .letter-right-info .letter-company-name{font-size:15px; font-weight:bold}
   .letter-show .letter-right-info p{font-size:14px; }
@@ -40,7 +40,7 @@
     top:10%;        
     border-top: 2px solid #4D4D4D;
     border-left: 2px solid #4D4D4D;
-    border-right: 2px solid #4D4D4D;
+    border-right: 2px solid #4D4D4D;    
     border-radius:10%;
     position:absolute;
   }
@@ -67,12 +67,13 @@
     margin-top:10%;
   }
   .show-address {width:70%; height:6%; 
-    bottom:-6%;    
-    right:10%;
-    left:10%;
-    background:#fff;
+    bottom:-8%;  
+    right:10%;      
+    left:10%;      
+    background:#E5E5E5;
     text-align:center;
     position:absolute;
+    z-index:50;
     font-size:11px;
     font-family: 'open_sansregular';
   }
