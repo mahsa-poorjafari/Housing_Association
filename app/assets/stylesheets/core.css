@@ -1,8 +1,6 @@
-@import url("fonts.scss");
-
 @media print {   
   @page {
-    size: A5;
+    
     orphans:0; widows:0;
     margin:.5cm;
     padding:0;
@@ -21,7 +19,7 @@
   .avoid-this, .site-main, #footer {display:none}
   
   .letter-show { 
-    font-family: 'open_sansregular'; width:15cm;  
+    width:15cm;  
     height:21cm;
     position:absolute; 
     right:0; left:0;
@@ -54,7 +52,7 @@
   }
   .letter-show .letter-holder .letter-text {font-size:10px; color:#000;
     min-height:30%;
-    font-family: 'open_sansregular';  
+    
     text-align:justify; direction:rtl; 
     width:100%;       
   }
@@ -63,7 +61,7 @@
     margin-left:5%;
     line-height:19px;
     }
-  .letter-show .letter-holder .letter-text p span{font-family: 'open_sansregular';  }
+  .letter-show .letter-holder .letter-text p span{}
   .letter-show .letter-holder .letter-signture  { font-size:11px;
     width:100%; 
     margin-top:10%;
