@@ -19,7 +19,17 @@ class PdfFormsController < ApplicationController
   end
 
   # GET /pdf_forms/1/edit
-  def edit
+  def edit    
+    @image_destroy= params[:image_destroy]    
+    @pdf_destroy= params[:pdf_destroy]
+    if @image_destroy.present?
+      @pdf_form.update_attribute(:image, nil)
+      render action: 'show'
+    end
+    if @pdf_destroy.present?
+      @pdf_form.update_attribute(:pdf, nil)
+      render action: 'show'
+    end
   end
 
   # POST /pdf_forms
@@ -41,6 +51,7 @@ class PdfFormsController < ApplicationController
   # PATCH/PUT /pdf_forms/1
   # PATCH/PUT /pdf_forms/1.json
   def update
+    
     respond_to do |format|
       if @pdf_form.update(pdf_form_params)
         format.html { redirect_to @pdf_form, notice: 'ویرایش انجام شد.' }
@@ -70,6 +81,6 @@ class PdfFormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pdf_form_params
-      params.require(:pdf_form).permit(:title, :description, :pdf, :image)
+      params.require(:pdf_form).permit(:title, :description, :pdf, :image, :image_destroy)
     end
 end

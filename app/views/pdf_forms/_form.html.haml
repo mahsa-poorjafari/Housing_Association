@@ -9,9 +9,19 @@
   .form-group
     = f.label 'عنوان فرم', :class => "control-label"    
     = f.text_field :title, :class => "form-control"
+    
+  .form-group
+    - if @pdf_form.pdf.present?
+      = image_tag 'pdf-icon.png'
+      %b=  @pdf_form.pdf_file_name
   .form-group
     = f.label 'اگر فرمت فرم فایل PDF است از این کادر فایل را انتخاب کنید.', :class => "control-label"    
     = f.file_field :pdf
+  .form-group
+    - if @pdf_form.image.present?
+      = image_tag @pdf_form.image(:small)
+      %b=  @pdf_form.image_file_name
+      
   .form-group
     = f.label 'اگر فرم بصورت عکس است از این کادر عکس را ضمیمه کنید', :class => "control-label"    
     = f.file_field :image

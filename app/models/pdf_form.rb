@@ -12,4 +12,7 @@ class PdfForm < ActiveRecord::Base
   validates_attachment_content_type :pdf,
       :content_type => [ 'application/pdf' ],
       :message => "نوع فایل نامعتبر است. فقط فایل پی دی اف مجاز است."
+  
+  
+  
 end
