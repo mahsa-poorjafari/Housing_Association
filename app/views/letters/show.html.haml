@@ -2,11 +2,12 @@
   - if notice.present?
     .alert.alert-success= notice
   
-  .page-title-holder    
-    = link_to  '#', rel: "content", :class => "print-hole-page" do
-      = image_tag 'icon_printer.gif'
-      %span.print= 'پرینت نامه'
-    .letter-show              
+  .page-title-holder#ele4.b   
+    .avoid-this
+      = link_to_function((image_tag 'icon_printer.gif'), "javascript:print()")
+      %span= 'پرینت نامه'
+    
+    .letter-show
       .col-sm-12.letter-info
         .col-sm-3.letter-left-info          
           %p
@@ -42,7 +43,7 @@
             
         .set-center.show-address= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۳۷۶۲۰۷۵۵-۰۵۱'
         
-    .link-admin
+    .link-admin.avoid-this
       = link_to 'ویرایش', edit_letter_path(@letter)
       \|
       = link_to 'بازگشت', :back
@@ -53,7 +54,3 @@
   $('.letter-text p span').css('font-family', 'open_sansregular');
  
 
-  $('a.print-hole-page').click(function(){
-    window.print();
-  });
-  

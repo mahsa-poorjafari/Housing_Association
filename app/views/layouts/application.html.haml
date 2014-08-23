@@ -5,7 +5,7 @@
       اتحادیه مسکن فرهنگیان maskan-ef
       = ',' + Project.all.collect(&:title).join(",") #{@head.fetch(:title, '') if @head}
     = stylesheet_link_tag    "application", media: "all"
-    = stylesheet_link_tag    "letter-print", media: "print"      
+    = stylesheet_link_tag    "core", media: "print"      
     
     = javascript_include_tag "application"
     
@@ -36,9 +36,10 @@
           .container
             #menu-wrapper
               .row
-                .logo-wrapper.col-md-5
-                  %h4
-                    = link_to 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان', root_path
+                .logo-wrapper.col-md-5                  
+                  = link_to root_path do
+                    %p= ' تعاونیهای مسکن فرهنگیان استان خراسان'
+                    %p= 'شماره ثبت ۱۱۹۰۵'
                   
                 / /.logo-wrapper
                 .col-md-7.main-menu.text-right
@@ -122,4 +123,6 @@
         / /.row
       / /.container
     / /#footer
-          
+  
+  = javascript_include_tag "jQuery.print"
+            

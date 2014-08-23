@@ -217,7 +217,11 @@
       .col-md-12.text-center
         .skills-heading
           %h3.skills-title درباره ما
-          %p.small-text معرفی اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان
+          %p.small-text
+            معرفی اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان
+            شماره ثبت ۱۱۹۰۵
+          
+          
       / /.col-md-12
     / /.row
     .row
@@ -246,7 +250,7 @@
         .googlemap-wrapper
           #map_canvas.map-canvas
           .phone-book
-            .title
+            .title{:style => "padding:5%;"}
               %h2= 'دفترچه تلفن اتحادیه'              
               .text-cadr-home-page
                 = form_tag search_contact_path(1), :method => "get", id: "search-form", :remote => true do 
