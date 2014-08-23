@@ -1,15 +1,15 @@
 .width80.set-center.margin-top
   .tbox2
     .title
-      %h1 لیست پرسش و پاسخ ها      
+      %h1 لیست پرسش های حقوقی و داوری    
       %div{:style => "margin:10px"}
         = link_to 'ثبت پرسش برای داوری', new_complaint_path, :class => "save-btn"
     %table.table.table-striped{id:"complaint_table"}
       %thead
         %tr 
           %th ردیف      
-          %th موضوع شکایت             
-          %th پاسخ شکایت  
+          %th پرسش حقوقی و داوری
+          %th پاسخ پرسش
           - if current_user.present?
             %th عملیات
           

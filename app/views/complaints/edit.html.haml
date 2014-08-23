@@ -5,10 +5,10 @@
     .input-form    
       - if is_inspector?
         .width80.set-center
-          %b= 'موضوع شکایت:'
+          %b= 'موضوع پرسش حقوقی و داوری'
           %p= @complaint.subject
           %br
-          %b= 'متن شکایت:'
+          %b= 'متن پرسش'
           %p=raw @complaint.complaint_text
           %br
         .contact-form.width50.set-center

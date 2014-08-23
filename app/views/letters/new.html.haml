@@ -1,9 +1,14 @@
 .width80.set-center.margin-top
   .tbox2
     .title      
-      %h1
-        ثبت نامه 
-        = Letter::LetterTypes[@letter.letter_type.to_sym]
+      %h1        
+        - @letter_type_sym= Letter::LetterTypes[@letter.letter_type.to_sym]
+        - if @letter_type_show == 'email'
+          = @letter_type_sym
+        - else
+          ثبت نامه
+          = @letter_type_sym
+          
       
     .contact-form
       = render 'form'

@@ -26,6 +26,7 @@ text_area {resize:none}
 .width80 {width:80%}
 .width80.set-center.margin-top{ min-height:250px;}
 .width50 {width:50%}
+.width30 {width:30%}
 .title {margin-bottom:10%;}
 .title  h1 {font-size:27px; text-align:center; margin:2%}
 .title  h2 {font-size:18px; text-align:center; margin:2%; color:#7F7F7F}
@@ -277,3 +278,4 @@ ul.cooperatives-list li{list-style:none}
 
 .mainBtn:hover, .mainBtn:focus { border:solid 2px #fff; border-radius:5px}
 .box {background:#DAF7DA; padding: 2%; border-radius:5px;}
+.fa_date {font-family:'open_sansregular'}
