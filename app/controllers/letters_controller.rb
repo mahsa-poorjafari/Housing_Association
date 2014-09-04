@@ -6,7 +6,14 @@ class LettersController < ApplicationController
   # GET /letters.json
   def index
     #@letters = Letter.all(include:"sender")
-    @letters = Letter.order(" created_at desc")
+    
+    if params[:email_list].present?      
+      @except_mail = Letter.where(letter_type: "email")
+    else
+      @except_mail = Letter.where.not(letter_type: "email")
+    end
+    @letters = @except_mail.order(" created_at desc")
+    
     
   end
 
@@ -49,6 +56,8 @@ class LettersController < ApplicationController
 
   # GET /letters/1/edit
   def edit
+    p '3333333333333'
+    p @letter_type_show = params[:letter_type] 
   end
 
   # POST /letters

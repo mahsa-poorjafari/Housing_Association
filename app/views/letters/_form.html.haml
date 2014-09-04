@@ -22,9 +22,10 @@
   
   .col-sm-12.andicator
     .col-sm-5
+      
       = f.hidden_field :letter_type, :value => @letter_type_show
       .form-group.dates
-        = f.label 'شماره نامه:', :class => "control-label ", :style => "width:30%; float:right; font-weight:bold " 
+        = f.label 'شماره نامه:', :class => "control-label ", :style => "width:30%; float:right; " 
         .col-sm-9 
           - if @letter.letter_number.present?
             %b= @letter.letter_number
@@ -50,15 +51,21 @@
             %b{:style => "width:20%; float:right "}= @current_year            
             = hidden_field_tag :current_year, params[:current_year], :id => 'current_year_field' , :value => @current_year
       .clear-float  
-      #change-letter-cunter
-        %i= 'برای تغییر عدد شروع کننده شمارنده نامه '
-        = link_to 'اینجا کلیک کنید.', '#'
+      - if @letter.blank?
+        #change-letter-cunter
+          %i= 'برای تغییر عدد شروع کننده شمارنده نامه '
+          = link_to 'اینجا کلیک کنید.', '#'
         
       .clear-float  
         - if @letter_type_show == 'sent' || @letter_type_show == 'email' 
-          .form-group.dates
-            = f.label 'تاریخ ارسال:', :class => "control-label ", :style => "width:30%; float:right "    
-            = f.text_field :sent_date_fa, class:" fa_date form-control", :value => @current_date, :style=> "width:50%; "            
+          - if @letter.present?
+            .form-group.dates
+              = f.label 'تاریخ ارسال:', :class => "control-label ", :style => "width:30%; float:right "    
+              %b= @letter.sent_date_fa
+          - else
+            .form-group.dates
+              = f.label 'تاریخ ارسال:', :class => "control-label ", :style => "width:30%; float:right "    
+              = f.text_field :sent_date_fa, class:" fa_date form-control", :value => @current_date, :style=> "width:50%; "            
         - elsif @letter_type_show == 'recieved' 
           .form-group.dates
             = f.label 'تاریخ دریافت:', :class => "control-label", :style => "width:30%; float:right "        
@@ -100,7 +107,7 @@
       
       - elsif @letter_type_show == 'email'        
         .form-group.width80
-          %span.width30.pull-right= check_box_tag 'send_all', 'send_to_all'
+          %span.width30.pull-right= check_box_tag 'send_all', 'send_to_all', :checked => true
           %span= 'جهت ارسال برای تمام تعاونیها تیک مقابل را فعال کنید.'
         
           

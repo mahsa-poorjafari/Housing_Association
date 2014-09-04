@@ -1,10 +1,16 @@
 .width80.set-center.margin-top
-  .page-title-holder
-    .title
-      %h1 ویرایش نامه
+  .tbox2
+    .title      
+      %h1        
+        - @letter_type_sym= Letter::LetterTypes[@letter.letter_type.to_sym]
+        - if @letter_type_show == 'email'
+          = @letter_type_sym
+        - else
+          ویرایش نامه
+          = @letter_type_sym
+          
+      
     .contact-form
       = render 'form'
 
-  = link_to 'مشاهده', @letter
-  \|
-  = link_to 'بازگشت', :back
+    = link_to 'بازگشت', :back

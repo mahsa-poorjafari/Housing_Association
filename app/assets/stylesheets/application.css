@@ -234,7 +234,7 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
   .letter-left-info {font-size:1.2em; direction:rtl}
   .letter-besmei {font-size:1.5em; text-align:center; padding:5%;}
   .letter-show .letter-holder {
-    min-height:700px;
+    min-height:600px;
     margin-top:5%;
     padding:5%;
     border: 2px solid #4D4D4D;

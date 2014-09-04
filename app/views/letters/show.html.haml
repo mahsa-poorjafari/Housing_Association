@@ -1,8 +1,11 @@
-.width80.set-center.margin-top
+.set-center.margin-top
   - if notice.present?
     .alert.alert-success= notice
   
-  .page-title-holder#ele4.b   
+  .page-title-holder
+    .avoid-this
+      %h4= 'نوع نامه:'
+      %h4= @letter.letter_type
     .avoid-this
       = link_to_function((image_tag 'icon_printer.gif'), "javascript:print()")
       %span= 'پرینت نامه'
@@ -11,13 +14,13 @@
       .col-sm-12.letter-info
         .col-sm-3.letter-left-info          
           %p
-            %b= 'تاریخ' 
+            %b= 'تاریخ:' 
             = JalaliDate.new(@letter.created_at)              
           %p
-            %b= 'شماره'                  
+            %b= 'شماره:'                  
             = @letter.letter_number
           %p
-            %b= 'پیوست'            
+            %b= 'پیوست:'            
         .col-sm-5.letter-besmei
           %b= 'بسمه تعالی'
         .col-sm-4.letter-right-info
@@ -44,7 +47,7 @@
         .set-center.show-address= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۳۷۶۲۰۷۵۵-۰۵۱'
         
     .link-admin.avoid-this
-      = link_to 'ویرایش', edit_letter_path(@letter)
+      = link_to 'ویرایش', edit_letter_path(@letter, letter_type:  @letter.letter_type)
       \|
       = link_to 'بازگشت', :back
 
