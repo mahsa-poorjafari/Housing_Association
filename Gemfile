@@ -27,7 +27,7 @@ gem "friendly_id", "~> 5.0.1"
 gem 'jalalidate'
 gem "nested_form"
 gem 'jquery-datatables-rails', '~> 2.1.10.0.3'
-
+gem 'to_spreadsheet'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

@@ -1,0 +1,15 @@
+# _my_items.haml
+%table
+  %caption My items
+  %thead
+    %tr
+      %td ID
+      %td Name
+  %tbody
+    - my_items.each do |my_item|
+      %tr
+        %td.number= my_item.id
+        %td= my_item.name
+  %tfoot
+    %tr
+      %td(colspan="2") #{my_items.length}

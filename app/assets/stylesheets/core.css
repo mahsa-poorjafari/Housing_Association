@@ -58,5 +58,12 @@
   z-index:1000;
   font-weight:bold; 
   }
+  /* print list of pay limit  */
+
+  .pay_limit {width:100%}
+  .pay_limit table{width:100%}
+
 }
+
+
 

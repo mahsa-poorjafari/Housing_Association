@@ -4,13 +4,14 @@ class PayLimitsController < ApplicationController
   
   # GET /pay_limits
   # GET /pay_limits.json
-  def index
+  respond_to :xls, :html
+  
+  def index    
     @pay_limits = PayLimit.order(" created_at desc")
-    filename = "pay_limits.xls"
+    filename = "pay_limits"
     respond_to do |format|
       format.html
-      format.csv { send_data @pay_limits.to_csv }
-      format.xls {send_data @pay_limits.to_csv}
+      format.xlsx { render xlsx: :index, filename: filename}
     end
   end
 

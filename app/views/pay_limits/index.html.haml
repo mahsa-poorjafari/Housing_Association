@@ -1,31 +1,42 @@
-.width80.set-center.margin-top
+.width80.set-center.margin-top.pay_limit
   .tbox2
     .title 
-      %h1= 'لیست در خواست مشارکت برای پروژه ها'
-      
-      = link_to 'چاپ جدول', '#', :id => "print-table" , :class => "save-btn"
-      = link_to "فایل اکسل", pay_limits_path(format: "xls")
-      %div{:style => "margin:10px"}
+      %h1= 'لیست در خواست مشارکت برای پروژه ها'      
+      .width50.avoid-this
+        .width30.pull-right= link_to_function((image_tag 'icon_printer.gif'), "javascript:print()")      
+        .width30.pull-right
+          = link_to  pay_limits_url(format: "xlsx") do
+            = image_tag 'excel.png'
+            %p= 'فایل اکسل'
+        .clear-float
+        
+      .avoid-this{:style => "margin:10px"}
         = link_to 'ایجاد درخواست مشارکت', new_pay_limit_path, :class => "save-btn"
     %br
-    %table.table.table-striped{id:"pay_limit_table"}
+    %table.table.table-striped{id:"pay_limit_table", :style => "direction:rtl"}
       %thead
         %tr
           %th ردیف 
           %th کدرهگیری
           %th سقف پرداختی
-          %th ایمیل کاربر
+          %th نام و نام خانوادگی 
+          %th نام پدر
+          %th شماره تماس متقاضی
           %th پروژه       
-          %th عملیات
+          %th تاریخ درخواست
+          %th.avoid-this عملیات
       %tbody{:id => "pay_limit_container"}
         - @pay_limits.each_with_index do |pay_limit, i|
           %tr{:class => (pay_limit.visited == true ? 'visited' : 'not-read')}
             %td= (i+1) 
             %td= pay_limit.tracking_code
             %td= pay_limit.amount
-            %td= pay_limit.partnership.email
+            %td= pay_limit.partnership.first_name + " " + pay_limit.partnership.last_name
+            %td= pay_limit.partnership.father_name
+            %td= pay_limit.partnership.phone_number + " - " + pay_limit.partnership.mobile
             %td= pay_limit.project.title
-            %td{:style => "text-align:left"}
+            %td= JalaliDate.new(pay_limit.created_at)              
+            %td.avoid-this{:style => "text-align:left"}
               = link_to 'مشاهده جزئیات', pay_limit        
               \|
               = link_to 'ثبت نتیجه', pay_limit
@@ -36,29 +47,26 @@
     
 
 
-  :coffeescript
-    window.reloadDataTable = ->
-      if !!window.oTable
-        window.oTable.fnDestroy(); 
-      window.oTable = $("#pay_limit_table").dataTable aoColumnDefs: [
-        bSearchable: false
-        aTargets: [0,5]
-      ,  
-        bSortable: false
-        aTargets: [0,5]
-      ],  oLanguage:
-        sSearch: "جستجو:"
-        sLengthMenu: "نمایش _MENU_ ردیف"
-        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-        sZeroRecords: "هیچ داده ای وجود ندارد"
-        sInfoEmpty: "هیچ موردی یافت نشد"
-        sInfoFiltered: " - از بین _MAX_ داده موجود"
-        oPaginate:
-          sPrevious: "صفحه قبلی"
-          sNext: "صفحه بعدی"
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#pay_limit_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,8]
+    ,  
+      bSortable: false
+      aTargets: [0,8]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
 
-    window.reloadDataTable()
-  :javascript
-    $('#print-table').click(function(){
-      window.print();
-    });
+  window.reloadDataTable()
+
