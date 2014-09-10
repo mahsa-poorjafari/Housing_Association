@@ -237,12 +237,29 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
   .letter-left-info {font-size:1.2em; direction:rtl}
   .letter-besmei {font-size:1.5em; text-align:center; padding:5%;}
   .letter-show .letter-holder {
-    border: 2px solid #4D4D4D; border-radius:25%;
+    border: 2px solid #4D4D4D; 
+    -moz-border-radius: 50% / 7%;
+    -webkit-border-radius:  50% / 7%;
+    border-radius:  50% / 7%;
     padding:1%;    
     position:relative;
     height:100%;
   }
-
+  /*
+  .circle-top {
+    width:100%; position:absolute; z-index:1000; 
+   
+  border-left: 70px solid #000;
+  border-right: 70px solid #000;
+  border-top: 100px solid #000;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  top:30%; 
+   background-color:#fff!important;
+  -webkit-print-color-adjust: exact;
+  }
+  */
   .letter-show .letter-holder .letter-inner-title {
     padding-right:5%;
     padding-top:5%;

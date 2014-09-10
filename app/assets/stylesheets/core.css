@@ -2,8 +2,8 @@
   @page {
     size: A5;    
     text-align:center;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
     margin-top: 2px;
     margin-bottom: 2px;
     position:relative;
@@ -28,15 +28,17 @@
   margin:0 !important; padding:0 !important;
   width:100%;
    }  
-  .letter-show .letter-info{ width:320pt; padding:0; 
-   right:10%;
+  .letter-show .letter-info{ width:400pt; padding:0; 
+  right:0;   
    top:10%;   
    position:absolute;
   height:80pt;  z-index:1000}
   .letter-left-info  {width:38%; float:left; padding:0; margin:0; text-align:right; font-size:8pt; 
-  padding-top:10%  }
-  .letter-besmei {width:22%;  float:left; font-size:8pt; padding:0; margin:0; padding-top:13%;  text-align:center; }
-  .letter-right-info  {width:35%; float:left; text-align:right;  font-size:8pt;  padding:0; margin:0; padding-top:8%}
+  padding-top:10%;  
+  padding-right:14%;  
+  }
+  .letter-besmei {width:33%;  float:left; font-size:8pt; padding:0; margin:0; padding-top:13%;  text-align:center; }
+  .letter-right-info  {width:29%; float:left; text-align:right;  font-size:8pt;  padding:0; margin:0; padding-top:8%}
 
   .letter-show .letter-right-info .letter-company-name{font-size:8pt; font-weight:bold; padding-top:5%}
   .letter-show .letter-right-info p{font-size:8pt; }
@@ -44,10 +46,10 @@
     position:relative;
     left:0 !important; right:0 !important;
     top:70pt;
-    height:300pt;
+   
     padding-top:10pt;
-    min-height:470pt !important; 
-    max-height:470pt !important;  
+    min-height:510pt !important; 
+    max-height:510pt !important;  
     }
   .letter-show .letter-holder .letter-text  { 
     font-size:10pt;     
@@ -58,8 +60,8 @@
   .letter-show .letter-holder .letter-inner-title {font-size:14pt;
   width:90%; 
   margin-right:10pt;   
-  padding-top:10pt; 
-  padding-right:60pt; 
+  padding-top:25pt; 
+  
   }
   .letter-show .letter-holder .letter-text p {
     width:90%;
@@ -79,8 +81,9 @@
   .show-address {font-size:8pt;width:94%; text-align:center; 
   position:fixed; 
   height:30px;   
-  margin-left:8%;  
-  bottom:1%;
+  margin-left:auto;  
+  margin-right:auto;  
+  bottom:-5%;
   
   z-index:1000;
   font-weight:bold; 
