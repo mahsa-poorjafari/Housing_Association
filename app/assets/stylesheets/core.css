@@ -2,10 +2,12 @@
   @page {
     size: A5;    
     text-align:center;
-    padding:0;    
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     position:relative;
-    top:0;
-    orphans:0; widows:0;
+    top:0;    
     left:0;
     right:0;    
   }
@@ -14,40 +16,50 @@
     direction:rtl;
     background-color: #FFF;
     color:#000;
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     top:0;
   }
   .margin-top {margin-top:-2%}
   .avoid-this, .site-main, #footer, .alert.alert-success {display:none}
-  
+  .page-title-holder {margin:0 !important; padding:0 !important;}
  
-  .letter-show {top:2%; left:0; right:0; position:absolute;
-    min-height:500pt !important; 
-    max-height:500pt !important;  
+  .letter-show {left:0; right:0; position:absolute;
+  margin:0 !important; padding:0 !important;
+  width:100%;
    }  
   .letter-show .letter-info{ width:320pt; padding:0; 
-   right:3%;
-   top:-5%;
-   border:2px solid #fff;
+   right:10%;
+   top:10%;   
    position:absolute;
-  height:75pt;  z-index:1000}
-  .letter-left-info  {width:38%; float:left; padding:0; margin:0; text-align:right; font-size:8pt; padding-top:9%  }
+  height:80pt;  z-index:1000}
+  .letter-left-info  {width:38%; float:left; padding:0; margin:0; text-align:right; font-size:8pt; 
+  padding-top:10%  }
   .letter-besmei {width:22%;  float:left; font-size:8pt; padding:0; margin:0; padding-top:13%;  text-align:center; }
   .letter-right-info  {width:35%; float:left; text-align:right;  font-size:8pt;  padding:0; margin:0; padding-top:8%}
 
   .letter-show .letter-right-info .letter-company-name{font-size:8pt; font-weight:bold; padding-top:5%}
   .letter-show .letter-right-info p{font-size:8pt; }
-  .letter-show .letter-holder {    
+  .letter-show .letter-holder {   margin:0 !important; padding:0 !important;
     position:relative;
-    left:0; right:0;
-    top:60pt;
+    left:0 !important; right:0 !important;
+    top:70pt;
     height:300pt;
-        
+    padding-top:10pt;
+    min-height:470pt !important; 
+    max-height:470pt !important;  
     }
-  .letter-show .letter-holder .letter-text  { font-size:10pt; 
-    
+  .letter-show .letter-holder .letter-text  { 
+    font-size:10pt;     
     position:relative; 
+    padding:1%;
+    margin: 1%;
+  }
+  .letter-show .letter-holder .letter-inner-title {font-size:14pt;
+  width:90%; 
+  margin-right:10pt;   
+  padding-top:10pt; 
+  padding-right:60pt; 
   }
   .letter-show .letter-holder .letter-text p {
     width:90%;
@@ -64,11 +76,12 @@
     position:absolute;
   }
   
-  .show-address {font-size:8pt;width:97%; text-align:right; 
+  .show-address {font-size:8pt;width:94%; text-align:center; 
   position:fixed; 
-  right:-5%; left:10%; padding-top:3%; height:50px; 
-  margin-right:-12%;  
-  bottom:-4%;
+  height:30px;   
+  margin-left:8%;  
+  bottom:1%;
+  
   z-index:1000;
   font-weight:bold; 
   }
