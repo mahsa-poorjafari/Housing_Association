@@ -29,14 +29,14 @@
   width:100%;
    }  
   .letter-show .letter-info{ width:400pt; padding:0; 
-  right:2%;   
+  right:2pt;   
    top:10%;   
    position:absolute;
   height:90pt;  z-index:1000}
   .letter-left-info  {width:38%; float:left; 
     padding:0; margin:0; text-align:right; font-size:10pt; 
     padding-top:10%;  
-    padding-right:10%;  
+    padding-right:13%;  
   }
   .letter-besmei {width:30%;  float:left; font-size:12pt; padding:0; margin:0; padding-top:13%;  text-align:center; }
   .letter-right-info  {width:29%; float:left; text-align:right;  font-size:10pt; 
@@ -83,7 +83,7 @@
   width:94%; text-align:center; 
   position:fixed; 
   height:30px;   
-  margin-left:55pt;     
+  margin-left:53pt;     
   bottom:-90pt;  
   z-index:1000;
   font-weight:bold; 
