@@ -3,15 +3,16 @@
     .alert.alert-success= notice
   
   .page-title-holder
-    .avoid-this
-      %h4= 'نوع نامه:'
-      %h4= @letter.letter_type
-    .avoid-this
-      = link_to_function((image_tag 'icon_printer.gif'), "javascript:print()")
-      %span= 'پرینت نامه'
+    .width50
+      .avoid-this.pull-right.width30
+        %h4= 'نوع نامه:'
+        %h4= @letter.letter_type
+      .avoid-this.pull-right.width30
+        = link_to_function((image_tag 'icon_printer.gif'), "javascript:print()")
+        %span= 'پرینت نامه'
     
     .letter-show
-      .col-sm-12.letter-info
+      .col-sm-11.letter-info.set-center
         .col-sm-3.letter-left-info          
           %p
             %b= 'تاریخ:' 
@@ -24,9 +25,7 @@
         .col-sm-5.letter-besmei
           %b= 'بسمه تعالی'
         .col-sm-4.letter-right-info
-          .letter-company-name= 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان'
-          %p
-            %b= 'شماره ثبت ۱۱۹۰۵'
+          .letter-company-name= 'اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی شماره ثبت ۱۱۹۰۵'          
       .col-sm-12.letter-holder
         .col-sm-12.letter-inner-title= @letter.recievers.collect(&:company_name).join(',')
         .col-sm-12.letter-inner-title= @letter.recievers.collect(&:preson_name).join(',')
@@ -35,7 +34,7 @@
         .col-sm-12.letter-signture
           .tank-box
             %p= 'باتشکر'
-            %b= 'مدیریت اتحادیه مسکن فرهنگیان خراسان'
+            %b= ' مدیریت اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی'
           .clear{:style => "clear:both; "}
           %br
           

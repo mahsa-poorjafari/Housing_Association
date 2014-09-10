@@ -2,7 +2,7 @@
 %html
   %head
     %title
-      اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان, Maskan-ef
+      اتحادیه شرکتهای تعاونی مسکن فر استان خراسان رضوی , maskan-ef
       
     = stylesheet_link_tag    "application", media: "all"
     = stylesheet_link_tag    "core", media: "print"      
@@ -16,7 +16,7 @@
     = csrf_meta_tags
     %meta{:charset => "utf-8"}
     %meta{:name => "keywords", :content => Project.all.collect(&:title).join(","), } 
-    %meta{:name => "description", :content => "اتحادیه مسکن فرهنگیان"}
+    %meta{:name => "description", :content => "اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی"}
     %meta{content: "no", "http-equiv" => "imagetoolbar"}
     = yield(:refresh_meta) if content_for?(:refresh_meta)
     
@@ -36,13 +36,13 @@
           .container
             #menu-wrapper
               .row
-                .logo-wrapper.col-md-5                  
+                .logo-wrapper.col-md-6                  
                   = link_to root_path do
-                    %p= 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان'
+                    %p= 'اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی'
                     %p= 'شماره ثبت ۱۱۹۰۵'
                   
                 / /.logo-wrapper
-                .col-md-7.main-menu.text-right
+                .col-md-6.main-menu.text-right
                   = render 'shared/nav_bar'                
                       
                   
