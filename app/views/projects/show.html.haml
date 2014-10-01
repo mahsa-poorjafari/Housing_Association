@@ -52,7 +52,7 @@
             %b سال تحویل:
             = @project.finish_year
         .col-md-6 
-          =link_to (image_tag @project.pictures.first.image(:large)), @project.pictures.first.image(:original), :data => { :colorbox => true }         
+          =link_to (image_tag @project.pictures.first.image(:medium)), @project.pictures.first.image(:original), :data => { :colorbox => true }         
         - unless @project.Status
           .col-md-4.col-sm-6.pay-limit-box
             = link_to 'ثبت نام در پروژه ', new_partnership_path(:project_id => @project.id)
@@ -78,7 +78,7 @@
         - @project.pictures.offset(1).each do |picture|
           .col-lg-3.image-project
 
-            =link_to (image_tag picture.image(:small)), picture.image(:large), :data => { :colorbox => true }     , :class => "image-"+picture.id.to_s, :title => picture.project.title     
+            =link_to (image_tag picture.image(:small)), picture.image(:original), :data => { :colorbox => true }     , :class => "image-"+picture.id.to_s, :title => picture.project.title     
             %p= picture.description
             -if is_admin?           
               = link_to 'ویرایش', edit_picture_path(picture)
