@@ -77,7 +77,8 @@
       .pic-project
         - @project.pictures.offset(1).each do |picture|
           .col-lg-3.image-project
-            =link_to (image_tag picture.image(:small)), picture.image(:large), :data => { :colorbox => true }     
+
+            =link_to (image_tag picture.image(:small)), picture.image(:large), :data => { :colorbox => true }     , :class => "image-"+picture.id.to_s, :title => picture.project.title     
             %p= picture.description
             -if is_admin?           
               = link_to 'ویرایش', edit_picture_path(picture)

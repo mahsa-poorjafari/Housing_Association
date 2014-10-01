@@ -16,7 +16,7 @@
             - if is_admin?
               = link_to 'ویرایش', edit_project_path(project)
               = link_to 'حذف', project, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-          .sample-pic.set-center.col-lg-4
+          .sample-pic.set-center.col-lg-4{:id => 'project-'+project.id.to_s}
             = image_tag project.pictures.first.image(:small), :class => "set-center"           
             
           .col-lg-6
