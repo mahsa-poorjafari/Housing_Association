@@ -210,7 +210,7 @@ DEPENDENCIES
   bcrypt
   ckeditor_rails
   coffee-rails (~> 4.0.0)
-  colorbox-rails
+  colorbox-rails (~> 0.1.2)
   devise
   farsifu
   friendly_id (~> 5.0.1)

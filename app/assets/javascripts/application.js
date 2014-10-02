@@ -14,10 +14,10 @@
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
 //= require jquery.tokeninput
-//= require colorbox-rails
 //= require ckeditor-jquery
 //= require jquery_nested_form
 //= require dataTables/jquery.dataTables
 //= require ahoy
+//= require colorbox-rails
 //= require_tree .
 

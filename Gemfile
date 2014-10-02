@@ -20,7 +20,7 @@ gem 'haml-rails'
 gem 'impressionist'
 gem 'ahoy_matey'
 gem "farsifu"
-gem 'colorbox-rails'
+gem 'colorbox-rails', '~> 0.1.2'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'ckeditor_rails'
 gem "friendly_id", "~> 5.0.1"
