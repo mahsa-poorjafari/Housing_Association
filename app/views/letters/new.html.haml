@@ -11,6 +11,11 @@
           
       
     .contact-form
+      #change-counter تغییر شماره نامه
       = render 'form'
 
     = link_to 'بازگشت', :back
+:javascript
+  $('#change-counter').click(function(){
+    $('#letter_cunter').show(100);
+  });

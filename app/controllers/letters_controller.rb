@@ -28,20 +28,23 @@ class LettersController < ApplicationController
   # GET /letters/new
   def new
     letter_type = params["letter_type"] || Letter::LetterTypes[:sent]
-    p '111'
-    p @letter_type_show = params[:letter_type] 
+    
+     @letter_type_show = params[:letter_type] 
     @letter = Letter.new(letter_type:letter_type)
     @current_date = JalaliDate.new(Date.today)
     @current_year = JalaliDate.new(Date.today).strftime("%y")
     if Letter.last.present?
       @last_letter = Letter.last.letter_number
-      p @last_letter_split = @last_letter.split('/').first
-      p '1111111111'
-      p @last_letter_split = @last_letter_split.to_i
-      p @last_letter_split = @last_letter_split + 1
-      p @last_letter_split = @last_letter_split.to_s
-      p '222222222'
+       @last_letter_split = @last_letter.split('/').first
+      
+       @last_letter_split = @last_letter_split.to_i
+       @last_letter_split = @last_letter_split + 1
+       @last_letter_split = @last_letter_split.to_s
+      
+    else
+      @last_letter_split = 100
     end
+    
     
     
   end
@@ -56,20 +59,20 @@ class LettersController < ApplicationController
 
   # GET /letters/1/edit
   def edit
-    p '3333333333333'
-    p @letter_type_show = params[:letter_type] 
+    
+     @letter_type_show = params[:letter_type] 
   end
 
   # POST /letters
   # POST /letters.json
   def create
     @letter = Letter.new(letter_params)
-    p @current_year = params[:current_year]
-    p @alphabet = params[:alphabet] 
-    p @counter_number = params[:counter_number]
-    p @type_of_letter = params[:type_of_letter]
+     @current_year = params[:current_year]
+     @alphabet = params[:alphabet] 
+     @counter_number = params[:counter_number]
+     @type_of_letter = params[:type_of_letter]
     
-    p @letter_number = @counter_number +  '/' + @alphabet  + '-' + @current_year +'/'+ @type_of_letter 
+    @letter_number =   @counter_number +  '/' + @alphabet + '/' +@current_year
     @letter.letter_number = @letter_number
     
     if @letter.save
@@ -78,9 +81,9 @@ class LettersController < ApplicationController
       
       if params[:letter_type_email]  == 'email'
         if params[:send_all] == 'send_to_all'
-          p 'aaaaaaaaaaaaaaaaaaaaaaaaaa'
+          
           @cooperative = Contact.where.not('cooperative_id' => nil)
-          p @recievers = @cooperative.map { |x| x[:id] }          
+           @recievers = @cooperative.map { |x| x[:id] }          
           @letter.update_attribute(:reciever_ids, @recievers.collect )
           UserMailer.send_group_mail(@letter).deliver      
         end

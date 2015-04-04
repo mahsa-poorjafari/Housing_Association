@@ -304,3 +304,7 @@ ul.cooperatives-list li{list-style:none}
 .mainBtn:hover, .mainBtn:focus { border:solid 2px #fff; border-radius:5px}
 .box {background:#DAF7DA; padding: 2%; border-radius:5px;}
 .fa_date {font-family:'open_sansregular'}
+#change-counter {background:#FFA500; height:30px; margin:2%;  
+  font-size:1.5em;
+  width:200px; text-align:center; color:#fff}
+#change-counter:hover {cursor:pointer;}
