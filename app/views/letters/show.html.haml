@@ -1,6 +1,6 @@
 .set-center.margin-top
-  - if notice.present?
-    .alert.alert-success= notice
+  - if flash[:letter].present?
+    .alert.alert-success= flash[:letter]
   
   .page-title-holder
     - if @letter.letter_type == 'recieved'
@@ -74,7 +74,7 @@
               %b= 'پیوست:'
           .col-sm-4
             
-          .col-sm-5.letter-right-info.pull-right
+          .col-sm-4.letter-right-info.pull-right
             .letter-company-name= 'اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی شماره ثبت ۱۱۹۰۵'          
         .col-sm-12.letter-holder
           .col-sm-12.letter-besmei
