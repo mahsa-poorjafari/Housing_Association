@@ -79,44 +79,44 @@
                   %td 
                     = link_to 'مشاهده', letter 
                     = link_to 'ویرایش', edit_letter_path(letter, :letter_type => letter.letter_type)
--#
-  :coffeescript
-    window.reloadDataTable = ->
-      if !!window.oTable
-        window.oTable.fnDestroy(); 
-      window.oTable = $("#sent_letters_table").dataTable aoColumnDefs: [
-        bSearchable: false
-        aTargets: [0,5]
-      ,  
-        bSortable: false
-        aTargets: [0,5]
-      ],  oLanguage:
-        sSearch: "جستجو:"
-        sLengthMenu: "نمایش _MENU_ ردیف"
-        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-        sZeroRecords: "هیچ داده ای وجود ندارد"
-        sInfoEmpty: "هیچ موردی یافت نشد"
-        sInfoFiltered: " - از بین _MAX_ داده موجود"
-        oPaginate:
-          sPrevious: "صفحه قبلی"
-          sNext: "صفحه بعدی"
-      window.oTable = $("#recieved_letters_table").dataTable aoColumnDefs: [
-        bSearchable: false
-        aTargets: [0,5]
-      ,  
-        bSortable: false
-        aTargets: [0,5]
-      ],  oLanguage:
-        sSearch: "جستجو:"
-        sLengthMenu: "نمایش _MENU_ ردیف"
-        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-        sZeroRecords: "هیچ داده ای وجود ندارد"
-        sInfoEmpty: "هیچ موردی یافت نشد"
-        sInfoFiltered: " - از بین _MAX_ داده موجود"
-        oPaginate:
-          sPrevious: "صفحه قبلی"
-          sNext: "صفحه بعدی"
 
-    window.reloadDataTable()
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#sent_letters_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,5]
+    ,  
+      bSortable: false
+      aTargets: [0,5]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+    window.oTable = $("#recieved_letters_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,5]
+    ,  
+      bSortable: false
+      aTargets: [0,5]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
 
     
