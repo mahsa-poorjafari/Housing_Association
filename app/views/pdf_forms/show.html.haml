@@ -26,8 +26,9 @@
           %i= 'دریافت فایل فرم'
           = image_tag 'pdf-icon.png'
         %br
+        .clear-float
         - if is_admin?
-          =link_to "حذف فایل pdf", edit_pdf_form_path(:pdf_destroy => 1), :style => "background:#E5E5E5; padding:3%"
+          =link_to "حذف فایل pdf", edit_pdf_form_path(:pdf_destroy => 1), :style => "padding:1%"
     - if is_admin?
       = link_to 'ویرایش', edit_pdf_form_path(@pdf_form)
       \|

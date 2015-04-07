@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823110449) do
+ActiveRecord::Schema.define(version: 20150407040149) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -169,6 +169,13 @@ ActiveRecord::Schema.define(version: 20140823110449) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "letter_number"
+    t.string   "scan_file_file_name"
+    t.string   "scan_file_content_type"
+    t.integer  "scan_file_file_size"
+    t.datetime "scan_file_updated_at"
+    t.string   "senderpreson_name"
+    t.string   "sendercompany_name"
+    t.string   "received_letter_number"
   end
 
   create_table "links", force: true do |t|

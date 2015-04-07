@@ -1,18 +1,17 @@
 = form_for @pdf_form do |f|
   - if @pdf_form.errors.any?
-    .alert.alert-warning
-      
+    .alert.alert-warning      
       %ul
         - @pdf_form.errors.each do |attr, msg|
           %li= msg
 
   .form-group
-    = f.label 'عنوان فرم', :class => "control-label"    
+    = f.label 'عنوان فرم', :class => "control-label" 
     = f.text_field :title, :class => "form-control"
     
   .form-group
     - if @pdf_form.pdf.present?
-      = image_tag 'pdf-icon.png'
+      = image_tag 'get-pdf.png'
       %b=  @pdf_form.pdf_file_name
   .form-group
     = f.label 'اگر فرمت فرم فایل PDF است از این کادر فایل را انتخاب کنید.', :class => "control-label"    

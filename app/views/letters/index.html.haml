@@ -31,7 +31,7 @@
             - elsif  letter.letter_type == 'recieved'
               وارده
           %td= letter.summary
-          %td= letter.sent_date_fa
+          %td= JalaliDate.new(letter.created_at)  
           %td= letter.received_date_fa
           %td 
             =letter.senderpreson_name
@@ -45,9 +45,8 @@
             %td         
               = link_to 'مشاهده', letter
               \|
-              = link_to 'ویرایش', edit_letter_path(letter)
-              \|
-              = link_to 'حذف', letter, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+              = link_to 'ویرایش', edit_letter_path(letter, :letter_type => letter.letter_type)
+
 
 
 :coffeescript

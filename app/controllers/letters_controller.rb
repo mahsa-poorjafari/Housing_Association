@@ -56,20 +56,24 @@ class LettersController < ApplicationController
 
   # GET /letters/1/edit
   def edit
-    p '3333333333333'
+    
     p @letter_type_show = params[:letter_type] 
+    @pdf_destroy= params[:pdf_destroy]
+    if @pdf_destroy.present?
+      @letter.update_attribute(:scan_file, nil)
+      render action: 'show'
+    end
   end
 
   # POST /letters
   # POST /letters.json
   def create
     @letter = Letter.new(letter_params)
-    p @current_year = params[:current_year]
-    p @alphabet = params[:alphabet] 
-    p @counter_number = params[:counter_number]
-    p @type_of_letter = params[:type_of_letter]
-    
-    p @letter_number = @counter_number +  '/' + @alphabet  + '-' + @current_year +'/'+ @type_of_letter 
+     @current_year = params[:current_year]
+     @alphabet = params[:alphabet] 
+     @counter_number = params[:counter_number]
+     @type_of_letter = params[:type_of_letter]
+     @letter_number = @counter_number +  '/' + @alphabet  + '/' + @current_year 
     @letter.letter_number = @letter_number
     
     if @letter.save
@@ -78,9 +82,9 @@ class LettersController < ApplicationController
       
       if params[:letter_type_email]  == 'email'
         if params[:send_all] == 'send_to_all'
-          p 'aaaaaaaaaaaaaaaaaaaaaaaaaa'
+          
           @cooperative = Contact.where.not('cooperative_id' => nil)
-          p @recievers = @cooperative.map { |x| x[:id] }          
+           @recievers = @cooperative.map { |x| x[:id] }          
           @letter.update_attribute(:reciever_ids, @recievers.collect )
           UserMailer.send_group_mail(@letter).deliver      
         end
@@ -95,15 +99,15 @@ class LettersController < ApplicationController
   # PATCH/PUT /letters/1
   # PATCH/PUT /letters/1.json
   def update
-    respond_to do |format|
-      if @letter.update(letter_params)
-        format.html { redirect_to @letter, notice: 'ویرایش انجام شد.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @letter.errors, status: :unprocessable_entity }
-      end
+    
+    if @letter.update(letter_params)
+      redirect_to @letter
+      flash[:editletter] =  'ویرایش انجام شد.' 
+      @type_of_letter = params[:type_of_letter]
+    else
+      render action: 'new' 
     end
+    
   end
 
   # DELETE /letters/1
@@ -119,11 +123,13 @@ class LettersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_letter
-      @letter = Letter.friendly.find(params[:id])
+      @letter = Letter.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def letter_params
-      params.require(:letter).permit(:letter_type, :summary, :sent_date_fa, :received_date_fa, :senderpreson_name, :sendercompany_name, :content, :attachment, :reciever_ids, :reciever_tokens, :letter_number)
+      params.require(:letter).permit(:letter_type, :summary, :sent_date_fa, :received_date_fa,
+       :senderpreson_name, :sendercompany_name, :content, :attachment, :reciever_ids, :reciever_tokens,
+       :letter_number, :scan_file, :received_letter_number)
     end
 end

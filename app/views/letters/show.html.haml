@@ -3,53 +3,107 @@
     .alert.alert-success= notice
   
   .page-title-holder
-    .width50
-      .avoid-this.pull-right.width30
-        %h4= 'نوع نامه:'
-        %h4= @letter.letter_type
-      .avoid-this.pull-right.width30
-        = link_to_function((image_tag 'icon_printer.gif'), "javascript:print()")
-        %span= 'پرینت نامه'
-    
-    .letter-show
-      .circle-top
-      .col-sm-11.letter-info.set-center
-        .col-sm-3.letter-left-info          
-          %p
-            %b= 'تاریخ:' 
-            = JalaliDate.new(@letter.created_at)              
-          %p
-            %b= 'شماره:'                  
-            = @letter.letter_number
-          %p
-            %b= 'پیوست:'            
-        .col-sm-5.letter-besmei
-          %b= 'بسمه تعالی'
-        .col-sm-4.letter-right-info
-          .letter-company-name= 'اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی شماره ثبت ۱۱۹۰۵'          
-      .col-sm-12.letter-holder
-        .col-sm-12.letter-inner-title= @letter.recievers.collect(&:company_name).join(',')
-        .col-sm-12.letter-inner-title= @letter.recievers.collect(&:preson_name).join(',')
-        .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}      
-          %p=raw @letter.content
-        .col-sm-12.letter-signture
-          .tank-box
-            %p= 'باتشکر'
-            %b= ' مدیریت اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی'
-          .clear{:style => "clear:both; "}
-          %br
+    - if @letter.letter_type == 'recieved'
+      .col-sm-10.recieved-letter-box
+        .letter-show.col-sm-4.pull-right
+          .circle-top
+          .col-sm-11.letter-info.set-center
+            .col-sm-12.letter-left-info
+              %p
+                %b= 'تاریخ:' 
+                = JalaliDate.new(@letter.created_at)  
+              %p
+                %b= 'شماره:' 
+                = @letter.letter_number
+              %p
+                %b= 'پیوست:' 
+        .col-sm-4
+          %h4= 'نوع نامه:'
+          %h4= @letter.letter_type
+        .col-sm-12.recieved-scan-file-show
+          .col-sm-12
+            .col-sm-3.pull-right
+              %b شماره ثبت شده در نامه وارده
+              = @letter.received_letter_number
+            .col-sm-3.pull-right
+              %b تاریخ دریافت نامه
+              = @letter.received_date_fa
+            - if @letter.senderpreson_name.present?
+              .col-sm-3.pull-right
+                %b نام ارسال کننده:
+                %p= @letter.senderpreson_name
+            - if @letter.sendercompany_name.present? 
+              .col-sm-3.pull-right
+                %b شرکت ارسال کننده
+                %p= @letter.sendercompany_name
+            .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}      
+              %p=raw @letter.content
+          %h4 فایل نامه وارده
           
-          .attachment
-            - if @letter.attachment.present?
-              %p= 'رونوشت:'
-              =raw @letter.attachment
+          - if @letter.scan_file.present?
+            =link_to @letter.scan_file.url, :target => "blank" do
+              %i= 'مشاهده و دریافت فایل نامه وارده'
+              = image_tag 'get-pdf.png'
+            - if is_admin?
+              
+              .col-sm-4
+                #remove-pdf-file.btn.btn-danger حذف فایل pdf
+                #remove-pdf-box=link_to "حذف فایل pdf", edit_letter_path(:pdf_destroy => 1), :style => " padding:1%"
+          - else
+            %h3{:style => "color:red"}  فایل نامه وارده موجود نیست
+    - else
+      .width50
+        .avoid-this.pull-right.width30
+          %h4= 'نوع نامه:'
+          %h4= @letter.letter_type
+        .avoid-this.pull-right.width30
+          = link_to_function((image_tag 'icon_printer.gif'), "javascript:print()")
+          %span= 'پرینت نامه'
+      
+      .letter-show
+        .circle-top
+        .col-sm-11.letter-info.set-center
+          .col-sm-3.letter-left-info          
+            %p
+              %b= 'تاریخ:' 
+              = JalaliDate.new(@letter.created_at)
+            %p
+              %b= 'شماره:'
+              = @letter.letter_number
+            %p
+              %b= 'پیوست:'
+          .col-sm-5.letter-besmei
+            %b= 'بسمه تعالی'
+          .col-sm-4.letter-right-info
+            .letter-company-name= 'اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی شماره ثبت ۱۱۹۰۵'          
+        .col-sm-12.letter-holder
+          .col-sm-12.letter-inner-title= @letter.recievers.collect(&:company_name).join(',')
+          .col-sm-12.letter-inner-title= @letter.recievers.collect(&:preson_name).join(',')
+          .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}      
+            %p=raw @letter.content
+          .col-sm-12.letter-signture
+            .tank-box
+              %p= 'باتشکر'
+              %b= ' مدیریت اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی'
+            .clear{:style => "clear:both; "}
+            %br
             
-        .set-center.show-address= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۳۷۶۲۰۷۵۵-۰۵۱'
-        
+            .attachment
+              - if @letter.attachment.present?
+                %p= 'رونوشت:'
+                =raw @letter.attachment
+              
+          .set-center.show-address= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۳۷۶۲۰۷۵۵-۰۵۱'
+    
+      
     .link-admin.avoid-this
-      = link_to 'ویرایش', edit_letter_path(@letter, letter_type:  @letter.letter_type)
+      = link_to 'ویرایش', edit_letter_path(@letter, letter_type:  @letter.letter_type), :class => "btn btn-warning"
       \|
       = link_to 'بازگشت', :back
 
-
+:javascript
+  $('#remove-pdf-file').click(function(){
+    alert ('آیا مطمئن هستید؟');
+    $('#remove-pdf-box').fadeIn(1000);
+  });
 
