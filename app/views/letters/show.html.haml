@@ -72,13 +72,13 @@
               = @letter.letter_number
             %p
               %b= 'پیوست:'
-          .col-sm-4
-            
+          .col-sm-4.letter-besmei
+            %b= 'بسمه تعالی'
           .col-sm-4.letter-right-info.pull-right
             .letter-company-name= 'اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی شماره ثبت ۱۱۹۰۵'          
         .col-sm-12.letter-holder
-          .col-sm-12.letter-besmei
-            %b= 'بسمه تعالی'
+          .col-sm-12
+            
           .col-sm-12.letter-inner-title= @letter.recievers.collect(&:company_name).join(',')
           .col-sm-12.letter-inner-title= @letter.recievers.collect(&:preson_name).join(',')
           .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}      
