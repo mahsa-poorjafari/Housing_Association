@@ -29,7 +29,7 @@
             
         %tbody{:id => "letter_container"}
           - @letters.each_with_index do |letter, i|      
-            - if letter.letter_type == 'sent'
+            - if letter.letter_type.present? && letter.letter_type == 'sent'
               %tr
                 %td= (i+1)
                 %td= letter.letter_number
@@ -65,7 +65,7 @@
 
         %tbody{:id => "letter_container"}        
           - @letters.each_with_index do |letter, i|      
-            - if letter.letter_type == 'recieved'
+            - if letter.letter_type.present? && letter.letter_type == 'recieved'
               %tr
                 %td= (i+1)
                 %td= letter.letter_number
