@@ -10,60 +10,104 @@
           = image_tag 'excel.png'
           %p= 'دریافت فایل اکسل اندیکاتور'
       .clear-float
-  %table.table.table-striped{id:"letters_table"}
-    %thead
-      %tr
-        %th ردیف‍
-        %th شماره نامه
-        %th نوع نامه
-        %th خلاصه
-        %th تاریخ ارسال
-        %th تاریخ دریافت
-        %th ارسال کننده
-        %th دریافت کننده      
-        
-        - if is_admin?
-          %th عملیات
-        
-    %tbody{:id => "letter_container"}
-      - @letters.each_with_index do |letter, i|      
+  .col-sm-6.well{:style => "min-height:400px; border-right:2px solid #4D4D4D;"}
+    .title
+      %h1 نامه های صادره
+      %hr
+    %table.table.table-striped{id:"sent_letters_table"}
+      %thead
         %tr
-          %td= (i+1)
-          %td= letter.letter_number
-          %td 
-            - if letter.letter_type == 'sent'
-              صادره
-            - elsif  letter.letter_type == 'recieved'
-              وارده
-          %td= letter.summary
-          %td= JalaliDate.new(letter.created_at)  
-          %td= letter.received_date_fa
-          %td 
-            =letter.senderpreson_name
-            
-            =letter.sendercompany_name
-          %td
-            = letter.recievers.collect(&:preson_name).join(',')
-            = letter.recievers.collect(&:company_name).join(',')
-                  
+          %th ردیف‍
+          %th شماره نامه        
+          %th خلاصه نامه
+          %th تاریخ ارسال
+          %th دریافت کننده      
+          
           - if is_admin?
-            %td         
-              = link_to 'مشاهده', letter
-              \|
-              = link_to 'ویرایش', edit_letter_path(letter, :letter_type => letter.letter_type)
+            %th عملیات
+          
+      %tbody{:id => "letter_container"}
+        - @letters.each_with_index do |letter, i|      
+          - if letter.letter_type == 'sent'
+            %tr
+              %td= (i+1)
+              %td= letter.letter_number
 
+              %td= letter.summary
+              %td= JalaliDate.new(letter.created_at)  
+              
+              %td
+                = letter.recievers.collect(&:preson_name).join(',')
+                = letter.recievers.collect(&:company_name).join(',')
+                      
+              - if is_admin?
+                %td         
+                  = link_to 'مشاهده', letter
+                  \|
+                  = link_to 'ویرایش', edit_letter_path(letter, :letter_type => letter.letter_type)
+  .col-sm-6.well{:style => " min-height:400px; background:#FDFDC5"}
+    .title
+      %h1 نامه های وارده
+      %hr
+    %table.table.table-striped{id:"recieved_letters_table"}
+      %thead
+        %tr
+          %th ردیف‍
+          %th شماره نامه          
+          %th خلاصه نامه    
+          %th تاریخ دریافت
+          %th ارسال کننده          
+          
+          - if is_admin?
+            %th عملیات
+      
 
+      %tbody{:id => "letter_container"}        
+        - @letters.each_with_index do |letter, i|      
+          - if letter.letter_type == 'recieved'
+            %tr
+              %td= (i+1)
+              %td= letter.letter_number
+
+              %td= letter.summary              
+              %td= letter.received_date_fa
+              %td 
+                =letter.senderpreson_name + ' , '
+                =letter.sendercompany_name
+             
+                      
+              - if is_admin?
+                %td         
+                  = link_to 'مشاهده', letter
+                  \|
+                  = link_to 'ویرایش', edit_letter_path(letter, :letter_type => letter.letter_type)
 
 :coffeescript
   window.reloadDataTable = ->
     if !!window.oTable
       window.oTable.fnDestroy(); 
-    window.oTable = $("#letters_table").dataTable aoColumnDefs: [
+    window.oTable = $("#sent_letters_table").dataTable aoColumnDefs: [
       bSearchable: false
-      aTargets: [0,8]
+      aTargets: [0,5]
     ,  
       bSortable: false
-      aTargets: [0,8]
+      aTargets: [0,5]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+    window.oTable = $("#recieved_letters_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,5]
+    ,  
+      bSortable: false
+      aTargets: [0,5]
     ],  oLanguage:
       sSearch: "جستجو:"
       sLengthMenu: "نمایش _MENU_ ردیف"
