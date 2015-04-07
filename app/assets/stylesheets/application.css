@@ -304,6 +304,7 @@ ul.cooperatives-list li{list-style:none}
 .mainBtn:hover, .mainBtn:focus { border:solid 2px #fff; border-radius:5px}
 .box {background:#DAF7DA; padding: 2%; border-radius:5px;}
 .fa_date {font-family:'open_sansregular'}
+
 .recieved-letter-box {border:3px solid #A52A2A; min-height:300px; 
   margin-right:5%; margin-left:5%; padding:5%;
   }
@@ -312,3 +313,5 @@ ul.cooperatives-list li{list-style:none}
 #remove-pdf-box {display:none; background:#EB8080; text-align:center;  }
 #remove-pdf-box:hover {background:#1A1A1A; }
 #remove-pdf-box a {color:#fff}
+
+

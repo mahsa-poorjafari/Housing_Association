@@ -11,6 +11,11 @@
           
       
     .contact-form
+      
       = render 'form'
 
     = link_to 'بازگشت', :back
+:javascript
+  $('#change-counter').click(function(){
+    $('#letter_cunter').show(100);
+  });

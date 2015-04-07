@@ -1,7 +1,9 @@
 #encoding: utf-8
 class Letter < ActiveRecord::Base
+
   # extend FriendlyId  
   #friendly_id :summary
+
   extend PersianNumbers
   persian_dates :sent_date, :received_date
 

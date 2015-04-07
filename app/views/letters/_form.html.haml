@@ -11,7 +11,7 @@
     = form_tag new_contact_path, :method => "put", id: "search-form", :remote => true do 
       = text_field_tag :add_reciever, params[:add_reciever], :id => 'add_reciever_field', placeholder: 'نام دریافت کننده جدید را اضافه کنید'
       %button.save-btn#search-submit= 'send'
-      #clear.col-md-4= link_to  "تصحیح", '#phone'            
+      #clear.col-md-4= link_to  "تصحیح", '#phone'
     #search_result.search_result
 = form_for @letter do |f|
   - if @letter.errors.any?
@@ -22,8 +22,10 @@
   
   
   .col-sm-12.andicator
+
     .col-sm-5
-      #change-letter-cunter.btn.btn-info تغییر شمارنده نامه
+      #change-letter-cunter.btn.btn-info تغییر شمارنده نامه   
+
       = f.hidden_field :letter_type, :value => @letter_type_show
       .form-group.dates
         = f.label 'شماره نامه:', :class => "control-label ", :style => "width:30%; float:right; " 
@@ -36,18 +38,21 @@
               
               = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field', :value => @last_letter_split
             - else
-              %b#counter-number{:style => "width:20%; float:right "}                      
+              %b#counter-number{:style => "width:20%; float:right "}= 101
               = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field'
             
             = hidden_field_tag :type_of_letter, params[:type_of_letter], :id => 'type_of_letter_field' , :value => ( @letter_type_show == 'sent'  ? '۱' : '۲')
             = hidden_field_tag :letter_type_email, params[:letter_type_email], :id => 'type_of_letter_field' , :value => ('email' if @letter_type_show == 'email')
-            %b{:style => "width:20%; float:right "}=  ' / ' + @current_year + ' / '
+
+            %b{:style => "width:20%; float:right "}=  '/' + @current_year  + '/'
+            
+            = hidden_field_tag :current_year, params[:current_year], :id => 'current_year_field' , :value => @current_year
+
             %select#region_3{name: "alphabet", :style => "width:30%; float:right; "}
               %option{value: "د"} د
               %option{selected: "selected", value: "الف"} الف
               
-                        
-            = hidden_field_tag :current_year, params[:current_year], :id => 'current_year_field' , :value => @current_year
+
       .clear-float  
       - if @letter.blank?
         #change-letter-cunter

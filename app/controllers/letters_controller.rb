@@ -28,20 +28,23 @@ class LettersController < ApplicationController
   # GET /letters/new
   def new
     letter_type = params["letter_type"] || Letter::LetterTypes[:sent]
-    p '111'
-    p @letter_type_show = params[:letter_type] 
+    
+     @letter_type_show = params[:letter_type] 
     @letter = Letter.new(letter_type:letter_type)
     @current_date = JalaliDate.new(Date.today)
     @current_year = JalaliDate.new(Date.today).strftime("%y")
     if Letter.last.present?
       @last_letter = Letter.last.letter_number
-      p @last_letter_split = @last_letter.split('/').first
-      p '1111111111'
-      p @last_letter_split = @last_letter_split.to_i
-      p @last_letter_split = @last_letter_split + 1
-      p @last_letter_split = @last_letter_split.to_s
-      p '222222222'
+       @last_letter_split = @last_letter.split('/').first
+      
+       @last_letter_split = @last_letter_split.to_i
+       @last_letter_split = @last_letter_split + 1
+       @last_letter_split = @last_letter_split.to_s
+      
+    else
+      @last_letter_split = 100
     end
+    
     
     
   end
@@ -57,12 +60,14 @@ class LettersController < ApplicationController
   # GET /letters/1/edit
   def edit
     
+
     p @letter_type_show = params[:letter_type] 
     @pdf_destroy= params[:pdf_destroy]
     if @pdf_destroy.present?
       @letter.update_attribute(:scan_file, nil)
       render action: 'show'
     end
+
   end
 
   # POST /letters
@@ -73,7 +78,11 @@ class LettersController < ApplicationController
      @alphabet = params[:alphabet] 
      @counter_number = params[:counter_number]
      @type_of_letter = params[:type_of_letter]
-     @letter_number = @counter_number +  '/' + @alphabet  + '/' + @current_year 
+
+
+    
+    @letter_number =   @counter_number +  '/' + @alphabet + '/' +@current_year
+
     @letter.letter_number = @letter_number
     
     if @letter.save
