@@ -10,8 +10,8 @@
           = image_tag 'excel.png'
           %p= 'دریافت فایل اکسل اندیکاتور'
       .clear-float
-  .col-sm-12{:style => "min-height:600px; margin-bottom:5%"}
-    .col-sm-6.well{:style => "min-height:400px; border-right:2px solid #4D4D4D;"}
+  .col-sm-12{:style => "min-height:600px; margin-bottom:5%; padding:0;"}
+    .col-sm-6.well{:style => "min-height:400px; border-right:2px solid #4D4D4D; padding:0;"}
       .title
         %h1 نامه های صادره
         %hr
@@ -43,46 +43,44 @@
                         
                 - if is_admin?
                   %td         
-                    = link_to 'مشاهده', letter
-                    \|
+                    = link_to 'مشاهده', letter                    
                     = link_to 'ویرایش', edit_letter_path(letter, :letter_type => letter.letter_type)
-    -#
-      .col-sm-6.well{:style => " background:#FDFDC5"}
-        .title
-          %h1 نامه های وارده
-          %hr
-        %table.table.table-striped{id:"recieved_letters_table"}
-          %thead
-            %tr
-              %th ردیف‍
-              %th شماره نامه          
-              %th خلاصه نامه    
-              %th تاریخ دریافت
-              %th ارسال کننده          
-              
-              - if is_admin?
-                %th عملیات
-          
+    
+    .col-sm-6.well{:style => "background:#FDFDC5;  padding:0;"}
+      .title
+        %h1 نامه های وارده
+        %hr
+      %table.table.table-striped{id:"recieved_letters_table"}
+        %thead
+          %tr
+            %th ردیف‍
+            %th شماره نامه          
+            %th خلاصه نامه    
+            %th تاریخ دریافت
+            %th ارسال کننده          
+            
+            - if is_admin?
+              %th عملیات
+        
 
-          %tbody{:id => "letter_container"}        
-            - @letters.each_with_index do |letter, i|      
-              - if letter.letter_type.present? && letter.letter_type == 'recieved'
-                %tr
-                  %td= (i+1)
-                  %td= letter.letter_number
+        %tbody
+          - @letters.each_with_index do |letter, i|      
+            - if letter.letter_type.present? && letter.letter_type == 'recieved'
+              %tr
+                %td= (i+1)
+                %td= letter.letter_number
 
-                  %td= letter.summary              
-                  %td= letter.received_date_fa
-                  %td 
-                    =letter.senderpreson_name + ' , '
-                    =letter.sendercompany_name
-                 
-                          
-                  - if is_admin?
-                    %td         
-                      = link_to 'مشاهده', letter
-                      \|
-                      = link_to 'ویرایش', edit_letter_path(letter, :letter_type => letter.letter_type)
+                %td= letter.summary              
+                %td= letter.received_date_fa
+                %td 
+                  =letter.senderpreson_name + ' , '
+                  =letter.sendercompany_name
+               
+                        
+                - if is_admin?
+                  %td         
+                    = link_to 'مشاهده', letter                    
+                    = link_to 'ویرایش', edit_letter_path(letter, :letter_type => letter.letter_type)
 -#
   :coffeescript
     window.reloadDataTable = ->
