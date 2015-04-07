@@ -104,21 +104,22 @@
     
     = yield 
     .clear-float   
-    #footer
-      .container
-        .row
-          .col-md-8.col-xs-12.text-left
-            Copyright © 2016 Etehadiye Maskane Farhangiyan   -
-            = link_to 'Developed', '#', rel: "nofollow"
-            
-            by
-            = link_to 'Raush.net', url_with_protocol('Raush.net'), rel: "nofollow", :target => "_blank"
-            
-          / /.text-center
-          .col-md-4.hidden-xs.text-right
-            %a#go-top{href: "#top"} رفتن به بالای صفحه
-          / /.text-center
-        / /.row
-      / /.container
-    / /#footer 
+    - unless params[:controller] == 'letters'
+      #footer
+        .container
+          .row
+            .col-md-8.col-xs-12.text-left
+              Copyright © 2016 Etehadiye Maskane Farhangiyan   -
+              = link_to 'Developed', '#', rel: "nofollow"
+              
+              by
+              = link_to 'Raush.net', url_with_protocol('Raush.net'), rel: "nofollow", :target => "_blank"
+              
+            / /.text-center
+            .col-md-4.hidden-xs.text-right
+              %a#go-top{href: "#top"} رفتن به بالای صفحه
+            / /.text-center
+          / /.row
+        / /.container
+      / /#footer 
 

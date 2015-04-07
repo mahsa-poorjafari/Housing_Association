@@ -4,8 +4,8 @@
     text-align:center;
     margin-left: 25pt;
     margin-right: 25pt;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: 0px;
+    margin-bottom:0px;
     position:relative;
     top:0;    
     left:0;
@@ -20,7 +20,7 @@
     padding: 0 !important;
     top:0;
   }
-  .margin-top {margin-top:-2%}
+  .margin-top {margin-top:-10pt}
   .avoid-this, .site-main, #footer, .alert.alert-success {display:none}
   .page-title-holder {margin:0 !important; padding:0 !important;}
  
@@ -38,11 +38,11 @@
     padding-top:10%;  
     padding-right:13%;  
   }
-  .letter-besmei {width:30%;  float:left; font-size:12pt; padding:0; margin:0; padding-top:13%;  text-align:center; }
+  .letter-besmei {font-size:12pt; padding:0; margin:0;  text-align:center; margin-bottom:5px}
   .letter-right-info  {width:29%; float:left; text-align:right;  font-size:10pt; 
    padding:0; margin:0; padding-top:8%}
 
-  .letter-show .letter-right-info .letter-company-name{font-size:10pt; font-weight:bold; padding-top:5%}
+  .letter-show .letter-right-info .letter-company-name{font-size:10pt; font-weight:bold; padding-top:5%; float:right}
   .letter-show .letter-right-info p{font-size:8pt; }
   .letter-show .letter-holder {   margin:0 !important; padding:0 !important;
     position:relative;
@@ -61,7 +61,7 @@
   .letter-show .letter-holder .letter-inner-title {font-size:14pt;
   width:90%; 
   margin-right:10pt;   
-  padding-top:25pt; 
+  padding-top:10pt; 
   
   }
   .letter-show .letter-holder .letter-text p {
@@ -79,14 +79,13 @@
     position:absolute;
   }
   
-  .show-address {font-size:8pt;
+  .show-address {font-size:6pt;
   width:94%; text-align:center; 
   position:fixed; 
   height:30px;   
   margin-left:53pt;     
   bottom:-80pt;  
-  z-index:1000;
-  font-weight:bold; 
+  z-index:1000;  
   }
   
   /* print list of pay limit  */
