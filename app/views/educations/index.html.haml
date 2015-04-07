@@ -1,25 +1,29 @@
 .width80.set-center.margin-top
   .tbox2
-    .title      
+    .title
       %h1 لیست عناوین آموزش
+      - if is_admin?
+        .index-projects
+          = link_to 'افزودن متن آموزشی جدید', new_education_path, :class => "save-btn"
 
     - @educations.each_with_index do |education, i|
+      .col-sm-1.pull-right= (i+1)
+      .col-sm-5.pull-right= link_to education.title, education
+        
+      -if education.pdf.url.present?
+        .pdf-link.col-sm-3.pull-right
+          =link_to education.pdf.url, :target => "blank" do
+            %i= 'دریافت فایل مقاله'
+            %b= education.title
       
       - if is_admin?      
-        .col-sm-5
+        .col-sm-3.pull-left
           = link_to 'مشاهده', education
           \|
           = link_to 'ویرایش', edit_education_path(education)
           \|
           = link_to 'حذف', education, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-      -if article.pdf.url.present?
-        .pdf-link.col-sm-5
-          =link_to education.pdf.url, :target => "blank" do
-            %i= 'دریافت فایل مقاله'
-            %b= education.title
-      .col-sm-1= (i+1)
+     
       
-    %br
-      - if is_admin?
-        .index-projects
-          = link_to 'افزودن متن آموزشی جدید', new_education_path, :class => "save-btn"
+    
+  

@@ -1,15 +1,17 @@
 .width80.set-center.margin-top
-  .tbox2
-    %p
-      %b عنوان
-      = @education.title
+  
+  .tbox2.well
+    .title
+      %b عنوان مقاله
+      %h1= @education.title
     %p
       -if @education.pdf.url.present?
         .pdf-link.col-sm-5
-          =link_to @education.pdf.url, :target => "blank" do
+          =link_to @education.pdf.url, :target => "blank" do            
             %i= 'دریافت فایل آموزش'
-            = image_tag 'pdf-icon.png'            
+            = image_tag 'get-pdf.png' 
+            %b= @education.pdf_file_name
     - if is_admin?
-      = link_to 'ویرایش', edit_education_path(@education)
+      = link_to 'ویرایش', edit_education_path(@education), :class => "btn btn-warning"
       \|
       = link_to 'بازگشت', educations_path

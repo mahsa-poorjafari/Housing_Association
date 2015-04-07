@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class EducationsController < ApplicationController
   before_action :set_education, only: [:show, :edit, :update, :destroy]
 
@@ -64,11 +65,11 @@ class EducationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_education
-      @education = Education.find(params[:id])
+      @education = Education.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def education_params
-      params.require(:education).permit(:title)
+      params.require(:education).permit(:title, :pdf)
     end
 end
