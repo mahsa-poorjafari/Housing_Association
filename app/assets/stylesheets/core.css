@@ -44,7 +44,9 @@
 
   .letter-show .letter-right-info .letter-company-name{font-size:10pt; font-weight:bold; padding-top:5%; float:right}
   .letter-show .letter-right-info p{font-size:8pt; }
-  .letter-show .letter-holder {   margin:0 !important; padding:0 !important;
+  .letter-show .letter-holder { 
+    width:100%;
+    margin:0 !important; padding:0 !important;
     position:relative;
     left:0 !important; right:0 !important;
     top:80pt;   
@@ -58,6 +60,13 @@
     padding:1%;
     margin: 1%;
   }
+  .letter-show .letter-holder .letter-text table {font-family: 'open_sansregular';
+    border:1px solid #4D4D4D;
+    font-size:8pt; width:auto;
+    }
+  .letter-show .letter-holder .letter-text table tr {border:1px solid #4D4D4D;}
+  .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; }
+  .letter-show .letter-holder .letter-text table tr td{border:1px solid #4D4D4D; }
   .letter-show .letter-holder .letter-inner-title {font-size:14pt;
   width:90%; 
   margin-right:10pt;   
