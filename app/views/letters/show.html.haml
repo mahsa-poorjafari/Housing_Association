@@ -79,8 +79,9 @@
         .col-sm-12.letter-holder
           .col-sm-12
             
-          .col-sm-12.letter-inner-title= @letter.recievers.collect(&:company_name).join(',')
-          .col-sm-12.letter-inner-title= @letter.recievers.collect(&:preson_name).join(',')
+          .col-sm-12.letter-inner-title
+            %p= @letter.recievers.collect(&:company_name).join(',')          
+            %p= @letter.recievers.collect(&:preson_name).join(',')
           .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}      
             %p=raw @letter.content
           .col-sm-12.letter-signture
