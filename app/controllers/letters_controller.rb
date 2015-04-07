@@ -2,17 +2,23 @@
 class LettersController < ApplicationController
   before_action :set_letter, only: [:show, :edit, :update, :destroy]
   before_filter :check_autentication
+  respond_to :xls, :html
   # GET /letters
   # GET /letters.json
   def index
     #@letters = Letter.all(include:"sender")
-    
     if params[:email_list].present?      
       @except_mail = Letter.where(letter_type: "email")
     else
       @except_mail = Letter.where.not(letter_type: "email")
     end
     @letters = @except_mail.order(" created_at desc")
+    filename = "اندیکاتور-" + Date.today.to_s
+    respond_to do |format|
+      format.html
+      format.xlsx { render xlsx: :index, filename: filename}
+    end
+    
     
     
   end

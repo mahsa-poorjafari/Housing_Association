@@ -5,6 +5,11 @@
       = link_to 'ثبت نامه صادره', new_letter_path(letter_type:"sent"), :class => "save-btn"
       = link_to 'ثبت نامه وارده', new_letter_path(letter_type:"recieved"), :class => "save-btn"
       = link_to "ارسال ایمیل به تعاونیها", new_letter_path(letter_type:"email"), :class => "save-btn"
+      .width30.pull-right
+        = link_to  letters_url(format: "xlsx") do
+          = image_tag 'excel.png'
+          %p= 'دریافت فایل اکسل اندیکاتور'
+      .clear-float
   %table.table.table-striped{id:"letters_table"}
     %thead
       %tr
