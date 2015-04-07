@@ -67,7 +67,7 @@
   .letter-show .letter-holder .letter-text ol {list-style-type: decimal; margin-right:20pt}
   .letter-show .letter-holder .letter-text ul {list-style-type: circle;}
   .letter-show .letter-holder .letter-text table tr {border:1px solid #4D4D4D;}
-  .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; }
+  .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; text-align:center}
   .letter-show .letter-holder .letter-text table tr td{border:1px solid #4D4D4D; }
   .letter-show .letter-holder .letter-inner-title {font-size:14pt;
   width:90%; 
