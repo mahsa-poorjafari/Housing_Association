@@ -49,12 +49,11 @@
   .letter-show .letter-holder { 
     width:100%;
     margin:0 !important; 
-    position:absolute;
+    position:absolute; padding:0 !important;
     left:0 !important; right:0 !important;
-    top:80pt;   
-    padding-top:10pt;
-    padding-right:5pt;
-    padding-left:5pt;
+    top:75pt;   
+    padding-top:8pt;
+    
     min-height:510pt !important; 
     max-height:510pt !important;  
     }
