@@ -48,13 +48,15 @@
   .letter-show .letter-right-info p{font-size:8pt; }
   .letter-show .letter-holder { 
     width:100%;
-    margin:0 !important; padding:0 !important;
+    margin:0 !important;  !important;
     position:absolute;
     left:0 !important; right:0 !important;
     top:80pt;   
     padding-top:10pt;
-    min-height:700pt !important; 
-    max-height:800pt !important;  
+    padding-right:10pt;
+    padding-left:10pt;
+    min-height:530pt !important; 
+    max-height:530pt !important;  
     }
   .letter-show .letter-holder .letter-text  { 
     font-size:10pt;     
