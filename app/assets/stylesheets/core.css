@@ -48,7 +48,7 @@
   .letter-show .letter-right-info p{font-size:8pt; }
   .letter-show .letter-holder { 
     width:100%;
-    margin:0 !important;  !important;
+    margin:0 !important; 
     position:absolute;
     left:0 !important; right:0 !important;
     top:80pt;   
