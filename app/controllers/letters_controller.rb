@@ -3,6 +3,8 @@ class LettersController < ApplicationController
   before_action :set_letter, only: [:show, :edit, :update, :destroy]
   before_filter :check_autentication
   respond_to :xls, :html
+  PAPERSIZE = 0
+  
   # GET /letters
   # GET /letters.json
   def index
@@ -35,7 +37,7 @@ class LettersController < ApplicationController
   def new
     letter_type = params["letter_type"] || Letter::LetterTypes[:sent]
     
-     @letter_type_show = params[:letter_type] 
+    @letter_type_show = params[:letter_type] 
     @letter = Letter.new(letter_type:letter_type)
     @current_date = JalaliDate.new(Date.today)
     @current_year = JalaliDate.new(Date.today).strftime("%y")
@@ -50,9 +52,6 @@ class LettersController < ApplicationController
     else
       @last_letter_split = 100
     end
-    
-    
-    
   end
   def cunter
     c = params[:cunter]    
@@ -61,6 +60,14 @@ class LettersController < ApplicationController
     else
       p @start_count = c
     end
+  end
+  def printa4
+    p '-------papersizeA4----------'
+    p $papersize = 1
+  end
+  def printa5
+    p '-------papersizeA5----------'
+    p $papersize = 2
   end
 
   # GET /letters/1/edit

@@ -3,10 +3,9 @@
   %head
     %title
       اتحادیه شرکتهای تعاونی مسکن فر استان خراسان رضوی , maskan-ef
-      
     = stylesheet_link_tag    "application", media: "all"
-    = stylesheet_link_tag    "fonts", media: "all"
-    = stylesheet_link_tag    "core", media: "print"      
+    = stylesheet_link_tag    "fonts", media: "all"  
+    = stylesheet_link_tag    "core", media: "print" 
     = javascript_include_tag "application"
     
     -#
@@ -16,11 +15,9 @@
     %meta{:name => "keywords", :content => Project.all.collect(&:title).join(","), } 
     %meta{:name => "description", :content => "اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی"}
     %meta{content: "no", "http-equiv" => "imagetoolbar"}
-    = yield(:refresh_meta) if content_for?(:refresh_meta)
-    
+    = yield(:refresh_meta) if content_for?(:refresh_meta)    
 
-  %body
-    
+  %body    
     #sTop.site-main
       .site-header
         .container

@@ -9,15 +9,22 @@
   -if flash[:msgsended]        
     .alert.alert-success= flash[:msgsended] 
   
-  %p
+  .col-md-6
     = f.text_field :user_name, :id => "name", placeholder: "نام خود را وارد کنید"    
-  %p
-    = f.text_field :email, :id => "email", placeholder: "ایمیل خود را وارد کنید"    
-  %p
+  .col-md-6
     = f.text_field :phone, :id => "subject", placeholder: " تلفن خود را وارد کنید", :style => "resize:none"
-  %p
+  .col-md-12
+    = f.text_field :email, :id => "email", placeholder: "ایمیل خود را وارد کنید"    
+  
+  .col-md-6.pull-right
     = f.text_area :text, :id => "comments", placeholder: "پیام خود را وارد کنید", :style => "resize:none"
-  = f.submit 'ارسال پیام', :class=>"mainBtn", :id => "submit"
+  .col-md-6
+    = f.simple_captcha :label => " عبارت امنیتی را در کادر بالا وارد نمایید." 
+  .col-md-4
+  .col-md-4
+    = f.submit 'ارسال پیام', :class=>"mainBtn", :id => "submit"
+  .col-md-4
+  .clear-float
 %br
 :javascript  
   

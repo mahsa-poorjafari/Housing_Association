@@ -267,12 +267,14 @@
       / /.col-md-12
     / /.row
     .row
-      .col-md-7.col-sm-6
+      .col-md-5.col-sm-6
         .text-cadr-home-page=raw @contact.first.text
         
       / /.col-md-7
-      .col-md-5.col-sm-6
+      .col-md-7.col-sm-6
+        %h1 ارسال پیام
         .contact-form
+          
           = render 'shared/msg_form'
         / /.contact-form
       / /.col-md-5

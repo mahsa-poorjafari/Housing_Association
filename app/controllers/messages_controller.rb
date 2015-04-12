@@ -31,7 +31,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     
-    if @message.save
+    if @message.save_with_captcha
       UserMailer.send_user_mail.deliver      
       flash[:msgsended] = 'کاربر گرامی پیام شما ارسال گردید.'      
     end
@@ -71,6 +71,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit( :text, :visited, :user_name, :email, :phone)
+      params.require(:message).permit( :text, :visited, :user_name, :email, :phone, :captcha, :captcha_key)
     end
 end

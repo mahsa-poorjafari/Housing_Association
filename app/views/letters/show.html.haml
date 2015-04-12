@@ -3,6 +3,7 @@
     .alert.alert-success= flash[:letter]
   
   .page-title-holder
+    
     - if @letter.letter_type == 'recieved'
       .col-sm-10.recieved-letter-box
         .letter-show.col-sm-4.pull-right
@@ -57,13 +58,19 @@
           %h4= 'نوع نامه:'
           %h4= @letter.letter_type
         .avoid-this.pull-right.width30
-          = link_to_function((image_tag 'icon_printer.gif'), "javascript:print()")
-          %span= 'پرینت نامه'
+          = image_tag 'icon_printer.gif'
+          = link_to 'پرینت A4', printa4_letters_path, :remote => true          
+        .avoid-this.pull-right.width30
+          = image_tag 'icon_printer.gif'
+          = link_to 'پرینت A5', printa5_letters_path, :remote => true
+          -#
+            = link_to_function((image_tag 'icon_printer.gif'), "javascript:print()")
+          
       
       .letter-show
         .circle-top
         .col-sm-8.letter-info.set-center
-          .col-sm-3.letter-left-info          
+          .col-sm-3.letter-left-info
             %p
               %b= 'تاریخ:' 
               = JalaliDate.new(@letter.created_at)
@@ -113,4 +120,12 @@
     alert ('آیا مطمئن هستید؟');
     $('#remove-pdf-box').fadeIn(1000);
   });
+  -#
+    function printa4() {
+      window.print();
+    }
+    function printa5() {
+      
+      window.print();
+    }
 
