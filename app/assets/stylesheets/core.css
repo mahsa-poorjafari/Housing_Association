@@ -33,7 +33,7 @@
    position:absolute;
   height:90pt;  z-index:1000}
   .letter-left-info  {width:35%; float:left; 
-    padding:0; margin:0; text-align:right; font-size:10pt; 
+    padding:0; margin:0; text-align:right; font-size:8pt; 
     padding-top:10%;  
     padding-right:13%;  
   }
@@ -55,8 +55,8 @@
     padding-top:10pt;
     padding-right:10pt;
     padding-left:10pt;
-    min-height:530pt !important; 
-    max-height:530pt !important;  
+    min-height:520pt !important; 
+    max-height:520pt !important;  
     }
   .letter-show .letter-holder .letter-text  { 
     font-size:10pt;     
