@@ -51,11 +51,10 @@
     margin:0 !important; 
     position:relative; padding:0 !important;
     left:0 !important; right:0 !important;
-    top:80pt;   
+    top:80pt; 
     padding-top:8pt;
-    
-    min-height:530pt !important; 
-    max-height:530pt !important;  
+    min-height:500pt !important; 
+    max-height:500pt !important;  
     }
   .letter-show .letter-holder .letter-text  { 
     font-size:10pt;     
