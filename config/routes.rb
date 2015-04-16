@@ -17,6 +17,8 @@ HousingAssociation::Application.routes.draw do
   resources :letters do
     collection do
       get :cunter
+    end
+    member do
       get :printa4
       get :printa5
     end

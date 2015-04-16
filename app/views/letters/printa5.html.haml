@@ -1,9 +1,14 @@
+.avoid-this{:style => "text-align:center"}
+  #go-printa4
+    = image_tag 'icon_printer.gif'
+    %h1= link_to 'پرینت A5', '#'  
+  %h3= link_to ' بازگشت به بایگانی و مدیریت نامه ها', Letter, :class => "btn btn-info"
+  %hr
 .set-center.margin-top
   - if flash[:letter].present?
     .alert.alert-success= flash[:letter]
   
-  .page-title-holder
-    
+  .page-title-holder    
     - if @letter.letter_type == 'recieved'
       .col-sm-10.recieved-letter-box
         .letter-show.col-sm-4.pull-right
@@ -57,15 +62,7 @@
         .avoid-this.pull-right.width30
           %h4= 'نوع نامه:'
           %h4= @letter.letter_type
-        .avoid-this.pull-right.width30
-          = image_tag 'icon_printer.gif'
-          = link_to 'پرینت A4', printa4_letter_path(@letter)
-        .avoid-this.pull-right.width30
-          = image_tag 'icon_printer.gif'
-          = link_to 'پرینت A5', printa5_letter_path(@letter)
-          -#
-            = link_to_function((image_tag 'icon_printer.gif'), "javascript:print()")
-          
+      .clear-float  
       
       .letter-show
         .circle-top
@@ -86,7 +83,8 @@
               %p اتحادیه شرکتهای تعاونی مسکن
               %p  فرهنگیان استان خراسان رضوی
               %p شماره ثبت ۱۱۹۰۵
-              
+          .clear-float      
+        .clear-float      
         .col-sm-12.letter-holder
           .col-sm-12
             
@@ -120,4 +118,8 @@
     alert ('آیا مطمئن هستید؟');
     $('#remove-pdf-box').fadeIn(1000);
   });
+
   
+  window.print();
+  
+    

@@ -1,0 +1,22 @@
+!!! 5
+%html
+  %head
+    %title
+      اتحادیه شرکتهای تعاونی مسکن فر استان خراسان رضوی , maskan-ef
+    
+    = stylesheet_link_tag    "fonts", media: "all"  
+    = stylesheet_link_tag    "bootstrap", media: "all"  
+    = stylesheet_link_tag    "corea4", media: "print" 
+    = javascript_include_tag "application"
+    
+    -#
+      http://www.google.com/mapmaker?gw=129&activity_src=2&activity_filter=0&activity_sort=0&ll=36.289434,59.545891&spn=0.00061,0.001058&z=20&vpid=1405513955844&lyt=large_map_v3&htll=36.289379,59.545716
+    = csrf_meta_tags
+    %meta{:charset => "utf-8"}
+    %meta{:name => "keywords", :content => Project.all.collect(&:title).join(","), } 
+    %meta{:name => "description", :content => "اتحادیه شرکتهای تعاونی مسکن فرهنگیان استان خراسان رضوی"}
+    %meta{content: "no", "http-equiv" => "imagetoolbar"}
+    = yield(:refresh_meta) if content_for?(:refresh_meta)    
+
+  %body 
+    = yield 
