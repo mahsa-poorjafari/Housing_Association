@@ -73,18 +73,18 @@
           .col-sm-3.letter-left-info
             %p
               %b= 'تاریخ:' 
-              = JalaliDate.new(@letter.created_at)
+              %b= JalaliDate.new(@letter.created_at)
             %p
               %b= 'شماره:'
-              = @letter.letter_number
+              %b= @letter.letter_number
             %p
               %b= 'پیوست:'
           .col-sm-4.letter-besmei
             %b= 'بسمه تعالی'
           .col-sm-5.letter-right-info.pull-right
             .letter-company-name
-              %p اتحادیه شرکتهای تعاونی مسکن
-              %p  فرهنگیان استان خراسان رضوی
+              %p اتحادیه تعاونی مسکن
+              %p  فرهنگیان استان خراسان
               %p شماره ثبت ۱۱۹۰۵
               
         .col-sm-12.letter-holder
