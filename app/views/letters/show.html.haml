@@ -62,7 +62,7 @@
           = link_to 'پرینت A4', printa4_letter_path(@letter)
         .avoid-this.pull-right.width30
           = image_tag 'icon_printer.gif'
-          = link_to 'پرینت A5', printa5_letter_path(@letter)
+          = link_to 'پرینت A5', printa5_letters_path, :remote => true
           -#
             = link_to_function((image_tag 'icon_printer.gif'), "javascript:print()")
           

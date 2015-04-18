@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class LettersController < ApplicationController  
   
-  before_action :set_letter, only: [:show, :edit, :update, :destroy, :printa4, :printa5]
+  before_action :set_letter, only: [:show, :edit, :update, :destroy, :printa4]
   before_filter :check_autentication
   respond_to :xls, :html
   PAPERSIZE = 0
@@ -74,11 +74,12 @@ class LettersController < ApplicationController
   def printa5
     p '-------papersizeA5----------'
     p $papersize = 2
-    respond_to do |format|
-      format.html do
-        render 'printa5.html',  :layout => 'a5size.html'
-      end
-    end
+    
+    #respond_to do |format|
+     # format.html do
+      #  render 'printa5.html',  :layout => 'a5size.html'
+      #end
+    #end
   end
 
   # GET /letters/1/edit

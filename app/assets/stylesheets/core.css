@@ -4,7 +4,8 @@
 .letter-show{ height:100% !important; position:absolute; top:50%}
 .letter-show .letter-info{
  margin-top:-3%; margin-left:15%;}
-.letter-show .letter-right-info .letter-company-name{font-size:1em; font-weight:bold; font-family: 'BNazanin';}
+.letter-show .letter-right-info .letter-company-name{font-size:1em; font-weight:bold; 
+font-family:open_sansregular;}
 .letter-show .letter-right-info .letter-company-name p{font-size:1.3em; font-weight:bold;}
 .letter-show .letter-right-info p{font-size:1.5em; }
 .letter-left-info {font-size:1.2em; direction:rtl}
@@ -23,14 +24,14 @@
 .letter-show .letter-holder .letter-inner-title {
   padding-right:5%;
   padding-top:5%;
-  font-family:IranNastaligh; font-size:2em; color:#000;}
+  font-family:open_sansregular; font-size:2em; color:#000;}
 .letter-show .letter-holder .letter-text {font-size:1em; color:#000; margin:2%;
  text-align:justify; direction:rtl; 
- font-family: 'BNazanin';
+ font-family:open_sansregular;
  width:90%; margin-left:5%; margin-right:5%;
 }
-.letter-show .letter-holder .letter-text p {font-family: 'BNazanin';}
-.letter-show .letter-holder .letter-text table {font-family: 'BNazanin';
+.letter-show .letter-holder .letter-text p {font-family:open_sansregular;}
+.letter-show .letter-holder .letter-text table {font-family:open_sansregular;
   border:1px solid #4D4D4D;
   }
 .letter-show .letter-holder .letter-text table tr {border:1px solid #4D4D4D;}
@@ -105,10 +106,10 @@ input.save-btn:hover {color:#000}
   .letter-right-info  {width:35%; float:left; text-align:right;  font-size:10pt; 
    padding:0; margin:0; padding-top:8%; padding-right:3%;}
 
-  .letter-show .letter-right-info .letter-company-name{font-size:10pt; font-family: 'BNazanin';
+  .letter-show .letter-right-info .letter-company-name{font-size:10pt; font-family:open_sansregular;
     font-weight:bold; padding-top:5%; float:right}
-  .letter-show .letter-right-info .letter-company-name p {font-size:8pt; font-family: 'BNazanin';}
-  .letter-show .letter-right-info p{font-size:8pt;font-family: 'BNazanin'; }
+  .letter-show .letter-right-info .letter-company-name p {font-size:8pt; font-family:open_sansregular;}
+  .letter-show .letter-right-info p{font-size:8pt;font-family:open_sansregular;}
   .letter-show .letter-holder { 
     width:100%;
     margin:0 !important; 
@@ -127,7 +128,7 @@ input.save-btn:hover {color:#000}
   }
   .letter-show .letter-holder .letter-text span {font-size:8pt}
   .letter-show .letter-holder .letter-text p {font-size:8pt}
-  .letter-show .letter-holder .letter-text table {font-family: 'BNazanin';
+  .letter-show .letter-holder .letter-text table {font-family:open_sansregular;
     border:1px solid #4D4D4D;
     font-size:6pt; width:auto;
     }
