@@ -2,8 +2,7 @@
   - if flash[:letter].present?
     .alert.alert-success= flash[:letter]
   
-  .page-title-holder
-    
+  .page-title-holder    
     - if @letter.letter_type == 'recieved'
       .col-sm-10.recieved-letter-box
         .letter-show.col-sm-4.pull-right
@@ -98,7 +97,7 @@
           .col-sm-12.letter-signture
             .tank-box
               %p= 'باتشکر مدیریت'
-              %b= 'اتحادیه شرکتهای تعاونی مسکن فرهنگیان خراسان'
+              %b= 'اتحادیه تعاونیهای مسکن فرهنگیان خراسان'
             .clear{:style => "clear:both; "}
             %br
             
@@ -111,9 +110,10 @@
     
       
     .link-admin.avoid-this
-      = link_to 'ویرایش', edit_letter_path(@letter, letter_type:  @letter.letter_type), :class => "btn btn-warning"
-      \|
-      = link_to 'بازگشت', :back
+      - if is_admin?
+        = link_to 'ویرایش', edit_letter_path(@letter, letter_type:  @letter.letter_type), :class => "btn btn-warning"
+        \|
+        = link_to 'بازگشت', :back
 
 :javascript
   $('#remove-pdf-file').click(function(){

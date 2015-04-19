@@ -17,10 +17,10 @@
             .col-sm-12.letter-left-info
               %p
                 %b= 'تاریخ:' 
-                = JalaliDate.new(@letter.created_at)  
+                %b= JalaliDate.new(@letter.created_at)  
               %p
                 %b= 'شماره:' 
-                = @letter.letter_number
+                %b= @letter.letter_number
               %p
                 %b= 'پیوست:' 
         .col-sm-4
@@ -80,8 +80,8 @@
             %b= 'بسمه تعالی'
           .col-sm-5.letter-right-info.pull-right
             .letter-company-name
-              %p اتحادیه شرکتهای تعاونی مسکن
-              %p  فرهنگیان استان خراسان رضوی
+              %p اتحادیه تعاونی مسکن
+              %p  فرهنگیان استان خراسان
               %p شماره ثبت ۱۱۹۰۵
           .clear-float      
         .clear-float      
@@ -96,7 +96,7 @@
           .col-sm-12.letter-signture
             .tank-box
               %p= 'باتشکر مدیریت'
-              %b= 'اتحادیه شرکتهای تعاونی مسکن فرهنگیان خراسان'
+              %b= 'اتحادیه تعاونیهای مسکن فرهنگیان خراسان'
             .clear{:style => "clear:both; "}
             %br
             
@@ -109,17 +109,21 @@
     
       
     .link-admin.avoid-this
-      = link_to 'ویرایش', edit_letter_path(@letter, letter_type:  @letter.letter_type), :class => "btn btn-warning"
-      \|
-      = link_to 'بازگشت', :back
+      -if is_admin?
+        = link_to 'ویرایش', edit_letter_path(@letter, letter_type:  @letter.letter_type), :class => "btn btn-warning"
+        \|
+        = link_to 'بازگشت', :back
 
 :javascript
+  window.print();
   $('#remove-pdf-file').click(function(){
     alert ('آیا مطمئن هستید؟');
     $('#remove-pdf-box').fadeIn(1000);
   });
-
   
-  window.print();
+  $('#go-printa4').click(function(){
+    window.print();
+  });
+  
   
     
