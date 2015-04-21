@@ -66,46 +66,47 @@
       
       .letter-show
         .circle-top
-        .col-sm-8.letter-info.set-center
-          .col-sm-3.letter-left-info
-            %p
-              %b= 'تاریخ:' 
-              = JalaliDate.new(@letter.created_at)
-            %p
-              %b= 'شماره:'
-              = @letter.letter_number
-            %p
-              %b= 'پیوست:'
-          .col-sm-4.letter-besmei
-            %b= 'بسمه تعالی'
-          .col-sm-5.letter-right-info.pull-right
-            .letter-company-name
-              %p اتحادیه تعاونی مسکن
-              %p  فرهنگیان استان خراسان
-              %p شماره ثبت ۱۱۹۰۵
-          .clear-float      
-        .clear-float      
-        .col-sm-12.letter-holder
-          .col-sm-12
+          .letter-holder
+            .col-sm-12.letter-info
+              .col-sm-3.letter-left-info
+                %p
+                  %b= 'تاریخ:' 
+                  = JalaliDate.new(@letter.created_at)
+                %p
+                  %b= 'شماره:'
+                  = @letter.letter_number
+                %p
+                  %b= 'پیوست:'
+              .col-sm-4.letter-besmei
+                %b= 'بسمه تعالی'
+              .col-sm-5.letter-right-info.pull-right
+                .letter-company-name
+                  %p.maskan-logo= image_tag 'maskan.png', :width => "100", :height => "100"
+                  %p اتحادیه تعاونی مسکن فرهنگیان خراسان
+                  %p شماره ثبت ۱۱۹۰۵
+              .clear-float      
             
-          .col-sm-12.letter-inner-title
-            %p= @letter.recievers.collect(&:company_name).join(',')          
-            %p= @letter.recievers.collect(&:preson_name).join(',')
-          .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}      
-            %p=raw @letter.content
-          .col-sm-12.letter-signture
-            .tank-box
-              %p= 'باتشکر مدیریت'
-              %b= 'اتحادیه تعاونیهای مسکن فرهنگیان خراسان'
-            .clear{:style => "clear:both; "}
-            %br
+          
             
-            .attachment
-              - if @letter.attachment.present?
-                %p= 'رونوشت:'
-                =raw @letter.attachment
               
-          .set-center.show-address= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۳۷۶۲۰۷۵۵-۰۵۱'
+            .col-sm-12.letter-inner-title
+              %p= @letter.recievers.collect(&:company_name).join(',')          
+              %p= @letter.recievers.collect(&:preson_name).join(',')
+            .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}      
+              %p=raw @letter.content
+            .col-sm-12.letter-signture
+              .tank-box
+                %p= 'باتشکر مدیریت'
+                %b= 'اتحادیه تعاونیهای مسکن فرهنگیان خراسان'
+              .clear{:style => "clear:both; "}
+              %br
+              
+              .attachment
+                - if @letter.attachment.present?
+                  %p= 'رونوشت:'
+                  =raw @letter.attachment
+                
+            .set-center.show-address= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۳۷۶۲۰۷۵۵-۰۵۱   MASKAN-EF.COM'
     
       
     .link-admin.avoid-this
