@@ -32,7 +32,7 @@
   width:100%;
    }  
   .letter-show .letter-info{ width:100%; padding:0;        
-   top:10pt;   
+   top:0pt;   
    position:absolute;
   height:90pt;  z-index:1000}
   .letter-left-info  {width:170pt; float:left; 
@@ -50,11 +50,11 @@
   .letter-show .letter-right-info .letter-company-name p {font-size:10pt;}
   .letter-show .letter-right-info p{font-size:8pt; }
   .letter-show .letter-holder { 
-    width:92%;
+    width:100%;
     margin:0 !important; padding:0 !important;
     position:relative;
-    left:4% !important; right:4% !important;
-    top:90pt;   
+    left:0 !important; right:0 !important;
+    top:2pt;   
     padding-top:10pt;
     min-height:680pt !important; 
     max-height:680pt !important;  
