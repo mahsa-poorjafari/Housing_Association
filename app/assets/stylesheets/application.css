@@ -233,20 +233,25 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
   .print {width:50%; background:#BFBFBF;}
   .print-hole-page {width:50%; background:#BFBFBF;}
   .letter-show{ height:100% !important; position:absolute; top:50%}
-  .letter-show .letter-info{
-   margin-top:-3%; margin-left:15%;}
-  .letter-show .letter-right-info .letter-company-name{font-size:1em; font-weight:bold;}
-  .letter-show .letter-right-info .letter-company-name p{font-size:1.3em; font-weight:bold;}
+  .letter-show .letter-right-info {padding:0;}
+  .letter-show .letter-right-info .letter-company-name{font-size:1em; font-weight:bold;
+    text-align:center;color:#000;}  
+  .letter-show .letter-right-info .letter-company-name p{font-size:1.3em; font-weight:bold; color:#000;}
+  .letter-show .letter-right-info .letter-company-name p.maskan-logo{   
+    text-align:center;    
+    height:100px;
+    }
+  .letter-show .letter-right-info .letter-company-name p.maskan-logo img {height:100px; width:100px;
+    margin-left:100px; margin-right:100px;
+    }
   .letter-show .letter-right-info p{font-size:1.5em; }
-  .letter-left-info {font-size:1.2em; direction:rtl}
-  .letter-besmei {font-size:1em; text-align:right; padding-top:5%;}
+  .letter-left-info {font-size:1.2em; direction:rtl; color:#000; padding-top:10%}
+  .letter-besmei {font-size:1em; text-align:center; padding-top:15%; color:#000;}
   .letter-show .letter-holder {
     width:60%; margin-right:20%; margin-left:20%;
-    border: 2px solid #4D4D4D; 
-    -moz-border-radius: 50% / 7%;
-    -webkit-border-radius:  50% / 7%;
-    border-radius:  50% / 7%;
-    padding:1%;    
+    border-left: 20px #000 solid;
+    border-bottom: 20px #000 solid;
+    
     position:relative;
     min-height:800px;
   }
@@ -285,14 +290,15 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
   .letter-show .letter-holder .letter-text ul {list-style-type: circle;}
   .letter-show .letter-holder .letter-signture  {font-size:1em;
   }
-  .tank-box {width:50%; text-align:center; float:left;}
+  .tank-box {width:50%; text-align:center; float:left; color:#000;}
   .attachment{
       width:100%; text-align:right; margin-right:5%;}
   
-  .show-address {width:70%; height:50px; 
+  .show-address {width:80%; height:30px; 
     bottom: -2%;
     right:10%;
     left:10%;
+    color:#000;
     background-color:#fff!important;
     -webkit-print-color-adjust: exact;
     text-align:center;

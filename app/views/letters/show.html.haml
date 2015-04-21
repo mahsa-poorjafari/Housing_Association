@@ -68,27 +68,27 @@
       
       .letter-show
         .circle-top
-        .col-sm-8.letter-info.set-center
-          .col-sm-3.letter-left-info
-            %p
-              %b= 'تاریخ:' 
-              %b= JalaliDate.new(@letter.created_at)
-            %p
-              %b= 'شماره:'
-              %b= @letter.letter_number
-            %p
-              %b= 'پیوست:'
-          .col-sm-4.letter-besmei
-            %b= 'بسمه تعالی'
-          .col-sm-5.letter-right-info.pull-right
-            .letter-company-name
-              %p اتحادیه تعاونی مسکن
-              %p  فرهنگیان استان خراسان
-              %p شماره ثبت ۱۱۹۰۵
-              
-        .col-sm-12.letter-holder
-          .col-sm-12
-            
+        .letter-holder
+          .letter-info.col-sm-12
+            .col-sm-3.letter-left-info
+              %p
+                %b= 'تاریخ:' 
+                %b= JalaliDate.new(@letter.created_at)
+              %p
+                %b= 'شماره:'
+                %b= @letter.letter_number
+              %p
+                %b= 'پیوست:'
+            .col-sm-4.letter-besmei
+              %b= 'بسمه تعالی'
+            .col-sm-5.letter-right-info.pull-right
+              .letter-company-name
+                %p.maskan-logo= image_tag 'maskan.png', :width => "100", :height => "100"
+                %p اتحادیه تعاونی مسکن فرهنگیان خراسان
+                %p شماره ثبت ۱۱۹۰۵
+                
+        
+          
           .col-sm-12.letter-inner-title
             %p= @letter.recievers.collect(&:company_name).join(',')          
             %p= @letter.recievers.collect(&:preson_name).join(',')
@@ -106,7 +106,8 @@
                 %p= 'رونوشت:'
                 =raw @letter.attachment
               
-          .set-center.show-address= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۳۷۶۲۰۷۵۵-۰۵۱'
+          .set-center.show-address=            'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۳۷۶۲۰۷۵۵-۰۵۱    MASKAN-EF.COM'
+            
     
       
     .link-admin.avoid-this
