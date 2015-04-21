@@ -13,8 +13,18 @@
  *= require jquery.ui.autocomplete
  *= require token-input
  *= require colorbox-rails
- *= require_self
- *= require_tree .
+ *= require animate
+ *= require bootstrap
+ *= require bootstrap-checkbox
+ *= require icons
+ *= require jquery
+ *= require letters
+ *= require persiancalendar
+ *= require scaffolds
+ *= require templatemo_misc
+ *= require templatemo_style
+ *= require upload_files.css
+ *= require_self 
  */
 body, html {direction:rtl; font-family:open_sansregular; margin:0 !important; padding:0 !important;}
 div {direction:rtl; font-family:open_sansregular}
