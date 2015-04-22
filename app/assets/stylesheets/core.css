@@ -43,6 +43,7 @@
     
   }
   .letter-left-info p {font-weight:normal}
+  .letter-left-info p {font-weight:normal}
   
   .letter-besmei {font-size:14pt; padding:0; margin:0; width:50pt; float:left; padding-top:15%; 
     text-align:center; margin-bottom:5px; font-family:IranNastaligh;
@@ -74,7 +75,7 @@
     position:relative; 
     padding:1%;
     margin: 1%;
-    line-height:1.2em;
+    line-height:25pt;
     clear:both;
   }
   .letter-show .letter-holder .letter-text span {font-size:16pt; font-family: 'Nazanin';}
@@ -89,7 +90,7 @@
   .letter-show .letter-holder .letter-text table tr {border:1px solid #4D4D4D;}
   .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; text-align:center}
   .letter-show .letter-holder .letter-text table tr td{border:1px solid #4D4D4D; }
-  .letter-show .letter-holder .letter-inner-title {font-size:18pt;
+  .letter-show .letter-holder .letter-inner-title {font-size:20pt;
   width:90%; 
   margin-right:5pt;   
   padding-top:200pt; 
@@ -100,7 +101,7 @@
     font-size:16pt;
     margin-right:10pt;    
     margin-left:5pt;
-    line-height:1.2em;
+    line-height:25pt;
     font-family: 'Nazanin';
     }
   .letter-show .letter-holder .letter-signture  { font-size:15pt;
@@ -112,7 +113,7 @@
     font-family: 'Nazanin';
   }
   
-  .show-address {font-size:14px;  
+  .show-address {font-size:12px;  
   width:98%; text-align:center; 
   position:absolute; 
   height:30px;   
