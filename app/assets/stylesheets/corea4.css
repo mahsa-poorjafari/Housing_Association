@@ -39,7 +39,7 @@
     padding:0; margin:0; text-align:right; font-size:14pt; 
     padding-top:2%;  
     padding-right:3%;  
-    margin-top:60pt;
+    margin-top:65pt;
   }
   
   .letter-besmei {font-size:14pt; padding:0; margin:0; width:140pt; float:left; padding-top:10%; 
@@ -91,7 +91,7 @@
   .letter-show .letter-holder .letter-text table tr {border:1px solid #4D4D4D;}
   .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; text-align:center; font-family: 'Nazanin';}
   .letter-show .letter-holder .letter-text table tr td{border:1px solid #4D4D4D; font-family: 'Nazanin';}
-  .letter-show .letter-holder .letter-inner-title {font-size:20pt;
+  .letter-show .letter-holder .letter-inner-title {font-size:22pt;
   width:90%; 
   margin-right:5pt;   
   padding-top:200pt; 
