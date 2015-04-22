@@ -276,18 +276,18 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
     font-family:IranNastaligh; font-size:2em; color:#000;}
   .letter-show .letter-holder .letter-text {font-size:1em; color:#000; margin:2%;
    text-align:justify; direction:rtl; 
-   font-family: 'open_sansregular';
+   font-family: 'Nazanin';
    width:90%; margin-left:5%; margin-right:5%;
   }
-  .letter-show .letter-holder .letter-text p {font-family: 'open_sansregular';}
-  .letter-show .letter-holder .letter-text table {font-family: 'open_sansregular';
+  .letter-show .letter-holder .letter-text p {font-family: 'Nazanin';}
+  .letter-show .letter-holder .letter-text table {font-family: 'Nazanin';
     border:1px solid #4D4D4D;
     }
   .letter-show .letter-holder .letter-text table tr {border:1px solid #4D4D4D;}
   .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; }
   .letter-show .letter-holder .letter-text table tr td{border:1px solid #4D4D4D; }
-  .letter-show .letter-holder .letter-text ol {list-style-type: decimal; margin-right:20px}
-  .letter-show .letter-holder .letter-text ul {list-style-type: circle;}
+  .letter-show .letter-holder .letter-text ol {list-style-type: decimal; margin-right:20px; font-family: 'Nazanin';}
+  .letter-show .letter-holder .letter-text ul {list-style-type: circle; font-family: 'Nazanin';}
   .letter-show .letter-holder .letter-signture  {font-size:1em;
   }
   .tank-box {width:50%; text-align:center; float:left; color:#000;}
@@ -295,6 +295,7 @@ ul.search-result li{border-bottom:1px dotted #ec523f}
       width:100%; text-align:right; margin-right:5%;}
   
   .show-address {width:80%; height:30px; 
+  font-family: 'Nazanin';
     bottom: -2%;
     right:10%;
     left:10%;

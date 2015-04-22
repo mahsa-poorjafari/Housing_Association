@@ -77,18 +77,19 @@
     margin: 1%;
     clear:both;
   }
-  .letter-show .letter-holder .letter-text span {font-size:10pt}
-  .letter-show .letter-holder .letter-text p {font-size:10pt}
-  .letter-show .letter-holder .letter-text table {font-family: 'open_sansregular';
+  .letter-show .letter-holder .letter-text span {font-size:12pt}
+  .letter-show .letter-holder .letter-text p {font-size:12pt}
+  .letter-show .letter-holder .letter-text table {font-family: 'Nazanin';
     border:1px solid #4D4D4D;
     font-size:10pt; width:auto;
     }
   .letter-show .letter-holder .letter-text ol {list-style-type: decimal; margin-right:20pt}
-  .letter-show .letter-holder .letter-text ol li, .letter-show .letter-holder .letter-text ul li{font-size:10pt}
-  .letter-show .letter-holder .letter-text ul {list-style-type: circle;}
+  .letter-show .letter-holder .letter-text ol li, .letter-show .letter-holder .letter-text ul li{
+    font-size:12pt; font-family: 'Nazanin';}
+  .letter-show .letter-holder .letter-text ul {list-style-type: circle; font-family: 'Nazanin';}
   .letter-show .letter-holder .letter-text table tr {border:1px solid #4D4D4D;}
-  .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; text-align:center}
-  .letter-show .letter-holder .letter-text table tr td{border:1px solid #4D4D4D; }
+  .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; text-align:center; font-family: 'Nazanin';}
+  .letter-show .letter-holder .letter-text table tr td{border:1px solid #4D4D4D; font-family: 'Nazanin';}
   .letter-show .letter-holder .letter-inner-title {font-size:14pt;
   width:90%; 
   margin-right:5pt;   
@@ -102,7 +103,8 @@
     margin-left:5%;
     line-height:19pt;
     }
-  .letter-show .letter-holder .letter-signture  { font-size:10pt;
+  .letter-show .letter-holder .letter-signture  { font-size:14pt;
+  font-family: 'Nazanin';
     width:100%; 
     margin-top:8%;
     margin-left:10%;
@@ -110,8 +112,9 @@
     position:absolute;
   }
   
-  .show-address {font-size:10pt;
-  width:80%; text-align:center; 
+  .show-address {font-size:12pt;
+  font-family: 'Nazanin';
+  width:95%; text-align:center; 
   position:fixed; 
   height:30px;
   

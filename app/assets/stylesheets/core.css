@@ -34,25 +34,26 @@
    top:0;   
    position:absolute;
    z-index:1000}
-  .letter-left-info  {width:140pt; float:left; 
+  .letter-left-info  {width:160pt; float:left; 
     padding:0; margin:0; text-align:right; font-size:12pt; 
     padding-top:10%;  
     margin-left:20pt;
     margin-top:20pt;
     padding-right:13%; 
+    border:1px solid #000;
   }
   
-  .letter-besmei {font-size:14pt; padding:0; margin:0; width:70pt; float:left; padding-top:15%; 
-    text-align:center; margin-bottom:5px; font-family:IranNastaligh;
+  .letter-besmei {font-size:14pt; padding:0; margin:0; width:50pt; float:left; padding-top:15%; 
+    text-align:center; margin-bottom:5px; font-family:IranNastaligh;border:1px solid #000;
     margin-top:20pt;     }
-  .letter-right-info  {width:150pt; float:left; text-align:right;  font-size:12pt; 
-   padding:0; margin:0;  padding-right:3%;
+  .letter-right-info  {width:180pt; float:left; text-align:right;  font-size:12pt; 
+   padding:0; margin:0;  padding-right:3%;border:1px solid #000;
    }
 
   .letter-show .letter-right-info .letter-company-name{font-size:12pt; font-family:open_sansregular;
     font-weight:bold; padding-top:5%; float:right}
   .letter-show .letter-right-info .letter-company-name p {font-size:12pt; font-family:open_sansregular;}
-  .avoid-this
+  
   .letter-show .letter-right-info p{font-size:12pt;font-family:open_sansregular;}
   .letter-show .letter-holder { 
     width:100%;
@@ -61,10 +62,11 @@
     left:0 !important; right:0 !important;
     top:2pt; 
     padding-top:8pt;
-    min-height:650pt !important; 
-    max-height:650pt !important;  
+    min-height:640pt !important; 
+    max-height:640pt !important;  
     }
   .letter-show .letter-holder .letter-text  { 
+    font-family: 'Nazanin';
     width:98%;
     overflow:hidden;
     font-size:14pt;     
@@ -74,9 +76,9 @@
     
     clear:both;
   }
-  .letter-show .letter-holder .letter-text span {font-size:14pt}
+  .letter-show .letter-holder .letter-text span {font-size:14pt; font-family: 'Nazanin';}
   
-  .letter-show .letter-holder .letter-text table {font-family:open_sansregular;
+  .letter-show .letter-holder .letter-text table {font-family: 'Nazanin';
     border:1px solid #4D4D4D;
     font-size:12pt; width:auto;
     }
@@ -98,32 +100,37 @@
     margin-right:10pt;    
     margin-left:5pt;
     line-height:19pt;
-    
+    font-family: 'Nazanin';
     }
-  .letter-show .letter-holder .letter-signture  { font-size:14pt;
+  .letter-show .letter-holder .letter-signture  { font-size:15pt;
     width:100%; 
     margin-top:8%;
     margin-left:10%;
     margin-bottom:0;
     position:absolute;
+    font-family: 'Nazanin';
   }
   
   .show-address {font-size:14px;  
-  width:90%; text-align:center; 
+  width:95%; text-align:center; 
   position:absolute; 
   height:30px;   
-  left:-10pt;     
-  right:10pt;     
-  margin-right:10pt;
-  bottom:-10pt;  
+  left:-5pt;     
+  right:5pt;     
+  margin-right:5pt;
+  bottom:-12pt;  
   z-index:1000;  
+  font-family: 'Nazanin';
   }
   
   /* print list of pay limit  */
 
   .pay_limit {width:100%}
   .pay_limit table{width:100%}
-  .tank-box {width:60%; text-align:center; float:left;}
+  .tank-box {width:70%; text-align:center; float:left;}
+  .letter-show .letter-right-info .letter-company-name p.maskan-logo img {
+    margin-right:20pt
+    }
 }
 
 
