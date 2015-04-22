@@ -71,22 +71,22 @@
     }
   .letter-show .letter-holder .letter-text  { 
     width:98%;
-    font-size:14pt;     
+    font-size:16pt;     
     position:relative; 
     padding:1%;
     margin: 1%;
     clear:both;
-    line-height:1.2em;
+    line-height:25pt;
   }
-  .letter-show .letter-holder .letter-text span {font-size:14pt}
-  .letter-show .letter-holder .letter-text p {font-size:14pt}
+  .letter-show .letter-holder .letter-text span {font-size:16pt}
+  .letter-show .letter-holder .letter-text p {font-size:16pt}
   .letter-show .letter-holder .letter-text table {font-family: 'Nazanin';
     border:1px solid #4D4D4D;
-    font-size:14pt; width:auto;
+    font-size:164pt; width:auto;
     }
   .letter-show .letter-holder .letter-text ol {list-style-type: decimal; margin-right:20pt}
   .letter-show .letter-holder .letter-text ol li, .letter-show .letter-holder .letter-text ul li{
-    font-size:14pt; font-family: 'Nazanin';}
+    font-size:16pt; font-family: 'Nazanin';}
   .letter-show .letter-holder .letter-text ul {list-style-type: circle; font-family: 'Nazanin';}
   .letter-show .letter-holder .letter-text table tr {border:1px solid #4D4D4D;}
   .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; text-align:center; font-family: 'Nazanin';}
@@ -99,10 +99,10 @@
   }
   .letter-show .letter-holder .letter-text p {
     width:90%;
-    font-size:14pt;
+    font-size:16pt;
     margin-right:5%;    
     margin-left:5%;
-    line-height:1.2em;
+    line-height:25pt;
     }
   .letter-show .letter-holder .letter-signture  { font-size:14pt;
   font-family: 'Nazanin';
@@ -113,7 +113,7 @@
     position:absolute;
   }
   
-  .show-address {font-size:12pt;
+  .show-address {font-size:14pt;
   font-family: 'Nazanin';
   width:98%; text-align:center; 
   position:fixed; 

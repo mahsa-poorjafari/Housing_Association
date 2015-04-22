@@ -42,6 +42,7 @@
     padding-right:3%; 
     
   }
+  .letter-left-info p {font-weight:normal}
   
   .letter-besmei {font-size:14pt; padding:0; margin:0; width:50pt; float:left; padding-top:15%; 
     text-align:center; margin-bottom:5px; font-family:IranNastaligh;
@@ -69,21 +70,21 @@
     font-family: 'Nazanin';
     width:98%;
     overflow:hidden;
-    font-size:14pt;     
+    font-size:16pt;     
     position:relative; 
     padding:1%;
     margin: 1%;
     line-height:1.2em;
     clear:both;
   }
-  .letter-show .letter-holder .letter-text span {font-size:14pt; font-family: 'Nazanin';}
+  .letter-show .letter-holder .letter-text span {font-size:16pt; font-family: 'Nazanin';}
   
   .letter-show .letter-holder .letter-text table {font-family: 'Nazanin';
     border:1px solid #4D4D4D;
-    font-size:12pt; width:auto;
+    font-size:16pt; width:auto;
     }
   .letter-show .letter-holder .letter-text ol {list-style-type: decimal; margin-right:20pt}
-  .letter-show .letter-holder .letter-text ol li, .letter-show .letter-holder .letter-text ul li{font-size:12pt}
+  .letter-show .letter-holder .letter-text ol li, .letter-show .letter-holder .letter-text ul li{font-size:16pt}
   .letter-show .letter-holder .letter-text ul {list-style-type: circle;}
   .letter-show .letter-holder .letter-text table tr {border:1px solid #4D4D4D;}
   .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; text-align:center}
@@ -96,7 +97,7 @@
   }
   .letter-show .letter-holder .letter-text p {
     width:90%;
-    font-size:14pt;
+    font-size:16pt;
     margin-right:10pt;    
     margin-left:5pt;
     line-height:1.2em;
