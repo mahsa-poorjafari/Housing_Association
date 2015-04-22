@@ -36,15 +36,15 @@
    position:absolute;
   height:90pt;  z-index:1000}
   .letter-left-info  {width:170pt; float:left; 
-    padding:0; margin:0; text-align:right; font-size:10pt; 
+    padding:0; margin:0; text-align:right; font-size:12pt; 
     padding-top:2%;  
     padding-right:13%;  
     margin-top:40pt;
   }
   
-  .letter-besmei {font-size:10pt; padding:0; margin:0; width:140pt; float:left; padding-top:10%; 
+  .letter-besmei {font-size:12pt; padding:0; margin:0; width:140pt; float:left; padding-top:10%; 
     text-align:center; margin-bottom:5px; margin-top:30pt;font-family:IranNastaligh;}
-  .letter-right-info  {width:150pt; float:left; text-align:right;  font-size:14pt; 
+  .letter-right-info  {width:150pt; float:left; text-align:right;  font-size:15pt; 
    padding:0; margin:0; padding-top:2%; padding-right:3%;}
 
   .letter-show .letter-right-info .letter-company-name{font-size:14pt; 
@@ -58,7 +58,7 @@
   margin-right:0pt;
   
     }
-  .letter-show .letter-right-info p{font-size:8pt; }
+  .letter-show .letter-right-info p{font-size:10pt; }
   .letter-show .letter-holder { 
     width:100%;
     margin:0 !important; padding:0 !important;
@@ -71,20 +71,20 @@
     }
   .letter-show .letter-holder .letter-text  { 
     width:98%;
-    font-size:10pt;     
+    font-size:12pt;     
     position:relative; 
     padding:1%;
     margin: 1%;
     clear:both;
   }
-  .letter-show .letter-holder .letter-text span {font-size:8pt}
-  .letter-show .letter-holder .letter-text p {font-size:8pt}
+  .letter-show .letter-holder .letter-text span {font-size:10pt}
+  .letter-show .letter-holder .letter-text p {font-size:10pt}
   .letter-show .letter-holder .letter-text table {font-family: 'open_sansregular';
     border:1px solid #4D4D4D;
-    font-size:6pt; width:auto;
+    font-size:10pt; width:auto;
     }
   .letter-show .letter-holder .letter-text ol {list-style-type: decimal; margin-right:20pt}
-  .letter-show .letter-holder .letter-text ol li, .letter-show .letter-holder .letter-text ul li{font-size:6pt}
+  .letter-show .letter-holder .letter-text ol li, .letter-show .letter-holder .letter-text ul li{font-size:10pt}
   .letter-show .letter-holder .letter-text ul {list-style-type: circle;}
   .letter-show .letter-holder .letter-text table tr {border:1px solid #4D4D4D;}
   .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; text-align:center}
@@ -102,7 +102,7 @@
     margin-left:5%;
     line-height:19pt;
     }
-  .letter-show .letter-holder .letter-signture  { font-size:8pt;
+  .letter-show .letter-holder .letter-signture  { font-size:10pt;
     width:100%; 
     margin-top:8%;
     margin-left:10%;
@@ -110,7 +110,7 @@
     position:absolute;
   }
   
-  .show-address {font-size:6pt;
+  .show-address {font-size:10pt;
   width:80%; text-align:center; 
   position:fixed; 
   height:30px;
