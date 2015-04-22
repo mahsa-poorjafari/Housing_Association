@@ -73,7 +73,7 @@
     position:relative; 
     padding:1%;
     margin: 1%;
-    
+    line-height:1.2em;
     clear:both;
   }
   .letter-show .letter-holder .letter-text span {font-size:14pt; font-family: 'Nazanin';}
@@ -99,7 +99,7 @@
     font-size:14pt;
     margin-right:10pt;    
     margin-left:5pt;
-    line-height:19pt;
+    line-height:1.2em;
     font-family: 'Nazanin';
     }
   .letter-show .letter-holder .letter-signture  { font-size:15pt;
