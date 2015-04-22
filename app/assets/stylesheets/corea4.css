@@ -38,13 +38,13 @@
   .letter-left-info  {width:170pt; float:left; 
     padding:0; margin:0; text-align:right; font-size:14pt; 
     padding-top:2%;  
-    padding-right:13%;  
+    padding-right:3%;  
     margin-top:40pt;
   }
   
   .letter-besmei {font-size:14pt; padding:0; margin:0; width:140pt; float:left; padding-top:10%; 
     text-align:center; margin-bottom:5px; margin-top:30pt;font-family:IranNastaligh;}
-  .letter-right-info  {width:150pt; float:left; text-align:right;  font-size:15pt; 
+  .letter-right-info  {width:180pt; float:left; text-align:right;  font-size:15pt; 
    padding:0; margin:0; padding-top:2%; padding-right:3%;}
 
   .letter-show .letter-right-info .letter-company-name{font-size:14pt; 
