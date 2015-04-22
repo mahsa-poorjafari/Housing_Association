@@ -38,7 +38,7 @@
     padding:0; margin:0; text-align:right; font-size:12pt; 
     padding-top:10%;  
     margin-left:20pt;
-    margin-top:30pt;
+    margin-top:45pt;
     padding-right:3%; 
     
   }
@@ -75,7 +75,7 @@
     position:relative; 
     padding:1%;
     margin: 1%;
-    line-height:25pt;
+    line-height:30pt;
     clear:both;
   }
   .letter-show .letter-holder .letter-text span {font-size:16pt; font-family: 'Nazanin';}
@@ -101,10 +101,10 @@
     font-size:16pt;
     margin-right:10pt;    
     margin-left:5pt;
-    line-height:25pt;
+    line-height:30pt;
     font-family: 'Nazanin';
     }
-  .letter-show .letter-holder .letter-signture  { font-size:15pt;
+  .letter-show .letter-holder .letter-signture  { font-size:12pt;
     width:100%; 
     margin-top:8%;
     margin-left:10%;
