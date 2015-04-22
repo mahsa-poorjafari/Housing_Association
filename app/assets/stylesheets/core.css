@@ -38,7 +38,7 @@
     padding:0; margin:0; text-align:right; font-size:12pt; 
     padding-top:10%;  
     margin-left:20pt;
-    margin-top:20pt;
+    margin-top:30pt;
     padding-right:3%; 
     
   }
@@ -46,8 +46,8 @@
   .letter-besmei {font-size:14pt; padding:0; margin:0; width:50pt; float:left; padding-top:15%; 
     text-align:center; margin-bottom:5px; font-family:IranNastaligh;
     margin-top:20pt;     }
-  .letter-right-info  {width:180pt; float:left; text-align:right;  font-size:12pt; 
-   padding:0; margin:0;  padding-right:3%;
+  .letter-right-info  {width:185pt; float:left; text-align:right;  font-size:12pt; 
+   padding:0; margin:0;  
    }
 
   .letter-show .letter-right-info .letter-company-name{font-size:12pt; font-family:open_sansregular;
@@ -88,7 +88,7 @@
   .letter-show .letter-holder .letter-text table tr {border:1px solid #4D4D4D;}
   .letter-show .letter-holder .letter-text table tr th{border:1px solid #4D4D4D; text-align:center}
   .letter-show .letter-holder .letter-text table tr td{border:1px solid #4D4D4D; }
-  .letter-show .letter-holder .letter-inner-title {font-size:16pt;
+  .letter-show .letter-holder .letter-inner-title {font-size:18pt;
   width:90%; 
   margin-right:5pt;   
   padding-top:200pt; 
