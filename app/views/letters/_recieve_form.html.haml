@@ -35,13 +35,14 @@
     .col-sm-12          
       .col-sm-7.pull-right
         =f.label 'دریافت کننده:', :class => "control-label"         
-        - @c = Contact.find(:conditions=>["preson_name=? and company_name=?", answer_letter.senderpreson_name, answer_letter.sendercompany_name])
-        
+        - @c = Contact.where("company_name = ?", answer_letter.sendercompany_name).first
         - if @c
           %b= @c.preson_name
           \|
           %b= @c.company_name
           =f.hidden_field :reciever_ids, :value => @c.id
+        - else
+          .alert.alert-danger= 'دریافت کننده در لیست موجود نیست. لطفا آن را اضافه کنید.'
       .col-sm-5.pull-right
         .form-group.width50.pull-right
           = link_to "افزودن دریافت کننده جدید", new_contact_path, :class => "save-btn", :id => "add-reciever", :target => "_blank"
