@@ -1,0 +1,90 @@
+.clear-float
+= form_for @Rletter=Letter.new do |f|
+  - if @Rletter.errors.any?
+    #error_explanation      
+      %ul
+        - @Rletter.errors.each do |attr, msg|
+          %li= msg
+  .col-sm-12.andicator
+    .col-sm-5
+      = f.hidden_field :letter_type, :value => 'sent'
+      .form-group.dates
+        = f.label 'شماره نامه:', :class => "control-label ", :style => "width:30%; float:right; " 
+        %b= answer_letter.letter_number
+        = f.hidden_field :letter_number, :value => answer_letter.letter_number
+        .col-sm-9 
+          
+      .clear-float  
+        .form-group.dates
+          = f.label 'تاریخ ارسال:', :class => "control-label ", :style => "width:30%; float:right "    
+          = f.text_field :sent_date_fa, class:" fa_date form-control", :value => JalaliDate.new(Date.today), :style=> "width:50%; "            
+        
+    .col-sm-3.besella
+      %b= 'بسمه تعالی'
+    .col-sm-4
+      %h1.letter-title-new= 'اتحادیه تعاونیهای مسکن فرهنگیان استان خراسان شماره ثبت ۱۱۹۰۵'
+  .clear-float
+  .base-letter
+    .form-group
+      - if @letter_type_show == 'ایمیل'        
+        = f.label 'موضوع نامه:', :class => "control-label"    
+      - else
+        = f.label 'خلاصه نامه:', :class => "control-label"    
+      = f.text_field :summary, :class => "form-control"
+    
+    .col-sm-12          
+      .col-sm-7.pull-right
+        =f.label 'دریافت کننده:', :class => "control-label"         
+        - @c = Contact.where("preson_name = ? OR company_name = ?", answer_letter.senderpreson_name, answer_letter.sendercompany_name)
+        - if @c
+          %b= @c.first.preson_name
+          \|
+          %b= @c.first.company_name
+          =f.text_field :reciever_ids, :value => @c.first.id
+      .col-sm-5.pull-right
+        .form-group.width50.pull-right
+          = link_to "افزودن دریافت کننده جدید", new_contact_path, :class => "save-btn", :id => "add-reciever", :target => "_blank"
+      .clear-float    
+    .col-sm-9 
+      .form-group
+        = f.label 'رونوشت:', :class => "control-label"    
+        = f.text_area :attachment, :class => "ckeditor"
+    .clear-float
+    .form-group
+      %i= 'از قالب های آماده استفاده کنید'      
+      =select_tag :set_template, options_for_select(LetterTemplate.all.collect{ |lt| [lt.name, lt.id] }), prompt: "قالب نامه موردنظر را انتخاب کنید"
+      %br
+      %i= 'می توانید برای سهولت ثبت نامه، برای نامه هایی که قالب یکسان دارند. قالب را یک بار تعریف کنید و به دفعات از آن استفاده کنید'
+      =link_to "قالب آماده بسازید", new_letter_template_path, target:"_blank", :class => "save-btn"
+      
+    .clear-float
+    .form-group
+      = f.label 'محتوی:', :class => "control-label"    
+      = f.text_area :content, :class => "ckeditor"
+  .clear-float
+  .maskan-address.set-center
+    %div= 'آدرس: بلوار سازمان آب-نبش آپادانا-پلاک۷-تلفن و فاکس:۳۷۶۲۰۷۵۵-۰۵۱'
+  .form-group.col-sm-3
+    = f.submit 'ثبت پاسخ نامه', :class => "mainBtn"  
+
+:coffeescript
+  $('#set_template').change ->
+    if $('#set_template').val() != ""
+      $.ajax({
+      url: '#{set_letter_templates_path}',
+      data: id: $('#set_template').val(),
+      });  
+
+:javascript
+  
+  $(':submit#cunter-submit').click(function(e) {
+    $(':text#cunter_field').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });
+
+
+        

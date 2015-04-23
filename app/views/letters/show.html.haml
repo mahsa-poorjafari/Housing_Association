@@ -1,10 +1,10 @@
 .set-center.margin-top
   - if flash[:letter].present?
-    .alert.alert-success= flash[:letter]
-  
+    .alert.alert-success.col-sm-10.pull-right= flash[:letter]
+    .clear{:style => "clear:both; "}
   .page-title-holder    
     - if @letter.letter_type == 'recieved'
-      .col-sm-10.recieved-letter-box
+      .col-sm-10.recieved-letter-box{:id => 'recieved-letter-id-' + @letter.id.to_s}
         .letter-show.col-sm-4.pull-right
           .circle-top
           .col-sm-11.letter-info.set-center
@@ -36,7 +36,7 @@
               .col-sm-3.pull-right
                 %b شرکت ارسال کننده
                 %p= @letter.sendercompany_name
-            .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}      
+            .col-sm-12.letter-text
               %p=raw @letter.content
           %h4 فایل نامه وارده
           
@@ -51,6 +51,8 @@
                 #remove-pdf-box=link_to "حذف فایل pdf", edit_letter_path(:pdf_destroy => 1), :style => " padding:1%"
           - else
             %h3{:style => "color:red"}  فایل نامه وارده موجود نیست
+      .width80.set-center.margin-top.clear-float
+        = render 'recieve_form', :answer_letter => @letter
     - else
       .width50
         .avoid-this.pull-right.width30
@@ -73,10 +75,10 @@
             .col-sm-3.letter-left-info
               %p
                 %b= 'تاریخ:' 
-                %b= JalaliDate.new(@letter.created_at)
+                = JalaliDate.new(@letter.created_at)
               %p
                 %b= 'شماره:'
-                %b= @letter.letter_number
+                = @letter.letter_number
               %p
                 %b= 'پیوست:'
             .col-sm-4.letter-besmei
@@ -92,7 +94,8 @@
           .col-sm-12.letter-inner-title
             %p= @letter.recievers.collect(&:company_name).join(',')          
             %p= @letter.recievers.collect(&:preson_name).join(',')
-          .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}      
+            %p= @letter.ehteramn
+          .col-sm-12.letter-text{:style => "font-family: 'open_sansregular'; "}                
             %p=raw @letter.content
           .col-sm-12.letter-signture
             .tank-box

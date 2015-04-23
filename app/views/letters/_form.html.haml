@@ -141,6 +141,7 @@
         .form-group
           = f.label 'رونوشت:', :class => "control-label"    
           = f.text_area :attachment, :class => "ckeditor"
+          
       .clear-float
       .form-group
         %i= 'از قالب های آماده استفاده کنید'      
@@ -150,6 +151,9 @@
         =link_to "قالب آماده بسازید", new_letter_template_path, target:"_blank", :class => "save-btn"
         
       .clear-float
+      .form-group
+        = f.label 'عنوان در جایگاه (احترما):', :class => "control-label"    
+        = f.text_field :ehteramn, :class => "form-control", :value => 'احتراما'
       .form-group
         = f.label 'محتوی:', :class => "control-label"    
         = f.text_area :content, :class => "ckeditor"

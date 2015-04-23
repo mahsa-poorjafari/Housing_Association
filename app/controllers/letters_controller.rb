@@ -21,9 +21,6 @@ class LettersController < ApplicationController
       format.html
       format.xlsx { render xlsx: :index, filename: filename}
     end
-    
-    
-    
   end
 
   # GET /letters/1
@@ -43,7 +40,8 @@ class LettersController < ApplicationController
     @current_date = JalaliDate.new(Date.today)
     @current_year = JalaliDate.new(Date.today).strftime("%y")
     if Letter.last.present?
-      @last_letter = Letter.last.letter_number
+      p @last_letter = Letter.maximum(:letter_number)
+      
        @last_letter_split = @last_letter.split('/').first
       
        @last_letter_split = @last_letter_split.to_i
@@ -103,12 +101,16 @@ class LettersController < ApplicationController
      @alphabet = params[:alphabet] 
      @counter_number = params[:counter_number]
      @type_of_letter = params[:type_of_letter]
-
-
+    if @counter_number && @alphabet && @current_year
+      @letter_number =   @counter_number +  '/' + @alphabet + '/' +@current_year
+      @letter.letter_number = @letter_number
+    end
+    if @letter.letter_type == 'recieved'
+      @addcontact = Contact.new(preson_name: @letter.senderpreson_name, company_name: @letter.sendercompany_name)
+      @addcontact.save!
+      p '----Add To Contact-----'
     
-    @letter_number =   @counter_number +  '/' + @alphabet + '/' +@current_year
-
-    @letter.letter_number = @letter_number
+    end
     
     if @letter.save
       redirect_to @letter
@@ -164,6 +166,6 @@ class LettersController < ApplicationController
     def letter_params
       params.require(:letter).permit(:letter_type, :summary, :sent_date_fa, :received_date_fa,
        :senderpreson_name, :sendercompany_name, :content, :attachment, :reciever_ids, :reciever_tokens,
-       :letter_number, :scan_file, :received_letter_number)
+       :letter_number, :scan_file, :received_letter_number, :ehteramn)
     end
 end

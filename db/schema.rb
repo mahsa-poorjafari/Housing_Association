@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150412091807) do
+ActiveRecord::Schema.define(version: 20150423091520) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -176,6 +176,7 @@ ActiveRecord::Schema.define(version: 20150412091807) do
     t.string   "senderpreson_name"
     t.string   "sendercompany_name"
     t.string   "received_letter_number"
+    t.string   "ehteramn"
   end
 
   create_table "links", force: true do |t|

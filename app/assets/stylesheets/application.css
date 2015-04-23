@@ -19,6 +19,7 @@
 body, html {direction:rtl; font-family:open_sansregular; margin:0 !important; padding:0 !important;}
 div {direction:rtl; font-family:open_sansregular}
 h1, h2, h3, h4, h5 {direction:rtl; font-family:open_sansregular}
+table#sent_letters_table tr th, table#sent_letters_table tr td, table#recieved_letters_table tr th, table#recieved_letters_table tr td {color:#000}
 text_area {resize:none}
 .service-content .inner-service a{color:#fff; font-size:14px;}
 .service-content .inner-service a:hover{color:#ec523f; }
@@ -29,6 +30,7 @@ text_area {resize:none}
 .width50 {width:50%}
 .width30 {width:30%}
 .title {margin-bottom:10%;}
+.marginb-10{margin-bottom:10%;}
 .title  h1 {font-size:27px; text-align:center; margin:2%}
 .title  h2 {font-size:18px; text-align:center; margin:2%; color:#7F7F7F}
 .sub-title h3 {font-size:20px; text-align:right; margin:2%}
